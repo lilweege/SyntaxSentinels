@@ -13,11 +13,11 @@ assignees: ''
 
 **Attendance**
 
-- [ ] team member1
-- [ ] team member2
-- [ ] team member3
-- [ ] team member4
-- [ ] team member5
+- [ ] Mohsin Khan
+- [ ] Lucas Chen
+- [ ] Dennis Fong
+- [ ] Julian Cecchini
+- [ ] Luigi Quattrociocchi
 
 **Questions to Ask**
 
