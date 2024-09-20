@@ -1,7 +1,8 @@
 # Code Plagiarism Detector: An NLP-Based Alternative to MOSS
 
 Developer Names:
-- Mohsin Khan
+
+- Mohammad Mohsin Khan
 - Lucas Chen
 - Dennis Fong
 - Julian Cecchini
@@ -17,4 +18,4 @@ docs - Documentation for the project
 refs - Reference material used for the project, including papers  
 src - Source code  
 test - Test cases  
-etc.  
+etc.
