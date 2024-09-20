@@ -42,8 +42,19 @@ Sept 19 & Lucas Chen & Start template\\
 
 \newpage{}
 
-\wss{Put your introductory blurb here.  Often the blurb is a brief roadmap of
-what is contained in the report.}
+This report outlines the key components of the SyntaxSentials project plan, 
+starting with the adoption of an MIT license for the project. The team's meeting 
+structure is detailed, including weekly meetings and monthly check-ins with the 
+industry advisor. Key roles, such as chair and minute-taker, are assigned, and a 
+meeting agenda template is provided for structured discussions.
+
+The communication plan revolves around GitHub for task management and issue 
+tracking, with detailed steps for issue creation, labeling, and resolution. 
+Team members are assigned roles, and a workflow for merging code changes, 
+performing testing, and pushing updates to production is presented. Additionally, 
+a proof of concept demonstration plan highlights potential project risks. Concluding 
+with expected technologies, coding standards, and a high-level project 
+schedule.
 
 % \section{Confidential Information?}
 
@@ -60,16 +71,20 @@ what is contained in the report.}
 % required to sign the ``Intellectual Property Guide Acknowledgement.''}
 
 \section{Copyright License}
-
-SyntaxSentials will be using a \href{https://github.com/lilweege/SyntaxSentinels?tab=License-1-ov-file#}{MIT license}
+The project will be licensed under the MIT License, allowing for open-source use, modification, 
+and distribution with minimal restrictions. Found \href{https://github.com/lilweege/SyntaxSentinels?tab=License-1-ov-file#}{here}.
 
 \section{Team Meeting Plan}
 
-The team will meet for at least 4 hours every week, 2 hours during the allotted tutorial time on Monday at 2:30 pm. Precise location will be open
-but the meeting will be virtually, otherwise on McMaster University campus. the other 2 hours allotted would be done virtually over the weekend.
+The team will meet for at least 4 hours every week, 2 hours during the allotted tutorial 
+time on Monday at 2:30 pm. Precise location will be open but the meeting will be virtually, 
+otherwise on McMaster University campus. the other 2 hours allotted would be done virtually over the weekend.
 
 
-Meetings will be scheduled with our industry advisor depending on their schedule virtually. The plan is to meet for at least 4 hours every month for guidance and to confirm that the team is on the right track. We hope to meet with our advisor for at least 1 hour at the end of every month for a recap. In person meetings with our advisor will be conducted depending on their availability.
+Meetings will be scheduled with our industry advisor depending on their schedule virtually. 
+The plan is to meet for at least 4 hours every month for guidance and to confirm that the team 
+is on the right track. We hope to meet with our advisor for at least 1 hour at the end of every 
+month for a recap. In person meetings with our advisor will be conducted depending on their availability.
 
 \subsection*{Roles}
 
@@ -80,7 +95,8 @@ Meetings will be scheduled with our industry advisor depending on their schedule
 
 \subsection*{Meeting Preparation}
 
-Agendas will be collaboratively prepared by the team before meetings with the advisor to ensure we are focused and productive.
+Agendas will be collaboratively prepared by the team before meetings with the advisor to 
+ensure we are focused and productive.
 
 \subsection{Meeting Agenda Template}
 
@@ -131,13 +147,19 @@ Agendas will be collaboratively prepared by the team before meetings with the ad
 
 \subsection{Attendance Tracking}
 
-The attendance issue will be updated for each lecture and meeting that takes place. This issue can be found on the project GitHub page.
+The attendance issue will be updated for each lecture and meeting that takes place. This issue 
+can be found on the project GitHub page.
 
 \subsection{Issue Creation and Tracking}
 
-Tasks will be issued via creating a GitHub issue via the GitHub issue board. This approach ensures all task-related discussions and updates are in a centralized place, providing a clear record of progress. Each issue must include a detailed explanation, enabling all team members to understand the task at hand without needing further clarification. Additionally, issues will be categorized using labels to specify their nature. The available labels are:
+Tasks will be issued via creating a GitHub issue. This approach ensures all task-related 
+discussions and updates are in a centralized place, providing a clear record of progress. 
+Each issue must include a detailed explanation, enabling all team members to understand the 
+task at hand without needing further clarification. Additionally, issues will be categorized 
+using labels to specify their nature. The available labels are:
 
 \begin{itemize}
+    \item \textbf{Documentation}: For tasks related to documentation.
     \item \textbf{Bug}: For resolving errors or malfunctions.
     \item \textbf{New Feature}: For implementing new functionalities.
     \item \textbf{Enhancement}: For enhancing existing features.
@@ -147,15 +169,22 @@ Tasks will be issued via creating a GitHub issue via the GitHub issue board. Thi
     \item \textbf{Spike}: For tasks that require further clarification or research/feedback.
 \end{itemize}
 
-Additional labels will be introduced as needed throughout the project. Issues will be assigned to the team member most suited to the task, based on their expertise. All relevant commits will be displayed under the issue, and it will automatically close once the associated pull request is merged into the main branch. Including a closing tag (e.g., "closes \#12") in the pull request ensures proper closure of the issue. This structured process guarantees accountability and keeps tasks traceable.
+Additional labels will be introduced as needed throughout the project. Issues will be 
+assigned to the team member most suited to the task, based on their expertise. All 
+relevant commits will be displayed under the issue, and it will automatically close once 
+the associated pull request is merged into the main branch. Including a closing tag (e.g., "closes \#12") 
+in the pull request ensures proper closure of the issue. This structured process guarantees 
+accountability and keeps tasks traceable.
 
 \subsection*{Step-by-Step Process}
 
 \begin{enumerate}
     \item \textbf{Open a New Issue}
     \begin{itemize}
-        \item Write a clear, detailed description to ensure the team fully understands what needs to be done without needing additional questions or clarification.
-        \item At this stage, the team can discuss what needs to be done, identify the problem, and determine the best course of action.
+        \item Write a clear, detailed description to ensure the team fully understands what needs to 
+        be done without needing additional questions or clarification.
+        \item At this stage, the team can discuss what needs to be done, identify the problem, 
+        and determine the best course of action.
     \end{itemize}
 
     \item \textbf{Add a Label}
@@ -178,7 +207,12 @@ Additional labels will be introduced as needed throughout the project. Issues wi
     \end{itemize}
 \end{enumerate}
 
-Once the above steps are completed, the assignee should follow the established process workflow. After finishing the task and submitting a pull request, they must ensure the pull request provides sufficient detail to demonstrate the task has been resolved. This could include test cases, bug fixes, or other relevant changes. The pull request should also include a closing tag (e.g., "closes \#12") to automatically close the issue and ensure proper tracking.
+Once the above steps are completed, the assignee should follow the established 
+process workflow. After finishing the task and submitting a pull request, they 
+must ensure the pull request provides sufficient detail to demonstrate the task 
+has been resolved. This could include test cases, bug fixes, or other relevant 
+changes. The pull request should also include a closing tag (e.g., "closes \#12") 
+to automatically close the issue and ensure proper tracking.
 
 \section{Team Member Roles}
 
@@ -231,37 +265,36 @@ you will be able to overcome this risk?
 
 \section{Expected Technology}
 
-\wss{What programming language or languages do you expect to use?  What external
-libraries?  What frameworks?  What technologies.  Are there major components of
-the implementation that you expect you will implement, despite the existence of
-libraries that provide the required functionality.  For projects with machine
-learning, will you use pre-trained models, or be training your own model?  }
+% \wss{What programming language or languages do you expect to use?  What external
+% libraries?  What frameworks?  What technologies.  Are there major components of
+% the implementation that you expect you will implement, despite the existence of
+% libraries that provide the required functionality.  For projects with machine
+% learning, will you use pre-trained models, or be training your own model?  }
 
-\wss{The implementation decisions can, and likely will, change over the course
-of the project.  The initial documentation should be written in an abstract way;
-it should be agnostic of the implementation choices, unless the implementation
-choices are project constraints.  However, recording our initial thoughts on
-implementation helps understand the challenge level and feasibility of a
-project.  It may also help with early identification of areas where project
-members will need to augment their training.}
+% \wss{The implementation decisions can, and likely will, change over the course
+% of the project.  The initial documentation should be written in an abstract way;
+% it should be agnostic of the implementation choices, unless the implementation
+% choices are project constraints.  However, recording our initial thoughts on
+% implementation helps understand the challenge level and feasibility of a
+% project.  It may also help with early identification of areas where project
+% members will need to augment their training.}
 
-Topics to discuss include the following:
+\begin{tabular}{|c|c|c|}
+\hline
+Tool   & Version & Explanation                                          \\
+\hline
+Git   & any  & Version control system                                   \\
+\hline
+GitHub & N/A     & A tool for version control and project management    \\
+\hline
+Python & TBD     & Main programming language for our AI development     \\
+\hline
+VSCode & Any     & Code editor                                          \\
+\hline              
+LaTeX  & Any     & Documentation tool                                   \\
+\hline
+\end{tabular}
 
-\begin{itemize}
-\item Specific programming language
-\item Specific libraries
-\item Pre-trained models
-\item Specific linter tool (if appropriate)
-\item Specific unit testing framework
-\item Investigation of code coverage measuring tools
-\item Specific plans for Continuous Integration (CI), or an explanation that CI
-  is not being done
-\item Specific performance measuring tools (like Valgrind), if
-  appropriate
-\item Tools you will likely be using?
-\end{itemize}
-
-\wss{git, GitHub and GitHub projects should be part of your technology.}
 \section{Coding Standard}
 This project will use linter and PEP8 to ensure code quality is maintained and is readable to others.
 
