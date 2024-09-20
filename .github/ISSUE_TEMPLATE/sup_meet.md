@@ -11,7 +11,7 @@ assignees: ''
 
 **Attendance**
 
-- [ ] Mohsin Khan
+- [ ] Mohammad Mohsin Khan
 - [ ] Lucas Chen
 - [ ] Dennis Fong
 - [ ] Julian Cecchini
