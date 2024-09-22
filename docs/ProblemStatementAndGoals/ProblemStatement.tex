@@ -39,15 +39,19 @@ Date2 & Name(s) & Description of changes\\
 information.}
 
 \subsection{Problem}
+The current methods that exist for plagiarism detection of code has many flaws that make it easily bypassable. A coder can add lines of code that do nothing to some original snippet of code, and the MOSS (Measure of Software Similarity) plagiarism detector will not detect any form of plagiarism between the two. This is an inherent problem that arises from the use of algorithmic solutions; these solutions lack semantic understanding. With how easy it is to plagiarize, students who shouldn't be graduating are able to graduate by putting in a fraction of the work of other students. 
 
 \subsection{Inputs and Outputs}
-
+The problem will take two snippets of code to compare for plagiarism. The desired output is a decision on whether or not the two snippets were plagiarized from one another. 
 \wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
 Use abstraction so that you can avoid details.}
 
 \subsection{Stakeholders}
+The main stakeholders in this project are professors in any computing and software department, and students enrolled in courses where coding is prevalent. Professors have been identified as stakeholders since they are the people who will be looking out for plagiarism to ensure people don't do it in their courses. This project provides a tool to give professors the ability to make better predictions on plagiarism. Students have also been identified as stakeholders, since students mostly work very hard to complete their degree. It is unfair to them when there are those who can plagiarize and achieve the same results as them, with half the effort.
 
 \subsection{Environment}
+This solution will operate on a device, where two files will be fed to a model. The model will leverage hardware provided on the cloud.
+
 
 \wss{Hardware and software environment}
 
