@@ -78,7 +78,7 @@ and distribution with minimal restrictions. Found \href{https://github.com/lilwe
 \section{Team Meeting Plan}
 
 The team will meet for at least 4 hours every week, 2 hours during the allotted tutorial 
-time on Monday at 2:30 pm. Precise location will be open but the meeting will be virtually, 
+time on Monday at 2:30 pm. Precise location will be open but the meeting will be virtually on discord, 
 otherwise on McMaster University campus. the other 2 hours allotted would be done virtually over the weekend.
 
 
@@ -162,12 +162,16 @@ using labels to specify their nature. The available labels are:
 \begin{itemize}
     \item \textbf{Documentation}: For tasks related to documentation.
     \item \textbf{Bug}: For resolving errors or malfunctions.
-    \item \textbf{New Feature}: For implementing new functionalities.
+    \item \textbf{Chore}: For minor housekeeping issues such as typos.
+    \item \textbf{Feature}: For implementing new functionalities.
     \item \textbf{Enhancement}: For enhancing existing features.
     \item \textbf{Low Priority}: For tasks that are not urgent.
     \item \textbf{Med Priority}: For tasks that need attention.
     \item \textbf{High Priority}: For tasks that need immediate attention.
     \item \textbf{Spike}: For tasks that require further clarification or research/feedback.
+    \item \textbf{Lecture}: For tracking attendance and questions during lectures.
+    \item \textbf{Meeting}: For tracking team meetings (with or without supervisor).
+    \item \textbf{Review}: For tracking external reviews.
 \end{itemize}
 
 Additional labels will be introduced as needed throughout the project. Issues will be 
@@ -193,7 +197,8 @@ accountability and keeps tasks traceable.
         \item Choose one of the following labels based on the task type:
         \begin{enumerate}
             \item Bug
-            \item New Feature
+            \item Chore
+            \item Feature
             \item Enhancement
             \item Low Priority
             \item Med Priority
@@ -216,22 +221,17 @@ changes. The pull request should also include a closing tag (e.g., "closes \#12"
 to automatically close the issue and ensure proper tracking.
 
 \section{Team Member Roles}
+All parts of the project can and will be worked on by every member, however we plan to specialize in the following way.
 
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Role} & \textbf{Assigned} \\
-\hline
-Team Liason \& Minute Taker & Mohammad Mohsin Khan \\
-\hline
-Meeting Chair & Dennis Fong \\
-\hline
-Leader & Julian Cecchini \\
-\hline
-Note Taker & Lucas Chen \\
-\hline
-Reviewer & Luigi \\
-\hline
-\end{tabular}
+\begin{itemize}
+    \item \textbf{Mohsin}: Mohsin is the Liaison and team leader. Among other things he will ensure that the team is on track and that each member is on track with their assigned tasks. Mohsin will also take notes during meetings to facilitate this. Mohsin will assist in all other technical aspects of the project.
+    \item \textbf{Lucas}: Lucas will specialize in designing and prototyping the user interface(s) and UI/UX component of the project. Lucas will lead the user-facing aspects of the project, such a front end web interface. Lucas will also ensure that the git flow is followed within our project's github.
+    \item \textbf{Dennis}: Dennis will chair all meetings (unless unavailable). Dennis specializes in machine learning and language models, he along with Julian will design the architecture and prescribe work to the team accordingly.
+    \item \textbf{Julian}: Julian specializes in theoretical and practical applications of machine learning. He (with Dennis' help) will be the lead architect of the NLP component of the project.
+    \item \textbf{Luigi}: Luigi specializes in programming lanugages and is the resident expert in traditional software plagiarism checkers (such as MOSS); Luigi will lead the portions of the project that involve compiler front-ends and normalization.
+\end{itemize}
+
+All members will contribute to documentation and code an equal amount - that is, no one member will be solely responsible for any piece of documentation, or of code.
 
 \section{Workflow Plan}
 
