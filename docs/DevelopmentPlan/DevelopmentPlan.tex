@@ -262,19 +262,15 @@ All members will contribute to documentation and code an equal amount - that is,
 
 We plan to utilize GitHub Projects (specifically the Kanban board view) to efficiently track and manage issues throughout their lifecycle. Each column on the board represents a different stage of the workflow - "To Do," "In Progress," and "Done." Having a card for each issue will help us visualize progress, assign tasks, and update statuses in real-time.
 
-\section{Proof of Concept Demonstration Plan}
+\subsection{Coding Standard}
+For this project, we will adhere to coding standards using flake8 and PEP8 to 
+maintain high code quality and readability. Flake8 will help enforce style 
+guidelines and detect errors, while PEP8 will ensure that our Python code is 
+consistently formatted, making it easier for team members to collaborate and 
+for others to understand the code. This approach will help prevent common 
+mistakes and promote clean, efficient coding practices across the team.
 
-
-% What is the main risk, or risks, for the success of your project?
-The primary risk of failure for this project is that our idea of using NLP to improve upon existing alternatives (such as MOSS) does not the increase the accuracy of code plagiarism detection. It is possible that our solution will perform worse on average than traditional tools.
-
-% What will you demonstrate during your proof of concept demonstration to convince yourself that you will be able to overcome this risk?
-Our team has received some confirmation from professors that specialize in the subject matter that the idea of using NLP to assign a similarity score to two pieces of text is feasible. There is also literature that demonstrates the feasibility of using cosine similarity as a metric for plagiarism detection. Therefore, our minimal proof of concept for this project will be that - a tool that utilizes a LLM (large language model) to assign a similarity score to two pieces of code. For the sake of our proof of concept, just one source language will be supported, and only two text files will be compared at once.
-
-Once this is accomplished, we can evaluate if the similarity score is a good metric for determining if two pieces of code are plagiarised or not. When compared to MOSS, our POC solution should be able to produce similar detection rates. Our similarity scores should also make sense when validated by a human reviewer.
-
-
-\section{Expected Technology}
+\subsection{Expected Technology}
 
 % \wss{What programming language or languages do you expect to use?  What external
 % libraries?  What frameworks?  What technologies.  Are there major components of
@@ -306,13 +302,18 @@ LaTeX  & Any     & Documentation tool                                   \\
 \hline
 \end{tabular}
 
-\section{Coding Standard}
-For this project, we will adhere to coding standards using flake8 and PEP8 to 
-maintain high code quality and readability. Flake8 will help enforce style 
-guidelines and detect errors, while PEP8 will ensure that our Python code is 
-consistently formatted, making it easier for team members to collaborate and 
-for others to understand the code. This approach will help prevent common 
-mistakes and promote clean, efficient coding practices across the team.
+\section{Proof of Concept Demonstration Plan}
+
+
+% What is the main risk, or risks, for the success of your project?
+The primary risk of failure for this project is that our idea of using NLP to improve upon existing alternatives (such as MOSS) does not the increase the accuracy of code plagiarism detection. It is possible that our solution will perform worse on average than traditional tools.
+
+% What will you demonstrate during your proof of concept demonstration to convince yourself that you will be able to overcome this risk?
+Our team has received some confirmation from professors that specialize in the subject matter that the idea of using NLP to assign a similarity score to two pieces of text is feasible. There is also literature that demonstrates the feasibility of using cosine similarity as a metric for plagiarism detection. Therefore, our minimal proof of concept for this project will be that - a tool that utilizes a LLM (large language model) to assign a similarity score to two pieces of code. For the sake of our proof of concept, just one source language will be supported, and only two text files will be compared at once.
+
+Once this is accomplished, we can evaluate if the similarity score is a good metric for determining if two pieces of code are plagiarised or not. When compared to MOSS, our POC solution should be able to produce similar detection rates. Our similarity scores should also make sense when validated by a human reviewer.
+
+
 
 \section{Project Scheduling}
 
