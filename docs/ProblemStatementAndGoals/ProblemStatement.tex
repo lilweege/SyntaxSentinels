@@ -39,10 +39,11 @@ Date2 & Name(s) & Description of changes\\
 information.}
 
 \subsection{Problem}
-The current methods that exist for plagiarism detection of code has many flaws that make it easily bypassable. A coder can add lines of code that do nothing to some original snippet of code, and the MOSS (Measure of Software Similarity) plagiarism detector will not detect any form of plagiarism between the two. This is an inherent problem that arises from the use of algorithmic solutions; these solutions lack semantic understanding. With how easy it is to plagiarize, students who shouldn't be graduating are able to graduate by putting in a fraction of the work of other students. 
+The Measure of Software Similarity algorithm, or Moss algorithm for short, is the current standard for plagiarism detection of code. Broadly speaking, this algorithm works by comparing tokenized code snippets and assigning a similarity score without any weighting based on the complexity of the line being examined. In otherwords, there is an inherent lack of semantic understanding for the code being examined. This gives rise to a major flaw in the Moss algorithm, which is that benign lines of code can be added to a program that do not improve or change functionality but still serve to create an illusion of difference in the eyes of the algorithm. Therefore, even with the Moss algorithm in play, students can easily plagiarize the work of others. Ideally, students should get by on the merit of their own work alone, and a better plagiarism detection can help realize this.
 
 \subsection{Inputs and Outputs}
-The problem will take two snippets of code to compare for plagiarism. The desired output is a decision on whether or not the two snippets were plagiarized from one another. 
+The problem will take two or more snippets of code for comparison (n>=2 code snippets). The desired output is a similarity score between every pairing of the code snippets, and will provide a threshold score to decide whether each score indicates plagiarism or not (n choose 2 scores and 1 threshold for n+1 scores). 
+
 \wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
 Use abstraction so that you can avoid details.}
 
