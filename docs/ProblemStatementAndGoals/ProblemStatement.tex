@@ -22,21 +22,20 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
+Sept 23 & Dennis Fong & Add problem statement\\
+Sept 24 & Julian Cecchini & Revise problem statement and add goas\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section{Problem Statement}
 
-\wss{You should check your problem statement with the
-\href{https://github.com/smiths/capTemplate/blob/main/docs/Checklists/ProbState-Checklist.pdf}
-{problem statement checklist}.} 
+% \wss{You should check your problem statement with the
+% \href{https://github.com/smiths/capTemplate/blob/main/docs/Checklists/ProbState-Checklist.pdf}
+% {problem statement checklist}.} 
 
-\wss{You can change the section headings, as long as you include the required
-information.}
+% \wss{You can change the section headings, as long as you include the required
+% information.}
 
 \subsection{Problem}
 The Measure of Software Similarity algorithm, or Moss algorithm for short, is the current standard for plagiarism detection of code. Broadly speaking, this algorithm works by comparing tokenized code snippets and assigning a similarity score without any weighting based on the complexity of the line being examined. In otherwords, there is an inherent lack of semantic understanding for the code being examined. This gives rise to a major flaw in the Moss algorithm, which is that benign lines of code can be added to a program that do not improve or change functionality but still serve to create an illusion of difference in the eyes of the algorithm. Therefore, even with the Moss algorithm in play, students can easily plagiarize the work of others. Ideally, students should get by on the merit of their own work alone, and a better plagiarism detection can help realize this.
@@ -45,8 +44,8 @@ The Measure of Software Similarity algorithm, or Moss algorithm for short, is th
 Input: The problem will take two or more snippets of code for comparison (n>=2 code snippets). \\
 Output: The desired output is a similarity score between every pairing of the code snippets, and will provide a threshold score to decide whether each score indicates plagiarism or not. May also provide an overall score to indicate if plagariasm is suspected somewhere in the dataset provided. (n choose 2 scores, 1 threshold, and 1 overall score for (n C 2) +2 scores). 
 
-\wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
-Use abstraction so that you can avoid details.}
+% \wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
+% Use abstraction so that you can avoid details.}
 
 \subsection{Stakeholders}
 The primary stakeholders in this project are professors in any computing and software department, and students enrolled in courses where coding is prevalent. Professors have been identified as stakeholders since they are the people who will be looking out for plagiarism within their own courses. This project provides a tool to give professors the ability to make better predictions on plagiarism. Another stakeholder would be students for two reasons. It would be key to correctly identify the hardwork of a student to prevent others from stealing credit from them, and it would also be critical that a student does not have their hardwork misidentified as another's as it would unjustly punish the original creator. Therefore, the project team must have in mind that we minimize the chance that an innocent student is punished, and maximize the chance that students have their hardwork correctly attributed to themselves alone. Lastly, an additional stakeholder could be administrative bodies of schools who would care to incorporate/regulate the use of this detector in their faculty, or give lessens/awareness about it within an official capacity (i.e., meetings or training sessions)
@@ -55,42 +54,40 @@ The primary stakeholders in this project are professors in any computing and sof
 This solution will operate on a device, where two files will be fed to a model. The model will leverage hardware provided on the cloud.
 
 
-\wss{Hardware and software environment}
+% \wss{Hardware and software environment}
 
 \section{Goals}
 
 \begin{center}
-  \hspace*{-2cm} \begin{tabularx}{1.5\textwidth} { 
-  | >{\raggedright\arraybackslash}X 
-  | >{\raggedright\arraybackslash}X 
-  | >{\raggedright\arraybackslash}X | }
- \hline
+\hspace*{-1cm}
+\begin{tabular}{ 
+  | p{3cm} 
+  | p{6cm} 
+  | p{6cm} | }
+\hline
 Goal & 
 Explanation & 
 Reason \\
- \hline
-Ease of Use  & 
-Detector has intuitive way to insert data and obtain results & 
-This application is expected to be used as a secondary tool for teachers/professors when administering assignments in a course. It should not require indepth learning or else it will be too inconvenient to be utilized as an assistance to determining if plagariam occurred.  (Could be measured by actions to complete analysis)\\
- \hline
- Clarity of Output  & 
-Detector explains how to interpret outputs given to leave no ambiguity in whether or not plagiarism is suspected  & 
-If the user does not comprehend the implications of an output, it may result in a student being unjustly accused of plagiarism, or a student being let go when they have committed plagiarism. (Could be measured by linesof description provided in output, or amount of people who guess right what is indicated in tests)\\
- \hline
-Real Time Processing  & 
-The detector can compute the results on a dataset of code snippets in a timely fashion such that the user, such as a professor, can incorporate their results into their evaluation cycle. & 
- The application of this tool is in a course environment where multiple assignments will be administered over the course of a few weeks. If the detector takes too long to compute results, it will be unrealistic for our primary stakeholder of professors to use it on a daily basis. (measured with execution time) \\
- \hline
- Ethical Accuracy  & 
-The detector should lean towards getting less false positives than false negatives  & In every identification application there will be a trade off between false positives and false negatives. In our application, a false positive means giving harmful consequences to an innocent student while a false negative is a student getting away with an academic violation. It is more important to us that we cause no harm to innocent students than to catch those commiting plagiarism. (measured counts of false positives and false negatives in metrics like recall, precision, etc.)
- item 23  \\
- \hline
- item 21  & 
- item 22  & 
- item 23  \\
 \hline
-\end{tabularx}
+Ease of Use & 
+Detector has an intuitive way to insert data and obtain results & 
+This application is expected to be used as a secondary tool for teachers/professors when administering assignments. It should not require in-depth learning, or it will be too inconvenient as an assistant tool for detecting plagiarism. (Measured by actions to complete analysis)\\
+\hline
+Clarity of Output & 
+Detector explains how to interpret outputs clearly, leaving no ambiguity in whether plagiarism is suspected & 
+If the user does not comprehend the output, it may result in unjust accusations or undetected plagiarism. (Measured by lines of description or number of users who correctly interpret output)\\
+\hline
+Real-Time Processing & 
+The detector computes results on a dataset of code snippets quickly, enabling professors to incorporate them into evaluations & 
+Since multiple assignments are administered over several weeks, the detector must be fast enough to be realistic for daily use. (Measured by execution time)\\
+\hline
+Ethical Accuracy & 
+The detector prioritizes minimizing false positives over false negatives & 
+In this case, a false positive could cause harm to an innocent student, while a false negative allows a violation to go unnoticed. The focus is on protecting innocent students. (Measured by false positives and negatives using recall, precision, etc.)\\
+\hline
+\end{tabular}
 \end{center}
+
 
  
 \section{Stretch Goals}
@@ -107,27 +104,27 @@ This project has been assigned a difficulty level of general, and may be subject
 
 The team intends to build an interface to support the project along with a user manual that provides information on how to utilize the interface, for a total of two extras. More ideas for extras can be added in the future.
 
-\wss{State your expected challenge level (advanced, general or basic).  The
-challenge can come through the required domain knowledge, the implementation or
-something else.  Usually the greater the novelty of a project the greater its
-challenge level.  You should include your rationale for the selected level.
-Approval of the level will be part of the discussion with the instructor for
-approving the project.  The challenge level, with the approval (or request) of
-the instructor, can be modified over the course of the term.}
+% \wss{State your expected challenge level (advanced, general or basic).  The
+% challenge can come through the required domain knowledge, the implementation or
+% something else.  Usually the greater the novelty of a project the greater its
+% challenge level.  You should include your rationale for the selected level.
+% Approval of the level will be part of the discussion with the instructor for
+% approving the project.  The challenge level, with the approval (or request) of
+% the instructor, can be modified over the course of the term.}
 
-\wss{Teams may wish to include extras as either potential bonus grades, or to
-make up for a less advanced challenge level.  Potential extras include usability
-testing, code walkthroughs, user documentation, formal proof, GenderMag
-personas, Design Thinking, etc.  Normally the maximum number of extras will be
-two.  Approval of the extras will be part of the discussion with the instructor
-for approving the project.  The extras, with the approval (or request) of the
-instructor, can be modified over the course of the term.}
+% \wss{Teams may wish to include extras as either potential bonus grades, or to
+% make up for a less advanced challenge level.  Potential extras include usability
+% testing, code walkthroughs, user documentation, formal proof, GenderMag
+% personas, Design Thinking, etc.  Normally the maximum number of extras will be
+% two.  Approval of the extras will be part of the discussion with the instructor
+% for approving the project.  The extras, with the approval (or request) of the
+% instructor, can be modified over the course of the term.}
 
 \newpage{}
 
 \section*{Appendix --- Reflection}
 
-\wss{Not required for CAS 741}
+% \wss{Not required for CAS 741}
 
 \input{../Reflection.tex}
 
