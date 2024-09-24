@@ -48,7 +48,7 @@ The problem will take two or more snippets of code for comparison (n>=2 code sni
 Use abstraction so that you can avoid details.}
 
 \subsection{Stakeholders}
-The main stakeholders in this project are professors in any computing and software department, and students enrolled in courses where coding is prevalent. Professors have been identified as stakeholders since they are the people who will be looking out for plagiarism to ensure people don't do it in their courses. This project provides a tool to give professors the ability to make better predictions on plagiarism. Students have also been identified as stakeholders, since students mostly work very hard to complete their degree. It is unfair to them when there are those who can plagiarize and achieve the same results as them, with half the effort.
+The main stakeholders in this project are professors in any computing and software department, and students enrolled in courses where coding is prevalent. Professors have been identified as stakeholders since they are the people who will be looking out for plagiarism within their own courses. This project provides a tool to give professors the ability to make better predictions on plagiarism. Students have also been identified as stakeholders for two reasons. It would be key to correctly identify the hardwork of a student to prevent others from stealing credit from them, and it would also be critical that a student does not have their hardwork misidentified as another's as it would unjustly punish the original creator. Therefore, the project team must have in mind that we minimize the chance that an innocent student is punished, and maximize the chance that students have their hardwork correctly attributed to themselves alone.
 
 \subsection{Environment}
 This solution will operate on a device, where two files will be fed to a model. The model will leverage hardware provided on the cloud.
@@ -57,14 +57,27 @@ This solution will operate on a device, where two files will be fed to a model. 
 \wss{Hardware and software environment}
 
 \section{Goals}
-
+\begin{itemize}
+    \item Plagiarism detector will be developed using LLM algorithm
+    \item Plagiarism detector will be comparable to Moss in terms of similarity assignment
+    \item Plagiarism detector will be affected less by dummy lines of code than the Moss algorithm
+    \item Plagiarism detector will be able to compare two or more snippets of code at once (i.e., enough for a classroom)
+    \item Plagiarism detector will complete comparison in reasonable amount of time for use in a classroom.
+  \end{itemize}
+ 
 \section{Stretch Goals}
+\begin{itemize}
+  \item Plagiarism detector is proven to outperform Moss across several test sets.
+  \item Different LLM architectures will be benchmarked against Moss to gauge most optimal archiecture.
+  \item Enhance Moss with our findings to improve on the base algorithm (also necessary if no clear progress can be made in direction of training LLM)
+  
+\end{itemize}
 
 \section{Challenge Level and Extras}
 This project has been assigned a difficulty level of general, and may be subject to change. The aim is to use well known techniques that have been extensively researched, which may push the difficulty to an advanced level, depending on the complexity and feasibility of the research. 
 
 
-The team intends to build an interface to support the project as an extra. More ideas for extras can be added in the future.
+The team intends to build an interface to support the project along with a user manual that provides information on how to utilize the interface, for a total of two extras. More ideas for extras can be added in the future.
 
 \wss{State your expected challenge level (advanced, general or basic).  The
 challenge can come through the required domain knowledge, the implementation or
