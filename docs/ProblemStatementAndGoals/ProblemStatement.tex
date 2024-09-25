@@ -32,10 +32,11 @@ Sept 24 & Julian Cecchini & Revise problem statement and add goals\\
 
 Plagiarism detection in code today is not sufficient. There are too many
 workarounds to be able to avoid being flagged. With the new advances in natural
-language and programming language understanding, none of it has been adapted to
-plagiarism detection. Proper plagiarism detection helps uphold the merit of
-one's achievements, and the addition of semantic understanding of code can help
-navigate the thin border between plagiarism or the lack thereof. 
+language and programming language understanding, and these advances are yet to 
+be adapted to plagiarism detection algorithms. Proper plagiarism detection 
+helps uphold the merit ofone's achievements, and the addition of semantic 
+understanding of code can help navigate the thin border between plagiarism or 
+the lack thereof. 
 % \wss{You should check your problem statement with the
 % \href{https://github.com/smiths/capTemplate/blob/main/docs/Checklists/ProbState-Checklist.pdf}
 % {problem statement checklist}.} 
@@ -58,8 +59,8 @@ merit of their own work alone, and a better plagiarism detection can help
 realize this.
 
 \subsection{Inputs and Outputs}
-Input: The problem will take two or more snippets of code for comparison (n>=2
-code snippets). \\
+Input: The problem will take two or more snippets of code for comparison (n = 2 or 
+or more code snippets). \\
 Output: The desired output is a similarity score between every pairing of the
 code snippets, and will provide a threshold score to decide whether each score
 indicates plagiarism or not. May also provide an overall score to indicate if
@@ -88,7 +89,8 @@ lessens/awareness about it within an official capacity (i.e., meetings or
 training sessions)
 
 \subsection{Environment}
-This solution will operate on a device, where two files will be fed to a model.
+This solution will operate on a computer device, where two files will be fed to 
+a model.
 The model will leverage hardware provided on the cloud.
 
 
@@ -120,27 +122,47 @@ Since multiple assignments are administered over several weeks, the detector
 must be fast enough to be realistic for daily use. (Measured by execution
 time)\\
 \hline
-Ethical Accuracy & The detector prioritizes minimizing false positives over
+False Positive Accuracy & The detector prioritizes minimizing false positives over
 false negatives & In this case, a false positive could cause harm to an innocent
 student, while a false negative allows a violation to go unnoticed. The focus is
 on protecting innocent students. (Measured by false positives and negatives
 using recall, precision, etc.)\\
 \hline
+Ethically Sourced Data & The detector uses only data that openly discloses its 
+origins and all data used for the detector is stated for all to see. & In 
+modern ML development, it has become a hot topic for how models get their data.
+This is because many modern models have used datasets that contain information
+that was taken from individuals without consent (such as pieces of art). It is
+important to our team to make it clear this is not precedent and that 
+individuals should have clear consent in being used for training models. 
+(Measured by having accreditation for datasets involved in training)\\
+\hline
 \end{tabular}
 \end{center}
 
-
- 
 \section{Stretch Goals}
-\begin{itemize}
-  \item Plagiarism detector is proven to outperform Moss across several test
-  sets.
-  \item Different LLM architectures will be benchmarked against Moss to gauge
-  most optimal archiecture.
-  \item Enhance Moss with our findings to improve on the base algorithm (also
-  necessary if no clear progress can be made in direction of training LLM)
-  
-\end{itemize}
+
+\begin{center}
+  \hspace*{-1cm}
+  \begin{tabular}{ 
+    | p{3cm} 
+    | p{6cm} 
+    | p{6cm} | }
+  \hline
+   Stretch Goal & 
+  Explanation & 
+  Reason \\
+  \hline
+  Online Learning & 
+  Provide ability for user to train model on their own datasets. & 
+  Without a sufficiently large amount of data to train on (more than will be seen over the duration of 8 months), the model will be biased to a degree and not as widely applicable to different sets of code. If the detector is given the ability to be trained by the user, they can better customize it for their own needs (measure is whether or not the user can change conduct training)\\
+  \hline
+  Language Agnostic & 
+  The detector can analyze code from a multitude of languages & 
+  Having a detector that can draw patterns across different languages will make it adoptable by a wider set of professors who may conduct courses in less popular languages that our detector may have not dealt with at all before. If the detector is restrained to languages such as python or java, we will alienate some of our primary stakeholders.\\
+  \hline
+  \end{tabular}
+  \end{center}
 
 \section{Challenge Level and Extras}
 This project has been assigned a difficulty level of general, and may be subject
@@ -149,9 +171,10 @@ researched, which may push the difficulty to an advanced level, depending on the
 complexity and feasibility of the research. 
 
 
-The team intends to build an interface to support the project along with a user
-manual that provides information on how to utilize the interface, for a total of
-two extras. More ideas for extras can be added in the future.
+The team intends to construct a user manual that provides information on how to 
+utilize the detector and to benchmark the performance of different LLM
+architectures against each other alongside Moss, for a total of two extras. More 
+ideas for extras may be added in the future.
 
 % \wss{State your expected challenge level (advanced, general or basic).  The
 % challenge can come through the required domain knowledge, the implementation
@@ -180,20 +203,23 @@ two extras. More ideas for extras can be added in the future.
 \begin{enumerate}
     \item What went well while writing this deliverable? 
     
-    During this deliverable, everything mostly went smoothly. Members were
-    assigned different parts, and after everyone had a solid understanding of
-    what our project is, completing our assigned sections had little to no
-    conflict.
+    During this deliverable, everything went smoothly for the most part. 
+    Members were assigned different parts, and after everyone had a solid 
+    understanding of what our project is, completing our assigned sections 
+    had little to no conflict. There was good team communication to start 
+    off the semester with.
     
     \item What pain points did you experience during this deliverable, and how
     did you resolve them?
 
     The main paint points came from gaining a grasp of the project and its
-    scope. The project itself is not simple by any standards. Figuring out what
-    we are doing and ensuring everyone on the team had the same understanding
-    was a challenge, which was resolved through a discussion. Aside from that,
-    there were no major paint points.
-
+    scope along with ascertaining what could be goals. The project itself is 
+    not simple  by any standards. Figuring out what we are doing and ensuring 
+    everyone on the team had the same understanding was a challenge. This was 
+    resolved by talking the goals over with professor Smith on top of a 
+    discussion and thought  experiments of what we thought we could get done
+    based on previous work we have done. Aside from that, there were no major 
+    paint points.
     
     \item How did you and your team adjust the scope of your goals to ensure
     they are suitable for a Capstone project (not overly ambitious but also of
@@ -201,9 +227,13 @@ two extras. More ideas for extras can be added in the future.
 
     At times, the project felt overly ambitious. However, after thorough review
     and research, the feasibility and difficulty of the project seemed much more
-    manageable, and not overly ambitious. The goals we have placed are
-    reasonable, measurable, and are all things that can be achieved and improved
-    on as the project goes forward.
+    manageable, and not overly ambitious. We ensured the scope of our goals were
+    suitable for capstone by assessing how reachable we felt they were in our 
+    own hands. If we felt they were possible but not guaranteed, we kept them as 
+    is. If we felt they were completely unreachable or were too simple/arbitrary, 
+    we changed them. The goals we ended up with were reasonable, measurable, and, 
+    in our opinion, obtainable but not a given, so we must strive hard towards
+    them. 
 \end{enumerate}  
 
 \end{document}
