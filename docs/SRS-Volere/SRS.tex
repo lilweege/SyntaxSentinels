@@ -25,7 +25,7 @@
 
 \begin{document}
 
-\title{Software Requirements Specification for \progname: subtitle describing software} 
+\title{Software Requirements Specification for \progname: Code Plagiarism Detector} 
 \author{\authname}
 \date{\today}
 	
@@ -108,13 +108,56 @@ involved in the Project}
 
 \section{The Scope of the Work}
 \subsection{The Current Situation}
-\lips
+The current code plagiarism dtection tools such as MOSS rely on tokenization and syntax-level comparisons. Although effective
+in detecting direct copies or slight variations, they struggle when faced with techniques such as adding redundant code which
+allows the user to completely bypass detection while still plagiarizing the underlying logic and structure of the code.
+
+Additionally, MOSS does not take into account for the complexity or intent behind the code, leading to issues such as false
+positives for common programming patterns. This creates a gap for more advanced tools capable of understanding the semantic 
+meaning of code to more accurately detect plagiarism.
 \subsection{The Context of the Work}
-\lips
+Our prohject aims to address these gaps by incorporating Natural Language Processing (NLP) and machine learning techniques
+which will be leveraged to improve the accuracy of detecting copied code. The context of the work is within academic institutions,
+where the integrity of student work is aparmount and our tool will be used by professors to ensure a fair grading process
+while also supporting students in understanding the ethical use of code.
 \subsection{Work Partitioning}
-\lips
+\begin{itemize}
+  \item \textbf{Research and Design}: Conduct research on current plagiarism detection systems and state-of-the-art NLP techniques applicable to code plagiarism.
+  
+  \item \textbf{Data Collection}: Gather a dataset of code snippets, including both plagiarized and original works, to train and test the model.
+  
+  \item \textbf{Model Development}: Develop the NLP-based model capable of understanding the semantic meaning of code. This may involve exploring techniques like abstract syntax trees (ASTs), vector embeddings, or other representations of code that retain semantic meaning.
+  
+  \item \textbf{System Integration}: Build the system to take code as input, run through the developed model, and output a similarity score with appropriate thresholds.
+  
+  \item \textbf{Testing and Validation}: Test the system with various code samples to validate its performance and accuracy compared to traditional systems like MOSS. This will also test wether our method produces any false positives.
+  
+  \item \textbf{Documentation and Deployment}: Document the system architecture, the model, and the results. Deploy the system for use within academic settings.
+\end{itemize}
 \subsection{Specifying a Business Use Case (BUC)}
-\lips
+
+\textbf{Business Use Case:} Automated Code Plagiarism Detection for Academic Institutions
+
+\begin{itemize}
+    \item \textbf{Actors:} Professors, Students, System Administrators
+    \item \textbf{Trigger:} A professor or system administrator uploads multiple code submissions for plagiarism detection in a course assignment.
+\end{itemize}
+
+\textbf{Main Success Scenario}
+\begin{enumerate}
+    \item The system ingests the uploaded code submissions.
+    \item The system processes each code snippet using the NLP model to generate semantic representations of the code.
+    \item The system compares the representations to detect plagiarism, taking into account code similarity beyond syntax or token matching.
+    \item The system outputs a similarity score for each comparison, with thresholds indicating whether plagiarism is suspected.
+    \item The professor reviews the similarity scores and flags any suspicious cases for further investigation.
+    \item The system generates a report summarizing the findings for the professor’s review.
+\end{enumerate}
+
+\textbf{Extensions}
+\begin{itemize}
+    \item If the system detects false positives (common programming patterns being flagged as plagiarism), the professor can override the result.
+    \item If new sophisticated plagiarism techniques are detected, the system can update its learning algorithms to improve accuracy over time.
+\end{itemize}
 
 \section{Business Data Model and Data Dictionary}
 \subsection{Business Data Model}
