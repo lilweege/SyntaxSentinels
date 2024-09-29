@@ -178,10 +178,43 @@ while also supporting students in understanding the ethical use of code.
 \lips
 
 \section{Look and Feel Requirements}
+
 \subsection{Appearance Requirements}
-\lips
+The user interface (UI) must adhere to the following appearance guidelines:
+\begin{itemize}
+    \item \textbf{Consistency}: The UI should maintain a uniform color palette, 
+    font, and layout across all screens and elements. For instance, the primary 
+    color is defined as blue (\#0047AB) for buttons, links, and headers, and 
+    white (\#FFFFFF) for background areas.
+    
+    \item \textbf{Clarity}: All icons, buttons, and menus should be intuitive and 
+    clearly identifiable. Hovering over icons will provide tooltips with a brief 
+    description of their functionality.
+    
+    \item \textbf{Responsiveness}: The layout should adjust according to screen 
+    size, ensuring the interface remains usable on a range of devices, including 
+    desktops, tablets, and mobile phones.
+\end{itemize}
+
 \subsection{Style Requirements}
-\lips
+The style guidelines for the interface are as follows:
+\begin{itemize}
+    \item \textbf{Typography}: The font family used across the UI will be 
+    \textit{Roboto}. Headers should use a 24px font size, body text should be 
+    14px, and button text should be 16px.
+    
+    \item \textbf{Color Scheme}: Buttons and interactive elements should use the 
+    primary color \#0047AB. Background areas will use \#F0F0F0, and error 
+    messages will be highlighted in \#FF0000.
+    
+    \item \textbf{Button Styles}: All buttons should have rounded corners with 
+    a radius of 5px. On hover, the button background will lighten by 20\%.
+    
+    \item \textbf{Spacing and Padding}: There should be at least 10px of padding 
+    between elements and a margin of 20px around each section to maintain a clean 
+    layout.
+\end{itemize}
+
 
 \section{Usability and Humanity Requirements}
 
@@ -297,10 +330,130 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \lips
 
 \section{Compliance Requirements}
+
+In developing the enhanced plagiarism detection tool, it is imperative to address
+various compliance requirements to ensure the tool operates legally, ethically,
+and in alignment with industry standards. These requirements encompass legal
+obligations related to data protection, intellectual property rights, and
+adherence to educational policies, as well as compliance with established software
+development and data security standards.
+
 \subsection{Legal Requirements}
-\lips
+
+\begin{enumerate}
+    \item \textbf{Data Protection and Privacy Laws}: The tool will process sensitive
+    information, including students' code submissions, which may be considered personal
+    data under Canadian privacy laws such as the \textit{Personal Information Protection 
+    and Electronic Documents Act} (PIPEDA) at the federal level, and Ontario's \textit{Freedom of 
+    Information and Protection of Privacy Act} (FIPPA) for public institutions. Compliance with these 
+    laws requires:
+    \begin{itemize}
+        \item \textbf{Lawful Basis for Data Processing}: Ensuring that the collection and use of 
+        personal information is authorized under PIPEDA or FIPPA, typically requiring consent from 
+        students before processing their code or ensuring that processing is necessary for educational purposes.
+        \item \textbf{Data Minimization and Purpose Limitation}: Collecting only the data
+        necessary for plagiarism detection and using it solely for that purpose.
+        \item \textbf{Transparency and Information Rights}: Informing students about how
+        their data will be used, stored, and protected, and respecting their rights to
+        access, correct, or withdraw their personal information.
+        \item \textbf{Security Measures}: Implementing appropriate technical and
+        organizational measures to safeguard personal data against unauthorized access,
+        loss, or disclosure, as required under PIPEDA and FIPPA.
+    \end{itemize}
+
+    \item \textbf{Intellectual Property Rights}: Under the \textit{Copyright Act} of Canada, 
+    students typically hold the intellectual property rights to their original code. 
+    The tool must:
+    \begin{itemize}
+        \item \textbf{Respect Ownership}: Use students' code exclusively for plagiarism
+        detection without unauthorized distribution or reproduction.
+        \item \textbf{Establish Clear Terms}: Provide clear terms of service or agreements
+        outlining how the code will be used, ensuring students are aware and consent to
+        these terms.
+        \item \textbf{Avoid Infringement}: Ensure that any storage or processing of code
+        does not violate the \textit{Copyright Act} or institutional policies.
+    \end{itemize}
+
+    \item \textbf{Academic Integrity Policies}: The tool must align with the academic
+    integrity and misconduct policies of Canadian educational institutions by:
+    \begin{itemize}
+        \item \textbf{Supporting Fair Evaluation}: Assisting educators in identifying
+        potential plagiarism accurately without bias.
+        \item \textbf{Due Process}: Ensuring that students have the opportunity to respond
+        to plagiarism accusations, with results from the tool serving as part of a broader
+        investigation rather than definitive proof.
+        \item \textbf{Confidentiality}: Maintaining the confidentiality of students' work
+        and any findings related to plagiarism investigations.
+    \end{itemize}
+\end{enumerate}
+
 \subsection{Standards Compliance Requirements}
-\lips
+
+\begin{enumerate}
+    \item \textbf{Software Development Standards}: Adherence to recognized software
+    development practices and standards is essential for ensuring quality and reliability.
+    \begin{itemize}
+        \item \textbf{ISO/IEC 25010 Compliance}: Aligning with the ISO/IEC 25010 standard
+        for software product quality, focusing on functionality, reliability, usability,
+        efficiency, maintainability, and portability.
+        \item \textbf{Documentation and Testing}: Maintaining thorough documentation and
+        conducting rigorous testing to validate the tool's performance and reliability.
+    \end{itemize}
+
+    \item \textbf{Data Security Standards}: Protecting sensitive data requires compliance
+    with established security standards.
+    \begin{itemize}
+        \item \textbf{OWASP Guidelines}: Implementing security measures in line with the
+        Open Web Application Security Project (OWASP) guidelines to prevent common
+        vulnerabilities such as injection attacks, data breaches, and unauthorized access.
+        \item \textbf{ISO/IEC 27001 Certification}: Considering certification under the
+        ISO/IEC 27001 standard for information security management to demonstrate a
+        commitment to data security best practices.
+    \end{itemize}
+
+    \item \textbf{Accessibility Standards}: The tool should be accessible to all users,
+    including those with disabilities.
+    \begin{itemize}
+        \item \textbf{AODA Compliance}: Designing the user interface in accordance
+        with the \textit{Accessibility for Ontarians with Disabilities Act} (AODA) and the 
+        \textit{Integrated Accessibility Standards Regulation} (IASR) to ensure it is
+        perceivable, operable, understandable, and robust for all users.
+        \item \textbf{WCAG 2.1 Compliance}: Ensuring that the tool meets the Web Content 
+        Accessibility Guidelines (WCAG) 2.1 Level AA standards, as required under AODA.
+    \end{itemize}
+
+    \item \textbf{Ethical AI and Machine Learning Standards}: As the tool leverages AI
+    technologies, it must adhere to ethical standards in AI development.
+    \begin{itemize}
+        \item \textbf{Transparency and Explainability}: Ensuring that the AI models used
+        are transparent in their operation and that their decision-making processes can be
+        explained to users.
+        \item \textbf{Fairness and Non-Discrimination}: Preventing biases in the AI models
+        that could unfairly target or disadvantage any group of students.
+        \item \textbf{Canadian AI Ethical Guidelines}: Following principles outlined in the 
+        \textit{Directive on Automated Decision-Making} by the Government of Canada and 
+        guidelines from organizations such as the \textit{Canadian Institute for Advanced Research} (CIFAR) 
+        for promoting ethical considerations in AI design and deployment.
+    \end{itemize}
+
+    \item \textbf{Data Handling and Retention Policies}: Establishing clear policies for
+    how data is managed throughout its lifecycle.
+    \begin{itemize}
+        \item \textbf{Retention Limits}: Defining how long code submissions and related
+        data will be stored, in compliance with PIPEDA, FIPPA, and institutional policies.
+        \item \textbf{Secure Disposal}: Implementing procedures for the secure deletion or
+        anonymization of data that is no longer needed.
+        \item \textbf{Audit and Compliance}: Regularly auditing data handling practices to
+        ensure ongoing compliance with all relevant laws and standards.
+    \end{itemize}
+\end{enumerate}
+
+By meticulously addressing these legal and standards compliance requirements, the
+project not only safeguards the rights and interests of all stakeholders but also
+enhances the credibility and trustworthiness of the plagiarism detection tool. Ensuring
+compliance is fundamental to the tool's success and its acceptance by educational
+institutions, educators, and students alike.
+
 
 \section{Open Issues}
 \lips
