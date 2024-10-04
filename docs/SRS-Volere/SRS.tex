@@ -100,11 +100,27 @@ involved in the Project}
 
 \section{Relevant Facts And Assumptions}
 \subsection{Relevant Facts}
-\lips
+\begin{itemize}
+  \item The current standard for code plagiarism detection, MOSS, primarily relies on token matching and syntax-based comparison. This method lacks the ability to detect deeper semantic similarities in code.
+  \item NLP techniques have advanced significantly in recent years, enabling more accurate natural language understanding. These techniques can be adapted to understand the structure and semantics of code, which could enhance plagiarism detection systems.
+  \item There is a growing need for a plagiarism detection system that accounts for sophisticated plagiarism techniques, such as variable renaming, code restructuring, and adding non-functional code.
+  \item Academic institutions are increasingly concerned with the fairness and accuracy of plagiarism detection systems to avoid penalizing students unfairly, especially with the rising prevalence of online and remote learning.
+\end{itemize}
 \subsection{Business Rules}
-\lips
+\begin{itemize}
+  \item The system must ensure compliance with data protection regulations, such as GDPR, by securing student data, anonymizing it when possible, and minimizing unnecessary data retention.
+  \item The similarity threshold for flagging plagiarism should be customizable by the institution or professor, allowing flexibility based on course policies.
+  \item False positives (e.g., common code patterns) should be minimized, with options for professors to override flagged instances and manually validate the results.
+  \item The system must be scalable to accommodate large datasets and multiple users submitting code for comparison at the same time.
+\end{itemize}
 \subsection{Assumptions}
-\lips
+\begin{itemize}
+  \item It is assumed that the academic institutions adopting this system have clear plagiarism policies and can provide a threshold score that reflects their definitions of plagiarism.
+  \item It is assumed that the code samples provided for comparison are original and not previously processed by other plagiarism detection systems, ensuring that the results reflect real-time analysis.
+  \item It is assumed that professors and administrators will review flagged cases manually to confirm plagiarism before taking any disciplinary action.
+  \item It is assumed that students will not have access to the internal workings of the plagiarism detection algorithm, preventing them from finding potential loopholes to bypass detection.
+  \item Software will be used only in Canada, and the legal and ethical considerations of this country will be taken into account during development.
+\end{itemize}
 
 \section{The Scope of the Work}
 \subsection{The Current Situation}
