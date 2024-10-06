@@ -302,19 +302,39 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 
 \section{Performance Requirements}
 \subsection{Speed and Latency Requirements}
-\lips
+\begin{itemize}
+    \item The system should process the inputs and provide results in under one minute 
+    \item The system must notify users if processing surpasses one minute
+\end{itemize}
 \subsection{Safety-Critical Requirements}
-\lips
+\begin{itemize}
+    \item The system must avoid false positives to protect students from wrongful accusations. 
+    \item A manual override option for professors must exist to prevent automatic accusations solely based on the model.
+    \item Detected plagiarism must be recorded for future use such as appeals.
+\end{itemize}
 \subsection{Precision or Accuracy Requirements}
-\lips
+\begin{itemize}
+    \item The system should have an accuracy rate of at least 90\% for identifying plagiarized content.
+    \item The false positive rate (incorrectly flagged plagiarism cases) must be kept below 5\%.
+\end{itemize}
 \subsection{Robustness or Fault-Tolerance Requirements}
-\lips
+\begin{itemize}
+    \item The system will not crash in the case of a malformed input, and will instead issue an error message to the user.
+\end{itemize}
 \subsection{Capacity Requirements}
-\lips
+\begin{itemize}
+    \item The system should be able to handle batches of inputs without significant delays.
+    \item The system should be able to store a large amount of reports for later review.
+\end{itemize}
 \subsection{Scalability or Extensibility Requirements}
-\lips
+\begin{itemize}
+    \item The system should be designed in a way such that adding support for new file types or coding languages should not impede with current functionality
+\end{itemize}
 \subsection{Longevity Requirements}
-\lips
+\begin{itemize}
+    \item Backwards compatibility must be maintained when new features are introduced
+    \item The system should be designed such that the natural language processing part can be changed in accordance to new research in the field.
+\end{itemize}
 
 \section{Operational and Environmental Requirements}
 \subsection{Expected Physical Environment}
