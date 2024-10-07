@@ -536,11 +536,20 @@ institutions, educators, and students alike.
 
 \section{Off-the-Shelf Solutions}
 \subsection{Ready-Made Products}
-\lips
+
+There are many ready-made tools that aim to detect source-code level plagiarism, the most well-known of which being \href{https://theory.stanford.edu/~aiken/moss/}{MOSS}. MOSS is most commonly used by professors.
+There are also a handful of open-source alternatives, including: \href{https://github.com/jplag/JPlag}{JPlag}, \href{https://dickgrune.com/Programs/similarity_tester/}{SIM}, \href{https://warwick.ac.uk/fac/sci/dcs/research/ias/software/sherlock/}{Sherlock}, and \href{https://www.cs.hut.fi/Software/Plaggie/}{Plaggie}.
+Most of them support checking of multiple languages and use a variety of techniques to improve detection rates. These tools are relatively old and are not all actively developed.
+
 \subsection{Reusable Components}
-\lips
+
+JPlag uses ANTLR 4 as a parser generator for many of its supported languages. For cross-language support, our tool can reuse JPlag's ANTLR grammar files to create language frontend parsers for each language we choose to support. Using a parser generator with pre-existing grammar files would reduce development time significantly, since the alternative would entail writing a custom parser for each supported language. By using ANTLR and JPlag's grammar files, we could feasibly support many source languages as opposed to just one, which would most likely be python (our product will be written in python, and python is capable of parsing it's own syntax tree).
+
 \subsection{Products That Can Be Copied}
-\lips
+
+The primary inspiration for our product is MOSS. Our product, similar to many others, will copy the general data pipeline of input source code. Specifically, after reading an input source code file, plagiarism checkers typically have parsing, tokenizing, and normalizing steps. This is followed by some analysis on the normalized text - \href{https://theory.stanford.edu/~aiken/publications/papers/sigmod03.pdf}{MOSS uses "Winnowing"}, an algorithm that produces local fingerprints in a piece of text.
+
+To reduce development time, we plan to copy the first step (the text preprocessing as described above) of the data pipeline implemented in MOSS. This kind of text normalization is commonly studied and there are many resources that explain implementation details.
 
 \section{New Problems}
 \subsection{Effects on the Current Environment}
