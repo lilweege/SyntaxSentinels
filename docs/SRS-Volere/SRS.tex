@@ -44,8 +44,8 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\textbf{Date}} & {\textbf{Version}} & {\textbf{Notes}}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+October 9 & 1.0 & First iteration of complete document\\
+% Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
 
@@ -193,7 +193,7 @@ while also supporting students in understanding the ethical use of code.
   
   \item \textbf{System Integration}: Build the system to take code as input, run through the developed model, and output a similarity score with appropriate thresholds.
   
-  \item \textbf{Testing and Validation}: Test the system with various code samples to validate its performance and accuracy compared to traditional systems like MOSS. This will also test wether our method produces any false positives.
+  \item \textbf{Testing and Validation}: Test the system with various code samples to validate its performance and accuracy compared to traditional systems like MOSS. This will also test whether our method produces any false positives.
   
   \item \textbf{Documentation and Deployment}: Document the system architecture, the model, and the results. Deploy the system for use within academic settings.
 \end{itemize}
@@ -466,37 +466,35 @@ development and data security standards.
 \subsection{Standards Compliance Requirements}
 
 \begin{enumerate}
-    \item \textbf{Software Development Standards}: Adherence to recognized software
-    development practices and standards is essential for ensuring quality and reliability.
-    \begin{itemize}
-        \item \textbf{ISO/IEC 25010 Compliance}: Aligning with the ISO/IEC 25010 standard
-        for software product quality, focusing on functionality, reliability, usability,
-        efficiency, maintainability, and portability.
-        \item \textbf{Documentation and Testing}: Maintaining thorough documentation and
-        conducting rigorous testing to validate the tool's performance and reliability.
-    \end{itemize}
+    \item \textbf{Software Development Standards}: While full adherence to comprehensive standards 
+    such as ISO/IEC 25010 may be beyond the scope of this student capstone project, we aim to follow 
+    recognized software development practices to ensure quality and reliability.
+        \begin{itemize}
+            \item \textbf{Focus on Key Quality Attributes}: The project will prioritize key aspects of 
+            software quality, including functionality, reliability, usability, efficiency, and maintainability,
+             drawing inspiration from the ISO/IEC 25010 framework.
+            \item \textbf{Documentation and Testing}: Thorough documentation will be maintained throughout 
+            development, and rigorous testing will be conducted to validate the tool's performance and reliability.
+        \end{itemize}
 
-    \item \textbf{Data Security Standards}: Protecting sensitive data requires compliance
-    with established security standards.
-    \begin{itemize}
-        \item \textbf{OWASP Guidelines}: Implementing security measures in line with the
-        Open Web Application Security Project (OWASP) guidelines to prevent common
-        vulnerabilities such as injection attacks, data breaches, and unauthorized access.
-        \item \textbf{ISO/IEC 27001 Certification}: Considering certification under the
-        ISO/IEC 27001 standard for information security management to demonstrate a
-        commitment to data security best practices.
-    \end{itemize}
 
-    \item \textbf{Accessibility Standards}: The tool should be accessible to all users,
-    including those with disabilities.
-    \begin{itemize}
-        \item \textbf{AODA Compliance}: Designing the user interface in accordance
-        with the \textit{Accessibility for Ontarians with Disabilities Act} (AODA) and the 
-        \textit{Integrated Accessibility Standards Regulation} (IASR) to ensure it is
-        perceivable, operable, understandable, and robust for all users.
-        \item \textbf{WCAG 2.1 Compliance}: Ensuring that the tool meets the Web Content 
-        Accessibility Guidelines (WCAG) 2.1 Level AA standards, as required under AODA.
-    \end{itemize}
+    \item \textbf{Data Security Standards}: Protecting sensitive data is a priority, and although full 
+    compliance with industry security standards such as ISO/IEC 27001 may not be feasible for a student 
+    capstone project, we will take measures to ensure data security.
+        \begin{itemize}
+            \item \textbf{OWASP Guidelines}: Basic security measures will be implemented in line with the 
+            Open Web Application Security Project (OWASP) guidelines to mitigate common vulnerabilities such 
+            as injection attacks and unauthorized access.
+            \item \textbf{Secure Database Storage}: All data will be securely stored in a trusted cloud 
+            database service (e.g., AWS), utilizing built-in security features such as encryption at rest 
+            and in transit, to protect sensitive user information.
+        \end{itemize}
+
+
+    \item \textbf{Accessibility Standards}: While the tool may not be fully accessible for users with disabilities, 
+    it will be designed to accommodate users regardless of their computer specifications. All computational tasks 
+    will be handled on our servers, ensuring consistent performance across a variety of devices, including those 
+    with lower processing power or outdated hardware.
 
     \item \textbf{Ethical AI and Machine Learning Standards}: As the tool leverages AI
     technologies, it must adhere to ethical standards in AI development.
@@ -505,11 +503,8 @@ development and data security standards.
         are transparent in their operation and that their decision-making processes can be
         explained to users.
         \item \textbf{Fairness and Non-Discrimination}: Preventing biases in the AI models
-        that could unfairly target or disadvantage any group of students.
-        \item \textbf{Canadian AI Ethical Guidelines}: Following principles outlined in the 
-        \textit{Directive on Automated Decision-Making} by the Government of Canada and 
-        guidelines from organizations such as the \textit{Canadian Institute for Advanced Research} (CIFAR) 
-        for promoting ethical considerations in AI design and deployment.
+        that could unfairly target or disadvantage any group of students. Ensuring that names
+        and other potentially discriminatory information are not used in the detection process.
     \end{itemize}
 
     \item \textbf{Data Handling and Retention Policies}: Establishing clear policies for
