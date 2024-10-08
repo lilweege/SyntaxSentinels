@@ -468,7 +468,6 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \begin{itemize}
     \item The system should be able to handle batches of inputs without significant delays.
     \item The system should be able to handle batches of inputs without the total processing time exceeding 60 seconds.
-    \item The system should be able to store a large amount of reports for later review.
 \end{itemize}
 \subsection{Scalability or Extensibility Requirements}
 \begin{itemize}
@@ -698,7 +697,6 @@ The migration to the new code plagiarism detection system must be carefully plan
 For the migration to the new plagiarism detection system, certain data from the legacy systems must be modified or translated to ensure compatibility:
 \begin{itemize}
     \item \textbf{Code Submissions}: Legacy code submissions must be translated into a format that the new system can process, especially if the old system uses proprietary formats or different programming language encoding.
-    \item \textbf{Plagiarism Reports}: Historical plagiarism reports and similarity scores from the legacy system need to be reformatted to align with the structure of the new system's reporting. This includes recalculating similarity scores if necessary.
     \item \textbf{User Permissions}: Any user and administrator accounts need to be transferred to the new system. This includes roles, permissions, and access levels.
     \item \textbf{Configuration Data}: Settings from the old system, such as threshold scores, course configurations, and institution-specific policies, must be mapped and adjusted to fit the new system’s configuration parameters.
     \item \textbf{Metadata and Logs}: Metadata (e.g., anonymous submission timestamps, course IDs) and system logs related to prior plagiarism checks should be preserved and transferred, ensuring transparency and continuity.
