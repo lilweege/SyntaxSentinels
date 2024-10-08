@@ -122,23 +122,120 @@ If possible, system administrators and IT staff will maintain the system. They
 will troubleshoot issues to keep the system functional, as well as oversee
 updates to the system.
 
+% EXTERNALLY IMPOSED
+% GIVE RATIONALE FOR EACH CONSTRAINT
+% - RATIONALE MAKES SENSE FOR THE PROJECT
+% CONSTRAINTS ARE WHEN "HOW" IS IMPOSED BY EXTERNAL CONSIDERATIONS
+% NON-ABSTRACT REQUIREMENTS ("HOW") ARE CONSTRAINTS
+
 \section{Mandated Constraints}
 \subsection{Solution Constraints}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    Our product shall not retain any user data. &
+    We should comply with privacy laws regarding storage of sensitive or confidential information. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
+
 \subsection{Implementation Environment of the Current System}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    The application code should run on both Windows and Linux. &
+    Users of our product who wish to host their own instance will be using a variety of server hardware providers, including Microsoft Azure and Amazon AWS. \\
+    \hline
+    The user interface should be accessible via a web browser on a computer with an internet connection. &
+    Users of our product will access the tool on their own personal computers, which are not powerful enough to run the tool offline. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
+
+
 \subsection{Partner or Collaborative Applications}
-\lips
+Our project will use Google Colab to train and tune our language models for the NLP component of our tool.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    Usage of the Google Colab platform for training shall not exceed 100 compute units. &
+    We will only purchase 100 compute units to stay within our project budget. \\
+    \hline
+    The training and tuning of our language models will be written in python. &
+    Google Colab only supports python. \\
+    \hline
+    The number of training iterations of our language model will not exceed 1000. &
+    The amount of computational power provided by Google Colab is the limiting factor in our training speed. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
 \subsection{Off-the-Shelf Software}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    Any third-party code used in the project must be licensed under an open-source license that is compatible with the GPLv3 License. &
+    Our project uses the GPLv3 license. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
 \subsection{Anticipated Workplace Environment}
-\lips
+% need a computer and a desk ??
+% good internet
+There are no constraints imposed upon us by the anticipated workplace environment.
+
+
 \subsection{Schedule Constraints}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    Training data for language models shall consist of pre-labelled datasets on the internet, or scraped from online programming contests results and labelled with an existing plagirism detection tool. &
+    Given the schedule of the project, there is not enough time to source and label datasets by hand. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
+
 \subsection{Budget Constraints}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    The cost of sourcing training data and training NLP models using cloud computers shall not exceed \$150 CAD. &
+    We are students and we don't have a lot of money. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
+
 \subsection{Enterprise Constraints}
-\lips
+There are no enterprise constraints imposed upon our project.
 
 \section{Naming Conventions and Terminology}
 \subsection{Glossary of All Terms, Including Acronyms, Used by Stakeholders
