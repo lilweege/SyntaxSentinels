@@ -44,8 +44,8 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\textbf{Date}} & {\textbf{Version}} & {\textbf{Notes}}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+October 9 & 1.0 & First iteration of complete document\\
+% Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
 
@@ -57,41 +57,185 @@ Date 2 & 1.1 & Notes\\
 \lips
 \subsection{Goals of the Project}
 \lips
+
 \section{Stakeholders}
+
 \subsection{Client}
-\lips
+The primary clients for this project are the computing and software departments
+of academic institutions, and code competition administrators. These clients
+seek an advanced plagiarism detection system that overcomes the limitations of
+existing tools like MOSS. In academic settings, the system will help maintain
+academic integrity, while in code competitions, it will ensure fair play by
+preventing plagiarism among participants.
+
 \subsection{Customer}
-\lips
+The primary customers for this project are professors, course instructors, and
+code competition organizers. Professors and instructors will use the system to
+evaluate student submissions to identify plagiarism, while competition
+organizers will ensure that all participants submit original code. 
+
 \subsection{Other Stakeholders}
-\lips
+Other stakeholders include:
+\begin{itemize}
+    \item Students: Indirectly affected, as their work will be evaluated by this
+    system, and it is important to ensure that students don't get falsely accused
+    of plagiarism.
+    \item Competition Participants: In coding competitions, the participants
+    rely on the system to ensure the competition they participate in is fair.
+\end{itemize}
+
 \subsection{Hands-On Users of the Project}
-\lips
+The hands-on users are the professors, teaching assistants, and code competition
+organizers who will directly interact with the system. They will use it to
+upload code submissions, compare entries, and review plagiarism reports.
+
 \subsection{Personas}
-\lips
+\begin{itemize}
+    \item Professor: Dr.\ Onjama Wembo - A computer science professor who
+    frequently assigns coding tasks and reviews student submissions.
+    \item Student: John Johnson - An honest computer science student who
+    expects the system to verify their work as valid and unplagiarised.
+    \item Competition Organizer: Sung Yuhee - A competition organizer who
+    uses the system to ensure participants submit original work to ensure fair
+    play in the competition.
+    \item Competition Participant: Giorno Capio - A competition participant
+    aiming for a top score in the competition, who is hoping the system does not
+    misclassify their work with someone elses who may have similar code.
+\end{itemize}
+
 \subsection{Priorities Assigned to Users}
-\lips
+\begin{itemize}
+    \item High Priority: Professors, competition organizers, and instructors -
+    They rely on the system to evaluate submissions to ensure integrity
+    \item Low Priority: Students and competition participants - They are not the
+    direct users of the system but rely on it for correct evaluations
+\end{itemize}
+
 \subsection{User Participation}
-\lips
+User participation is essential for the development and testing of the system.
+Professors will provide feedback during development and testing to ensure the
+system meets their needs. Regular feedback will help improve the system's
+accuracy and reliability.
+
 \subsection{Maintenance Users and Service Technicians}
-\lips
+If possible, system administrators and IT staff will maintain the system. They
+will troubleshoot issues to keep the system functional, as well as oversee
+updates to the system.
+
+% EXTERNALLY IMPOSED
+% GIVE RATIONALE FOR EACH CONSTRAINT
+% - RATIONALE MAKES SENSE FOR THE PROJECT
+% CONSTRAINTS ARE WHEN "HOW" IS IMPOSED BY EXTERNAL CONSIDERATIONS
+% NON-ABSTRACT REQUIREMENTS ("HOW") ARE CONSTRAINTS
 
 \section{Mandated Constraints}
 \subsection{Solution Constraints}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    Our product shall not retain any user data. &
+    We should comply with privacy laws regarding storage of sensitive or confidential information. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
+
 \subsection{Implementation Environment of the Current System}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    The application code should run on both Windows and Linux. &
+    Users of our product who wish to host their own instance will be using a variety of server hardware providers, including Microsoft Azure and Amazon AWS. \\
+    \hline
+    The user interface should be accessible via a web browser on a computer with an internet connection. &
+    Users of our product will access the tool on their own personal computers, which are not powerful enough to run the tool offline. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
+
+
 \subsection{Partner or Collaborative Applications}
-\lips
+Our project will use Google Colab to train and tune our language models for the NLP component of our tool.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    Usage of the Google Colab platform for training shall not exceed 100 compute units. &
+    We will only purchase 100 compute units to stay within our project budget. \\
+    \hline
+    The training and tuning of our language models will be written in python. &
+    Google Colab only supports python. \\
+    \hline
+    The number of training iterations of our language model will not exceed 1000. &
+    The amount of computational power provided by Google Colab is the limiting factor in our training speed. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
 \subsection{Off-the-Shelf Software}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    Any third-party code used in the project must be licensed under an open-source license that is compatible with the GPLv3 License. &
+    Our project uses the GPLv3 license. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
 \subsection{Anticipated Workplace Environment}
-\lips
+% need a computer and a desk ??
+% good internet
+There are no constraints imposed upon us by the anticipated workplace environment.
+
+
 \subsection{Schedule Constraints}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    Training data for language models shall consist of pre-labelled datasets on the internet, or scraped from online programming contests results and labelled with an existing plagirism detection tool. &
+    Given the schedule of the project, there is not enough time to source and label datasets by hand. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
+
 \subsection{Budget Constraints}
-\lips
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+    \hline
+    \textbf{Constraint}   & \textbf{Rationale} \\
+    \hline
+    The cost of sourcing training data and training NLP models using cloud computers shall not exceed \$150 CAD. &
+    We are students and we don't have a lot of money. \\
+    \hline
+    \end{tabular}
+    % \caption{}
+\end{table}
+
+
 \subsection{Enterprise Constraints}
-\lips
+There are no enterprise constraints imposed upon our project.
 
 \section{Naming Conventions and Terminology}
 \subsection{Glossary of All Terms, Including Acronyms, Used by Stakeholders
@@ -146,7 +290,7 @@ while also supporting students in understanding the ethical use of code.
   
   \item \textbf{System Integration}: Build the system to take code as input, run through the developed model, and output a similarity score with appropriate thresholds.
   
-  \item \textbf{Testing and Validation}: Test the system with various code samples to validate its performance and accuracy compared to traditional systems like MOSS. This will also test wether our method produces any false positives.
+  \item \textbf{Testing and Validation}: Test the system with various code samples to validate its performance and accuracy compared to traditional systems like MOSS. This will also test whether our method produces any false positives.
   
   \item \textbf{Documentation and Deployment}: Document the system architecture, the model, and the results. Deploy the system for use within academic settings.
 \end{itemize}
@@ -302,19 +446,41 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 
 \section{Performance Requirements}
 \subsection{Speed and Latency Requirements}
-\lips
+\begin{itemize}
+    \item The system should process the inputs and provide results in under one minute 
+    \item The system must notify users if processing surpasses one minute
+\end{itemize}
 \subsection{Safety-Critical Requirements}
-\lips
+\begin{itemize}
+    \item The system must avoid false positives to protect students from wrongful accusations. 
+    \item A manual override option for professors must exist to prevent automatic accusations solely based on the model.
+    \item Detected plagiarism must be recorded for future use such as appeals.
+    \item Detected plagiarism must be stored in our database for future use such as appeals.
+\end{itemize}
 \subsection{Precision or Accuracy Requirements}
-\lips
+\begin{itemize}
+    \item The system should have an accuracy rate of at least 90\% for identifying plagiarized content.
+    \item The false positive rate (incorrectly flagged plagiarism cases) must be kept below 5\%.
+\end{itemize}
 \subsection{Robustness or Fault-Tolerance Requirements}
-\lips
+\begin{itemize}
+    \item The system will not crash in the case of a malformed input, and will instead issue an error message to the user.
+\end{itemize}
 \subsection{Capacity Requirements}
-\lips
+\begin{itemize}
+    \item The system should be able to handle batches of inputs without significant delays.
+    \item The system should be able to handle batches of inputs without the total processing time exceeding 60 seconds.
+    \item The system should be able to store a large amount of reports for later review.
+\end{itemize}
 \subsection{Scalability or Extensibility Requirements}
-\lips
+\begin{itemize}
+    \item The system should be designed in a way such that adding support for new file types or coding languages should not impede with current functionality
+\end{itemize}
 \subsection{Longevity Requirements}
-\lips
+\begin{itemize}
+    \item Backwards compatibility must be maintained when new features are introduced
+    \item The system should be designed such that the natural language processing part can be changed in accordance to new research in the field.
+\end{itemize}
 
 \section{Operational and Environmental Requirements}
 \subsection{Expected Physical Environment}
@@ -499,37 +665,40 @@ development and data security standards.
 \subsection{Standards Compliance Requirements}
 
 \begin{enumerate}
-    \item \textbf{Software Development Standards}: Adherence to recognized software
-    development practices and standards is essential for ensuring quality and reliability.
-    \begin{itemize}
-        \item \textbf{ISO/IEC 25010 Compliance}: Aligning with the ISO/IEC 25010 standard
-        for software product quality, focusing on functionality, reliability, usability,
-        efficiency, maintainability, and portability.
-        \item \textbf{Documentation and Testing}: Maintaining thorough documentation and
-        conducting rigorous testing to validate the tool's performance and reliability.
-    \end{itemize}
+    \item \textbf{Software Development Standards}: Adherence to recognized software development practices is essential for ensuring quality and maintainability.
+        \begin{itemize}
+            \item \textbf{SOLID Principles}: The project will follow SOLID principles—Single Responsibility, 
+            Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion—to promote clean,
+             maintainable, and scalable code.
+            \item \textbf{Documentation and Testing}: Thorough documentation will be maintained throughout 
+            development, and rigorous testing will be conducted to validate the tool's performance and reliability.
+        \end{itemize}
 
-    \item \textbf{Data Security Standards}: Protecting sensitive data requires compliance
-    with established security standards.
-    \begin{itemize}
-        \item \textbf{OWASP Guidelines}: Implementing security measures in line with the
-        Open Web Application Security Project (OWASP) guidelines to prevent common
-        vulnerabilities such as injection attacks, data breaches, and unauthorized access.
-        \item \textbf{ISO/IEC 27001 Certification}: Considering certification under the
-        ISO/IEC 27001 standard for information security management to demonstrate a
-        commitment to data security best practices.
-    \end{itemize}
 
-    \item \textbf{Accessibility Standards}: The tool should be accessible to all users,
-    including those with disabilities.
+
+    \item \textbf{Data Security Standards}: Protecting sensitive data is a priority, and although full 
+    compliance with industry security standards such as ISO/IEC 27001 may not be feasible for a student 
+    capstone project, we will take measures to ensure data security.
+        \begin{itemize}
+            \item \textbf{OWASP Guidelines}: Basic security measures will be implemented in line with the 
+            Open Web Application Security Project (OWASP) guidelines to mitigate common vulnerabilities such 
+            as injection attacks and unauthorized access.
+            \item \textbf{Secure Database Storage}: All data will be securely stored in a trusted cloud 
+            database service (e.g., AWS), utilizing built-in security features such as encryption at rest 
+            and in transit, to protect sensitive user information.
+        \end{itemize}
+
+
+    \item \textbf{Accessibility Standards}: The tool will be designed to support basic accessibility features.
     \begin{itemize}
-        \item \textbf{AODA Compliance}: Designing the user interface in accordance
-        with the \textit{Accessibility for Ontarians with Disabilities Act} (AODA) and the 
-        \textit{Integrated Accessibility Standards Regulation} (IASR) to ensure it is
-        perceivable, operable, understandable, and robust for all users.
-        \item \textbf{WCAG 2.1 Compliance}: Ensuring that the tool meets the Web Content 
-        Accessibility Guidelines (WCAG) 2.1 Level AA standards, as required under AODA.
+        \item \textbf{Screen Reader Support}: Key elements of the user interface will be made compatible with 
+        screen readers to assist visually impaired users.
+        \item \textbf{Alt Text for Images}: All images and non-text content will include descriptive alt text to 
+        improve accessibility for users relying on assistive technologies.
+        \item \textbf{Text Color Contrast}: The tool will ensure sufficient contrast between text and background 
+        colors to improve readability for users with visual impairments or color blindness.
     \end{itemize}
+        
 
     \item \textbf{Ethical AI and Machine Learning Standards}: As the tool leverages AI
     technologies, it must adhere to ethical standards in AI development.
@@ -538,11 +707,8 @@ development and data security standards.
         are transparent in their operation and that their decision-making processes can be
         explained to users.
         \item \textbf{Fairness and Non-Discrimination}: Preventing biases in the AI models
-        that could unfairly target or disadvantage any group of students.
-        \item \textbf{Canadian AI Ethical Guidelines}: Following principles outlined in the 
-        \textit{Directive on Automated Decision-Making} by the Government of Canada and 
-        guidelines from organizations such as the \textit{Canadian Institute for Advanced Research} (CIFAR) 
-        for promoting ethical considerations in AI design and deployment.
+        that could unfairly target or disadvantage any group of students. Ensuring that names
+        and other potentially discriminatory information are not used in the detection process.
     \end{itemize}
 
     \item \textbf{Data Handling and Retention Policies}: Establishing clear policies for
@@ -569,11 +735,20 @@ institutions, educators, and students alike.
 
 \section{Off-the-Shelf Solutions}
 \subsection{Ready-Made Products}
-\lips
+
+There are many ready-made tools that aim to detect source-code level plagiarism, the most well-known of which being \href{https://theory.stanford.edu/~aiken/moss/}{MOSS}. MOSS is most commonly used by professors.
+There are also a handful of open-source alternatives, including: \href{https://github.com/jplag/JPlag}{JPlag}, \href{https://dickgrune.com/Programs/similarity_tester/}{SIM}, \href{https://warwick.ac.uk/fac/sci/dcs/research/ias/software/sherlock/}{Sherlock}, and \href{https://www.cs.hut.fi/Software/Plaggie/}{Plaggie}.
+Most of them support checking of multiple languages and use a variety of techniques to improve detection rates. These tools are relatively old and are not all actively developed.
+
 \subsection{Reusable Components}
-\lips
+
+JPlag uses ANTLR 4 as a parser generator for many of its supported languages. For cross-language support, our tool can reuse JPlag's ANTLR grammar files to create language frontend parsers for each language we choose to support. Using a parser generator with pre-existing grammar files would reduce development time significantly, since the alternative would entail writing a custom parser for each supported language. By using ANTLR and JPlag's grammar files, we could feasibly support many source languages as opposed to just one, which would most likely be python (our product will be written in python, and python is capable of parsing it's own syntax tree).
+
 \subsection{Products That Can Be Copied}
-\lips
+
+The primary inspiration for our product is MOSS. Our product, similar to many others, will copy the general data pipeline of input source code. Specifically, after reading an input source code file, plagiarism checkers typically have parsing, tokenizing, and normalizing steps. This is followed by some analysis on the normalized text - \href{https://theory.stanford.edu/~aiken/publications/papers/sigmod03.pdf}{MOSS uses "Winnowing"}, an algorithm that produces local fingerprints in a piece of text.
+
+To reduce development time, we plan to copy the first step (the text preprocessing as described above) of the data pipeline implemented in MOSS. This kind of text normalization is commonly studied and there are many resources that explain implementation details.
 
 \section{New Problems}
 \subsection{Effects on the Current Environment}
@@ -596,12 +771,46 @@ Inhibit the New Product}
 
 \section{Migration to the New Product}
 \subsection{Requirements for Migration to the New Product}
-\lips
+The migration to the new code plagiarism detection system must be carefully planned and executed to ensure smooth adoption by academic institutions. The following requirements should be addressed:
+\begin{itemize}
+    \item \textbf{User Training and Support}: Provide comprehensive documentation and training materials for professors, system administrators, and students to familiarize them with the new system. This includes tutorials on how to upload code, interpret results, and resolve flagged cases.
+    \item \textbf{Phased Rollout}: Implement a phased migration plan, starting with pilot tests in a controlled environment (e.g., one course or department) before full-scale implementation across the institution.
+    \item \textbf{Data Security Compliance}: Ensure that all data migrations comply with data protection regulations, such as Canada's Privacy Act. Secure student data and ensure that no sensitive information is exposed during migration.
+    \item \textbf{System Downtime Minimization}: Plan the migration to minimize downtime and disruption to academic workflows. Ideally, the transition should occur during a break period, when student and faculty activity is low.
+\end{itemize}
 \subsection{Data That Has to be Modified or Translated for the New System}
-\lips
+For the migration to the new plagiarism detection system, certain data from the legacy systems must be modified or translated to ensure compatibility:
+\begin{itemize}
+    \item \textbf{Code Submissions}: Legacy code submissions must be translated into a format that the new system can process, especially if the old system uses proprietary formats or different programming language encoding.
+    \item \textbf{Plagiarism Reports}: Historical plagiarism reports and similarity scores from the legacy system need to be reformatted to align with the structure of the new system's reporting. This includes recalculating similarity scores if necessary.
+    \item \textbf{User Data and Permissions}: Any existing user data, including professor, student, and administrator accounts, needs to be transferred to the new system. This includes roles, permissions, and access levels.
+    \item \textbf{Configuration Data}: Settings from the old system, such as threshold scores, course configurations, and institution-specific policies, must be mapped and adjusted to fit the new system’s configuration parameters.
+    \item \textbf{Metadata and Logs}: Metadata (e.g., submission timestamps, course IDs) and system logs related to prior plagiarism checks should be preserved and transferred, ensuring transparency and continuity.
+\end{itemize}
 
 \section{Costs}
-\lips
+The costs associated with this project come from several different parts of the project.
+\begin{itemize}
+    \item Data must be acquired before training the model. The data required to
+    train the model can cost money. However, the team intends to automate
+    processes to acquire data, and thus there is no charge incurred. An unknown
+    amount of money will be needed for data if the team's method of acuiring
+    data fails.
+    \item In the training and testing phase, the model will require hardware to
+    be trained on. The team intends to use Google Co-lab and leverage the
+    hardware provided by their cloud platform. This will cost approximately 30
+    dollars for the required computation. However, if more training and testing
+    is required, more Google compute units will be used, costing more money. An
+    upper limit of 150 dollars is set, which is 5 times more than the current
+    guess. 
+    \item The front end will need to be hosted somewhere. However, free
+    alternatives exist, thus this will have no cost incurred.
+
+\end{itemize}
+In total, the project should only cost approximately 30 dollars. The cost is
+subject to change, and can increase/decrease depending on the amount of data
+needed, and the how much Google's cloud hardware is used.
+
 \section{User Documentation and Training}
 \subsection{User Documentation Requirements}
 \lips
