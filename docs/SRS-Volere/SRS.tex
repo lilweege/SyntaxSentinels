@@ -7,6 +7,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{booktabs}
+\usepackage{tikz}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \hypersetup{
@@ -321,7 +322,83 @@ while also supporting students in understanding the ethical use of code.
 
 \section{Business Data Model and Data Dictionary}
 \subsection{Business Data Model}
-\lips
+
+The following model represents the core entities and relationships involved in the plagiarism detection system. Each entity is associated with attributes that describe the properties of that entity, and relationships define how these entities interact.
+
+\begin{enumerate}
+
+    \item \textbf{Entities and Attributes}
+    
+    \begin{enumerate}
+
+        \item \textbf{User}
+        \begin{itemize}
+            \item UserID (Primary Key)
+            \item Name
+            \item Email
+            \item Role (e.g., Student, Professor)
+        \end{itemize}
+
+        \item \textbf{Dataset}
+        \begin{itemize}
+            \item DatasetID (Primary Key)
+            \item Name
+            \item DateUploaded
+            \item Format (e.g., .txt, .csv, .py)
+            \item OwnerID (Foreign Key referencing UserID)
+        \end{itemize}
+
+        \item \textbf{Analysis}
+        \begin{itemize}
+            \item AnalysisID (Primary Key)
+            \item DatasetID (Foreign Key referencing DatasetID)
+            \item DateInitiated
+            \item Status (e.g., In Progress, Complete, Failed)
+            \item Result (Plagiarism Detected: Yes/No)
+        \end{itemize}
+        
+        \item \textbf{Settings}
+        \begin{itemize}
+            \item SettingID (Primary Key)
+            \item UserID (Foreign Key referencing UserID)
+            \item Threshold (e.g., 70%)
+            \item ModelVersion (e.g., v1.2, v1.3)
+        \end{itemize}
+        
+    \end{enumerate}
+
+    \item \textbf{Relationships}
+    
+    \begin{itemize}
+        \item A \textbf{User} can upload multiple \textbf{Datasets}.
+        \item A \textbf{Dataset} is linked to one or more \textbf{Analysis} entries, representing plagiarism checks.
+        \item A \textbf{User} can customize their \textbf{Settings} for plagiarism detection.
+    \end{itemize}
+    
+\end{enumerate}
+
+\subsection{Entity-Relationship Diagram (Conceptual Model)}
+
+% This would be a diagram representing the business data model.
+% Below is a placeholder for a visual diagram in LaTeX.
+% If you have a diagram in mind, you can generate it with TikZ or use any graphical tool.
+
+\begin{center}
+\begin{tikzpicture}[node distance=3cm, every node/.style={fill=blue!30, font=\sffamily}, align=center]
+  % Entities
+  \node (User) [entity] {User};
+  \node (Dataset) [entity, right of=User] {Dataset};
+  \node (Analysis) [entity, right of=Dataset] {Analysis};
+  \node (Settings) [entity, below of=User] {Settings};
+  
+  % Relationships
+  \draw [relationship] (User) -- node[above] {Uploads} (Dataset);
+  \draw [relationship] (Dataset) -- node[above] {Analyzed By} (Analysis);
+  \draw [relationship] (User) -- node[right] {Configures} (Settings);
+  
+\end{tikzpicture}
+\end{center}
+
 \subsection{Data Dictionary}
 \lips
 
