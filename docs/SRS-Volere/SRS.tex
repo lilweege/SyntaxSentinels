@@ -403,7 +403,16 @@ There are no enterprise constraints imposed upon our project.
 \section{Naming Conventions and Terminology}
 \subsection{Glossary of All Terms, Including Acronyms, Used by Stakeholders
 involved in the Project}
-\lips
+\begin{itemize}
+    \item MOSS - Measure of Software Similarity, commonly used code plagiarism detection algorithm
+    \item NLP - Natural Language Processing, a type of model/algorithm that turns human readable text into machine readable text
+    \item GPLv3 Licence - GNU General Public Licence v3.0
+    \item AST - Abstract Syntax Tree, low level representation of code execution
+    \item AI - Artificial Intelligence
+    \item UI - User Interface, the interface the user is met with
+    \item PIPEDA - Personal Information Protection and Electronic Documents Act
+    \item ZDR - Zero Data Retention
+\end{itemize}
 
 \section{Relevant Facts And Assumptions}
 \subsection{Relevant Facts}
@@ -748,41 +757,15 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 
 \section{Security Requirements}
 \subsection{Access Requirements}
-\begin{itemize}
-    \item \textbf{Authentication}: The system shall require user authentication
-    before allowing access to the tool. Only authenticated users can upload code for comparison.
-
-    Justification - Users need to be identifiable so that they can receive their results via email and so that usage limits can be imposed upon them.
-\end{itemize}
-
+\lips
 \subsection{Integrity Requirements}
-Integrity requirements are outside the scope of this project. The system is designed to avoid storing any user data.
-Since no data is retained, data integrity is not a concern.
-
+\lips
 \subsection{Privacy Requirements}
-\begin{itemize}
-    \item \textbf{Zero Data Retention}: The system shall retain no user-uploaded data beyond the immediate need of the task.
-    Refer to section 17.2.5 for more information.
-
-    Justification - This ensures that user privacy and protects sensitive academic work from being mishandled.
-
-    \item \textbf{In Transit Encryption}: All data (including code snippets) shall be encrypted while being uploaded to or downloaded
-    from the system using secure encryption protocols.
-
-    Justification - Protecting user data during transmission ensures that it can't be intercepted by unauthorized third parties.
-\end{itemize}
-
+\lips
 \subsection{Audit Requirements}
-\begin{itemize}
-    \item \textbf{In Transit Encryption}: The system shall log all user interactions and actions (such as authentication events, code uploads, and plagiarism checks) anonymously, without storing any user-uploaded code or sensitive data.
-
-    Justification - While no user data is retained, logging system events and user actions provides a transparent way to track system usage and ensure accountability without violating the zero data retention policy.
-\end{itemize}
-
+\lips
 \subsection{Immunity Requirements}
-Immunity requirements are beyond the scope of this project. The system should not need to defend against external attacks
-beyond the security measures already in place (e.g., authentication, encryption).
-The focus of the project is on code plagiarism detection, and immunity against malicious actors is not a primary concern.
+\lips
 
 \section{Cultural Requirements}
 \subsection{Cultural Requirements}
@@ -958,33 +941,16 @@ To reduce development time, we plan to copy the first step (the text preprocessi
 
 \section{New Problems}
 \subsection{Effects on the Current Environment}
-\begin{itemize}
-    \item \textbf{Blind Trust in the Tool}: One potential issue is that users may develop a sense of over-reliance on the tool based solely on the fact that it is AI-based. This can lead to blind trust in its results. This could cause professors to forego manual checks, resuling in incorrect classifications.
-\end{itemize}
-
+\lips
 \subsection{Effects on the Installed Systems}
-There should be no new problems for users of this tool since they don't need to install any software on their local machines. The tool's interface is accessed by a web browser, and the processing happens on the server side.
-
+\lips
 \subsection{Potential User Problems}
-\begin{itemize}
-    \item \textbf{Difficulty with the New UI}: Some users may struggle to navigate the new UI, resulting in misuse of the tool. Additionally, some settings may not be known by the user and left at their default value, which may cause confusion or result in worse detection rate.
-
-    \item \textbf{Misinterpretation of Results}: Users may incorrectly interpret the significance of the results provided by the tool. For instance, a high similarity score might be misinterpreted as definitive proof of plagiarism when there could be legitimate reasons for the similarity, such as the use of common libraries or design patterns.
-\end{itemize}
-
-\subsection{Limitations in the Anticipated Implementation Environment That May Inhibit the New Product}
-\begin{itemize}
-    \item \textbf{Limited Compute Power Causing Delays}: If the system is deployed in environments with limited computational resources, such as local servers with insufficient processing power or memory, users may experience longer waiting times for results. Additionally, high computational demands may overload the system during peak usage times, also resulting in longer waiting times.
-\end{itemize}
-
+\lips
+\subsection{Limitations in the Anticipated Implementation Environment That May
+Inhibit the New Product}
+\lips
 \subsection{Follow-Up Problems}
-\begin{itemize}
-    \item \textbf{Server Maintenance and Costs}: Long-term maintenance of the server infrastructure could present challenges, including server downtime, performance degradation, and increasing operational costs as more users adopt the system. Costs related to server hosting, cloud processing, and ensuring uptime can grow as demand increases.
-    
-    \item \textbf{Model Upgrades and Performance Regressions}: Updating or training new models may introduce performance regressions or unexpected behavior in the plagiarism detection system. For example, a newer model may detect plagiarism more accurately but at the cost of higher processing times or an increase in false positives.
-\end{itemize}
-
-
+\lips
 
 \section{Tasks}
 \subsection{Project Planning}
