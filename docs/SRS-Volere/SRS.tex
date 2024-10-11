@@ -7,6 +7,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{booktabs}
+\usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage{longtable}
@@ -484,9 +485,103 @@ while also supporting students in understanding the ethical use of code.
 
 \section{Business Data Model and Data Dictionary}
 \subsection{Business Data Model}
-\lips
+\includegraphics[height=.58\textheight]{./assets/UML.png}
 \subsection{Data Dictionary}
-\lips
+
+\textbf{Enums}
+
+\textbf{language}: Represents the programming language used in a code snippet.
+\begin{itemize}
+    \item \textbf{Values}:
+    \begin{itemize}
+        \item \texttt{python}
+        \item \texttt{java}
+        \item \texttt{C}
+    \end{itemize}
+\end{itemize}
+
+\textbf{Classes}
+
+\textbf{CodeSnippet}: Represents the code snippet submitted by a user.
+\begin{itemize}
+    \item \textbf{Attributes}:
+    \begin{itemize}
+        \item \texttt{content: String} -- The actual content of the code.
+        \item \texttt{languageType: language} -- The programming language used, selected from the \texttt{language} enum.
+        \item \texttt{submissionTime: String} -- The timestamp when the code was submitted.
+    \end{itemize}
+    \item \textbf{Relationships}:
+    \begin{itemize}
+        \item A \texttt{User} can submit multiple \texttt{CodeSnippet} objects (1-to-many relationship).
+        \item Each \texttt{CodeSnippet} generates exactly one \texttt{ParsedCode} (1-to-1 relationship).
+    \end{itemize}
+\end{itemize}
+
+\textbf{ParsedCode}: Represents the parsed structure of a code snippet for analysis.
+\begin{itemize}
+    \item \textbf{Attributes}:
+    \begin{itemize}
+        \item \texttt{parsedStructure: Token[]} -- An array of tokens that represents the parsed structure of the code. Note: the actual structure of tokens hasn't been determined yet.
+    \end{itemize}
+    \item \textbf{Relationships}:
+    \begin{itemize}
+        \item Each \texttt{CodeSnippet} is associated with exactly one \texttt{ParsedCode}.
+        \item Each \texttt{ParsedCode} generates exactly one \texttt{PlagiarismResult} (1-to-1 relationship).
+    \end{itemize}
+\end{itemize}
+
+\textbf{PlagiarismResult}: Represents the outcome of the plagiarism detection process.
+\begin{itemize}
+    \item \textbf{Attributes}:
+    \begin{itemize}
+        \item \texttt{timeStamp: String} -- The timestamp of when the plagiarism result was generated.
+        \item \texttt{similarityScore: Float} -- The similarity score between the code snippet and other submissions.
+    \end{itemize}
+    \item \textbf{Relationships}:
+    \begin{itemize}
+        \item A \texttt{ParsedCode} generates exactly one \texttt{PlagiarismResult} (1-to-1 relationship).
+        \item A \texttt{PlagiarismResult} can be part of one \texttt{ResultPackage} (many-to-one relationship).
+    \end{itemize}
+\end{itemize}
+
+\textbf{ResultPackage}: Represents a zipped file that contains one or more plagiarism results, which can be sent via email.
+\begin{itemize}
+    \item \textbf{Attributes}:
+    \begin{itemize}
+        \item \texttt{fileName: String} -- The name of the result package file.
+        \item \texttt{fileSize: Float} -- The size of the result package file.
+        \item \texttt{timeStamp: String} -- The timestamp of when the result package was generated.
+    \end{itemize}
+    \item \textbf{Relationships}:
+    \begin{itemize}
+        \item A \texttt{User} can receive multiple \texttt{ResultPackages} (1-to-many relationship).
+        \item Each \texttt{ResultPackage} can include multiple \texttt{PlagiarismResult} objects.
+    \end{itemize}
+\end{itemize}
+
+\textbf{User}: Represents a user of the system, such as a professor or student.
+\begin{itemize}
+    \item \textbf{Attributes}:
+    \begin{itemize}
+        \item \texttt{email: String} -- The email address of the user.
+    \end{itemize}
+    \item \textbf{Relationships}:
+    \begin{itemize}
+        \item A \texttt{User} can submit multiple \texttt{CodeSnippet} objects (1-to-many relationship).
+        \item A \texttt{User} can receive multiple \texttt{ResultPackages} (1-to-many relationship).
+    \end{itemize}
+\end{itemize}
+
+\textbf{Relationships Overview}
+\begin{itemize}
+    \item \texttt{User} submits multiple \texttt{CodeSnippets} (1-to-many).
+    \item \texttt{CodeSnippet} is parsed into exactly one \texttt{ParsedCode} (1-to-1).
+    \item \texttt{ParsedCode} generates exactly one \texttt{PlagiarismResult} (1-to-1).
+    \item \texttt{PlagiarismResult} can be part of one \texttt{ResultPackage} (many-to-one).
+    \item \texttt{User} receives multiple \texttt{ResultPackages} (1-to-many).
+\end{itemize}
+
+
 
 \section{The Scope of the Product}
 \subsection{Product Boundary}
