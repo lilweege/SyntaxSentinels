@@ -537,16 +537,25 @@ while also supporting students in understanding the ethical use of code.
 \section{Functional Requirements}
 \subsection{Functional Requirements}
 \begin{itemize}
-    \item The system will take in code snippets as inputs
-    \item The system must parse the input into a format that can be fed into a model for interpretation
-    \item The system will leverage known natural language processing techniques to handle inputs
-    \item The system will process the formatted input to provide a verdict on the presence of plagiarism as output
-    \item The system must generate clear and concise outputs to indicate plagiarism
-    \item The system's outputs should provide explanations on how to interpret output
-    \item The system will allow users to create an account with an email and password
-    \item The system will allow users to sign into their account with their email and password
-    \item The system will send an email of the results in a .zip folder to a designated email address
-    \item Users will be able to upload .zip folders of previous results to display the results on the interface
+    \item The system shall take in code snippets as inputs
+    \item The system shall output similarity scores alongside thresholds 
+    that indicate whether or not plagiarism is present within input
+    \item The system shall be able to output documentation explaining
+    how to interpret any other output (guide document)
+    \item The system shall allow code snippets to be flagged after similarity
+    scores and thresholds are generated
+    \item The system shall provide a set of similarity scores for all code 
+    snippet pairings
+    \item The system shall allow a report to be created after scores and 
+    thresholds are generated that summarizes all system outputs 
+    \item The system will allow users to create an account with an email 
+    and password
+    \item The system will allow users to sign into a created account with 
+    their email and password
+    \item The system shall be able to email all outputs as a .zip folder 
+    to an email selected by user
+    \item System shall be able to visualize .zip folder containing its outputs
+    uploaded by user on user interface
 \end{itemize}
 
 \section{Look and Feel Requirements}
