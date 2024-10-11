@@ -962,9 +962,173 @@ There should be no new problems for users of this tool since they don't need to 
 
 \section{Tasks}
 \subsection{Project Planning}
-\lips
+\begin{enumerate}
+    \item \textbf{Hazard Analysis (October 12 - October 23)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} This document identifies potential risks or hazards in the project, assesses their severity,
+         and proposes mitigations. It is important for ensuring safety and compliance with standards.
+        \item \textbf{Story Points:} 12 days
+        \item \textbf{Tasks:} Brainstorming hazards, analysis, and review.
+    \end{itemize}
+
+    \item \textbf{V\&V Plan (Revision 0) (October 24 - November 1)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} The Verification and Validation (V\&V) plan outlines the strategy for ensuring that the system
+         is both built correctly and performs as intended. It covers the methods and resources required for testing.
+        \item \textbf{Story Points:} 7 days
+        \item \textbf{Tasks:} Define tests, acceptance criteria, and procedures for verification and validation.
+    \end{itemize}
+
+    \item \textbf{Prep for Proof of Concept Demonstration (November 2 – November 11)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} Preparation for a demonstration showing that the core concepts of the system are feasible. 
+        It typically involves implementing and testing essential features and preparing to showcase them to stakeholders.
+        \item \textbf{Story Points:} 10 day
+        \item \textbf{Tasks:} Development of key features and preparation for the demo.
+    \end{itemize}
+
+    \item \textbf{Proof of Concept Demonstration (TBD)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} A demonstration showing that the core concepts of the system are feasible. This involves 
+        implementing and testing essential features and demonstrating them to stakeholders.
+        \item \textbf{Story Points:} 1 day
+        \item \textbf{Tasks:} Execution and presentation of the demo.
+    \end{itemize}
+
+    \item \textbf{Design Document (Revision 0) (November 23 - January 15)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} This document outlines the architecture, components, data flow, and design decisions for the system. 
+        It serves as a blueprint for the development team.
+        \item \textbf{Story Points:} 7 days
+        \item \textbf{Tasks:} Detailed system design, architecture planning, and review.
+    \end{itemize}
+
+    \item \textbf{Prep for Revision 0 Demonstration (January 16 – February 3)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} Preparation for the Revision 0 Demo, which demonstrates functionality that meets the initial design and requirements.
+        \item \textbf{Story Points:} 8 days
+        \item \textbf{Tasks:} Prepare, refine, and finalize core product features.
+    \end{itemize}
+
+    \item \textbf{Revision 0 Demonstration (Date: TBD)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} A demonstration of the system after the first iteration, showing functionality that meets the initial design and requirements.
+        \item \textbf{Story Points:} 1 day
+        \item \textbf{Tasks:} Present the system, showcase its core features.
+    \end{itemize}
+
+    \item \textbf{V\&V Report (Revision 0) (February 15 - March 7)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} This documents the process of verifying that the system meets its functional and nonfunctional requirements and validating that 
+        the system performs as intended. It includes the evaluation of both functional and nonfunctional requirements, details of unit testing, automated testing, and code 
+        coverage metrics. The report also highlights any changes made due to testing and traces these changes back to both requirements and modules. Comparisons to existing 
+        implementations are provided, where applicable.
+        \item \textbf{Story Points:} 5 days
+        \item \textbf{Tasks:} Collect results, analyze tests, and create the report.
+    \end{itemize}
+
+    \item \textbf{Final Demonstration (Revision 1) (Date: TBD)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} A final demonstration showcasing the complete system. By this stage, the system should be fully functional, meeting all requirements and passing validation.
+        \item \textbf{Story Points:} 10 days
+        \item \textbf{Tasks:} Ensure all components work seamlessly and prepare the final demo.
+    \end{itemize}
+
+    \item \textbf{EXPO Demonstration (April TBD)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} This is a public or stakeholder-facing presentation of the system, potentially at an event or exhibition. The focus is on clear communication and showcasing the system’s capabilities.
+        \item \textbf{Story Points:} 7 days
+        \item \textbf{Tasks:} Practice, setup, and running the demo smoothly.
+    \end{itemize}
+
+    \item \textbf{Final Documentation (Revision 1) (Due: April 2)}
+    \begin{itemize}
+        \item \textbf{High-Level Description:} This is the comprehensive final documentation, which includes all deliverables like the problem statement, development plan, POC plan, requirements document, design, and more.
+        \item \textbf{Story Points:} 12 days
+        \item \textbf{Tasks:} Complete, revise, and polish all components of the documentation.
+    \end{itemize}
+
+\end{enumerate}
 \subsection{Planning of the Development Phases}
-\lips
+\section*{Phase 1: Proof of Concept (Oct 12 - Nov 11)}
+\begin{itemize}
+    \item \textbf{Model Development:}
+    \begin{itemize}
+        \item Story Points: 30 days
+        \item Concentrate on training and evaluating the plagiarism detection model. Experiment with various algorithms and techniques.
+        \item Weekly Iterations: Regularly assess model performance, making adjustments based on results. Document findings and refine methods to enhance the model's accuracy.
+    \end{itemize}
+\end{itemize}
+
+\section*{Phase 2: Initial System Design and UI Development (Nov 12 - Feb 3)}
+\begin{itemize}
+    \item \textbf{Model Development:}
+    \begin{itemize}
+        \item Story Points: 30 days
+        \item Continue refining the model based on insights from the POC. Prepare the model for integration with the overall system architecture.
+        \item Mid-January: Finalize the model for production use.
+    \end{itemize}
+
+    \item \textbf{UI Development:}
+    \begin{itemize}
+        \item Begin designing the user interface. Focus on mockups and user experience workflows based on expected model outputs.
+        \item Weekly Check-Ins: Collaborate with the model development team to ensure UI designs align with the model's capabilities and outputs.
+        \item \textbf{Tasks and Duration:}
+
+        \begin{tabular}{|>{\raggedright}p{4cm}|c|c|}
+            \hline
+            \textbf{Task} & \textbf{Estimated Days} & \textbf{Notes} \\
+            \hline
+            Account Creation UI & 2 & Interface for user registration \\
+            Comparison UI & 20 & Displaying similarity results \\
+            Report Generation UI & 10 & Generating and downloading reports \\
+            \hline
+        \end{tabular}
+    \end{itemize}
+
+    \item \textbf{Unit and Integration Testing:}
+    \begin{itemize}
+        \item Story points: 5 days
+        \item Conduct unit and integration tests between the finalized model and the backend components. Ensure data flow and output processing are functioning correctly.
+    \end{itemize}
+\end{itemize}
+
+\section*{Phase 3: Final Completion (Feb 4 - Mar 24)}
+\begin{itemize}
+    \item \textbf{Final Model Tweaks:}
+    \begin{itemize}
+        \item Make any last-minute adjustments to the model based on integration testing feedback.
+    \end{itemize}
+
+    \item \textbf{Backend Development:}
+    \begin{itemize}
+        \item Develop the backend infrastructure, including user account management and result delivery systems.
+        \item \textbf{Tasks and Duration:}
+
+        \begin{tabular}{|>{\raggedright}p{4cm}|c|c|}
+            \hline
+            \textbf{Task} & \textbf{Estimated Days} & \textbf{Notes} \\
+            \hline
+            Account Management & 1 & Handling user registrations and logins \\
+            Similarity Processing & 14 &  Processing model outputs for similarity scores \\
+            Report Generation & 7 & Generating reports based on model output \\
+            Report Delivery & 4 & Sending reports via email \\
+            \hline
+        \end{tabular}
+    \end{itemize}
+
+    \item \textbf{UI Finalization:}
+    \begin{itemize}
+        \item Story points: 10 days
+        \item Finalize the UI based on integration testing results and feedback from the model. Ensure all user functionalities are ready for testing.
+    \end{itemize}
+
+    \item \textbf{Final Testing and Debugging:}
+    \begin{itemize}
+        \item Story points: 10 days
+        \item Conduct comprehensive testing of the entire system, focusing on functionality, performance, and user experience. Address any bugs and finalize documentation.
+    \end{itemize}
+\end{itemize}
 
 \section{Migration to the New Product}
 \subsection{Requirements for Migration to the New Product}
