@@ -9,6 +9,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{longtable}
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
       colorlinks=true,      % false: boxed links; true: colored links
@@ -18,6 +19,9 @@
     urlcolor=cyan           % color of external links
 }
 
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
 \newcommand{\lips}{\textit{Insert your content here.}}
 
 \input{../Comments}
@@ -53,10 +57,169 @@ October 9 & 1.0 & First iteration of complete document\\
 
 ~\newpage
 \section{Purpose of the Project}
-\subsection{User Business}
-\lips
+\subsection{User Business (Cases)}
+
+The purpose of the project is first and foremost illustrated through the 
+fulfillment of use cases our stakeholders are interested. These use cases
+and associated stakeholder interest are stated below.
+
+\begin{enumerate}
+
+    \item \textbf{Plagiarism Assessment}
+
+    \begin{enumerate}
+
+        \item user selects option from main UI screen to provide dataset for scanning
+
+        \item user is prompted to provide dataset
+        \begin{enumerate}
+            \item user inserts data from their computer
+
+            \item user cancels and is sent back to main UI screen (1.1 continues)
+        \end{enumerate}
+
+        \item user initiates analysis and progress indicator appears
+
+        \begin{enumerate}
+            \item error occurs during analysis and user is prompted to restart or cancels
+
+            \begin{enumerate}
+                \item user selects to restart analysis (1.3 continues)
+
+                \item user cancels and returns to main UI (1.1 continues)
+
+            \end{enumerate}
+
+            \item progress bar completes and success message is displated (proceeds to 1.4)
+        \end{enumerate}
+
+        \item system provides results in a UI display accompanied by option to download result or return to main UI
+
+        \begin{enumerate}
+            \item user selects download option
+
+            \begin{enumerate}
+                \item download fails accompanied by error message (continues from 1.4)
+
+                \item download succeeds and system provides dialogue to check for download after which user returns to main UI
+
+            \end{enumerate}
+        \end{enumerate}
+        
+        \item system has provided result of analysis
+        
+    \end{enumerate}
+
+    Stakeholder Interest: meets desire to gain direction on whether or not plagiarism has occurred within their environment
+
+    \newpage
+
+    \item \textbf{Plagiarism Detector Adjustment}
+
+    \begin{enumerate}
+        \item user selects option from main UI to open settings for app
+
+        \item user can adjust threshold used for detection, and possibly other components such as version of model architecture used (not confirmed at the moment)
+
+        \item user saves settings through UI provided option
+
+        \begin{enumerate}
+
+            \item System displays setting changes are saved, displaying success message, prompting whether user desires to continue or not
+
+            \begin{enumerate}
+
+                \item user selects to continue (2.2 continues)
+
+                \item user selects to finish (2.4 continues)
+
+            \end{enumerate}
+
+            \item System displays setting changes did not save and provides dialogue to determine error, giving option to try again or return to main UI 
+
+            \begin{enumerate}
+
+                \item user selects to try again (2.2 continues)
+
+                \item user selects to return to main UI (2.1 continues)
+
+            \end{enumerate}
+        
+        \end{enumerate}
+
+        \item system maintains settings and applies them for functions until application restart
+
+    \end{enumerate}
+
+    Stakeholder Interest: allows all stakeholders to cater app more towards their particular problem.
+
+\end{enumerate}
 \subsection{Goals of the Project}
-\lips
+
+\begin{center}
+    % \hspace*{-1cm}
+    \begin{longtable}{ | p{3cm} | p{6cm} | p{6cm} | }
+    \hline
+    Goal & Explanation & Reason \\
+    \hline
+    Ease of Use & Detector has an intuitive way to insert data and obtain results &
+    This application is expected to be used as a secondary tool for
+    teachers/professors when administering assignments. It should not require
+    in-depth learning, or it will be too inconvenient as an assistant tool for
+    detecting plagiarism. (Measured by actions to complete analysis)\\
+    \hline
+    Clarity of Output & Detector explains how to interpret outputs clearly, leaving
+    no ambiguity in whether plagiarism is suspected & If the user does not
+    comprehend the output, it may result in unjust accusations or undetected
+    plagiarism. (Measured by lines of description or number of users who correctly
+    interpret output)\\
+    \hline
+    Real-Time Processing & The detector computes results on a dataset of code
+    snippets quickly, enabling professors to incorporate them into evaluations &
+    Since multiple assignments are administered over several weeks, the detector
+    must be fast enough to be realistic for daily use. (Measured by execution
+    time)\\
+    \hline
+    False Positive Accuracy & The detector prioritizes minimizing false positives over
+    false negatives & In this case, a false positive could cause harm to an innocent
+    student, while a false negative allows a violation to go unnoticed. The focus is
+    on protecting innocent students. (Measured by false positives and negatives
+    using recall, precision, etc.)\\
+    \hline
+    Ethically Sourced Data & The detector uses only data that openly discloses its 
+    origins and all data used for the detector is stated for all to see. & In 
+    modern ML development, it has become a hot topic for how models get their data.
+    This is because many modern models have used datasets that contain information
+    that was taken from individuals without consent (such as pieces of art). It is
+    important to our team to make it clear this is not precedent and that 
+    individuals should have clear consent in being used for training models. 
+    (Measured by having accreditation for datasets involved in training)\\
+    \hline
+    \end{longtable}
+    \end{center}
+    
+    
+    \begin{center}
+      \hspace*{-1cm}
+      \begin{tabular}{ 
+        | p{3cm} 
+        | p{6cm} 
+        | p{6cm} | }
+      \hline
+       Stretch Goal & 
+      Explanation & 
+      Reason \\
+      \hline
+      Online Learning & 
+      Provide ability for user to train model on their own datasets. & 
+      Without a sufficiently large amount of data to train on (more than will be seen over the duration of 8 months), the model will be biased to a degree and not as widely applicable to different sets of code. If the detector is given the ability to be trained by the user, they can better customize it for their own needs (measure is whether or not the user can change conduct training)\\
+      \hline
+      Language Agnostic & 
+      The detector can analyze code from a multitude of languages & 
+      Having a detector that can draw patterns across different languages will make it adoptable by a wider set of professors who may conduct courses in less popular languages that our detector may have not dealt with at all before. If the detector is restrained to languages such as python or java, we will alienate some of our primary stakeholders.\\
+      \hline
+      \end{tabular}
+      \end{center}
 
 \section{Stakeholders}
 
@@ -136,8 +299,8 @@ updates to the system.
     \hline
     \textbf{Constraint}   & \textbf{Rationale} \\
     \hline
-    Our product shall not retain any user data. &
-    We should comply with privacy laws regarding storage of sensitive or confidential information. \\
+    Our product shall follow a zero data retention policy. &
+    We should comply with privacy laws regarding storage of sensitive information. \\
     \hline
     \end{tabular}
     % \caption{}
@@ -252,7 +415,7 @@ involved in the Project}
 \end{itemize}
 \subsection{Business Rules}
 \begin{itemize}
-  \item The system must ensure compliance with data protection regulations, such as GDPR, by securing student data, anonymizing it when possible, and minimizing unnecessary data retention.
+  \item The system must ensure compliance with data protection regulations by following a zero data retention policy.
   \item The similarity threshold for flagging plagiarism should be customizable by the institution or professor, allowing flexibility based on course policies.
   \item False positives (e.g., common code patterns) should be minimized, with options for professors to override flagged instances and manually validate the results.
   \item The system must be scalable to accommodate large datasets and multiple users submitting code for comparison at the same time.
@@ -342,6 +505,10 @@ while also supporting students in understanding the ethical use of code.
     \item The system will process the formatted input to provide a verdict on the presence of plagiarism as output
     \item The system must generate clear and concise outputs to indicate plagiarism
     \item The system's outputs should provide explanations on how to interpret output
+    \item The system will allow users to create an account with an email and password
+    \item The system will allow users to sign into their account with their email and password
+    \item The system will send an email of the results in a .zip folder to a designated email address
+    \item Users will be able to upload .zip folders of previous results to display the results on the interface
 \end{itemize}
 
 \section{Look and Feel Requirements}
@@ -454,8 +621,6 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \begin{itemize}
     \item The system must avoid false positives to protect students from wrongful accusations. 
     \item A manual override option for professors must exist to prevent automatic accusations solely based on the model.
-    \item Detected plagiarism must be recorded for future use such as appeals.
-    \item Detected plagiarism must be stored in our database for future use such as appeals.
 \end{itemize}
 \subsection{Precision or Accuracy Requirements}
 \begin{itemize}
@@ -470,7 +635,6 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \begin{itemize}
     \item The system should be able to handle batches of inputs without significant delays.
     \item The system should be able to handle batches of inputs without the total processing time exceeding 60 seconds.
-    \item The system should be able to store a large amount of reports for later review.
 \end{itemize}
 \subsection{Scalability or Extensibility Requirements}
 \begin{itemize}
@@ -683,9 +847,6 @@ development and data security standards.
             \item \textbf{OWASP Guidelines}: Basic security measures will be implemented in line with the 
             Open Web Application Security Project (OWASP) guidelines to mitigate common vulnerabilities such 
             as injection attacks and unauthorized access.
-            \item \textbf{Secure Database Storage}: All data will be securely stored in a trusted cloud 
-            database service (e.g., AWS), utilizing built-in security features such as encryption at rest 
-            and in transit, to protect sensitive user information.
         \end{itemize}
 
 
@@ -714,8 +875,9 @@ development and data security standards.
     \item \textbf{Data Handling and Retention Policies}: Establishing clear policies for
     how data is managed throughout its lifecycle.
     \begin{itemize}
-        \item \textbf{Retention Limits}: Defining how long code submissions and related
-        data will be stored, in compliance with PIPEDA, FIPPA, and institutional policies.
+        \item \textbf{Zero Data Retention}: No user data will be retained beyond the immediate needs of the task.
+        All user-uploaded data will be immediately loaded into memory and subsequently removed from disk as soon
+        as the task is finished.
         \item \textbf{Secure Disposal}: Implementing procedures for the secure deletion or
         anonymization of data that is no longer needed.
         \item \textbf{Audit and Compliance}: Regularly auditing data handling practices to
@@ -731,8 +893,26 @@ institutions, educators, and students alike.
 
 
 \section{Open Issues}
-\lips
+\subsection{System Design Uncertainty}
+\begin{itemize}
+    \item How the integration of the Natural Language Processing (NLP) model with the code submission system will work. Such as choosing what NLP model to use, how to train it, and where to host it.
+    \item Selecting the most appropriate techniques for semantic code analysis, such as Abstract Syntax Trees (ASTs) or vector embeddings.
+    \item Deciding on how the model will handle false positives, especially common coding patterns, to avoid misclassification. Example. students using the same code snippets from a tutorial.
+\end{itemize}
 
+\subsection {Data Collection Challenges}
+\begin{itemize}
+    \item While the project mentions scraping datasets from online programming contests and using pre-labeled datasets, 
+    there could be issues with data availability, quality, or ensuring that the data accurately reflects real-world usage.
+\end{itemize}
+
+\subsection {Scalability Concerns}
+\begin{itemize}
+    \item Ensuring the system remains performant when processing large batches of submissions within the 10-minute processing time goal. 
+    Handling larger academic institutions with potentially thousands of submissions may challenge the current system's capacity requirements
+    \item  Given the limited budget for cloud compute units, it may be challenging to balance performance improvements with cost constraints. 
+    If training processes requires more resources than anticipated, costs could quickly escalate.
+\end{itemize}
 \section{Off-the-Shelf Solutions}
 \subsection{Ready-Made Products}
 
@@ -775,17 +955,16 @@ The migration to the new code plagiarism detection system must be carefully plan
 \begin{itemize}
     \item \textbf{User Training and Support}: Provide comprehensive documentation and training materials for professors, system administrators, and students to familiarize them with the new system. This includes tutorials on how to upload code, interpret results, and resolve flagged cases.
     \item \textbf{Phased Rollout}: Implement a phased migration plan, starting with pilot tests in a controlled environment (e.g., one course or department) before full-scale implementation across the institution.
-    \item \textbf{Data Security Compliance}: Ensure that all data migrations comply with data protection regulations, such as Canada's Privacy Act. Secure student data and ensure that no sensitive information is exposed during migration.
+    \item \textbf{Data Security Compliance}: Ensure that all data migrations comply with data protection regulations, such as Canada's Privacy Act.
     \item \textbf{System Downtime Minimization}: Plan the migration to minimize downtime and disruption to academic workflows. Ideally, the transition should occur during a break period, when student and faculty activity is low.
 \end{itemize}
 \subsection{Data That Has to be Modified or Translated for the New System}
 For the migration to the new plagiarism detection system, certain data from the legacy systems must be modified or translated to ensure compatibility:
 \begin{itemize}
     \item \textbf{Code Submissions}: Legacy code submissions must be translated into a format that the new system can process, especially if the old system uses proprietary formats or different programming language encoding.
-    \item \textbf{Plagiarism Reports}: Historical plagiarism reports and similarity scores from the legacy system need to be reformatted to align with the structure of the new system's reporting. This includes recalculating similarity scores if necessary.
-    \item \textbf{User Data and Permissions}: Any existing user data, including professor, student, and administrator accounts, needs to be transferred to the new system. This includes roles, permissions, and access levels.
+    \item \textbf{User Permissions}: Any user and administrator accounts need to be transferred to the new system. This includes roles, permissions, and access levels.
     \item \textbf{Configuration Data}: Settings from the old system, such as threshold scores, course configurations, and institution-specific policies, must be mapped and adjusted to fit the new system’s configuration parameters.
-    \item \textbf{Metadata and Logs}: Metadata (e.g., submission timestamps, course IDs) and system logs related to prior plagiarism checks should be preserved and transferred, ensuring transparency and continuity.
+    \item \textbf{Metadata and Logs}: Metadata (e.g., anonymous submission timestamps, course IDs) and system logs related to prior plagiarism checks should be preserved and transferred, ensuring transparency and continuity.
 \end{itemize}
 
 \section{Costs}
