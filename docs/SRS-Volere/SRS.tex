@@ -748,15 +748,41 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 
 \section{Security Requirements}
 \subsection{Access Requirements}
-\lips
+\begin{itemize}
+    \item \textbf{Authentication}: The system shall require user authentication
+    before allowing access to the tool. Only authenticated users can upload code for comparison.
+
+    Justification - Users need to be identifiable so that they can receive their results via email and so that usage limits can be imposed upon them.
+\end{itemize}
+
 \subsection{Integrity Requirements}
-\lips
+Integrity requirements are outside the scope of this project. The system is designed to avoid storing any user data.
+Since no data is retained, data integrity is not a concern.
+
 \subsection{Privacy Requirements}
-\lips
+\begin{itemize}
+    \item \textbf{Zero Data Retention}: The system shall retain no user-uploaded data beyond the immediate need of the task.
+    Refer to section 17.2.5 for more information.
+
+    Justification - This ensures that user privacy and protects sensitive academic work from being mishandled.
+
+    \item \textbf{In Transit Encryption}: All data (including code snippets) shall be encrypted while being uploaded to or downloaded
+    from the system using secure encryption protocols.
+
+    Justification - Protecting user data during transmission ensures that it can't be intercepted by unauthorized third parties.
+\end{itemize}
+
 \subsection{Audit Requirements}
-\lips
+\begin{itemize}
+    \item \textbf{In Transit Encryption}: The system shall log all user interactions and actions (such as authentication events, code uploads, and plagiarism checks) anonymously, without storing any user-uploaded code or sensitive data.
+
+    Justification - While no user data is retained, logging system events and user actions provides a transparent way to track system usage and ensure accountability without violating the zero data retention policy.
+\end{itemize}
+
 \subsection{Immunity Requirements}
-\lips
+Immunity requirements are beyond the scope of this project. The system should not need to defend against external attacks
+beyond the security measures already in place (e.g., authentication, encryption).
+The focus of the project is on code plagiarism detection, and immunity against malicious actors is not a primary concern.
 
 \section{Cultural Requirements}
 \subsection{Cultural Requirements}
