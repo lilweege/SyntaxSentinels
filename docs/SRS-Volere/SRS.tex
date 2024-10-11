@@ -932,22 +932,31 @@ To reduce development time, we plan to copy the first step (the text preprocessi
 
 \section{New Problems}
 \subsection{Effects on the Current Environment}
-- Blind trust in the tool because "AI" cause professors to not manually check results
+\begin{itemize}
+    \item \textbf{Blind Trust in the Tool}: One potential issue is that users may develop a sense of over-reliance on the tool based solely on the fact that it is AI-based. This can lead to blind trust in its results. This could cause professors to forego manual checks, resuling in incorrect classifications.
+\end{itemize}
 
 \subsection{Effects on the Installed Systems}
-- Users might host their own instance of the server for data privacy reasons
+There should be no new problems for users of this tool since they don't need to install any software on their local machines. The tool's interface is accessed by a web browser, and the processing happens on the server side.
 
 \subsection{Potential User Problems}
-- Not knowing how to use the new UI
-- Incorrect interpretation / poor understanding of result signifigance
+\begin{itemize}
+    \item \textbf{Difficulty with the New UI}: Some users may struggle to navigate the new UI, resulting in misuse of the tool. Additionally, some settings may not be known by the user and left at their default value, which may cause confusion or result in worse detection rate.
 
-\subsection{Limitations in the Anticipated Implementation Environment That May
-Inhibit the New Product}
-- Must follow data privacy laws regarding data retention ???
+    \item \textbf{Misinterpretation of Results}: Users may incorrectly interpret the significance of the results provided by the tool. For instance, a high similarity score might be misinterpreted as definitive proof of plagiarism when there could be legitimate reasons for the similarity, such as the use of common libraries or design patterns.
+\end{itemize}
+
+\subsection{Limitations in the Anticipated Implementation Environment That May Inhibit the New Product}
+\begin{itemize}
+    \item \textbf{Limited Compute Power Causing Delays}: If the system is deployed in environments with limited computational resources, such as local servers with insufficient processing power or memory, users may experience longer waiting times for results. Additionally, high computational demands may overload the system during peak usage times, also resulting in longer waiting times.
+\end{itemize}
 
 \subsection{Follow-Up Problems}
-- Server maintenance and costs
-- Upgrading or training new models might cause performance regressions
+\begin{itemize}
+    \item \textbf{Server Maintenance and Costs}: Long-term maintenance of the server infrastructure could present challenges, including server downtime, performance degradation, and increasing operational costs as more users adopt the system. Costs related to server hosting, cloud processing, and ensuring uptime can grow as demand increases.
+    
+    \item \textbf{Model Upgrades and Performance Regressions}: Updating or training new models may introduce performance regressions or unexpected behavior in the plagiarism detection system. For example, a newer model may detect plagiarism more accurately but at the cost of higher processing times or an increase in false positives.
+\end{itemize}
 
 
 
