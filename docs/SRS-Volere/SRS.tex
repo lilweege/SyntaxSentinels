@@ -487,7 +487,6 @@ while also supporting students in understanding the ethical use of code.
 \subsection{Business Data Model}
 \includegraphics[height=.58\textheight]{./assets/UML.png}
 \subsection{Data Dictionary}
-\section{Data Dictionary}
 
 \textbf{Enums}
 
@@ -517,7 +516,7 @@ while also supporting students in understanding the ethical use of code.
     \item \textbf{Attributes}:
     \begin{itemize}
         \item \texttt{content: String} -- The actual content of the code.
-        \item \texttt{languageType: language} -- The programming language used, selected from the \texttt{language} enumeration.
+        \item \texttt{languageType: language} -- The programming language used, selected from the \texttt{language} enum.
         \item \texttt{submissionTime: String} -- The timestamp when the code was submitted.
     \end{itemize}
     \item \textbf{Relationships}:
@@ -531,7 +530,7 @@ while also supporting students in understanding the ethical use of code.
 \begin{itemize}
     \item \textbf{Attributes}:
     \begin{itemize}
-        \item \texttt{parsedStructure: Token[]} -- An array of tokens that represents the parsed structure of the code. Note: the actual structure of tokens is still to be determined.
+        \item \texttt{parsedStructure: Token[]} -- An array of tokens that represents the parsed structure of the code. Note: the actual structure of tokens hasn't been determined yet.
     \end{itemize}
     \item \textbf{Relationships}:
     \begin{itemize}
@@ -591,6 +590,7 @@ while also supporting students in understanding the ethical use of code.
     \item \texttt{PlagiarismResult} can be part of one \texttt{ResultPackage} (many-to-one).
     \item \texttt{User} receives multiple \texttt{ResultPackages} (1-to-many).
 \end{itemize}
+
 
 
 \section{The Scope of the Product}
