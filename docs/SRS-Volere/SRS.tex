@@ -660,11 +660,91 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 
 \section{Maintainability and Support Requirements}
 \subsection{Maintenance Requirements}
-\lips
+\begin{itemize}
+    \item \textbf{Versioning}: keep track of and store model versions to allow
+     switches between experimental models and previous versions (metric is 
+     version history exists).
+
+    Justification: Gives ability to work on separate model architectures to try 
+    improvements in different directions as well as rollback on model releases 
+    if something goes wrong as well as provide experimental releases.
+    
+    \item \textbf{Metric Reports}: every model release shall be accompanied by 
+    a report of metrics decided upon to track model performance (metric is 
+    report exists).
+
+    Justification: Gives clarity whether model is being improved or not and what
+     specific changes may be damaging the model. Will allow model health and 
+     performance to be tracked and maintained over time.
+
+    \item \textbf{Issue Tracking}: every bug should be registered in an issue 
+    tracking system (metric is bugs existing as issues). 
+
+    Justification: Brings attention to what bugs have been resolved and which 
+    ones still require work.
+    
+\end{itemize}
 \subsection{Supportability Requirements}
-\lips
+\begin{itemize}
+    \item \textbf{Documentation}: provide concise (max 30 lines) comments on 
+    all apis and algorithms used in code base. This will allow others to 
+    comprehend what sections may need updates or bug fixes (metric is 
+    comment exists at every piece of api code or algorithm)
+    
+    Justification: leaves no obfuscation in where somebody should adjust 
+    code or update a component by clarifying what responsibility each area
+     of code holds.
+
+    \item \textbf{Logging }: provides a report of code components that 
+    executed leading up to a crash whenever a crash occurs, so bugs can 
+    be identified and fixes can be staged. (metric is a log with relevant 
+    information about crash, such as a stack trace, is generated for user 
+    to view when crash occurs).
+
+    Justification: Almost 100\% necessary for effectively debugging issues in
+     the code and giving the ability to support the model in the future for 
+     people who aren't familiar with the code base.
+
+    \item \textbf{Community Acknowledgement}: provide pathway for users to post
+     or vote for requests/issues that should be addressed. (Metric is existence
+      of said pathway, like email or github issues or forum).
+
+    Justification: Will highlight to community what are current pain points 
+    that should be prioritized and communication about how it is desired to 
+    address them.
+
+\end{itemize}
 \subsection{Adaptability Requirements}
-\lips
+\begin{itemize}
+    \item \textbf{Dataset Compatibility}: provide compatibility for at least 
+    two data formats when it comes to training datasets (metric is data 
+    formats that are accepted).
+
+    Justification: will allow model to accommodate wider amount of datasets 
+    and provides it better longevity in case either one of its data formats 
+    becomes less popular.
+    
+    \item \textbf{Template Adherence}:  every model layer/component follows a 
+    template. (metric is a template exists for all model layers/components and
+     are upheld by said layers/components.)
+
+    Justification - if somebody wishes to update the model with new 
+    layers/components or modify existing ones, there will be a guide to make 
+    the process straightforward and encourage those conducting the update to 
+    follow through.
+
+    \item \textbf{Modularity}:  every model layer/component can be treated as 
+    an individual function. (metric is model layers/components can be fed an 
+    input and produce an output which reflects only operations conducted within
+     the layer/component).
+
+    Justification - enables removal or substitution of individual model 
+    layers/components which may be problematic or less efficient, similar to 
+    how one may remove or substitute a function in a program, without having to
+     overhaul a larger/more significant portion of the model architecture.
+
+
+\end{itemize}
 
 \section{Security Requirements}
 \subsection{Access Requirements}
