@@ -650,8 +650,26 @@ institutions, educators, and students alike.
 
 
 \section{Open Issues}
-\lips
+\subsection{System Design Uncertainty}
+\begin{itemize}
+    \item How the integration of the Natural Language Processing (NLP) model with the code submission system will work. Such as choosing what NLP model to use, how to train it, and where to host it.
+    \item Selecting the most appropriate techniques for semantic code analysis, such as Abstract Syntax Trees (ASTs) or vector embeddings.
+    \item Deciding on how the model will handle false positives, especially common coding patterns, to avoid misclassification. Example. students using the same code snippets from a tutorial.
+\end{itemize}
 
+\subsection {Data Collection Challenges}
+\begin{itemize}
+    \item While the project mentions scraping datasets from online programming contests and using pre-labeled datasets, 
+    there could be issues with data availability, quality, or ensuring that the data accurately reflects real-world usage.
+\end{itemize}
+
+\subsection {Scalability Concerns}
+\begin{itemize}
+    \item Ensuring the system remains performant when processing large batches of submissions within the 10-minute processing time goal. 
+    Handling larger academic institutions with potentially thousands of submissions may challenge the current system's capacity requirements
+    \item  Given the limited budget for cloud compute units, it may be challenging to balance performance improvements with cost constraints. 
+    If training processes requires more resources than anticipated, costs could quickly escalate.
+\end{itemize}
 \section{Off-the-Shelf Solutions}
 \subsection{Ready-Made Products}
 
