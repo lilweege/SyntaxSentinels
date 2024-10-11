@@ -58,103 +58,35 @@ October 9 & 1.0 & First iteration of complete document\\
 
 ~\newpage
 \section{Purpose of the Project}
-\subsection{User Business (Cases)}
+\subsection{User Business}
 
-The purpose of the project is first and foremost illustrated through the 
-fulfillment of use cases our stakeholders are interested. These use cases
-and associated stakeholder interest are stated below.
+The Measure of Software Similarity algorithm, or Moss algorithm for short, is
+the current standard for plagiarism detection of code. Broadly speaking, this
+algorithm works by comparing tokenized code snippets and assigning a similarity
+score without any weighting based on the complexity of the line being examined.
+In otherwords, there is an inherent lack of semantic understanding for the code
+being examined. This gives rise to a major flaw in the Moss algorithm, which is
+that benign lines of code can be added to a program that do not improve or
+change functionality but still serve to create an illusion of difference in the
+eyes of the algorithm. 
 
-\begin{enumerate}
+This project seeks to create a plagiarism algorithm that relies on NLP 
+techniques of present to account for semantics and prevent primitive 
+circumvention of plagariasm detection, such as addition of benign lines or 
+variable name changes. The users of our product will be primarily be those 
+concerned with fairness and integrity of code submissions within a competitive 
+environment, such as professors or code competition holders. 
 
-    \item \textbf{Plagiarism Assessment}
+Users are intended to use the resulting product of our project by giving it
+code snippets and receiving a plagiarism report in return. This report will
+contain a set of similarity scores for inputted code snippets, which when 
+assessed against an outputted threshold will indicate likelihood of plagiarsm
+having taken place. This will benefit the users by allowing them to more 
+accurately assess the presence of plagiarized work, creating fairer environment
+for competition and rewarding coders correctly. Ultimately, the project aims
+to help users achieve an environment that cycles merit instead of cheating, 
+which is believed to be a primary interest of users too.
 
-    \begin{enumerate}
-
-        \item user selects option from main UI screen to provide dataset for scanning
-
-        \item user is prompted to provide dataset
-        \begin{enumerate}
-            \item user inserts data from their computer
-
-            \item user cancels and is sent back to main UI screen (1.1 continues)
-        \end{enumerate}
-
-        \item user initiates analysis and progress indicator appears
-
-        \begin{enumerate}
-            \item error occurs during analysis and user is prompted to restart or cancels
-
-            \begin{enumerate}
-                \item user selects to restart analysis (1.3 continues)
-
-                \item user cancels and returns to main UI (1.1 continues)
-
-            \end{enumerate}
-
-            \item progress bar completes and success message is displated (proceeds to 1.4)
-        \end{enumerate}
-
-        \item system provides results in a UI display accompanied by option to download result or return to main UI
-
-        \begin{enumerate}
-            \item user selects download option
-
-            \begin{enumerate}
-                \item download fails accompanied by error message (continues from 1.4)
-
-                \item download succeeds and system provides dialogue to check for download after which user returns to main UI
-
-            \end{enumerate}
-        \end{enumerate}
-        
-        \item system has provided result of analysis
-        
-    \end{enumerate}
-
-    Stakeholder Interest: meets desire to gain direction on whether or not plagiarism has occurred within their environment
-
-    \newpage
-
-    \item \textbf{Plagiarism Detector Adjustment}
-
-    \begin{enumerate}
-        \item user selects option from main UI to open settings for app
-
-        \item user can adjust threshold used for detection, and possibly other components such as version of model architecture used (not confirmed at the moment)
-
-        \item user saves settings through UI provided option
-
-        \begin{enumerate}
-
-            \item System displays setting changes are saved, displaying success message, prompting whether user desires to continue or not
-
-            \begin{enumerate}
-
-                \item user selects to continue (2.2 continues)
-
-                \item user selects to finish (2.4 continues)
-
-            \end{enumerate}
-
-            \item System displays setting changes did not save and provides dialogue to determine error, giving option to try again or return to main UI 
-
-            \begin{enumerate}
-
-                \item user selects to try again (2.2 continues)
-
-                \item user selects to return to main UI (2.1 continues)
-
-            \end{enumerate}
-        
-        \end{enumerate}
-
-        \item system maintains settings and applies them for functions until application restart
-
-    \end{enumerate}
-
-    Stakeholder Interest: allows all stakeholders to cater app more towards their particular problem.
-
-\end{enumerate}
 \subsection{Goals of the Project}
 
 \begin{center}
