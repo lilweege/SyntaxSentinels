@@ -410,6 +410,8 @@ while also supporting students in understanding the ethical use of code.
 
 \textbf{Main Success Scenario}
 \begin{enumerate}
+    \item user logs into the system using their credentials.
+    \item user uploads code submissions for plagiarism detection.
     \item The system ingests the uploaded code submissions.
     \item The system processes each code snippet using the NLP model to generate semantic representations of the code.
     \item The system compares the representations to detect plagiarism, taking into account code similarity beyond syntax or token matching.
@@ -526,7 +528,7 @@ while also supporting students in understanding the ethical use of code.
 
 \section{The Scope of the Product}
 \subsection{Product Boundary}
-\lips
+\includegraphics[height=.78\textheight]{assets/UseCase.png}
 \subsection{Product Use Case Table}
 \lips
 \subsection{Individual Product Use Cases (PUC's)}
@@ -535,16 +537,25 @@ while also supporting students in understanding the ethical use of code.
 \section{Functional Requirements}
 \subsection{Functional Requirements}
 \begin{itemize}
-    \item The system will take in code snippets as inputs
-    \item The system must parse the input into a format that can be fed into a model for interpretation
-    \item The system will leverage known natural language processing techniques to handle inputs
-    \item The system will process the formatted input to provide a verdict on the presence of plagiarism as output
-    \item The system must generate clear and concise outputs to indicate plagiarism
-    \item The system's outputs should provide explanations on how to interpret output
-    \item The system will allow users to create an account with an email and password
-    \item The system will allow users to sign into their account with their email and password
-    \item The system will send an email of the results in a .zip folder to a designated email address
-    \item Users will be able to upload .zip folders of previous results to display the results on the interface
+    \item The system shall take in code snippets as inputs
+    \item The system shall output similarity scores alongside thresholds 
+    that indicate whether or not plagiarism is present within input
+    \item The system shall be able to output documentation explaining
+    how to interpret any other output (guide document)
+    \item The system shall allow code snippets to be flagged after similarity
+    scores and thresholds are generated
+    \item The system shall provide a set of similarity scores for all code 
+    snippet pairings
+    \item The system shall allow a report to be created after scores and 
+    thresholds are generated that summarizes all system outputs 
+    \item The system will allow users to create an account with an email 
+    and password
+    \item The system will allow users to sign into a created account with 
+    their email and password
+    \item The system shall be able to email all outputs as a .zip folder 
+    to an email selected by user
+    \item System shall be able to visualize .zip folder containing its outputs
+    uploaded by user on user interface
 \end{itemize}
 
 \section{Look and Feel Requirements}
@@ -650,8 +661,8 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \section{Performance Requirements}
 \subsection{Speed and Latency Requirements}
 \begin{itemize}
-    \item The system should process the inputs and provide results in under one minute 
-    \item The system must notify users if processing surpasses one minute
+    \item The system should process the inputs and provide results in under ten minutes 
+    \item The system must notify users if processing surpasses ten minutes
 \end{itemize}
 \subsection{Safety-Critical Requirements}
 \begin{itemize}
@@ -670,7 +681,7 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \subsection{Capacity Requirements}
 \begin{itemize}
     \item The system should be able to handle batches of inputs without significant delays.
-    \item The system should be able to handle batches of inputs without the total processing time exceeding 60 seconds.
+    \item The system should be able to handle batches of inputs without the total processing time exceeding 600 seconds.
 \end{itemize}
 \subsection{Scalability or Extensibility Requirements}
 \begin{itemize}
