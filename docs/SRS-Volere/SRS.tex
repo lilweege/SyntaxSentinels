@@ -11,6 +11,7 @@
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage{longtable}
+\usepackage[font=small,labelfont=bf]{caption}
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
       colorlinks=true,      % false: boxed links; true: colored links
@@ -90,10 +91,9 @@ which is believed to be a primary interest of users too.
 \subsection{Goals of the Project}
 
 \begin{center}
-    % \hspace*{-1cm}
     \begin{longtable}{ | p{3cm} | p{6cm} | p{6cm} | }
     \hline
-    Goal & Explanation & Reason \\
+    \textbf{Goal} & \textbf{Explanation} & \textbf{Reason} \\
     \hline
     Ease of Use & Detector has an intuitive way to insert data and obtain results &
     This application is expected to be used as a secondary tool for
@@ -129,30 +129,23 @@ which is believed to be a primary interest of users too.
     (Measured by having accreditation for datasets involved in training)\\
     \hline
     \end{longtable}
-    \end{center}
-    
-    
-    \begin{center}
-      \hspace*{-1cm}
-      \begin{tabular}{ 
-        | p{3cm} 
-        | p{6cm} 
-        | p{6cm} | }
-      \hline
-       Stretch Goal & 
-      Explanation & 
-      Reason \\
-      \hline
-      Online Learning & 
-      Provide ability for user to train model on their own datasets. & 
-      Without a sufficiently large amount of data to train on (more than will be seen over the duration of 8 months), the model will be biased to a degree and not as widely applicable to different sets of code. If the detector is given the ability to be trained by the user, they can better customize it for their own needs (measure is whether or not the user can change conduct training)\\
-      \hline
-      Language Agnostic & 
-      The detector can analyze code from a multitude of languages & 
-      Having a detector that can draw patterns across different languages will make it adoptable by a wider set of professors who may conduct courses in less popular languages that our detector may have not dealt with at all before. If the detector is restrained to languages such as python or java, we will alienate some of our primary stakeholders.\\
-      \hline
-      \end{tabular}
-      \end{center}
+    \captionof{table}{Main Goals for the Plagiarism Detector}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{ | p{3cm} | p{6cm} | p{6cm} | }
+    \hline
+    \textbf{Stretch Goal} & \textbf{Explanation} & \textbf{Reason} \\
+    \hline
+    Online Learning & Provide ability for user to train model on their own datasets. & 
+    Without a sufficiently large amount of data to train on (more than will be seen over the duration of 8 months), the model will be biased to a degree and not as widely applicable to different sets of code. If the detector is given the ability to be trained by the user, they can better customize it for their own needs (measured by whether or not the user can conduct training)\\
+    \hline
+    Language Agnostic & The detector can analyze code from a multitude of languages & 
+    Having a detector that can draw patterns across different languages will make it adoptable by a wider set of professors who may conduct courses in less popular languages that our detector may have not dealt with at all before. If the detector is restrained to languages such as Python or Java, we will alienate some of our primary stakeholders.\\
+    \hline
+    \end{tabular}
+    \captionof{table}{Strech Goals for the Plagiarism Detector}
+\end{center}
 
 \section{Stakeholders}
 
@@ -236,7 +229,7 @@ updates to the system.
     We should comply with privacy laws regarding storage of sensitive information. \\
     \hline
     \end{tabular}
-    % \caption{}
+    \caption{ Solution Constraints}
 \end{table}
 
 
@@ -254,7 +247,7 @@ updates to the system.
     Users of our product will access the tool on their own personal computers, which are not powerful enough to run the tool offline. \\
     \hline
     \end{tabular}
-    % \caption{}
+    \caption{ Implementation Environment Constraints}
 \end{table}
 
 
@@ -277,7 +270,7 @@ Our project will use Google Colab to train and tune our language models for the 
     The amount of computational power provided by Google Colab is the limiting factor in our training speed. \\
     \hline
     \end{tabular}
-    % \caption{}
+    \caption{ Partner or Collaborative Applications Constraints}
 \end{table}
 
 \subsection{Off-the-Shelf Software}
@@ -291,7 +284,7 @@ Our project will use Google Colab to train and tune our language models for the 
     Our project uses the GPLv3 license. \\
     \hline
     \end{tabular}
-    % \caption{}
+    \caption{ Off-the-Shelf Software Constraints}
 \end{table}
 
 \subsection{Anticipated Workplace Environment}
@@ -311,7 +304,7 @@ There are no constraints imposed upon us by the anticipated workplace environmen
     Given the schedule of the project, there is not enough time to source and label datasets by hand. \\
     \hline
     \end{tabular}
-    % \caption{}
+    \caption{ Schedule Constraints} 
 \end{table}
 
 
@@ -326,7 +319,7 @@ There are no constraints imposed upon us by the anticipated workplace environmen
     We are students and we don't have a lot of money. \\
     \hline
     \end{tabular}
-    % \caption{}
+    \caption{ Budget Constraints}
 \end{table}
 
 
@@ -429,6 +422,7 @@ while also supporting students in understanding the ethical use of code.
 \section{Business Data Model and Data Dictionary}
 \subsection{Business Data Model}
 \includegraphics[height=.58\textheight]{./assets/UML.png}
+\captionof{figure}{Business Data Model}
 \subsection{Data Dictionary}
 
 \textbf{Enums}
@@ -529,10 +523,94 @@ while also supporting students in understanding the ethical use of code.
 \section{The Scope of the Product}
 \subsection{Product Boundary}
 \includegraphics[height=.78\textheight]{assets/UseCase.png}
+\captionof{figure}{Use Case Diagram}
+Note: The Model here represents our NLP model, which is the core of our product.
+
 \subsection{Product Use Case Table}
-\lips
+\begin{tabular}{ | p{3cm} | p{3cm} | p{3cm} | p{3cm} | }
+\hline
+\textbf{PUC No} & \textbf{PUC Name} & \textbf{Actor/s} & \textbf{Input/Output} \\ \hline
+1 & Upload Code Submissions & Professor, Competition Organizers & Code Submission (in) / Uploaded Code (out) \\ \hline
+2 & Process Code for Plagiarism Detection & Model & Uploaded Code (in) / Processed Code (out) \\ \hline
+3 & Generate Similarity Scores & Model & Processed Code (in) / Similarity Scores (out) \\ \hline
+4 & Review Plagiarism Reports & Professor, Competition Organizers & Similarity Scores (in) / Plagiarism Report (out) \\ \hline
+5 & Adjust Plagiarism Detection Threshold & Professor, Competition Organizers & Threshold Input (in) / Updated Threshold (out) \\ \hline
+6 & Login/Register & Professor, Competition Organizers & Login Credentials (in) / Access to System (out) \\ \hline
+\end{tabular}
+\captionof{table}{Product Use Case Table}
+
 \subsection{Individual Product Use Cases (PUC's)}
-\lips
+\textbf{PUC 1: Upload Code Submissions}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The user is logged in and has the necessary permissions to upload submissions.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system prompts the user to upload code files.
+    \item The user uploads the required code files and submits them.
+    \item The system stores the submitted files for plagiarism detection processing.
+    \item The system notifies the user that the upload was successful.
+\end{enumerate}
+\textbf{Postconditions:} The code submissions are available for plagiarism detection.\\[0.2cm]
+
+\textbf{PUC 2: Process Code for Plagiarism Detection}\\
+\textbf{Actors:} Model, Professor\\
+\textbf{Preconditions:} Code submissions have been uploaded and are ready for processing.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system retrieves the submitted code for processing.
+    \item The system parses the code to generate structured representations (e.g., Abstract Syntax Tree or AST, still TBD for our use).
+    \item The system compares the parsed code against other uplaoded submissions and datasets using the plagiarism detection model.
+    \item The system stores the processed results for similarity scoring.
+\end{enumerate}
+\textbf{Postconditions:} The code is fully processed and ready for generating similarity scores.\\[0.2cm]
+
+\textbf{PUC 3: Generate Similarity Scores}\\
+\textbf{Actors:} Model\\
+\textbf{Preconditions:} The code has been processed and structured.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system calculates similarity scores by comparing the structured code.
+    \item The system generates detailed similarity reports with scores for each code submission.
+    \item The system emails the similarity reports in a .zip file to the user.
+\end{enumerate}
+\textbf{Postconditions:} Similarity scores are available for review.\\[0.2cm]
+
+\textbf{PUC 4: Review Plagiarism Reports}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} Similarity scores have been generated and are ready for review.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The professor/organizer logs into the system and uploads the .zip file containing the plagiarism reports.
+    \item The system displays the plagiarism reports, including similarity scores and flagged submissions.
+    \item The professor/organizer reviews the results and flags any cases for investigation or further action.
+    \item The system logs any flags or notes made by the professor/organizer.
+\end{enumerate}
+\textbf{Postconditions:} The professor/organizer has reviewed the plagiarism reports.\\[0.2cm]
+
+\textbf{PUC 5: Adjust Plagiarism Detection Threshold}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The plagiarism detection system has been configured with default thresholds.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The professor/organizer navigates to the plagiarism detection settings.
+    \item The system displays the current thresholds for flagging plagiarism.
+    \item The professor/organizer adjusts the thresholds based on the desired sensitivity level.
+    \item The system applies the new threshold settings to future plagiarism checks.
+\end{enumerate}
+\textbf{Postconditions:} The new threshold settings are saved and used for subsequent plagiarism checks.\\[0.2cm]
+
+\textbf{PUC 6: Login/Register}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The user has an account or needs to register.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The user navigates to the login or registration page.
+    \item The system prompts the user to enter their credentials (or create a new account).
+    \item The user provides the necessary information (email, password, etc.) for login or registration.
+    \item The system verifies the credentials or creates a new account.
+    \item The system logs the user in or confirms successful registration.
+\end{enumerate}
+\textbf{Postconditions:} The user is logged into the system and can access the functionalities based on their role.
 
 \section{Functional Requirements}
 \subsection{Functional Requirements}
@@ -1167,15 +1245,18 @@ There should be no new problems for users of this tool since they don't need to 
         \item Weekly Check-Ins: Collaborate with the model development team to ensure UI designs align with the model's capabilities and outputs.
         \item \textbf{Tasks and Duration:}
 
-        \begin{tabular}{|>{\raggedright}p{4cm}|c|c|}
+        \begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
             \hline
             \textbf{Task} & \textbf{Estimated Days} & \textbf{Notes} \\
             \hline
             Account Creation UI & 2 & Interface for user registration \\
+            \hline
             Comparison UI & 20 & Displaying similarity results \\
+            \hline
             Report Generation UI & 10 & Generating and downloading reports \\
             \hline
         \end{tabular}
+        \captionof{table}{UI Development Tasks}
     \end{itemize}
 
     \item \textbf{Unit and Integration Testing:}
@@ -1197,16 +1278,20 @@ There should be no new problems for users of this tool since they don't need to 
         \item Develop the backend infrastructure, including user account management and result delivery systems.
         \item \textbf{Tasks and Duration:}
 
-        \begin{tabular}{|>{\raggedright}p{4cm}|c|c|}
+        \begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
             \hline
             \textbf{Task} & \textbf{Estimated Days} & \textbf{Notes} \\
             \hline
             Account Management & 1 & Handling user registrations and logins \\
+            \hline
             Similarity Processing & 14 &  Processing model outputs for similarity scores \\
+            \hline
             Report Generation & 7 & Generating reports based on model output \\
+            \hline
             Report Delivery & 4 & Sending reports via email \\
             \hline
         \end{tabular}
+        \captionof{table}{Backend Development Tasks}
     \end{itemize}
 
     \item \textbf{UI Finalization:}
