@@ -524,14 +524,15 @@ while also supporting students in understanding the ethical use of code.
 \subsection{Product Boundary}
 \includegraphics[height=.78\textheight]{assets/UseCase.png}
 \captionof{figure}{Use Case Diagram}
+Note: The Model here represents our NLP model, which is the core of our product.
 
 \subsection{Product Use Case Table}
 \begin{tabular}{ | p{3cm} | p{3cm} | p{3cm} | p{3cm} | }
 \hline
 \textbf{PUC No} & \textbf{PUC Name} & \textbf{Actor/s} & \textbf{Input/Output} \\ \hline
 1 & Upload Code Submissions & Professor, Competition Organizers & Code Submission (in) / Uploaded Code (out) \\ \hline
-2 & Process Code for Plagiarism Detection & System, Professor & Uploaded Code (in) / Processed Code (out) \\ \hline
-3 & Generate Similarity Scores & System & Processed Code (in) / Similarity Scores (out) \\ \hline
+2 & Process Code for Plagiarism Detection & Model & Uploaded Code (in) / Processed Code (out) \\ \hline
+3 & Generate Similarity Scores & Model & Processed Code (in) / Similarity Scores (out) \\ \hline
 4 & Review Plagiarism Reports & Professor, Competition Organizers & Similarity Scores (in) / Plagiarism Report (out) \\ \hline
 5 & Adjust Plagiarism Detection Threshold & Professor, Competition Organizers & Threshold Input (in) / Updated Threshold (out) \\ \hline
 6 & Login/Register & Professor, Competition Organizers & Login Credentials (in) / Access to System (out) \\ \hline
@@ -539,7 +540,77 @@ while also supporting students in understanding the ethical use of code.
 \captionof{table}{Product Use Case Table}
 
 \subsection{Individual Product Use Cases (PUC's)}
-\lips
+\textbf{PUC 1: Upload Code Submissions}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The user is logged in and has the necessary permissions to upload submissions.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system prompts the user to upload code files.
+    \item The user uploads the required code files and submits them.
+    \item The system stores the submitted files for plagiarism detection processing.
+    \item The system notifies the user that the upload was successful.
+\end{enumerate}
+\textbf{Postconditions:} The code submissions are available for plagiarism detection.\\[0.2cm]
+
+\textbf{PUC 2: Process Code for Plagiarism Detection}\\
+\textbf{Actors:} Model, Professor\\
+\textbf{Preconditions:} Code submissions have been uploaded and are ready for processing.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system retrieves the submitted code for processing.
+    \item The system parses the code to generate structured representations (e.g., Abstract Syntax Tree or AST, still TBD for our use).
+    \item The system compares the parsed code against other uplaoded submissions and datasets using the plagiarism detection model.
+    \item The system stores the processed results for similarity scoring.
+\end{enumerate}
+\textbf{Postconditions:} The code is fully processed and ready for generating similarity scores.\\[0.2cm]
+
+\textbf{PUC 3: Generate Similarity Scores}\\
+\textbf{Actors:} Model\\
+\textbf{Preconditions:} The code has been processed and structured.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system calculates similarity scores by comparing the structured code.
+    \item The system generates detailed similarity reports with scores for each code submission.
+    \item The system emails the similarity reports in a .zip file to the user.
+\end{enumerate}
+\textbf{Postconditions:} Similarity scores are available for review.\\[0.2cm]
+
+\textbf{PUC 4: Review Plagiarism Reports}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} Similarity scores have been generated and are ready for review.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The professor/organizer logs into the system and uploads the .zip file containing the plagiarism reports.
+    \item The system displays the plagiarism reports, including similarity scores and flagged submissions.
+    \item The professor/organizer reviews the results and flags any cases for investigation or further action.
+    \item The system logs any flags or notes made by the professor/organizer.
+\end{enumerate}
+\textbf{Postconditions:} The professor/organizer has reviewed the plagiarism reports.\\[0.2cm]
+
+\textbf{PUC 5: Adjust Plagiarism Detection Threshold}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The plagiarism detection system has been configured with default thresholds.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The professor/organizer navigates to the plagiarism detection settings.
+    \item The system displays the current thresholds for flagging plagiarism.
+    \item The professor/organizer adjusts the thresholds based on the desired sensitivity level.
+    \item The system applies the new threshold settings to future plagiarism checks.
+\end{enumerate}
+\textbf{Postconditions:} The new threshold settings are saved and used for subsequent plagiarism checks.\\[0.2cm]
+
+\textbf{PUC 6: Login/Register}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The user has an account or needs to register.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The user navigates to the login or registration page.
+    \item The system prompts the user to enter their credentials (or create a new account).
+    \item The user provides the necessary information (email, password, etc.) for login or registration.
+    \item The system verifies the credentials or creates a new account.
+    \item The system logs the user in or confirms successful registration.
+\end{enumerate}
+\textbf{Postconditions:} The user is logged into the system and can access the functionalities based on their role.
 
 \section{Functional Requirements}
 \subsection{Functional Requirements}
