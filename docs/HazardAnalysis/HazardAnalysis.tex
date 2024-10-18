@@ -1,5 +1,5 @@
 \documentclass{article}
-
+\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
@@ -71,11 +71,11 @@ hazards.}
 
 \section{System Boundaries and Components}
 
-\wss{Dividing the system into components will help you brainstorm the hazards.
-You shouldn't do a full design of the components, just get a feel for the major
-ones.  For projects that involve hardware, the components will typically include
-each individual piece of hardware.  If your software will have a database, or an
-important library, these are also potential components.}
+\hspace*{-3cm}\includegraphics[height=.58\textheight]{./assets/Component_Border.png}
+
+Diagram shows referential relationships, not workflows. System Boundary
+shows compnents our team will maintain and be responsible for (not including 
+machines that are self-hosted).
 
 \section{Critical Assumptions}
 \begin{itemize}
