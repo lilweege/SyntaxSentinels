@@ -97,7 +97,7 @@ important library, these are also potential components.}
         \hline
         \textbf{Design Function} & \textbf{Failure Modes} & \textbf{Effects of Failure} & \textbf{Causes of Failure} & \textbf{Detection} & \textbf{Recommended Actions} & \textbf{SR} & \textbf{Ref.} \\
         \hline
-        Input Processing & Failure to tokenize text & Model fails to function or gives wrong output & a. Code not in Python \newline b. Tokenizer malfunction & Check file extension to ensure .py suffix & a. Check input beforehand \newline b. Notify user of error occurred & & \\
+        Input Processing & Failure to tokenize text & Model fails to function or gives wrong output & a. Code not in Python \newline b. Tokenizer malfunction \newline c. Corrupted file & Check file extension to ensure .py suffix & a. Check input beforehand \newline b. Notify user of error occurred & & \\
         \cline{2-8}
         & Failure to upload file & Plagiarism detection process does not start & a. Invalid file type \newline b. Server error & Error handling & a. Notify user of failed upload & & \\
         \cline{2-8}
