@@ -616,24 +616,22 @@ Note: The Model here represents our NLP model, which is the core of our product.
 \section{Functional Requirements}
 \subsection{Functional Requirements}
 \begin{itemize}
-    \item The system shall take in code snippets as inputs
-    \item The system shall output similarity scores alongside thresholds 
-    that indicate whether or not plagiarism is present within the input
-    \item The system shall be able to output documentation explaining
+    \item \textbf{FR-1}: The system shall take in code snippets as inputs
+    \item \textbf{FR-2}:The system shall output similarity scores alongside thresholds that indicate whether or not plagiarism is present within the input
+    \item \textbf{FR-3}: The system shall be able to output documentation explaining
     how to interpret any other output (guide document)
-    \item The system shall allow code snippets to be flagged after similarity
+    \item \textbf{FR-4}: The system shall allow code snippets to be flagged after similarity
     scores and thresholds are generated
-    \item The system shall provide a set of similarity scores for all code 
+    \item \textbf{FR-5}: The system shall provide a set of similarity scores for all code 
     snippet pairings
-    \item The system shall allow a report to be created after scores and 
+    \item \textbf{FR-6}: The system shall allow a report to be created after scores and 
     thresholds are generated that summarize all system outputs 
-    \item The system will allow users to create an account with an email 
-    and password
-    \item The system will allow users to sign into a created account with 
+    \item \textbf{FR-7}: The system will allow users to create an account with an email and password
+    \item \textbf{FR-8}: The system will allow users to sign into a created account with 
     their email and password
-    \item The system shall be able to email all outputs as a .zip file 
+    \item \textbf{FR-9}: The system shall be able to email all outputs as a .zip file 
     to an email selected by the user
-    \item System shall be able to visualize a .zip file containing its outputs
+    \item \textbf{FR-10}: System shall be able to visualize a .zip file containing its outputs
     uploaded by user the on the user interface
 \end{itemize}
 
@@ -642,16 +640,16 @@ Note: The Model here represents our NLP model, which is the core of our product.
 \subsection{Appearance Requirements}
 The user interface (UI) must adhere to the following appearance guidelines:
 \begin{itemize}
-    \item \textbf{Consistency}: The UI should maintain a uniform color palette, 
+    \item \textbf{LF-AR1: Consistency}: The UI should maintain a uniform color palette, 
     font, and layout across all screens and elements. For instance, the primary 
     color is defined as blue (\#0047AB) for buttons, links, and headers, and 
     white (\#FFFFFF) for background areas.
     
-    \item \textbf{Clarity}: All icons, buttons, and menus should be intuitive and 
+    \item \textbf{LF-AR2: Clarity}: All icons, buttons, and menus should be intuitive and 
     clearly identifiable. Hovering over icons will provide tooltips with a brief 
     description of their functionality.
     
-    \item \textbf{Responsiveness}: The layout should adjust according to screen 
+    \item \textbf{LF-AR3: Responsiveness}: The layout should adjust according to screen 
     size, ensuring the interface remains usable on a range of devices, including 
     desktops, tablets, and mobile phones.
 \end{itemize}
@@ -659,18 +657,18 @@ The user interface (UI) must adhere to the following appearance guidelines:
 \subsection{Style Requirements}
 The style guidelines for the interface are as follows:
 \begin{itemize}
-    \item \textbf{Typography}: The font family used across the UI will be 
+    \item \textbf{LF-SR1: Typography}: The font family used across the UI will be 
     \textit{Roboto}. Headers should use a 24px font size, body text should be 
     14px and button text should be 16px.
     
-    \item \textbf{Color Scheme}: Buttons and interactive elements should use the 
+    \item \textbf{LF-SR2: Color Scheme}: Buttons and interactive elements should use the 
     primary color \#0047AB. Background areas will use \#F0F0F0, and error 
     messages will be highlighted in \#FF0000.
     
-    \item \textbf{Button Styles}: All buttons should have rounded corners with 
+    \item \textbf{LF-SR3: Button Styles}: All buttons should have rounded corners with 
     a radius of 5px. On hover, the button background will lighten by 20\%.
     
-    \item \textbf{Spacing and Padding}: There should be at least 10px of padding 
+    \item \textbf{LF-SR4: Spacing and Padding}: There should be at least 10px of padding 
     between elements and a margin of 20px around each section to maintain a clean 
     layout.
 \end{itemize}
@@ -681,14 +679,14 @@ The style guidelines for the interface are as follows:
 \subsection{Ease of Use Requirements}
 The system should be intuitive and simple to use for the target audience.
 \begin{itemize}
-    \item \textbf{Minimal Learning Curve}: Users should be able to complete tasks 
+    \item \textbf{UH-E1: Minimal Learning Curve}: Users should be able to complete tasks 
     with minimal instruction or training, taking at most 5 minutes from start 
     to finish. The interface must guide users intuitively through this process.
     
-    \item \textbf{Task Efficiency}: Common tasks should be achievable in no more 
+    \item \textbf{UH-E2: Task Efficiency}: Common tasks should be achievable in no more 
     than three clicks or interactions from the main screen.
     
-    \item \textbf{Clear Navigation}: All navigation elements should be labeled 
+    \item \textbf{UH-E3: Clear Navigation}: All navigation elements should be labeled 
     clearly and positioned consistently across different pages to avoid confusion.
 \end{itemize}
 
@@ -696,10 +694,10 @@ The system should be intuitive and simple to use for the target audience.
 The system will support a customizable experience in the future, but users will 
 not be able to modify key settings such as themes or layout preferences at launch.
 \begin{itemize}
-    \item \textbf{Future Customization Support}: Future updates will allow users 
+    \item \textbf{UH-PI1: Future Customization Support}: Future updates will allow users 
     to modify settings such as themes and layouts to suit their personal preferences.
     
-    \item \textbf{English Language Support}: The system will operate exclusively 
+    \item \textbf{UH-PI2: English Language Support}: The system will operate exclusively 
     in English, with all dates, currency, and numeric formats adhering to 
     English (US) standards.
 \end{itemize}
@@ -707,11 +705,11 @@ not be able to modify key settings such as themes or layout preferences at launc
 \subsection{Learning Requirements}
 The system should provide clear documentation and onboarding materials.
 \begin{itemize}
-    \item \textbf{Onboarding}: A guided onboarding process should be available 
+    \item \textbf{UH-L1: Onboarding}: A guided onboarding process should be available 
     for new users, helping them understand the main features of the system 
     in under 5 minutes.
     
-    \item \textbf{Help Documentation}: Detailed help documentation and tooltips 
+    \item \textbf{UH-L2: Help Documentation}: Detailed help documentation and tooltips 
     should be available for key features to reduce the need for external 
     assistance.
 \end{itemize}
@@ -720,11 +718,11 @@ The system should provide clear documentation and onboarding materials.
 The system should use clear language and maintain a polite tone in all 
 interactions with users.
 \begin{itemize}
-    \item \textbf{Clear Language}: All messages and labels should be in simple, 
+    \item \textbf{UH-UP1: Clear Language}: All messages and labels should be in simple, 
     everyday language to ensure clarity for users of different levels of 
     technical expertise.
     
-    \item \textbf{Politeness}: Error messages and prompts should be worded 
+    \item \textbf{UH-UP2: Politeness}: Error messages and prompts should be worded 
     politely and offer constructive guidance. Example error messages include:
     \begin{itemize}
         \item \textit{“Oops! Something went wrong. Please try again or contact 
@@ -740,36 +738,36 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \section{Performance Requirements}
 \subsection{Speed and Latency Requirements}
 \begin{itemize}
-    \item The system should process the inputs and provide results in under ten minutes 
-    \item The system must notify users if processing surpasses ten minutes
+    \item \textbf{PR-SL1}: The system should process the inputs and provide results in under ten minutes 
+    \item \textbf{PR-SL2:}: The system must notify users if processing surpasses ten minutes
 \end{itemize}
 \subsection{Safety-Critical Requirements}
 \begin{itemize}
-    \item The system must avoid false positives to protect students from wrongful accusations. 
-    \item A manual override option for professors must exist to prevent automatic accusations solely based on the model.
+    \item \textbf{PR-SC1}: The system must avoid false positives to protect students from wrongful accusations. 
+    \item \textbf{PR-SC2}: A manual override option for professors must exist to prevent automatic accusations solely based on the model.
 \end{itemize}
 \subsection{Precision or Accuracy Requirements}
 \begin{itemize}
-    \item The system should have an accuracy rate of at least 90\% for identifying plagiarized content.
-    \item The false positive rate (incorrectly flagged plagiarism cases) must be kept below 5\%.
+    \item \textbf{PR-PA1}: The system should have an accuracy rate of at least 90\% for identifying plagiarized content.
+    \item \textbf{PR-PA2}: The false positive rate (incorrectly flagged plagiarism cases) must be kept below 5\%.
 \end{itemize}
 \subsection{Robustness or Fault-Tolerance Requirements}
 \begin{itemize}
-    \item The system will not crash in the case of a malformed input, and will instead issue an error message to the user.
+    \item \textbf{PR-RFT1}: The system will not crash in the case of a malformed input, and will instead issue an error message to the user.
 \end{itemize}
 \subsection{Capacity Requirements}
 \begin{itemize}
-    \item The system should be able to handle batches of inputs without significant delays.
-    \item The system should be able to handle batches of inputs without the total processing time exceeding 600 seconds.
+    \item \textbf{PR-C1}: The system should be able to handle batches of inputs without significant delays.
+    \item \textbf{PR-C2}: The system should be able to handle batches of inputs without the total processing time exceeding 600 seconds.
 \end{itemize}
 \subsection{Scalability or Extensibility Requirements}
 \begin{itemize}
-    \item The system should be designed in a way such that adding support for new file types or coding languages should not impede current functionality
+    \item \textbf{PR-SE1}: The system should be designed in a way such that adding support for new file types or coding languages should not impede current functionality
 \end{itemize}
 \subsection{Longevity Requirements}
 \begin{itemize}
-    \item Backwards compatibility must be maintained when new features are introduced
-    \item The system should be designed such that the natural language processing part can be changed in accordance with new research in the field.
+    \item \textbf{PR-L1}: Backwards compatibility must be maintained when new features are introduced
+    \item \textbf{PR-L1}: The system should be designed such that the natural language processing part can be changed in accordance with new research in the field.
 \end{itemize}
 
 \section{Operational and Environmental Requirements}
@@ -783,30 +781,30 @@ Because of this, environmental factors are outside of the scope of our project.
 
 \subsection{Requirements for Interfacing with Adjacent Systems}
 \begin{itemize}
-    \item The system will provide the option to interface with cloud computing (AWS, Azure) 
-    \item The system will deploy the frontend and backend code in a free hosting Service
-    \item The system will use external services for user authentication 
+    \item \textbf{OE-IAS1}:The system will provide the option to interface with cloud computing (AWS, Azure) 
+    \item \textbf{OE-IAS2}: The system will deploy the frontend and backend code in a free hosting Service
+    \item \textbf{OE-IAS3}: The system will use external services for user authentication 
 \end{itemize}
 \subsection{Productization Requirements}
 For the tool to be ready for widespread use, it should meet several productization requirements:
 \begin{itemize}
-    \item \textbf{User-friendly interfaces} for professors and code contest administrators, allowing easy input and clear, actionable outputs.
-    \item \textbf{Documentation and training materials} to help users understand how to utilize the tool effectively, including explanations of how the similarity scores are calculated and how to interpret them.
-    \item \textbf{Scalability}, ensuring that the tool can handle many code submissions simultaneously without performance degradation.
+    \item \textbf{OE-P1: User-friendly interfaces} for professors and code contest administrators, allowing easy input and clear, actionable outputs.
+    \item \textbf{OE-P2: Documentation and training materials} to help users understand how to utilize the tool effectively, including explanations of how the similarity scores are calculated and how to interpret them.
+    \item \textbf{OE-P3: Scalability}, ensuring that the tool can handle many code submissions simultaneously without performance degradation.
 \end{itemize}
 
 \subsection{Release Requirements}
 To release the tool effectively, certain conditions must be met:
 \begin{itemize}
-    \item \textbf{Beta testing} with a select group of professors and students to gather feedback on usability, performance, and false positive/negative rates.
-    \item \textbf{Clear versioning} and change logs to track improvements over time, particularly as new programming languages or detection features are added.
-    \item \textbf{Ongoing support}, including the ability to update the plagiarism detector with new models or features as they are developed.
+    \item \textbf{OR-R1: Beta testing} with a select group of professors and students to gather feedback on usability, performance, and false positive/negative rates.
+    \item \textbf{OR-R1: Clear versioning} and change logs to track improvements over time, particularly as new programming languages or detection features are added.
+    \item \textbf{OR-R1: Ongoing support}, including the ability to update the plagiarism detector with new models or features as they are developed.
 \end{itemize}
 
 \section{Maintainability and Support Requirements}
 \subsection{Maintenance Requirements}
 \begin{itemize}
-    \item \textbf{Versioning}: Keep track of and store model versions to allow
+    \item \textbf{MS-M1: Versioning}: Keep track of and store model versions to allow
      switches between experimental models and previous versions. A verifiable metric is 
      that version history exists.
 
@@ -814,7 +812,7 @@ To release the tool effectively, certain conditions must be met:
     improvements in different directions as well as rollback on model releases 
     if something goes wrong as well as provide experimental releases.
     
-    \item \textbf{Metric Reports}: Every model release shall be accompanied by 
+    \item \textbf{MS-M2: Metric Reports}: Every model release shall be accompanied by 
     a report of metrics decided upon to track model performance. A verifiable metric is 
     that the report exists.
 
@@ -822,7 +820,7 @@ To release the tool effectively, certain conditions must be met:
      specific changes may be damaging the model. This will allow model health and 
      performance to be tracked and maintained over time.
 
-    \item \textbf{Issue Tracking}: Every bug should be registered in an issue-tracking system. A verifiable metric is bugs existing as issues. 
+    \item \textbf{MS-M3: Issue Tracking}: Every bug should be registered in an issue-tracking system. A verifiable metric is bugs existing as issues. 
 
     Justification: Brings attention to what bugs have been resolved and which 
     ones still require work.
@@ -830,7 +828,7 @@ To release the tool effectively, certain conditions must be met:
 \end{itemize}
 \subsection{Supportability Requirements}
 \begin{itemize}
-    \item \textbf{Documentation}: provide concise (max 30 lines) comments on 
+    \item \textbf{MS-S1: Documentation}: provide concise (max 30 lines) comments on 
     all APIs and algorithms used in the code base. This will allow others to 
     comprehend what sections may need updates or bug fixes A verifiable metric is 
     comment exists at every piece of API code or algorithm.
@@ -839,7 +837,7 @@ To release the tool effectively, certain conditions must be met:
     code or update a component by clarifying what responsibility each area
      of code holds.
 
-    \item \textbf{Logging }: provides a report of code components that 
+    \item \textbf{MS-S2: Logging}: provides a report of code components that 
     executed leading up to a crash whenever a crash occurs, so bugs can 
     be identified and fixes can be staged. A verifiable metric is a log with relevant 
     information about the crash, such as a stack trace, is generated for the user 
@@ -849,7 +847,7 @@ To release the tool effectively, certain conditions must be met:
      the code and giving the ability to support the model in the future for 
      people who aren't familiar with the code base.
 
-    \item \textbf{Community Acknowledgement}: provide a pathway for users to post
+    \item \textbf{MS-S3: Community Acknowledgement}: provide a pathway for users to post
      or vote for requests/issues that should be addressed. A verifiable metric is the existence
       of said pathway, like email or GitHub issues or forum.
 
@@ -860,7 +858,7 @@ To release the tool effectively, certain conditions must be met:
 \end{itemize}
 \subsection{Adaptability Requirements}
 \begin{itemize}
-    \item \textbf{Dataset Compatibility}: provide compatibility for at least 
+    \item \textbf{MS-A1: Dataset Compatibility}: provide compatibility for at least 
     two data formats when it comes to training datasets. A verifiable metric is that data 
     the formats that are accepted.
 
@@ -868,7 +866,7 @@ To release the tool effectively, certain conditions must be met:
     and provides it better longevity in case either one of its data formats 
     becomes less popular.
     
-    \item \textbf{Template Adherence}: Every model layer/component follows a 
+    \item \textbf{MS-A2: Template Adherence}: Every model layer/component follows a 
     template. A verifiable metric is that a template exists for all model layers/components and
      is upheld by said layers/components.
 
@@ -877,7 +875,7 @@ To release the tool effectively, certain conditions must be met:
     the process straightforward and encourage those conducting the update to 
     follow through.
 
-    \item \textbf{Modularity}:  every model layer/component can be treated as 
+    \item \textbf{MS-A3: Modularity}:  every model layer/component can be treated as 
     an individual function. A verifiable metric is that model layers/components can be fed an 
     input and produce an output which reflects only operations conducted within
      the layer/component.
@@ -893,7 +891,7 @@ To release the tool effectively, certain conditions must be met:
 \section{Security Requirements}
 \subsection{Access Requirements}
 \begin{itemize}
-    \item \textbf{Authentication}: The system shall require user authentication
+    \item \textbf{SR-A1: Authentication}: The system shall require user authentication
     before allowing access to the tool. Only authenticated users can upload code for comparison.
 
     Justification - Users need to be identifiable so that they can receive their results via email and so that usage limits can be imposed upon them.
@@ -905,12 +903,12 @@ Since no data is retained, data integrity is not a concern.
 
 \subsection{Privacy Requirements}
 \begin{itemize}
-    \item \textbf{Zero Data Retention}: The system shall retain no user-uploaded data beyond the immediate need of the task.
-    Refer to section 17.2.5 for more information.
+    \item \textbf{SR-P1: Zero Data Retention}: The system shall retain no user-uploaded data beyond the immediate need of the task.
+    Refer to requirement CR-SC5 for more information.
 
     Justification - This ensures user privacy and protects sensitive academic work from being mishandled.
 
-    \item \textbf{In Transit Encryption}: All data (including code snippets) shall be encrypted while being uploaded to or downloaded
+    \item \textbf{SR-P2: In Transit Encryption}: All data (including code snippets) shall be encrypted while being uploaded to or downloaded
     from the system using secure encryption protocols.
 
     Justification - Protecting user data during transmission ensures that it can't be intercepted by unauthorized third parties.
@@ -918,7 +916,7 @@ Since no data is retained, data integrity is not a concern.
 
 \subsection{Audit Requirements}
 \begin{itemize}
-    \item \textbf{In Transit Encryption}: The system shall log all user interactions and actions (such as authentication events, code uploads, and plagiarism checks) anonymously, without storing user-uploaded code or sensitive data.
+    \item \textbf{SR-AD1: In Transit Encryption}: The system shall log all user interactions and actions (such as authentication events, code uploads, and plagiarism checks) anonymously, without storing user-uploaded code or sensitive data.
 
     Justification - While no user data is retained, logging system events and user actions provide a transparent way to track system usage and ensure accountability without violating the zero data retention policy.
 \end{itemize}
@@ -950,7 +948,7 @@ development and data security standards.
 \subsection{Legal Requirements}
 
 \begin{enumerate}
-    \item \textbf{Data Protection and Privacy Laws}: The tool will process sensitive
+    \item \textbf{CR-L1: Data Protection and Privacy Laws}: The tool will process sensitive
     information, including students' code submissions, which may be considered personal
     data under Canadian privacy laws such as the \textit{Personal Information Protection 
     and Electronic Documents Act} (PIPEDA) at the federal level, and Ontario's \textit{Freedom of 
@@ -970,7 +968,7 @@ development and data security standards.
         loss, or disclosure, as required under PIPEDA and FIPPA.
     \end{itemize}
 
-    \item \textbf{Intellectual Property Rights}: Under the \textit{Copyright Act} of Canada, 
+    \item \textbf{CR-L2: Intellectual Property Rights}: Under the \textit{Copyright Act} of Canada, 
     students typically hold the intellectual property rights to their original code. 
     The tool must:
     \begin{itemize}
@@ -983,7 +981,7 @@ development and data security standards.
         does not violate the \textit{Copyright Act} or institutional policies.
     \end{itemize}
 
-    \item \textbf{Academic Integrity Policies}: The tool must align with the academic
+    \item \textbf{CR-L3: Academic Integrity Policies}: The tool must align with the academic
     integrity and misconduct policies of Canadian educational institutions by:
     \begin{itemize}
         \item \textbf{Supporting Fair Evaluation}: Assisting educators in identifying
@@ -999,7 +997,7 @@ development and data security standards.
 \subsection{Standards Compliance Requirements}
 
 \begin{enumerate}
-    \item \textbf{Software Development Standards}: Adherence to recognized software development practices is essential for ensuring quality and maintainability.
+    \item \textbf{CR-SC1: Software Development Standards}: Adherence to recognized software development practices is essential for ensuring quality and maintainability.
         \begin{itemize}
             \item \textbf{SOLID Principles}: The project will follow SOLID principles—Single Responsibility, 
             Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion—to promote clean,
@@ -1010,7 +1008,7 @@ development and data security standards.
 
 
 
-    \item \textbf{Data Security Standards}: Protecting sensitive data is a priority, and although full 
+    \item \textbf{CR-SC2: Data Security Standards}: Protecting sensitive data is a priority, and although full 
     compliance with industry security standards such as ISO/IEC 27001 may not be feasible for a student 
     capstone project, we will take measures to ensure data security.
         \begin{itemize}
@@ -1020,7 +1018,7 @@ development and data security standards.
         \end{itemize}
 
 
-    \item \textbf{Accessibility Standards}: The tool will be designed to support basic accessibility features.
+    \item \textbf{CR-SC3: Accessibility Standards}: The tool will be designed to support basic accessibility features.
     \begin{itemize}
         \item \textbf{Screen Reader Support}: Key elements of the user interface will be made compatible with 
         screen readers to assist visually impaired users.
@@ -1031,7 +1029,7 @@ development and data security standards.
     \end{itemize}
         
 
-    \item \textbf{Ethical AI and Machine Learning Standards}: As the tool leverages AI
+    \item \textbf{CR-SC4: Ethical AI and Machine Learning Standards}: As the tool leverages AI
     technologies, it must adhere to ethical standards in AI development.
     \begin{itemize}
         \item \textbf{Transparency and Explainability}: Ensuring that the AI models used
@@ -1042,7 +1040,7 @@ development and data security standards.
         and other potentially discriminatory information are not used in the detection process.
     \end{itemize}
 
-    \item \textbf{Data Handling and Retention Policies}: Establishing clear policies for
+    \item \textbf{CR-SC5: Data Handling and Retention Policies}: Establishing clear policies for
     how data is managed throughout its lifecycle.
     \begin{itemize}
         \item \textbf{Zero Data Retention}: No user data will be retained beyond the immediate needs of the task.
