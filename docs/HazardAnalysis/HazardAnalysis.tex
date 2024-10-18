@@ -3,6 +3,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{pdflscape}
 
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
@@ -88,14 +89,37 @@ important library, these are also potential components.}
 
 \section{Failure Mode and Effect Analysis}
 
-\wss{Include your FMEA table here. This is the most important part of this document.}
-\wss{The safety requirements in the table do not have to have the prefix SR.
-The most important thing is to show traceability to your SRS. You might trace to
-requirements you have already written, or you might need to add new
-requirements.}
-\wss{If no safety requirement can be devised, other mitigation strategies can be
-entered in the table, including strategies involving providing additional
-documentation, and/or test cases.}
+\begin{landscape}
+    \begin{table}[ht]
+        \centering
+        \scalebox{0.7}{ 
+        \begin{tabular}{|p{1.75cm}|p{4cm}|p{5cm}|p{5cm}|p{3cm}|p{5cm}|p{2cm}|p{2cm}|}
+        \hline
+        \textbf{Design Function} & \textbf{Failure Modes} & \textbf{Effects of Failure} & \textbf{Causes of Failure} & \textbf{Detection} & \textbf{Recommended Actions} & \textbf{SR} & \textbf{Ref.} \\
+        \hline
+        Input Processing & Failure to tokenize text & Model fails to function or gives wrong output & a. Code not in Python \newline b. Tokenizer malfunction \newline c. Corrupted file & Check file extension to ensure .py suffix & a. Check input beforehand \newline b. Notify user of error occurred & & \\
+        \cline{2-8}
+        & Failure to upload file & Plagiarism detection process does not start & a. Invalid file type \newline b. Server error & Error handling & a. Notify user of failed upload & & \\
+        \cline{2-8}
+        \hline
+        User Account Handling & Unauthorized access to account & a. Account compromised \newline b. User submissions compromised & a. Weak user authentication measures &  & a. Limit unsuccessful login attempts \newline  b. Multi-factor authentication & & \\
+        \cline{2-8}
+        \hline
+        Result processing and generation & Model is overfitted & Model fails to identify plagiarism for many inputs & a. Small dataset \newline b. Dataset too specific  & Test model with test dataset & a. Ensure datasets don't all have similar code & & \\
+        \cline{2-8}
+        & Model providing false positives & Submissions incorrectly flagged for plagiarism & a. Inability to recognize common coding practices \newline b. Error in model & Proper tests with test data split & a. Implement good pattern analysis \newline b. Proper testing & & \\
+        \cline{2-8}
+        & Comments are tokenized or ignored incorrectly & Comments become extremely easy way to bypass plagiarism detection & a. Bad implementation of model \newline b. Error in code & Found in testing using inputs with comments & a. Ensure code handles comments properly & &\\
+        \hline
+        Result output display & Results e-mail failed to send & Users who close the tab will not see the results & a. Network issues on either sender/recipient side \ newline b. Blocked by spam filters \newline c. Incorrect e-mail address & & a. Send e-mail from safe and trusted domains b. Ensure recipient address is filled correctly in script & & \\
+        \hline
+        \end{tabular}
+        } % End of \scalebox
+        \caption{Failure Mode and Effect Analysis}
+        \label{table:fmea}
+    \end{table}
+\end{landscape}
+   
 
 \section{Safety and Security Requirements}
 
