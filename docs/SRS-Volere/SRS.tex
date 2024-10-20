@@ -39,7 +39,7 @@
 
 ~\newpage
 
-\pagenumbering{roman}
+\pagenumbering{arabic}
 
 \tableofcontents
 
@@ -50,7 +50,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\textbf{Date}} & {\textbf{Version}} & {\textbf{Notes}}\\
 \midrule
-October 9 & 1.0 & First iteration of complete document\\
+October 11th, 2024 & 0.0 & First iteration of complete document\\
 % Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
@@ -61,20 +61,20 @@ October 9 & 1.0 & First iteration of complete document\\
 \section{Purpose of the Project}
 \subsection{User Business}
 
-The Measure of Software Similarity algorithm, or Moss algorithm for short, is
-the current standard for plagiarism detection of code. Broadly speaking, this
+The Measure of Software Similarity algorithm, or MOSS algorithm for short, is
+the current standard for plagiarism detection of code. This
 algorithm works by comparing tokenized code snippets and assigning a similarity
 score without any weighting based on the complexity of the line being examined.
-In otherwords, there is an inherent lack of semantic understanding for the code
-being examined. This gives rise to a major flaw in the Moss algorithm, which is
-that benign lines of code can be added to a program that do not improve or
-change functionality but still serve to create an illusion of difference in the
+In other words, there is an inherent lack of semantic understanding of the code
+being examined. This gives rise to a major flaw in the MOSS algorithm, which is
+that benign lines of code can be added to a program that does not improve or
+change functionality but still serves to create an illusion of difference in the
 eyes of the algorithm. 
 
 This project seeks to create a plagiarism algorithm that relies on NLP 
 techniques of present to account for semantics and prevent primitive 
-circumvention of plagariasm detection, such as addition of benign lines or 
-variable name changes. The users of our product will be primarily be those 
+circumvention of plagiarism detection, such as the addition of benign lines or 
+variable name changes. The users of our product will primarily be those 
 concerned with fairness and integrity of code submissions within a competitive 
 environment, such as professors or code competition holders. 
 
@@ -83,7 +83,7 @@ code snippets and receiving a plagiarism report in return. This report will
 contain a set of similarity scores for inputted code snippets, which when 
 assessed against an outputted threshold will indicate likelihood of plagiarsm
 having taken place. This will benefit the users by allowing them to more 
-accurately assess the presence of plagiarized work, creating fairer environment
+accurately assess the presence of plagiarized work, creating a fairer environment
 for competition and rewarding coders correctly. Ultimately, the project aims
 to help users achieve an environment that cycles merit instead of cheating, 
 which is believed to be a primary interest of users too.
@@ -98,7 +98,7 @@ which is believed to be a primary interest of users too.
     Ease of Use & Detector has an intuitive way to insert data and obtain results &
     This application is expected to be used as a secondary tool for
     teachers/professors when administering assignments. It should not require
-    in-depth learning, or it will be too inconvenient as an assistant tool for
+    in-depth learning or it will be too inconvenient as an assistant tool for
     detecting plagiarism. (Measured by actions to complete analysis)\\
     \hline
     Clarity of Output & Detector explains how to interpret outputs clearly, leaving
@@ -123,9 +123,9 @@ which is believed to be a primary interest of users too.
     origins and all data used for the detector is stated for all to see. & In 
     modern ML development, it has become a hot topic for how models get their data.
     This is because many modern models have used datasets that contain information
-    that was taken from individuals without consent (such as pieces of art). It is
+    that was taken from individuals without consent (such as art). It is
     important to our team to make it clear this is not precedent and that 
-    individuals should have clear consent in being used for training models. 
+    individuals should have clear consent to being used for training models. 
     (Measured by having accreditation for datasets involved in training)\\
     \hline
     \end{longtable}
@@ -137,8 +137,8 @@ which is believed to be a primary interest of users too.
     \hline
     \textbf{Stretch Goal} & \textbf{Explanation} & \textbf{Reason} \\
     \hline
-    Online Learning & Provide ability for user to train model on their own datasets. & 
-    Without a sufficiently large amount of data to train on (more than will be seen over the duration of 8 months), the model will be biased to a degree and not as widely applicable to different sets of code. If the detector is given the ability to be trained by the user, they can better customize it for their own needs (measured by whether or not the user can conduct training)\\
+    Online Learning & Provide the ability for users to train models on their own datasets. & 
+    Without a sufficiently large amount of data to train on (more than will be seen over 8 months), the model will be biased to a degree and not as widely applicable to different sets of code. If the detector is given the ability to be trained by the user, they can better customize it for their own needs (measured by whether or not the user can conduct training)\\
     \hline
     Language Agnostic & The detector can analyze code from a multitude of languages & 
     Having a detector that can draw patterns across different languages will make it adoptable by a wider set of professors who may conduct courses in less popular languages that our detector may have not dealt with at all before. If the detector is restrained to languages such as Python or Java, we will alienate some of our primary stakeholders.\\
@@ -151,7 +151,7 @@ which is believed to be a primary interest of users too.
 
 \subsection{Client}
 The primary clients for this project are the computing and software departments
-of academic institutions, and code competition administrators. These clients
+of academic institutions and code competition administrators. These clients
 seek an advanced plagiarism detection system that overcomes the limitations of
 existing tools like MOSS. In academic settings, the system will help maintain
 academic integrity, while in code competitions, it will ensure fair play by
@@ -188,8 +188,8 @@ upload code submissions, compare entries, and review plagiarism reports.
     uses the system to ensure participants submit original work to ensure fair
     play in the competition.
     \item Competition Participant: Giorno Capio - A competition participant
-    aiming for a top score in the competition, who is hoping the system does not
-    misclassify their work with someone elses who may have similar code.
+    aiming for a top score, hoping the system does not
+    misclassify their work with someone else who may have similar code.
 \end{itemize}
 
 \subsection{Priorities Assigned to Users}
@@ -217,6 +217,7 @@ updates to the system.
 % CONSTRAINTS ARE WHEN "HOW" IS IMPOSED BY EXTERNAL CONSIDERATIONS
 % NON-ABSTRACT REQUIREMENTS ("HOW") ARE CONSTRAINTS
 
+\newpage
 \section{Mandated Constraints}
 \subsection{Solution Constraints}
 \begin{table}[h!]
@@ -251,7 +252,7 @@ updates to the system.
 \end{table}
 
 
-
+\newpage
 \subsection{Partner or Collaborative Applications}
 Our project will use Google Colab to train and tune our language models for the NLP component of our tool.
 \begin{table}[h!]
@@ -263,8 +264,8 @@ Our project will use Google Colab to train and tune our language models for the 
     Usage of the Google Colab platform for training shall not exceed 100 compute units. &
     We will only purchase 100 compute units to stay within our project budget. \\
     \hline
-    The training and tuning of our language models will be written in python. &
-    Google Colab only supports python. \\
+    The training and tuning of our language models will be written in Python. &
+    Google Colab only supports Python. \\
     \hline
     The number of training iterations of our language model will not exceed 1000. &
     The amount of computational power provided by Google Colab is the limiting factor in our training speed. \\
@@ -287,9 +288,8 @@ Our project will use Google Colab to train and tune our language models for the 
     \caption{ Off-the-Shelf Software Constraints}
 \end{table}
 
+\newpage
 \subsection{Anticipated Workplace Environment}
-% need a computer and a desk ??
-% good internet
 There are no constraints imposed upon us by the anticipated workplace environment.
 
 
@@ -300,7 +300,7 @@ There are no constraints imposed upon us by the anticipated workplace environmen
     \hline
     \textbf{Constraint}   & \textbf{Rationale} \\
     \hline
-    Training data for language models shall consist of pre-labelled datasets on the internet, or scraped from online programming contests results and labelled with an existing plagirism detection tool. &
+    Training data for language models shall consist of pre-labelled datasets on the internet, or scraped from online programming contest results and labelled with an existing plagiarism detection tool. &
     Given the schedule of the project, there is not enough time to source and label datasets by hand. \\
     \hline
     \end{tabular}
@@ -315,7 +315,7 @@ There are no constraints imposed upon us by the anticipated workplace environmen
     \hline
     \textbf{Constraint}   & \textbf{Rationale} \\
     \hline
-    The cost of sourcing training data and training NLP models using cloud computers shall not exceed \$150 CAD. &
+    The cost of sourcing training data and training NLP models using cloud computers shall not exceed CAD \$150. &
     We are students and we don't have a lot of money. \\
     \hline
     \end{tabular}
@@ -331,9 +331,10 @@ There are no enterprise constraints imposed upon our project.
 involved in the Project}
 \begin{itemize}
     \item MOSS - Measure of Software Similarity, commonly used code plagiarism detection algorithm
-    \item NLP - Natural Language Processing, a type of model/algorithm that turns human readable text into machine readable text
+    \item NLP - Natural Language Processing, a type of model/algorithm that turns human-readable text into machine-readable text
     \item GPLv3 Licence - GNU General Public Licence v3.0
-    \item AST - Abstract Syntax Tree, low level representation of code execution
+    \item API - Application programming interface
+    \item AST - Abstract Syntax Tree, low-level representation of code execution
     \item AI - Artificial Intelligence
     \item UI - User Interface, the interface the user is met with
     \item PIPEDA - Personal Information Protection and Electronic Documents Act
@@ -343,7 +344,7 @@ involved in the Project}
 \section{Relevant Facts And Assumptions}
 \subsection{Relevant Facts}
 \begin{itemize}
-  \item The current standard for code plagiarism detection, MOSS, primarily relies on token matching and syntax-based comparison. This method lacks the ability to detect deeper semantic similarities in code.
+  \item The current standard for code plagiarism detection, MOSS, primarily relies on token matching and syntax-based comparison. This method cannot detect deeper semantic similarities in code.
   \item NLP techniques have advanced significantly in recent years, enabling more accurate natural language understanding. These techniques can be adapted to understand the structure and semantics of code, which could enhance plagiarism detection systems.
   \item There is a growing need for a plagiarism detection system that accounts for sophisticated plagiarism techniques, such as variable renaming, code restructuring, and adding non-functional code.
   \item Academic institutions are increasingly concerned with the fairness and accuracy of plagiarism detection systems to avoid penalizing students unfairly, especially with the rising prevalence of online and remote learning.
@@ -359,28 +360,28 @@ involved in the Project}
 \begin{itemize}
   \item It is assumed that the academic institutions adopting this system have clear plagiarism policies and can provide a threshold score that reflects their definitions of plagiarism.
   \item It is assumed that the code samples provided for comparison are original and not previously processed by other plagiarism detection systems, ensuring that the results reflect real-time analysis.
-  \item It is assumed that professors and administrators will review flagged cases manually to confirm plagiarism before taking any disciplinary action.
+  \item It is assumed that professors and administrators will review flagged cases manually to confirm plagiarism before taking disciplinary action.
   \item It is assumed that students will not have access to the internal workings of the plagiarism detection algorithm, preventing them from finding potential loopholes to bypass detection.
   \item Software will be used only in Canada, and the legal and ethical considerations of this country will be taken into account during development.
 \end{itemize}
 
 \section{The Scope of the Work}
 \subsection{The Current Situation}
-The current code plagiarism dtection tools such as MOSS rely on tokenization and syntax-level comparisons. Although effective
+The current code plagiarism detection tools such as MOSS rely on tokenization and syntax-level comparisons. Although effective
 in detecting direct copies or slight variations, they struggle when faced with techniques such as adding redundant code which
 allows the user to completely bypass detection while still plagiarizing the underlying logic and structure of the code.
 
-Additionally, MOSS does not take into account for the complexity or intent behind the code, leading to issues such as false
+Additionally, MOSS does not take into account the complexity or intent behind the code, leading to issues such as false
 positives for common programming patterns. This creates a gap for more advanced tools capable of understanding the semantic 
 meaning of code to more accurately detect plagiarism.
 \subsection{The Context of the Work}
 Our project aims to address these gaps by incorporating Natural Language Processing (NLP) and machine learning techniques
 which will be leveraged to improve the accuracy of detecting copied code. The context of the work is within academic institutions,
-where the integrity of student work is aparmount and our tool will be used by professors to ensure a fair grading process
+where the integrity of student work is paramount and our tool will be used by professors to ensure a fair grading process
 while also supporting students in understanding the ethical use of code.
 \subsection{Work Partitioning}
 \begin{itemize}
-  \item \textbf{Research and Design}: Conduct research on current plagiarism detection systems and state-of-the-art NLP techniques applicable to code plagiarism.
+  \item \textbf{Research and Design}: Research current plagiarism detection systems and state-of-the-art NLP techniques applicable to code plagiarism.
   
   \item \textbf{Data Collection}: Gather a dataset of code snippets, including both plagiarized and original works, to train and test the model.
   
@@ -431,8 +432,8 @@ while also supporting students in understanding the ethical use of code.
 \begin{itemize}
     \item \textbf{Values}:
     \begin{itemize}
-        \item \texttt{python}
-        \item \texttt{java}
+        \item \texttt{Python}
+        \item \texttt{Java}
         \item \texttt{C}
     \end{itemize}
 \end{itemize}
@@ -524,50 +525,114 @@ while also supporting students in understanding the ethical use of code.
 \subsection{Product Boundary}
 \includegraphics[height=.78\textheight]{assets/UseCase.png}
 \captionof{figure}{Use Case Diagram}
-\subsection{Product Use Case Table}
-\begin{table}[htbp]
-    \centering
-    \begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-    \hline
-    \textbf{PUC No} & \textbf{PUC Name} & \textbf{Actor/s} & \textbf{Input/Output} \\ \hline
-    1 & Upload Code Submissions & Professor, Competition Organizers & Code Submission (in) / Uploaded Code (out) \\ \hline
-    2 & Process Code for Plagiarism Detection & System, Professor & Uploaded Code (in) / Processed Code (out) \\ \hline
-    3 & Generate Similarity Scores & System & Processed Code (in) / Similarity Scores (out) \\ \hline
-    4 & Review Plagiarism Reports & Professor, Competition Organizers & Similarity Scores (in) / Plagiarism Report (out) \\ \hline
-    5 & Adjust Plagiarism Detection Threshold & Professor, Competition Organizers & Threshold Input (in) / Updated Threshold (out) \\ \hline
-    6 & Login/Register & Professor, Competition Organizers & Login Credentials (in) / Access to System (out) \\ \hline
-    \end{tabular}
-    \caption{Product Use Case (PUC) Summary Table}
-\end{table}
+Note: The Model here represents our NLP model, which is the core of our product.
 
-    
-    
-    
+\subsection{Product Use Case Table}
+\begin{tabular}{ | p{3cm} | p{3cm} | p{3cm} | p{3cm} | }
+\hline
+\textbf{PUC No} & \textbf{PUC Name} & \textbf{Actor/s} & \textbf{Input/Output} \\ \hline
+1 & Upload Code Submissions & Professor, Competition Organizers & Code Submission (in) / Uploaded Code (out) \\ \hline
+2 & Process Code for Plagiarism Detection & Model & Uploaded Code (in) / Processed Code (out) \\ \hline
+3 & Generate Similarity Scores & Model & Processed Code (in) / Similarity Scores (out) \\ \hline
+4 & Review Plagiarism Reports & Professor, Competition Organizers & Similarity Scores (in) / Plagiarism Report (out) \\ \hline
+5 & Adjust Plagiarism Detection Threshold & Professor, Competition Organizers & Threshold Input (in) / Updated Threshold (out) \\ \hline
+6 & Login/Register & Professor, Competition Organizers & Login Credentials (in) / Access to System (out) \\ \hline
+\end{tabular}
+\captionof{table}{Product Use Case Table}
+
 \subsection{Individual Product Use Cases (PUC's)}
-\lips
+\textbf{PUC 1: Upload Code Submissions}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The user is logged in and has the necessary permissions to upload submissions.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system prompts the user to upload code files.
+    \item The user uploads the required code files and submits them.
+    \item The system stores the submitted files for plagiarism detection processing.
+    \item The system notifies the user that the upload was successful.
+\end{enumerate}
+\textbf{Postconditions:} The code submissions are available for plagiarism detection.\\[0.2cm]
+
+\textbf{PUC 2: Process Code for Plagiarism Detection}\\
+\textbf{Actors:} Model, Professor\\
+\textbf{Preconditions:} Code submissions have been uploaded and are ready for processing.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system retrieves the submitted code for processing.
+    \item The system parses the code to generate structured representations (e.g., Abstract Syntax Tree or AST, still TBD for our use).
+    \item The system compares the parsed code against other uploaded submissions and datasets using the plagiarism detection model.
+    \item The system stores the processed results for similarity scoring.
+\end{enumerate}
+\textbf{Postconditions:} The code is fully processed and ready for generating similarity scores.\\[0.2cm]
+
+\textbf{PUC 3: Generate Similarity Scores}\\
+\textbf{Actors:} Model\\
+\textbf{Preconditions:} The code has been processed and structured.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The system calculates similarity scores by comparing the structured code.
+    \item The system generates detailed similarity reports with scores for each code submission.
+    \item The system emails the similarity reports in a .zip file to the user.
+\end{enumerate}
+\textbf{Postconditions:} Similarity scores are available for review.\\[0.2cm]
+
+\textbf{PUC 4: Review Plagiarism Reports}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} Similarity scores have been generated and are ready for review.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The professor/organizer logs into the system and uploads the .zip file containing the plagiarism reports.
+    \item The system displays the plagiarism reports, including similarity scores and flagged submissions.
+    \item The professor/organizer reviews the results and flags any cases for investigation or further action.
+    \item The system logs any flags or notes made by the professor/organizer.
+\end{enumerate}
+\textbf{Postconditions:} The professor/organizer has reviewed the plagiarism reports.\\[0.2cm]
+
+\textbf{PUC 5: Adjust Plagiarism Detection Threshold}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The plagiarism detection system has been configured with default thresholds.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The professor/organizer navigates to the plagiarism detection settings.
+    \item The system displays the current thresholds for flagging plagiarism.
+    \item The professor/organizer adjusts the thresholds based on the desired sensitivity level.
+    \item The system applies the new threshold settings to future plagiarism checks.
+\end{enumerate}
+\textbf{Postconditions:} The new threshold settings are saved and used for subsequent plagiarism checks.\\[0.2cm]
+
+\textbf{PUC 6: Login/Register}\\
+\textbf{Actors:} Professor, Competition Organizers\\
+\textbf{Preconditions:} The user has an account or needs to register.\\
+\textbf{Main Scenario:}
+\begin{enumerate}
+    \item The user navigates to the login or registration page.
+    \item The system prompts the user to enter their credentials (or create a new account).
+    \item The user provides the necessary information (email, password, etc.) for login or registration.
+    \item The system verifies the credentials or creates a new account.
+    \item The system logs the user in or confirms successful registration.
+\end{enumerate}
+\textbf{Postconditions:} The user is logged into the system and can access the functionalities based on their role.
 
 \section{Functional Requirements}
 \subsection{Functional Requirements}
 \begin{itemize}
-    \item The system shall take in code snippets as inputs
-    \item The system shall output similarity scores alongside thresholds 
-    that indicate whether or not plagiarism is present within input
-    \item The system shall be able to output documentation explaining
+    \item \textbf{FR-1}: The system shall take in code snippets as inputs
+    \item \textbf{FR-2}:The system shall output similarity scores alongside thresholds that indicate whether or not plagiarism is present within the input
+    \item \textbf{FR-3}: The system shall be able to output documentation explaining
     how to interpret any other output (guide document)
-    \item The system shall allow code snippets to be flagged after similarity
+    \item \textbf{FR-4}: The system shall allow code snippets to be flagged after similarity
     scores and thresholds are generated
-    \item The system shall provide a set of similarity scores for all code 
+    \item \textbf{FR-5}: The system shall provide a set of similarity scores for all code 
     snippet pairings
-    \item The system shall allow a report to be created after scores and 
-    thresholds are generated that summarizes all system outputs 
-    \item The system will allow users to create an account with an email 
-    and password
-    \item The system will allow users to sign into a created account with 
+    \item \textbf{FR-6}: The system shall allow a report to be created after scores and 
+    thresholds are generated that summarize all system outputs 
+    \item \textbf{FR-7}: The system will allow users to create an account with an email and password
+    \item \textbf{FR-8}: The system will allow users to sign into a created account with 
     their email and password
-    \item The system shall be able to email all outputs as a .zip folder 
-    to an email selected by user
-    \item System shall be able to visualize .zip folder containing its outputs
-    uploaded by user on user interface
+    \item \textbf{FR-9}: The system shall be able to email all outputs as a .zip file 
+    to an email selected by the user
+    \item \textbf{FR-10}: System shall be able to visualize a .zip file containing its outputs
+    uploaded by user the on the user interface
 \end{itemize}
 
 \section{Look and Feel Requirements}
@@ -575,16 +640,16 @@ while also supporting students in understanding the ethical use of code.
 \subsection{Appearance Requirements}
 The user interface (UI) must adhere to the following appearance guidelines:
 \begin{itemize}
-    \item \textbf{Consistency}: The UI should maintain a uniform color palette, 
+    \item \textbf{LF-AR1: Consistency}: The UI should maintain a uniform color palette, 
     font, and layout across all screens and elements. For instance, the primary 
     color is defined as blue (\#0047AB) for buttons, links, and headers, and 
     white (\#FFFFFF) for background areas.
     
-    \item \textbf{Clarity}: All icons, buttons, and menus should be intuitive and 
+    \item \textbf{LF-AR2: Clarity}: All icons, buttons, and menus should be intuitive and 
     clearly identifiable. Hovering over icons will provide tooltips with a brief 
     description of their functionality.
     
-    \item \textbf{Responsiveness}: The layout should adjust according to screen 
+    \item \textbf{LF-AR3: Responsiveness}: The layout should adjust according to screen 
     size, ensuring the interface remains usable on a range of devices, including 
     desktops, tablets, and mobile phones.
 \end{itemize}
@@ -592,18 +657,18 @@ The user interface (UI) must adhere to the following appearance guidelines:
 \subsection{Style Requirements}
 The style guidelines for the interface are as follows:
 \begin{itemize}
-    \item \textbf{Typography}: The font family used across the UI will be 
+    \item \textbf{LF-SR1: Typography}: The font family used across the UI will be 
     \textit{Roboto}. Headers should use a 24px font size, body text should be 
-    14px, and button text should be 16px.
+    14px and button text should be 16px.
     
-    \item \textbf{Color Scheme}: Buttons and interactive elements should use the 
+    \item \textbf{LF-SR2: Color Scheme}: Buttons and interactive elements should use the 
     primary color \#0047AB. Background areas will use \#F0F0F0, and error 
     messages will be highlighted in \#FF0000.
     
-    \item \textbf{Button Styles}: All buttons should have rounded corners with 
+    \item \textbf{LF-SR3: Button Styles}: All buttons should have rounded corners with 
     a radius of 5px. On hover, the button background will lighten by 20\%.
     
-    \item \textbf{Spacing and Padding}: There should be at least 10px of padding 
+    \item \textbf{LF-SR4: Spacing and Padding}: There should be at least 10px of padding 
     between elements and a margin of 20px around each section to maintain a clean 
     layout.
 \end{itemize}
@@ -614,14 +679,14 @@ The style guidelines for the interface are as follows:
 \subsection{Ease of Use Requirements}
 The system should be intuitive and simple to use for the target audience.
 \begin{itemize}
-    \item \textbf{Minimal Learning Curve}: Users should be able to complete tasks 
+    \item \textbf{UH-E1: Minimal Learning Curve}: Users should be able to complete tasks 
     with minimal instruction or training, taking at most 5 minutes from start 
     to finish. The interface must guide users intuitively through this process.
     
-    \item \textbf{Task Efficiency}: Common tasks should be achievable in no more 
+    \item \textbf{UH-E2: Task Efficiency}: Common tasks should be achievable in no more 
     than three clicks or interactions from the main screen.
     
-    \item \textbf{Clear Navigation}: All navigation elements should be labeled 
+    \item \textbf{UH-E3: Clear Navigation}: All navigation elements should be labeled 
     clearly and positioned consistently across different pages to avoid confusion.
 \end{itemize}
 
@@ -629,10 +694,10 @@ The system should be intuitive and simple to use for the target audience.
 The system will support a customizable experience in the future, but users will 
 not be able to modify key settings such as themes or layout preferences at launch.
 \begin{itemize}
-    \item \textbf{Future Customization Support}: Future updates will allow users 
+    \item \textbf{UH-PI1: Future Customization Support}: Future updates will allow users 
     to modify settings such as themes and layouts to suit their personal preferences.
     
-    \item \textbf{English Language Support}: The system will operate exclusively 
+    \item \textbf{UH-PI2: English Language Support}: The system will operate exclusively 
     in English, with all dates, currency, and numeric formats adhering to 
     English (US) standards.
 \end{itemize}
@@ -640,11 +705,11 @@ not be able to modify key settings such as themes or layout preferences at launc
 \subsection{Learning Requirements}
 The system should provide clear documentation and onboarding materials.
 \begin{itemize}
-    \item \textbf{Onboarding}: A guided onboarding process should be available 
+    \item \textbf{UH-L1: Onboarding}: A guided onboarding process should be available 
     for new users, helping them understand the main features of the system 
     in under 5 minutes.
     
-    \item \textbf{Help Documentation}: Detailed help documentation and tooltips 
+    \item \textbf{UH-L2: Help Documentation}: Detailed help documentation and tooltips 
     should be available for key features to reduce the need for external 
     assistance.
 \end{itemize}
@@ -653,11 +718,11 @@ The system should provide clear documentation and onboarding materials.
 The system should use clear language and maintain a polite tone in all 
 interactions with users.
 \begin{itemize}
-    \item \textbf{Clear Language}: All messages and labels should be in simple, 
+    \item \textbf{UH-UP1: Clear Language}: All messages and labels should be in simple, 
     everyday language to ensure clarity for users of different levels of 
     technical expertise.
     
-    \item \textbf{Politeness}: Error messages and prompts should be worded 
+    \item \textbf{UH-UP2: Politeness}: Error messages and prompts should be worded 
     politely and offer constructive guidance. Example error messages include:
     \begin{itemize}
         \item \textit{“Oops! Something went wrong. Please try again or contact 
@@ -673,42 +738,42 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \section{Performance Requirements}
 \subsection{Speed and Latency Requirements}
 \begin{itemize}
-    \item The system should process the inputs and provide results in under ten minutes 
-    \item The system must notify users if processing surpasses ten minutes
+    \item \textbf{PR-SL1}: The system should process the inputs and provide results in under ten minutes 
+    \item \textbf{PR-SL2:}: The system must notify users if processing surpasses ten minutes
 \end{itemize}
 \subsection{Safety-Critical Requirements}
 \begin{itemize}
-    \item The system must avoid false positives to protect students from wrongful accusations. 
-    \item A manual override option for professors must exist to prevent automatic accusations solely based on the model.
+    \item \textbf{PR-SC1}: The system must avoid false positives to protect students from wrongful accusations. 
+    \item \textbf{PR-SC2}: A manual override option for professors must exist to prevent automatic accusations solely based on the model.
 \end{itemize}
 \subsection{Precision or Accuracy Requirements}
 \begin{itemize}
-    \item The system should have an accuracy rate of at least 90\% for identifying plagiarized content.
-    \item The false positive rate (incorrectly flagged plagiarism cases) must be kept below 5\%.
+    \item \textbf{PR-PA1}: The system should have an accuracy rate of at least 90\% for identifying plagiarized content.
+    \item \textbf{PR-PA2}: The false positive rate (incorrectly flagged plagiarism cases) must be kept below 5\%.
 \end{itemize}
 \subsection{Robustness or Fault-Tolerance Requirements}
 \begin{itemize}
-    \item The system will not crash in the case of a malformed input, and will instead issue an error message to the user.
+    \item \textbf{PR-RFT1}: The system will not crash in the case of a malformed input, and will instead issue an error message to the user.
 \end{itemize}
 \subsection{Capacity Requirements}
 \begin{itemize}
-    \item The system should be able to handle batches of inputs without significant delays.
-    \item The system should be able to handle batches of inputs without the total processing time exceeding 600 seconds.
+    \item \textbf{PR-C1}: The system should be able to handle batches of inputs without significant delays.
+    \item \textbf{PR-C2}: The system should be able to handle batches of inputs without the total processing time exceeding 600 seconds.
 \end{itemize}
 \subsection{Scalability or Extensibility Requirements}
 \begin{itemize}
-    \item The system should be designed in a way such that adding support for new file types or coding languages should not impede with current functionality
+    \item \textbf{PR-SE1}: The system should be designed in a way such that adding support for new file types or coding languages should not impede current functionality
 \end{itemize}
 \subsection{Longevity Requirements}
 \begin{itemize}
-    \item Backwards compatibility must be maintained when new features are introduced
-    \item The system should be designed such that the natural language processing part can be changed in accordance to new research in the field.
+    \item \textbf{PR-L1}: Backwards compatibility must be maintained when new features are introduced
+    \item \textbf{PR-L1}: The system should be designed such that the natural language processing part can be changed in accordance with new research in the field.
 \end{itemize}
 
 \section{Operational and Environmental Requirements}
 \subsection{Expected Physical Environment}
 There are no specific physical environment requirements for our product since it is entirely software-based.
-Users can access the tool from any location with an internet connection via web browser on any major operating system.
+Users can access the tool from any location with an internet connection via a web browser on any major operating system.
 
 \subsection{Wider Environment Requirements}
 There are no wider environment requirements for our product since it operates entirely within a virtual environment.
@@ -716,47 +781,46 @@ Because of this, environmental factors are outside of the scope of our project.
 
 \subsection{Requirements for Interfacing with Adjacent Systems}
 \begin{itemize}
-    \item The system will provide the option to interface with cloud computing (AWS, Azure) 
-    \item The system will deploy the frontend and backend code in a free hosting Service
-    \item The system will use external services for user authentication 
+    \item \textbf{OE-IAS1}:The system will provide the option to interface with cloud computing (AWS, Azure) 
+    \item \textbf{OE-IAS2}: The system will deploy the frontend and backend code in a free hosting Service
+    \item \textbf{OE-IAS3}: The system will use external services for user authentication 
 \end{itemize}
 \subsection{Productization Requirements}
 For the tool to be ready for widespread use, it should meet several productization requirements:
 \begin{itemize}
-    \item \textbf{User-friendly interfaces} for both professors and code contest administrators, allowing easy input and clear, actionable outputs.
-    \item \textbf{Documentation and training materials} to help users understand how to utilize the tool effectively, including explanations of how the similarity scores are calculated and how to interpret them.
-    \item \textbf{Scalability}, ensuring that the tool can handle a large number of code submissions simultaneously without performance degradation.
+    \item \textbf{OE-P1: User-friendly interfaces} for professors and code contest administrators, allowing easy input and clear, actionable outputs.
+    \item \textbf{OE-P2: Documentation and training materials} to help users understand how to utilize the tool effectively, including explanations of how the similarity scores are calculated and how to interpret them.
+    \item \textbf{OE-P3: Scalability}, ensuring that the tool can handle many code submissions simultaneously without performance degradation.
 \end{itemize}
 
 \subsection{Release Requirements}
 To release the tool effectively, certain conditions must be met:
 \begin{itemize}
-    \item \textbf{Beta testing} with a select group of professors and students to gather feedback on usability, performance, and false positive/negative rates.
-    \item \textbf{Clear versioning} and change logs to track improvements over time, particularly as new programming languages or detection features are added.
-    \item \textbf{Ongoing support}, including the ability to update the plagiarism detector with new models or features as they are developed.
+    \item \textbf{OR-R1: Beta testing} with a select group of professors and students to gather feedback on usability, performance, and false positive/negative rates.
+    \item \textbf{OR-R1: Clear versioning} and change logs to track improvements over time, particularly as new programming languages or detection features are added.
+    \item \textbf{OR-R1: Ongoing support}, including the ability to update the plagiarism detector with new models or features as they are developed.
 \end{itemize}
 
 \section{Maintainability and Support Requirements}
 \subsection{Maintenance Requirements}
 \begin{itemize}
-    \item \textbf{Versioning}: keep track of and store model versions to allow
-     switches between experimental models and previous versions (metric is 
-     version history exists).
+    \item \textbf{MS-M1: Versioning}: Keep track of and store model versions to allow
+     switches between experimental models and previous versions. A verifiable metric is 
+     that version history exists.
 
-    Justification: Gives ability to work on separate model architectures to try 
+    Justification: Gives the ability to work on separate model architectures to try 
     improvements in different directions as well as rollback on model releases 
     if something goes wrong as well as provide experimental releases.
     
-    \item \textbf{Metric Reports}: every model release shall be accompanied by 
-    a report of metrics decided upon to track model performance (metric is 
-    report exists).
+    \item \textbf{MS-M2: Metric Reports}: Every model release shall be accompanied by 
+    a report of metrics decided upon to track model performance. A verifiable metric is 
+    that the report exists.
 
-    Justification: Gives clarity whether model is being improved or not and what
-     specific changes may be damaging the model. Will allow model health and 
+    Justification: Gives clarity on whether the model is being improved or not and what
+     specific changes may be damaging the model. This will allow model health and 
      performance to be tracked and maintained over time.
 
-    \item \textbf{Issue Tracking}: every bug should be registered in an issue 
-    tracking system (metric is bugs existing as issues). 
+    \item \textbf{MS-M3: Issue Tracking}: Every bug should be registered in an issue-tracking system. A verifiable metric is bugs existing as issues. 
 
     Justification: Brings attention to what bugs have been resolved and which 
     ones still require work.
@@ -764,57 +828,57 @@ To release the tool effectively, certain conditions must be met:
 \end{itemize}
 \subsection{Supportability Requirements}
 \begin{itemize}
-    \item \textbf{Documentation}: provide concise (max 30 lines) comments on 
-    all apis and algorithms used in code base. This will allow others to 
-    comprehend what sections may need updates or bug fixes (metric is 
-    comment exists at every piece of api code or algorithm)
+    \item \textbf{MS-S1: Documentation}: provide concise (max 30 lines) comments on 
+    all APIs and algorithms used in the code base. This will allow others to 
+    comprehend what sections may need updates or bug fixes A verifiable metric is 
+    comment exists at every piece of API code or algorithm.
     
     Justification: leaves no obfuscation in where somebody should adjust 
     code or update a component by clarifying what responsibility each area
      of code holds.
 
-    \item \textbf{Logging }: provides a report of code components that 
+    \item \textbf{MS-S2: Logging}: provides a report of code components that 
     executed leading up to a crash whenever a crash occurs, so bugs can 
-    be identified and fixes can be staged. (metric is a log with relevant 
-    information about crash, such as a stack trace, is generated for user 
-    to view when crash occurs).
+    be identified and fixes can be staged. A verifiable metric is a log with relevant 
+    information about the crash, such as a stack trace, is generated for the user 
+    to view when a crash occurs.
 
     Justification: Almost 100\% necessary for effectively debugging issues in
      the code and giving the ability to support the model in the future for 
      people who aren't familiar with the code base.
 
-    \item \textbf{Community Acknowledgement}: provide pathway for users to post
-     or vote for requests/issues that should be addressed. (Metric is existence
-      of said pathway, like email or github issues or forum).
+    \item \textbf{MS-S3: Community Acknowledgement}: provide a pathway for users to post
+     or vote for requests/issues that should be addressed. A verifiable metric is the existence
+      of said pathway, like email or GitHub issues or forum.
 
-    Justification: Will highlight to community what are current pain points 
+    Justification: Will highlight to the community what are current pain points 
     that should be prioritized and communication about how it is desired to 
     address them.
 
 \end{itemize}
 \subsection{Adaptability Requirements}
 \begin{itemize}
-    \item \textbf{Dataset Compatibility}: provide compatibility for at least 
-    two data formats when it comes to training datasets (metric is data 
-    formats that are accepted).
+    \item \textbf{MS-A1: Dataset Compatibility}: provide compatibility for at least 
+    two data formats when it comes to training datasets. A verifiable metric is that data 
+    the formats that are accepted.
 
-    Justification: will allow model to accommodate wider amount of datasets 
+    Justification: will allow the model to accommodate a wider amount of datasets 
     and provides it better longevity in case either one of its data formats 
     becomes less popular.
     
-    \item \textbf{Template Adherence}:  every model layer/component follows a 
-    template. (metric is a template exists for all model layers/components and
-     are upheld by said layers/components.)
+    \item \textbf{MS-A2: Template Adherence}: Every model layer/component follows a 
+    template. A verifiable metric is that a template exists for all model layers/components and
+     is upheld by said layers/components.
 
     Justification - if somebody wishes to update the model with new 
     layers/components or modify existing ones, there will be a guide to make 
     the process straightforward and encourage those conducting the update to 
     follow through.
 
-    \item \textbf{Modularity}:  every model layer/component can be treated as 
-    an individual function. (metric is model layers/components can be fed an 
+    \item \textbf{MS-A3: Modularity}:  every model layer/component can be treated as 
+    an individual function. A verifiable metric is that model layers/components can be fed an 
     input and produce an output which reflects only operations conducted within
-     the layer/component).
+     the layer/component.
 
     Justification - enables removal or substitution of individual model 
     layers/components which may be problematic or less efficient, similar to 
@@ -827,7 +891,7 @@ To release the tool effectively, certain conditions must be met:
 \section{Security Requirements}
 \subsection{Access Requirements}
 \begin{itemize}
-    \item \textbf{Authentication}: The system shall require user authentication
+    \item \textbf{SR-A1: Authentication}: The system shall require user authentication
     before allowing access to the tool. Only authenticated users can upload code for comparison.
 
     Justification - Users need to be identifiable so that they can receive their results via email and so that usage limits can be imposed upon them.
@@ -839,12 +903,12 @@ Since no data is retained, data integrity is not a concern.
 
 \subsection{Privacy Requirements}
 \begin{itemize}
-    \item \textbf{Zero Data Retention}: The system shall retain no user-uploaded data beyond the immediate need of the task.
-    Refer to section 17.2.5 for more information.
+    \item \textbf{SR-P1: Zero Data Retention}: The system shall retain no user-uploaded data beyond the immediate need of the task.
+    Refer to requirement CR-SC5 for more information.
 
-    Justification - This ensures that user privacy and protects sensitive academic work from being mishandled.
+    Justification - This ensures user privacy and protects sensitive academic work from being mishandled.
 
-    \item \textbf{In Transit Encryption}: All data (including code snippets) shall be encrypted while being uploaded to or downloaded
+    \item \textbf{SR-P2: In Transit Encryption}: All data (including code snippets) shall be encrypted while being uploaded to or downloaded
     from the system using secure encryption protocols.
 
     Justification - Protecting user data during transmission ensures that it can't be intercepted by unauthorized third parties.
@@ -852,9 +916,9 @@ Since no data is retained, data integrity is not a concern.
 
 \subsection{Audit Requirements}
 \begin{itemize}
-    \item \textbf{In Transit Encryption}: The system shall log all user interactions and actions (such as authentication events, code uploads, and plagiarism checks) anonymously, without storing any user-uploaded code or sensitive data.
+    \item \textbf{SR-AD1: In Transit Encryption}: The system shall log all user interactions and actions (such as authentication events, code uploads, and plagiarism checks) anonymously, without storing user-uploaded code or sensitive data.
 
-    Justification - While no user data is retained, logging system events and user actions provides a transparent way to track system usage and ensure accountability without violating the zero data retention policy.
+    Justification - While no user data is retained, logging system events and user actions provide a transparent way to track system usage and ensure accountability without violating the zero data retention policy.
 \end{itemize}
 
 \subsection{Immunity Requirements}
@@ -869,7 +933,7 @@ No major cultural requirements are identified for this project but some that cou
 \textbf{Student Privacy}: In some cultures and institutions, the handling of student work and data is highly regulated. Laws like the FIPPA mandate strict data privacy standards. The system should ensure that student data, including their code submissions, is securely handled, anonymized where possible, and not stored unnecessarily.
 \\ \\
 \noindent \textbf{Differences in Academic Integrity Norms}\\ 
-\textbf{Varying Definitions of Plagiarism}: Some cultures and instituitions promote collaboration as well as code borrowing so it is essential to define what plagiarism is in the context of this project. The tool should also be modifiable in its threshold for detecting plagiarism so instituitions can chnage it to their needs.
+\textbf{Varying Definitions of Plagiarism}: Some cultures and institutions promote collaboration and code borrowing so it is essential to define what plagiarism is in the context of this project. The tool should also be modifiable in its threshold for detecting plagiarism so institutions can change it to their needs.
 
 
 \section{Compliance Requirements}
@@ -884,12 +948,12 @@ development and data security standards.
 \subsection{Legal Requirements}
 
 \begin{enumerate}
-    \item \textbf{Data Protection and Privacy Laws}: The tool will process sensitive
+    \item \textbf{CR-L1: Data Protection and Privacy Laws}: The tool will process sensitive
     information, including students' code submissions, which may be considered personal
     data under Canadian privacy laws such as the \textit{Personal Information Protection 
     and Electronic Documents Act} (PIPEDA) at the federal level, and Ontario's \textit{Freedom of 
     Information and Protection of Privacy Act} (FIPPA) for public institutions. Compliance with these 
-    laws requires:
+    laws require:
     \begin{itemize}
         \item \textbf{Lawful Basis for Data Processing}: Ensuring that the collection and use of 
         personal information is authorized under PIPEDA or FIPPA, typically requiring consent from 
@@ -904,7 +968,7 @@ development and data security standards.
         loss, or disclosure, as required under PIPEDA and FIPPA.
     \end{itemize}
 
-    \item \textbf{Intellectual Property Rights}: Under the \textit{Copyright Act} of Canada, 
+    \item \textbf{CR-L2: Intellectual Property Rights}: Under the \textit{Copyright Act} of Canada, 
     students typically hold the intellectual property rights to their original code. 
     The tool must:
     \begin{itemize}
@@ -917,7 +981,7 @@ development and data security standards.
         does not violate the \textit{Copyright Act} or institutional policies.
     \end{itemize}
 
-    \item \textbf{Academic Integrity Policies}: The tool must align with the academic
+    \item \textbf{CR-L3: Academic Integrity Policies}: The tool must align with the academic
     integrity and misconduct policies of Canadian educational institutions by:
     \begin{itemize}
         \item \textbf{Supporting Fair Evaluation}: Assisting educators in identifying
@@ -933,7 +997,7 @@ development and data security standards.
 \subsection{Standards Compliance Requirements}
 
 \begin{enumerate}
-    \item \textbf{Software Development Standards}: Adherence to recognized software development practices is essential for ensuring quality and maintainability.
+    \item \textbf{CR-SC1: Software Development Standards}: Adherence to recognized software development practices is essential for ensuring quality and maintainability.
         \begin{itemize}
             \item \textbf{SOLID Principles}: The project will follow SOLID principles—Single Responsibility, 
             Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion—to promote clean,
@@ -944,7 +1008,7 @@ development and data security standards.
 
 
 
-    \item \textbf{Data Security Standards}: Protecting sensitive data is a priority, and although full 
+    \item \textbf{CR-SC2: Data Security Standards}: Protecting sensitive data is a priority, and although full 
     compliance with industry security standards such as ISO/IEC 27001 may not be feasible for a student 
     capstone project, we will take measures to ensure data security.
         \begin{itemize}
@@ -954,7 +1018,7 @@ development and data security standards.
         \end{itemize}
 
 
-    \item \textbf{Accessibility Standards}: The tool will be designed to support basic accessibility features.
+    \item \textbf{CR-SC3: Accessibility Standards}: The tool will be designed to support basic accessibility features.
     \begin{itemize}
         \item \textbf{Screen Reader Support}: Key elements of the user interface will be made compatible with 
         screen readers to assist visually impaired users.
@@ -965,7 +1029,7 @@ development and data security standards.
     \end{itemize}
         
 
-    \item \textbf{Ethical AI and Machine Learning Standards}: As the tool leverages AI
+    \item \textbf{CR-SC4: Ethical AI and Machine Learning Standards}: As the tool leverages AI
     technologies, it must adhere to ethical standards in AI development.
     \begin{itemize}
         \item \textbf{Transparency and Explainability}: Ensuring that the AI models used
@@ -976,7 +1040,7 @@ development and data security standards.
         and other potentially discriminatory information are not used in the detection process.
     \end{itemize}
 
-    \item \textbf{Data Handling and Retention Policies}: Establishing clear policies for
+    \item \textbf{CR-SC5: Data Handling and Retention Policies}: Establishing clear policies for
     how data is managed throughout its lifecycle.
     \begin{itemize}
         \item \textbf{Zero Data Retention}: No user data will be retained beyond the immediate needs of the task.
@@ -985,7 +1049,7 @@ development and data security standards.
         \item \textbf{Secure Disposal}: Implementing procedures for the secure deletion or
         anonymization of data that is no longer needed.
         \item \textbf{Audit and Compliance}: Regularly auditing data handling practices to
-        ensure ongoing compliance with all relevant laws and standards.
+        ensure compliance with all relevant laws and standards.
     \end{itemize}
 \end{enumerate}
 
@@ -1001,7 +1065,7 @@ institutions, educators, and students alike.
 \begin{itemize}
     \item How the integration of the Natural Language Processing (NLP) model with the code submission system will work. Such as choosing what NLP model to use, how to train it, and where to host it.
     \item Selecting the most appropriate techniques for semantic code analysis, such as Abstract Syntax Trees (ASTs) or vector embeddings.
-    \item Deciding on how the model will handle false positives, especially common coding patterns, to avoid misclassification. Example. students using the same code snippets from a tutorial.
+    \item Deciding on how the model will handle false positives, especially common coding patterns, to avoid misclassification: for instance, students using the same code snippets from a tutorial.
 \end{itemize}
 
 \subsection {Data Collection Challenges}
@@ -1020,13 +1084,13 @@ institutions, educators, and students alike.
 \section{Off-the-Shelf Solutions}
 \subsection{Ready-Made Products}
 
-There are many ready-made tools that aim to detect source-code level plagiarism, the most well-known of which being \href{https://theory.stanford.edu/~aiken/moss/}{MOSS}. MOSS is most commonly used by professors.
+Many ready-made tools aim to detect source-code level plagiarism, the most well-known of which being \href{https://theory.stanford.edu/~aiken/moss/}{MOSS}. MOSS is most commonly used by professors.
 There are also a handful of open-source alternatives, including: \href{https://github.com/jplag/JPlag}{JPlag}, \href{https://dickgrune.com/Programs/similarity_tester/}{SIM}, \href{https://warwick.ac.uk/fac/sci/dcs/research/ias/software/sherlock/}{Sherlock}, and \href{https://www.cs.hut.fi/Software/Plaggie/}{Plaggie}.
-Most of them support checking of multiple languages and use a variety of techniques to improve detection rates. These tools are relatively old and are not all actively developed.
+Most of them support checking multiple languages and use a variety of techniques to improve detection rates. These tools are relatively old and are not all actively developed.
 
 \subsection{Reusable Components}
 
-JPlag uses ANTLR 4 as a parser generator for many of its supported languages. For cross-language support, our tool can reuse JPlag's ANTLR grammar files to create language frontend parsers for each language we choose to support. Using a parser generator with pre-existing grammar files would reduce development time significantly, since the alternative would entail writing a custom parser for each supported language. By using ANTLR and JPlag's grammar files, we could feasibly support many source languages as opposed to just one, which would most likely be python (our product will be written in python, and python is capable of parsing it's own syntax tree).
+JPlag uses ANTLR 4 as a parser generator for many of its supported languages. For cross-language support, our tool can reuse JPlag's ANTLR grammar files to create language frontend parsers for each language we choose to support. Using a parser generator with pre-existing grammar files would reduce development time significantly since the alternative would entail writing a custom parser for each supported language. By using ANTLR and JPlag's grammar files, we could feasibly support many source languages as opposed to just one, which would most likely be Python (our product will be written in Python, and Python is capable of parsing its own syntax tree).
 
 \subsection{Products That Can Be Copied}
 
@@ -1037,7 +1101,7 @@ To reduce development time, we plan to copy the first step (the text preprocessi
 \section{New Problems}
 \subsection{Effects on the Current Environment}
 \begin{itemize}
-    \item \textbf{Blind Trust in the Tool}: One potential issue is that users may develop a sense of over-reliance on the tool based solely on the fact that it is AI-based. This can lead to blind trust in its results. This could cause professors to forego manual checks, resuling in incorrect classifications.
+    \item \textbf{Blind Trust in the Tool}: One potential issue is that users may develop a sense of over-reliance on the tool based solely on the fact that it is AI-based. This can lead to blind trust in its results. This could cause professors to forego manual checks, resulting in incorrect classifications.
 \end{itemize}
 
 \subsection{Effects on the Installed Systems}
@@ -1045,7 +1109,7 @@ There should be no new problems for users of this tool since they don't need to 
 
 \subsection{Potential User Problems}
 \begin{itemize}
-    \item \textbf{Difficulty with the New UI}: Some users may struggle to navigate the new UI, resulting in misuse of the tool. Additionally, some settings may not be known by the user and left at their default value, which may cause confusion or result in worse detection rate.
+    \item \textbf{Difficulty with the New UI}: Some users may struggle to navigate the new UI, resulting in misuse of the tool. Additionally, some settings may not be known by the user and left at their default value, which may cause confusion or result in a worse detection rate.
 
     \item \textbf{Misinterpretation of Results}: Users may incorrectly interpret the significance of the results provided by the tool. For instance, a high similarity score might be misinterpreted as definitive proof of plagiarism when there could be legitimate reasons for the similarity, such as the use of common libraries or design patterns.
 \end{itemize}
@@ -1059,7 +1123,7 @@ There should be no new problems for users of this tool since they don't need to 
 \begin{itemize}
     \item \textbf{Server Maintenance and Costs}: Long-term maintenance of the server infrastructure could present challenges, including server downtime, performance degradation, and increasing operational costs as more users adopt the system. Costs related to server hosting, cloud processing, and ensuring uptime can grow as demand increases.
     
-    \item \textbf{Model Upgrades and Performance Regressions}: Updating or training new models may introduce performance regressions or unexpected behavior in the plagiarism detection system. For example, a newer model may detect plagiarism more accurately but at the cost of higher processing times or an increase in false positives.
+    \item \textbf{Model Upgrades and Performance Regressions}: Updating or training new models may introduce performance regressions or unexpected behaviour in the plagiarism detection system. For example, a newer model may detect plagiarism more accurately but at the cost of higher processing times or an increase in false positives.
 \end{itemize}
 
 
@@ -1070,7 +1134,7 @@ There should be no new problems for users of this tool since they don't need to 
     \item \textbf{Hazard Analysis (October 12 - October 23)}
     \begin{itemize}
         \item \textbf{High-Level Description:} This document identifies potential risks or hazards in the project, assesses their severity,
-         and proposes mitigations. It is important for ensuring safety and compliance with standards.
+         and proposes mitigations. It is important to ensure safety and compliance with standards.
         \item \textbf{Story Points:} 12 days
         \item \textbf{Tasks:} Brainstorming hazards, analysis, and review.
     \end{itemize}
@@ -1118,13 +1182,13 @@ There should be no new problems for users of this tool since they don't need to 
     \begin{itemize}
         \item \textbf{High-Level Description:} A demonstration of the system after the first iteration, showing functionality that meets the initial design and requirements.
         \item \textbf{Story Points:} 1 day
-        \item \textbf{Tasks:} Present the system, showcase its core features.
+        \item \textbf{Tasks:} Present the system, and showcase its core features.
     \end{itemize}
 
     \item \textbf{V\&V Report (Revision 0) (February 15 - March 7)}
     \begin{itemize}
         \item \textbf{High-Level Description:} This documents the process of verifying that the system meets its functional and nonfunctional requirements and validating that 
-        the system performs as intended. It includes the evaluation of both functional and nonfunctional requirements, details of unit testing, automated testing, and code 
+        the system performs as intended. It includes the evaluation of both functional and non-functional requirements, details of unit testing, automated testing, and code 
         coverage metrics. The report also highlights any changes made due to testing and traces these changes back to both requirements and modules. Comparisons to existing 
         implementations are provided, where applicable.
         \item \textbf{Story Points:} 5 days
@@ -1142,7 +1206,7 @@ There should be no new problems for users of this tool since they don't need to 
     \begin{itemize}
         \item \textbf{High-Level Description:} This is a public or stakeholder-facing presentation of the system, potentially at an event or exhibition. The focus is on clear communication and showcasing the system’s capabilities.
         \item \textbf{Story Points:} 7 days
-        \item \textbf{Tasks:} Practice, setup, and running the demo smoothly.
+        \item \textbf{Tasks:} Practice, set up, and run the demo smoothly.
     \end{itemize}
 
     \item \textbf{Final Documentation (Revision 1) (Due: April 2)}
@@ -1247,7 +1311,7 @@ The migration to the new code plagiarism detection system must be carefully plan
 \begin{itemize}
     \item \textbf{User Training and Support}: Provide comprehensive documentation and training materials for professors, system administrators, and students to familiarize them with the new system. This includes tutorials on how to upload code, interpret results, and resolve flagged cases.
     \item \textbf{Phased Rollout}: Implement a phased migration plan, starting with pilot tests in a controlled environment (e.g., one course or department) before full-scale implementation across the institution.
-    \item \textbf{Data Security Compliance}: Ensure that all data migrations comply with data protection regulations, such as Canada's Privacy Act.
+    \item \textbf{Data Security Compliance}: Ensure data migrations comply with data protection regulations, such as Canada's Privacy Act.
     \item \textbf{System Downtime Minimization}: Plan the migration to minimize downtime and disruption to academic workflows. Ideally, the transition should occur during a break period, when student and faculty activity is low.
 \end{itemize}
 \subsection{Data That Has to be Modified or Translated for the New System}
@@ -1265,7 +1329,7 @@ The costs associated with this project come from several different parts of the 
     \item Data must be acquired before training the model. The data required to
     train the model can cost money. However, the team intends to automate
     processes to acquire data, and thus there is no charge incurred. An unknown
-    amount of money will be needed for data if the team's method of acuiring
+    amount of money will be needed for data if the team's method of acquiring
     data fails.
     \item In the training and testing phase, the model will require hardware to
     be trained on. The team intends to use Google Co-lab and leverage the
@@ -1280,7 +1344,7 @@ The costs associated with this project come from several different parts of the 
 \end{itemize}
 In total, the project should only cost approximately 30 dollars. The cost is
 subject to change, and can increase/decrease depending on the amount of data
-needed, and the how much Google's cloud hardware is used.
+needed, and how much Google's cloud hardware is used.
 
 \section{User Documentation and Training}
 
@@ -1306,14 +1370,14 @@ The system requires training sessions for all primary users, including professor
     \item Ongoing support for users, including refresher training and updates on new features as the system evolves.
 \end{itemize}
 
-Training materials should be made available in multiple formats: in-person workshops, webinars, and self-paced online courses.
+Training materials should be available in multiple formats: in-person workshops, webinars, and self-paced online courses.
 
 
 \section{Waiting Room}
-Too early in the project to have a waiting room. This section will be filled out in the future as the project progresses and new features are considered.
+It is too early in the project to have a waiting room. This section will be completed as the project progresses and new features are considered.
 
 \section{Ideas for Solution}
-Too early in the project to have ideas for solution. This section will be filled out in the future as the project progresses.
+It is too early in the project to have ideas for solutions. This section will be completed as the project progresses.
 
 \newpage{}
 \section*{Appendix --- Reflection}
@@ -1324,15 +1388,75 @@ graduate attribute of Lifelong Learning.  Please answer the following questions:
 \begin{enumerate}
   \item What knowledge and skills will the team collectively need to acquire to
   successfully complete this capstone project?  Examples of possible knowledge
-  to acquire include domain specific knowledge from the domain of your
+  to acquire include domain-specific knowledge from the domain of your
   application, or software engineering knowledge, mechatronics knowledge or
   computer science knowledge.  Skills may be related to technology, or writing,
   or presentation, or team management, etc.  You should look to identify at
   least one item for each team member.
+  \textbf{Knowledge Areas:}
+    \begin{itemize}
+        \item \textbf{Language normalization}: Understanding source-code level processing techniques necessary for transforming input text into a format usable by NLP models.
+        \item \textbf{NLP Techniques}: Understanding and applying Natural Language Processing (NLP) techniques to analyze code submissions. Necessary to develop algorithm/model project will rely on at its core.
+        \item \textbf{Server Deployment}: Understanding how to deploy algorithm/model in conjunction with UI to receive 
+        requests for analyzing plagiarism from a non-local user. Necessary to be able to host our model outside of a local host.
+    \end{itemize}
+    \textbf{Skills:}
+    \begin{itemize}
+        \item \textbf{Writing}: The ability to convey thoughts in a formalized manner. This is necessary to write documentation for projects such as SRS.
+        \item \textbf{Team Management}: The ability to delegate responsibilities amongst members in a respectful manner while working off feedback from teammates about their enjoyment of given tasks to retain a cohesive team dynamic. This is necessary to keep work on track and maintain an enthusiastic team spirit.
+        \item \textbf{Proactive Communication}: Letting others know in advance the direction you want to head in for a given task. This is necessary to allow strong planning that will not crumble under roadblocks in code development, which are bound to happen.
+    \end{itemize}
+    \textbf{Julian}: Server Deployment, Proactive Communication \\
+    \textbf{Lucas}: NLP Techniques, Team Management \\
+    \textbf{Dennis}: NLP Techniques, Team Management \\
+    \textbf{Mohammad}: NLP Techniques, Writing, Proactive Communication
   \item For each of the knowledge areas and skills identified in the previous
   question, what are at least two approaches to acquiring the knowledge or
   mastering the skill?  Of the identified approaches, which will each team
   member pursue, and why did they make this choice?
+    \begin{itemize}
+        \item \textbf{Server Deployment}: YouTube Videos, Online Articles, Building miniproject
+        \item \textbf{Proactive Communication}: Scheduling Meetings for direction, Notebook Reminders
+        \item \textbf{Language normalization}: YouTube Videos, Research Papers, Open source code on GitHub
+        \item \textbf{NLP Techniques}: YouTube Videos, Online Articles, Research Papers
+        \item \textbf{Team Management}: YouTube Videos, Online Articles, GitHub Project Management Tools
+        \item \textbf{Writing}: Writing Documentation, Online Articles
+        \item \textbf{Proactive Communication}: Notebook Reminders, Scheduling Meetings
+    \end{itemize}
+    Which team member chose to pursue which approach, and why?
+    \begin{itemize}
+        \item \textbf{Lucas Chen:} 
+        \begin{itemize}
+            \item \textbf{NLP Techniques}: Lucas will pursue YouTube videos and online reading to understand NLP techniques. This is because he learns best through visual and auditory methods.
+            \item \textbf{Team Management}: Lucas will pursue learning more about GitHub project management tools and techniques. This is because he has taken on the role of project manager and needs to understand how to manage the team effectively.
+        \end{itemize}
+        \item \textbf{Dennis Fong:}
+        \begin{itemize}
+            \item \textbf{NLP Techniques}: Dennis will look for research papers on NLP, especially ones that pertain to the topic of this project. This is because he seeks a deeper understanding of the inner workings of a NLP model from both a math and code perspective.
+            \item \textbf{Team Management}: Dennis will learn about team management through the use of GitHub and the many features it supports for managing a project for the team. He is not as familiar with GitHub as his team members, and this will serve as a strong learning experience.
+        \end{itemize}
+
+        \item \textbf{Julian Cecchini:} 
+        \begin{itemize}
+            \item \textbf{Server Deployment}: Julian will pursue online articles to learn this. He finds maintaining attention for long YouTube videos can be cumbersome and if he's interrupted, it's easier to pick up off online articles than YouTube videos. Also, he doesn't feel he has time to trial server deployment in a side project. He lacks experience in server deployment compared to the rest of the team, so he seeks to close the knowledge gap to be able to contribute and gain experience in this area.
+
+            \item \textbf{Proactive Communication}: Julian will schedule meetings for thought direction on given tasks. He feels the commitment imposed by a meeting where he must announce his thoughts will have him try more consistently to announce his direction than a notebook reminder that suggests he should bring some thoughts forward. He feels its essential he masters this while dealing with multiple extracurriculars on top of capstone so he doesn't lose touch with the team.
+        \end{itemize}
+
+        \item \textbf{Mohammad Mohsin Khan:}
+        \begin{itemize}
+            \item \textbf{NLP Techniques}: Mohammad will pursue online articles and research papers to understand NLP techniques. This is because he prefers to read and analyze information at his own pace.
+            \item \textbf{Writing}: Mohammad will practice writing by creating documentation for the project. This hands-on approach will help him improve his writing skills through practical application.
+            \item \textbf{Proactive Communication}: Mohammad will use notebook reminders to prompt him to communicate proactively. This method aligns with his preference for written reminders and will help him stay organized and on track.
+        \end{itemize}
+        
+        \item \textbf{Luigi Quattrociocchi:}
+        \begin{itemize}
+            \item \textbf{Language normalization}: Luigi will study open-source repositories on GitHub and read research papers relating to source-code-level language processing. This knowledge will be critical to transforming user input into a format that is usable for NLP analysis. This choice was made because Luigi has many ideas for the implementation of these techniques and he believes that formalizing this will help the project proceed.
+            \item \textbf{Server Deployment}: Luigi aims to improve his knowledge of server deployment and general web development best practices and techniques by watching YouTube videos and participating in discussions with the team about how we plan to deploy the system. Luigi finds that he lacks expertise in this area and would like to contribute to this aspect of the project.
+            \item \textbf{Writing}: Luigi will pursue improvement in writing by continuing to write documentation and enforcing strict linter rules about comments and function docstrings in the project source code. This will help him improve his communication with his team and improve documentation for any other maintainers of the project.
+        \end{itemize}
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
