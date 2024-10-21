@@ -140,8 +140,28 @@ important library, these are also potential components.}
 
 \section{Safety and Security Requirements}
 
-\wss{Newly discovered requirements.  These should also be added to the SRS.  (A
-rationale design process how and why to fake it.)}
+\begin{itemize}
+\item \textbf{SR-SAF1: Submission Rate Limitation}: The system shall limit the number of submissions by a parcitular user within a specific time period to prevent server overload.
+
+Rationale: The activity of any user should not impact the performance of the system nor increase waiting times for other users.
+
+\item \textbf{SR-SAF2: Safe System States During Failure}: In case of system error (i.e. hardware or network failures), the system shall inform users of the failure of their pending submissions before gracefully shutting down.
+
+Rationale: This ensures that users are notified of submission failures, preventing confusion or wasted time.
+
+\item \textbf{SR-SAF3: Warning of Potentially Inaccurate Detections}: In cases where the system produces imperfect or potentially erroneous detections, the user shall be warned that the results may be inaccurate.
+
+Rationale: Maintaining transparency that results may not be reliable protects users from acting on incorrect information before checking the results for themselves.
+
+\item \textbf{SR-SAF4: Protection Against Inappropriate Inputs}: The system shall validate all user submissions so that malformed code submissions doesn't compromise system performance or cause system downtime.
+
+Rationale: Malformed inputs could lead to system crashes or incorrect analysis.
+
+\item \textbf{SR-SAF5: Isolation of Critical Functions}: Critical functions such as plagiarism detection and report generation shall be isolated to prevent faults in non-critical components from affecting system stability.
+
+Rationale: Issues in non-critical functions (such as the user interface) shouldn't compromise overall system stability.
+
+\end{itemize}
 
 \section{Roadmap}
 
