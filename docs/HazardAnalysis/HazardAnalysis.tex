@@ -149,13 +149,13 @@ Rationale: The activity of any user should not impact the performance of the sys
 
 Rationale: This ensures that users are notified of submission failures, preventing confusion or wasted time.
 
-\item \textbf{SR-SAF3: Warning of Potentially Inaccurate Detections}: In cases where the system produces imperfect or potentially erroneous detections, the user shall be warned that the results may be inaccurate.
+\item \textbf{SR-SAF3: Warning of Potentially Inaccurate Detections}: In cases where the system produces detections with low confidence, the user shall be warned that the results may be inaccurate.
 
 Rationale: Maintaining transparency that results may not be reliable protects users from acting on incorrect information before checking the results for themselves.
 
-\item \textbf{SR-SAF4: Protection Against Inappropriate Inputs}: The system shall validate all user submissions so that malformed code submissions doesn't compromise system performance or cause system downtime.
+\item \textbf{SR-SAF4: Protection Against Inappropriate Inputs}: The system shall validate all user submissions and reject malformed code submissions.
 
-Rationale: Malformed inputs could lead to system crashes or incorrect analysis.
+Rationale: Malformed inputs could lead to system crashes, incorrect analysis, or compromise system performance.
 
 \item \textbf{SR-SAF5: Isolation of Critical Functions}: Critical functions such as plagiarism detection and report generation shall be isolated to prevent faults in non-critical components from affecting system stability.
 
