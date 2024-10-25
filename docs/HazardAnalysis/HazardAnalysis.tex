@@ -1,9 +1,12 @@
 \documentclass{article}
-
+\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage{pdflscape}
+\usepackage{caption}
+
+\captionsetup[figure]{font=footnotesize} % For figure captions
 
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
@@ -32,7 +35,7 @@
 \pagenumbering{roman}
 
 \begin{table}[hp]
-\caption{Revision History} \label{TblRevisionHistory}
+\caption*{Revision History} \label{TblRevisionHistory}
 \begin{tabularx}{\textwidth}{llX}
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
@@ -46,6 +49,8 @@ Oct 15 & SyntaxSentinels & Initial Revision\\
 ~\newpage
 
 \tableofcontents
+
+\listoftables
 
 ~\newpage
 
@@ -87,12 +92,14 @@ The analysis aims to minimize these risks and ensure the robustness, security, a
 
 
 \section{System Boundaries and Components}
+\,
+\begin{figure}
+    \hspace{-3cm}
+        \includegraphics[height=.58\textheight]{./assets/Component_Border.png}
+\caption{Diagram shows referential relationships, not workflows. System Boundary above surrounds all components our team will maintain and accept responsibility. A machine above is a server suitable to host code specified. Any machine mentioned above will not be provided to users from our project, they are expected to be self-hosted either on the user's own servers, or through technology such as Amazon Web Services (AWS) or Microsoft Azure.}
+\end{figure}
 
-\wss{Dividing the system into components will help you brainstorm the hazards.
-You shouldn't do a full design of the components, just get a feel for the major
-ones.  For projects that involve hardware, the components will typically include
-each individual piece of hardware.  If your software will have a database, or an
-important library, these are also potential components.}
+
 
 \section{Critical Assumptions}
 \begin{itemize}
