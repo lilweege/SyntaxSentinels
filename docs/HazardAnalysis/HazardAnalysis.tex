@@ -230,6 +230,9 @@ This roadmap ensures that the essential safety requirements are delivered as par
     attempting to inspect the entirety of our project at once. It ultimately 
     had our team unify further on how we potentially can implement aspects of
     our product, giving a clearer vision for the development.
+    Also, Coming up with new safety and security requirements was made easier by
+    defining the system boundary and FMEA table. After taking a step back, some
+    hazards are easier to spot, and requiements to mitigate them become more obvious.
 
     \item What pain points did you experience during this deliverable, and how
     did you resolve them?
@@ -244,6 +247,11 @@ This roadmap ensures that the essential safety requirements are delivered as par
     hazard, and ordering the addressal of hazards based on these priorities.
     We also kept the timings a little broad to give us breathing room incase 
     something changes.
+    Finally, It was somewhat challenging for us to agree on some assumptions we made
+    when creating our system boundaries. This is because our project does not provide
+    a service, and only gives code for users to set up on their own infrastructure.
+    If we provided our product as a service as well, we would have to consider more
+    hazards that come with hosting (and communitaction between) servers.
 
     \item Which of your listed risks had your team thought of before this
     deliverable, and which did you think of while doing this deliverable? For
@@ -269,9 +277,13 @@ This roadmap ensures that the essential safety requirements are delivered as par
     appreciable risks of this form), list at least 2 other types of risk in
     software products. Why are they important to consider?
 
-    Security Risks -
+    Security Risks - Since our product deals with sensitive user data (user code
+    submissions and generated plagiarism detection reports), it is important to
+    consider the security of that data.
 
-    Privacy Compliance Risks -
+    Performance Risks - Our product requires a lot of computational power to function,
+    and given that we plan to support multiple users using our service concurrently, ensuring
+    that one user's usage does not negatively impact the experience of other users is important.
 
 
 \end{enumerate}
