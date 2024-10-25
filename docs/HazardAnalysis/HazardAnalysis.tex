@@ -66,8 +66,25 @@ variable name changes.
 
 \section{Scope and Purpose of Hazard Analysis}
 
-\wss{You should say what \textbf{loss} could be incurred because of the
-hazards.}
+The purpose of this hazard analysis is to identify, evaluate, and mitigate potential risks that could lead to system failures or undesired outcomes. In the context of this project, the primary losses incurred due to hazards could include:
+
+\begin{itemize}
+    \item Unauthorized interception of sensitive data, such as code submissions or plagiarism reports which could lead to privacy breaches.
+    \item Misidentification of plagiarism cases, either false positives (innocent submissions flagged) or false negatives (plagiarized submissions unflagged).
+    \item Disruption of service leading to user dissatisfaction, especially in time-sensitive code competition environments leading to loss of reputation.
+    \item Inaccurate similarity scores, which could result in biased or incorrect decisions by professors or competition organizers.
+\end{itemize}
+
+The scope of this hazard analysis will cover the following areas:
+\begin{itemize}
+    \item Risks associated with data handling.
+    \item Risks in the plagiarism detection algorithms and model performance.
+    \item User authentication and access control risks.
+    \item Potential human errors in adjusting plagiarism detection thresholds.
+\end{itemize}
+
+The analysis aims to minimize these risks and ensure the robustness, security, and accuracy of the system while maintaining a high level of user trust and system reliability.
+
 
 \section{System Boundaries and Components}
 
@@ -121,13 +138,77 @@ Diagram shows referential relationships, not workflows. System Boundary above su
 
 \section{Safety and Security Requirements}
 
-\wss{Newly discovered requirements.  These should also be added to the SRS.  (A
-rationale design process how and why to fake it.)}
+\begin{itemize}
+\item \label{req:saf1} \textbf{SR-SAF1: Submission Rate Limitation}: The system shall limit the number of submissions by a parcitular user each day to prevent server overload.
+
+Rationale: The activity of any user should not impact the performance of the system nor increase waiting times for other users.
+
+\item \label{req:saf2} \textbf{SR-SAF2: Safe System States During Failure}: In case of system error (i.e. hardware or network failures), the system shall inform users of the failure of their pending submissions before gracefully shutting down.
+
+Rationale: This ensures that users are notified of submission failures, preventing confusion or wasted time.
+
+\item \label{req:saf3} \textbf{SR-SAF3: Warning of Potentially Inaccurate Detections}: In cases where the system produces detections with low confidence, the user shall be warned that the results may be inaccurate.
+
+Rationale: Maintaining transparency that results may not be reliable protects users from acting on incorrect information before checking the results for themselves.
+
+\item \label{req:saf4} \textbf{SR-SAF4: Protection Against Inappropriate Inputs}: The system shall validate all user submissions and reject malformed code submissions.
+
+Rationale: Malformed inputs could lead to system crashes, incorrect analysis, or compromise system performance.
+
+\item \label{req:saf5} \textbf{SR-SAF5: Isolation of Critical Functions}: Critical functions such as plagiarism detection and report generation shall be isolated from non-critical functionality to prevent faults in such non-critical components from affecting system stability.
+
+Rationale: Issues in non-critical functions (such as the user interface) shouldn't compromise overall system stability.
+
+\end{itemize}
 
 \section{Roadmap}
 
-\wss{Which safety requirements will be implemented as part of the capstone timeline?
-Which requirements will be implemented in the future?}
+This section outlines the implementation timeline for the safety and security requirements of the project. The following safety requirements will be prioritized and implemented as part of the capstone timeline, while others may be deferred for future releases to ensure complete and secure functionality.
+
+\subsection{Capstone Timeline Implementation}
+
+\begin{itemize}
+    \item \textbf{\hyperref[req:saf1]{SR-SAF1: Submission Rate Limitation}}
+    \begin{itemize}
+        \item \textbf{Description}: The system shall limit the number of submissions by a particular user each day to prevent server overload.
+        \item \textbf{Rationale}: To ensure the system maintains optimal performance and prevents any user from monopolizing system resources.
+        \item \textbf{Implementation Plan}: This will be implemented early on to mitigate any risks of server performance issues.
+    \end{itemize}
+
+    \item \textbf{\hyperref[req:saf2]{SR-SAF2: Safe System States During Failure}}
+    \begin{itemize}
+        \item \textbf{Description}: The system shall inform users of submission failures due to hardware or network errors and gracefully shut down.
+        \item \textbf{Rationale}: Ensuring users are informed of system failures protects them from being left in the dark regarding their submissions.
+        \item \textbf{Implementation Plan}: This feature will be crucial to handle system stability and to improve user experience, making it a priority during development.
+    \end{itemize}
+
+    \item \textbf{\hyperref[req:saf4]{SR-SAF4: Protection Against Inappropriate Inputs}}
+    \begin{itemize}
+        \item \textbf{Description}: The system shall validate all user submissions and reject malformed code submissions.
+        \item \textbf{Rationale}: Prevents system crashes, incorrect analysis, or compromised performance due to malformed inputs.
+        \item \textbf{Implementation Plan}: Will be integrated during the core system development phase to safeguard against harmful inputs.
+    \end{itemize}
+
+    \item \textbf{\hyperref[req:saf5]{SR-SAF5: Isolation of Critical Functions}}
+    \begin{itemize}
+        \item \textbf{Description}: Critical functions (plagiarism detection, report generation) shall be isolated from non-critical functions (UI) to prevent faults from spreading.
+        \item \textbf{Rationale}: Ensures that non-essential issues do not impact the core stability of the system.
+        \item \textbf{Implementation Plan}: This is critical for maintaining the integrity of the plagiarism detection system and will be developed alongside the primary features.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Future Releases}
+
+\begin{itemize}
+    \item \textbf{\hyperref[req:saf3]{SR-SAF3: Warning of Potentially Inaccurate Detections}}
+    \begin{itemize}
+        \item \textbf{Description}: The system shall warn users if detections have low confidence levels and could be inaccurate.
+        \item \textbf{Rationale}: To maintain transparency with users, ensuring they do not rely on potentially incorrect results without further verification.
+        \item \textbf{Future Implementation Plan}: This feature will be added after the initial release, once the confidence scoring mechanism has been thoroughly tested and refined.
+    \end{itemize}
+\end{itemize}
+
+This roadmap ensures that the essential safety requirements are delivered as part of the capstone project, with further refinements and advanced features to be implemented in future iterations.
 
 \newpage{}
 
