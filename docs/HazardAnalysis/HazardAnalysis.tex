@@ -222,15 +222,58 @@ This roadmap ensures that the essential safety requirements are delivered as par
 
 \begin{enumerate}
     \item What went well while writing this deliverable? 
+
+    Ascertaining what our system boundary was went particularly well. It had 
+    us become confident in what development will require of us along with 
+    where hazards could occur. Carefully reflecting on this made the rest 
+    of the deliverable smoother since we could isolate components instead of 
+    attempting to inspect the entirety of our project at once. It ultimately 
+    had our team unify further on how we potentially can implement aspects of
+    our product, giving a clearer vision for the development.
+
     \item What pain points did you experience during this deliverable, and how
     did you resolve them?
+
+    It was unclear at first how to reconcile requirements made in this document
+    with our SRS, such as if we had to add them in on the SRS document in a
+    new section. We resolved this by clarifying with the TA during our meeting
+    for this deliverable. We also were unsure about the timeline of
+    implementation of our requirements to address identified hazards. It was
+    not fully clear what would be realistic. We addressed this using our 
+    intuition by giving what we thought were fair priorities to each
+    hazard, and ordering the addressal of hazards based on these priorities.
+    We also kept the timings a little broad to give us breathing room incase 
+    something changes.
+
     \item Which of your listed risks had your team thought of before this
     deliverable, and which did you think of while doing this deliverable? For
     the latter ones (ones you thought of while doing the Hazard Analysis), how
     did they come about?
+    
+    Old ones: model providing false positives, failure to upload file, 
+    model is overfitted, Unauthorized access to account
+    \\
+    New ones: results in email failed to send, failure to tokenize text, 
+    Comments are tokenized or ignored incorrectly
+    \\
+    The new ones came about mainly thanks to the components identified in the 
+    system boundary. Before, we did not isolate the parser in its functionality 
+    from the model itself nor did we think about adversarial ways to trick the 
+    parser, such as comments. We also didn't consider the output failing to 
+    reach the user, and this was identified thanks to an exercise where we 
+    asked all ways output could reach a user and found we originally just
+    thought about the ways the threshold scores could be erroneously displayed.
+    
+
     \item Other than the risk of physical harm (some projects may not have any
     appreciable risks of this form), list at least 2 other types of risk in
     software products. Why are they important to consider?
+
+    Security Risks -
+
+    Privacy Compliance Risks -
+
+
 \end{enumerate}
 
 \end{document}
