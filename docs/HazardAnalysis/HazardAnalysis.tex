@@ -1,9 +1,12 @@
 \documentclass{article}
-
+\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage{pdflscape}
+\usepackage{caption}
+
+\captionsetup[figure]{font=footnotesize} % For figure captions
 
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
@@ -32,7 +35,7 @@
 \pagenumbering{roman}
 
 \begin{table}[hp]
-\caption{Revision History} \label{TblRevisionHistory}
+\caption*{Revision History} \label{TblRevisionHistory}
 \begin{tabularx}{\textwidth}{llX}
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
@@ -47,6 +50,8 @@ Oct 15 & SyntaxSentinels & Initial Revision\\
 
 \tableofcontents
 
+\listoftables
+
 ~\newpage
 
 \pagenumbering{arabic}
@@ -56,13 +61,13 @@ Oct 15 & SyntaxSentinels & Initial Revision\\
 \section{Introduction}
 
 % \wss{You can include your definition of what a hazard is here.}
-A hazard is a property or condition in the system together with a condition in the environment that has the potential to cause harm, disrupt operations, 
-or negatively affect the functionality of a system. Hazards can arise from various sources, including system 
-malfunctions, human errors, environmental factors, or security vulnerabilities.
-
 This document is the hazard analysis for the Capstone SyntaxSentinels. This project seeks to create a plagiarism algorithm that relies on NLP
 techniques of present to account for semantics and prevent primitive circumvention of plagiarism detection, such as the addition of benign lines or
 variable name changes.
+
+A hazard is a property or condition in the system together with a condition in the environment that has the potential to cause harm, disrupt operations, 
+or negatively affect the functionality of a system. Hazards can arise from various sources, including system  malfunctions, human errors, environmental 
+factors, or security vulnerabilities. In the case of this project, most of the hazards are related to user experience and system performance.
 
 \section{Scope and Purpose of Hazard Analysis}
 
@@ -87,12 +92,14 @@ The analysis aims to minimize these risks and ensure the robustness, security, a
 
 
 \section{System Boundaries and Components}
+\,
+\begin{figure}
+    \hspace{-3cm}
+        \includegraphics[height=.58\textheight]{./assets/Component_Border.png}
+\caption{Diagram shows referential relationships, not workflows. System Boundary above surrounds all components our team will maintain and accept responsibility. A machine above is a server suitable to host code specified. Any machine mentioned above will not be provided to users from our project, they are expected to be self-hosted either on the user's own servers, or through technology such as Amazon Web Services (AWS) or Microsoft Azure.}
+\end{figure}
 
-\wss{Dividing the system into components will help you brainstorm the hazards.
-You shouldn't do a full design of the components, just get a feel for the major
-ones.  For projects that involve hardware, the components will typically include
-each individual piece of hardware.  If your software will have a database, or an
-important library, these are also potential components.}
+
 
 \section{Critical Assumptions}
 \begin{itemize}
@@ -165,8 +172,8 @@ Rationale: Issues in non-critical functions (such as the user interface) shouldn
 
 \section{Roadmap}
 
-This section outlines the implementation timeline for the safety and security requirements of the project. The following safety requirements will be prioritized and implemented as part of the capstone timeline, while others may be deferred for future releases to ensure complete and secure functionality.
-
+This section outlines the implementation timeline for the safety and security requirements of the project. The following safety requirements will be prioritized and implemented as part of the capstone timeline, while others may be deferred for future releases to ensure complete and secure functionality. Note: Items appear in order of what will be implemented first.
+\\ \\ \\
 \subsection{Capstone Timeline Implementation}
 
 \begin{itemize}
