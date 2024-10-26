@@ -116,6 +116,7 @@ The analysis aims to minimize these risks and ensure the robustness, security, a
 \begin{landscape}
     \begin{table}[ht]
         \centering
+        \caption{Failure Mode and Effect Analysis}
         \scalebox{0.7}{ 
         \begin{tabular}{|p{1.75cm}|p{4cm}|p{5cm}|p{5cm}|p{3cm}|p{5cm}|p{2cm}|p{2cm}|}
         \hline
@@ -139,7 +140,6 @@ The analysis aims to minimize these risks and ensure the robustness, security, a
         \hline
         \end{tabular}
         } % End of \scalebox
-        \caption{Failure Mode and Effect Analysis}
         \label{table:fmea}
     \end{table}
 \end{landscape}
@@ -228,16 +228,85 @@ This roadmap ensures that the essential safety requirements are delivered as par
 \input{../Reflection.tex}
 
 \begin{enumerate}
-    \item What went well while writing this deliverable? 
+    \item What went well while writing this deliverable?
+
+    Ascertaining what our system boundary was went particularly well. It had 
+    us more formally identify what components exist for development along 
+    with where hazards could occur within said components. This more rigorous
+    process of determining system components had our team unify further on
+    how we can potentially implement aspects of our product, giving a clearer
+    vision for the future development path. More importantly, the rest of the 
+    deliverable became much smoother once we could isolate components
+    for hazards instead of attempting to inspect the entirety of our project 
+    at once.
+
     \item What pain points did you experience during this deliverable, and how
     did you resolve them?
+
+    It was unclear at first what actions had to be taken to reconcile 
+    requirements made or referenced in this document with our SRS. For example, 
+    we were not certain about referencing our SRS requirements through some 
+    form of hyperlink or if requirements added in the hazard analysis document 
+    needed an entirely new section in the SRS. We resolved this by clarifying 
+    with the TA during our meeting for this deliverable. We were also unsure 
+    about the timeline of implementation of our requirements to address 
+    identified hazards. It was not certain what would be realistic. We 
+    addressed this using our intuition by giving what we thought were fair 
+    priorities to each hazard, and ordering the addressal of hazards based on 
+    these priorities. We also kept the timings a bit more vague to give us 
+    breathing room incase something changes.
+
     \item Which of your listed risks had your team thought of before this
     deliverable, and which did you think of while doing this deliverable? For
     the latter ones (ones you thought of while doing the Hazard Analysis), how
     did they come about?
+    
+    Old ones: model providing false positives, failure to upload file, 
+    model is overfitted, Unauthorized access to account
+
+    New ones: results in email failed to send, failure to tokenize text, 
+    Comments are tokenized or ignored incorrectly
+
+    The new ones came about mainly thanks to the components identified in the 
+    system boundary. Before, we did not isolate the parser in its functionality 
+    from the model itself nor did we think about adversarial ways to trick the 
+    parser, such as comments. We also did not consider the output failing to 
+    reach the user via email. This was identified thanks to an exercise where we 
+    outlinted all ways output could reach a user and found we originally just
+    considered on-screen failures, and not failures external to our UI display.
+    
+
     \item Other than the risk of physical harm (some projects may not have any
     appreciable risks of this form), list at least 2 other types of risk in
     software products. Why are they important to consider?
+
+    Security Risks - Even if a user is not physically harmed directly by software,
+    it is important a software does not set them up for other forms of harm such
+    as mental, financial, or reputational, by revealing their identity, location, or
+    any specifics about them that they do not wish to be publicly known. Any of 
+    such pieces of information could potentially be used to blackmail the user 
+    and endanger them. This type of risk is relevant in our product too, seeing 
+    it deals with sensitive user data, like user code submissions and generated 
+    plagiarism detection reports. Safeguarding that information prevents people 
+    from having their coding ideas stolen and their reputations from being 
+    damaged with possible accusations of plagiarism.
+
+    Performance Risks - One of the priorities of a product besides doing no 
+    harm is in fact to do good, or rather, to fulfill a function. If a product 
+    is not able to run and conduct tasks for the user consistently, it can 
+    annoy a user if not downright harm them depending on the criticality of the 
+    product's task. Therefore, it is important that a product maintains 
+    consistent computational abilities to uphold expectations of the user when
+    it comes to producing results at a certain rate. This type of risk is also
+    one we have had to consider for our product since it requires a lot of 
+    computational power to function. Not providing sufficient support in terms of
+    gpus for our model can have it fail to give an output in an adequate time
+    period, meaning users would stop using our product altogether. Given that we 
+    plan to support multiple users concurrently, it is very important we mind the 
+    resources necessary to keep our product fast and responsive. An unusable 
+    product is akin to no product.
+
+
 \end{enumerate}
 
 \end{document}
