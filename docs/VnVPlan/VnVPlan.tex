@@ -1,6 +1,8 @@
 \documentclass[12pt, titlepage]{article}
 
 \usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \hypersetup{
@@ -142,155 +144,182 @@ how they relate to your VnV efforts.}
 
 \section{Plan}
 
-\wss{Introduce this section.  You can provide a roadmap of the sections to
-  come.}
+This section outlines the structured plan for verification and validation of the project. It defines team roles, describes approaches for verifying different phases of the development process, and specifies tools to be used in ensuring the project meets quality standards. The subsections cover SRS verification, design verification, implementation verification, automated testing tools, and software validation.
 
 \subsection{Verification and Validation Team}
 
-\wss{Your teammates.  Maybe your supervisor.
-  You should do more than list names.  You should say what each person's role is
-  for the project's verification.  A table is a good way to summarize this information.}
+The following table lists team members and their respective roles in the verification and validation process.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|p{5cm}|p{10cm}|}
+      \hline
+      \textbf{Team Member} & \textbf{Role in Verification and Validation} \\
+      \hline
+      Mohammad Mohsin Khan & Oversees system architecture verification and leads checklist creation. \\
+      \hline
+      Lucas Chen & Security verification, focusing on access control and data flow assessments. \\
+      \hline
+      Dennis Fong & Responsible for interface and compatibility reviews between components. \\
+      \hline
+      Julian Cecchini & Manages the testing of integration points within the system. \\
+      \hline
+      Luigi Quattrociocchi & Tracks checklist items and maintains verification documentation. \\
+      \hline
+  \end{tabular}
+  \caption{Verification and Validation Team Roles}
+  \label{tab:team-roles}
+\end{table}
+
 
 \subsection{SRS Verification Plan}
 
-\wss{List any approaches you intend to use for SRS verification.  This may
-  include ad hoc feedback from reviewers, like your classmates (like your
-  primary reviewer), or you may plan for something more rigorous/systematic.}
+The SRS (Software Requirements Specification) verification will ensure that all functional and non-functional requirements are accurately documented and align with the project goals. The verification plan includes:
 
-\wss{If you have a supervisor for the project, you shouldn't just say they will
-read over the SRS.  You should explain your structured approach to the review.
-Will you have a meeting?  What will you present?  What questions will you ask?
-Will you give them instructions for a task-based inspection?  Will you use your
-issue tracker?}
+\begin{itemize}
+    \item \textbf{Structured Reviews}: Team members will perform a structured review of the SRS document, verifying that all requirements are feasible and testable.
+    \item \textbf{Checklist-Based Verification}: An SRS checklist will be used to ensure all critical elements, such as functional completeness and clarity, are covered.
+    \item \textbf{Reviewer Feedback Sessions}: We will gather feedback from peer reviewers and our project supervisor, meeting to discuss any discrepancies or ambiguous requirements. These meetings will include task-based inspections, where reviewers are asked to analyze requirements based on specific scenarios.
+\end{itemize}
 
-\wss{Maybe create an SRS checklist?}
+\pagebreak
+
+\begin{center}
+  \begin{longtable}{|p{4cm}|p{11cm}|}
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endfirsthead
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endhead
+  
+  \textbf{1. Completeness} & \\
+  \hline
+  1.1 Purpose and Scope & Document states the purpose and scope of the project. \\
+  \hline
+  1.2 Stakeholders & Key stakeholders (clients, users) are defined. \\
+  \hline
+  1.3 Functional Requirements & All primary functions (e.g., plagiarism detection, reporting) are covered. \\
+  \hline
+  1.4 Non-Functional Requirements & Includes performance, usability, and security requirements. \\
+  \hline
+  \textbf{2. Clarity} & \\
+  \hline
+  2.1 Unambiguous Terminology & Each requirement is clearly stated, terms are defined (e.g., MOSS, NLP). \\
+  \hline
+  2.2 Glossary Completeness & All acronyms and terms are included in the glossary. \\
+  \hline
+  \textbf{3. Consistency} & \\
+  \hline
+  3.1 Consistent Terminology & Terminology and references are consistent throughout. \\
+  \hline
+  3.2 No Conflicting Requirements & No contradictory requirements (e.g., conflicting performance vs. security). \\
+  \hline
+  \textbf{4. Verifiability} & \\
+  \hline
+  4.1 Testable Requirements & Each requirement is testable (e.g., accuracy metrics, response times). \\
+  \hline
+  4.2 Acceptance Criteria & Clear acceptance criteria for each requirement. \\
+  \hline
+  \textbf{5. Traceability} & \\
+  \hline
+  5.1 Unique Identifiers & Each requirement has a unique identifier. \\
+  \hline
+  5.2 Source of Requirements & Requirements link to stakeholder needs or project goals. \\
+  \hline
+  \textbf{6. Feasibility} & \\
+  \hline
+  6.1 Technical Feasibility & Requirements are achievable within project constraints. \\
+  \hline
+  6.2 Practical Constraints & Constraints such as budget and timeline are realistic. \\
+  \hline
+  \textbf{7. Security and Privacy} & \\
+  \hline
+  7.1 Data Retention Policy & Compliance with data privacy laws (e.g., PIPEDA). \\
+  \hline
+  7.2 Access Control Requirements & Requirements for user authentication and authorization are clear. \\
+  \hline
+  \textbf{8. Modifiability} & \\
+  \hline
+  8.1 Organized Structure & Requirements are logically organized for easy updates. \\
+  \hline
+  8.2 No Redundancies & No duplicate requirements to avoid confusion. \\
+  \hline
+  \textbf{9. Compliance and Ethics} & \\
+  \hline
+  9.1 Legal and Ethical Standards & Legal (e.g., Copyright) and ethical considerations are addressed. \\
+  \hline
+  \caption{Checklist for SRS Verification}
+  \end{longtable}
+  \end{center}
 
 \subsection{Design Verification Plan}
 
-The purpose of this design verification plan is to outline the specific methods, roles, and tools that will be used to ensure the design accurately implements the project requirements and adheres to best practices for scalability, security, and maintainability.
-
-\subsubsection{Team Member Roles}
-
-Each team member has designated roles to ensure a comprehensive review of the design. Roles are as follows:
+The design verification plan aims to ensure that the design accurately implements the requirements and adheres to best practices. This plan includes:
 
 \begin{itemize}
-    \item \textbf{Mohammad Mohsin Khan}: Oversees the verification of system architecture, ensuring it supports modularity and scalability.
-    \item \textbf{Lucas Chen}: Conducts security-focused design reviews, verifying that all data flows and access control mechanisms meet security requirements.
-    \item \textbf{Dennis Fong}: Leads the assessment of component interfaces, ensuring smooth communication between modules.
-    \item \textbf{Julian Cecchini}: Reviews integration points and compatibility between design components.
-    \item \textbf{Luigi Quattrociocchi}: Manages design documentation and verification checklists to ensure completeness and consistency in reviews.
+    \item \textbf{Checklist-Based Design Review}: A checklist will be used to guide reviews, focusing on key aspects such as modularity, scalability, and security.
+    \item \textbf{Peer Design Reviews}: Peer reviews by classmates and team members will provide feedback on the design, highlighting potential areas of improvement.
+    \item \textbf{Regular Team Reviews}: Scheduled meetings will allow the team to discuss any design modifications, verify alignment with the SRS, and ensure consistency across components.
 \end{itemize}
 
-\subsubsection{Design Verification Methods}
-
-To verify the design, the following structured methods will be used:
-
+The checklist for design review will cover:
 \begin{itemize}
-    \item \textbf{Design Reviews}: Each design component will undergo a structured review based on predefined checklists to ensure all requirements are covered and best practices are followed.
-    \item \textbf{Peer Reviews}: Regular peer reviews will be conducted to obtain feedback from team members not directly involved in the design, ensuring an unbiased evaluation.
-    \item \textbf{Checklist-Based Verification}: We will utilize a comprehensive checklist to verify specific aspects of the design, focusing on scalability, security, and modularity.
+    \item Modularity and Scalability
+    \item Security of data flows and access control
+    \item Component interfaces
+    \item Error handling and fault tolerance
 \end{itemize}
-
-\subsubsection{Design Review Checklist}
-
-The following checklist will guide the design review process to ensure all critical aspects of the design are covered:
-
-\begin{itemize}
-    \item \textbf{Modularity and Scalability}:
-        \begin{itemize}
-            \item Verify that the system is modular, allowing for independent development and testing of components.
-            \item Ensure the design supports future scalability, allowing additional features and increased load.
-        \end{itemize}
-    \item \textbf{Security}:
-        \begin{itemize}
-            \item Check that data flows are secure and sensitive information is protected.
-            \item Verify that access control mechanisms are in place to prevent unauthorized access.
-        \end{itemize}
-    \item \textbf{Component Interfaces}:
-        \begin{itemize}
-            \item Ensure all component interfaces are well-defined and documented to support integration.
-            \item Verify that inter-component communication follows a consistent and reliable protocol.
-        \end{itemize}
-    \item \textbf{Error Handling and Fault Tolerance}:
-        \begin{itemize}
-            \item Confirm that error handling mechanisms are in place for each component.
-            \item Verify that the design includes strategies for fault tolerance to handle unexpected failures.
-        \end{itemize}
-\end{itemize}
-
-\subsubsection{Design Verification Tools}
-
-To assist with design verification, the following tools will be utilized:
-
-\begin{itemize}
-    \item \textbf{UML Diagrams}: Unified Modeling Language (UML) diagrams will be used to visually represent the design components, their interfaces, and data flows. These diagrams will aid in identifying potential design flaws.
-    \item \textbf{Automated Code Analysis Tools}: Static analysis tools such as SonarQube will be applied to the codebase to ensure that the design adheres to coding standards and security best practices.
-    \item \textbf{Documentation Tools}: Tools like Github issues will be used to document design decisions, review notes, and checklist results, ensuring all team members have access to updated design information.
-\end{itemize}
-
-\subsubsection{Summary}
-
-This design verification plan establishes a structured and thorough approach to ensuring the design meets all project requirements and follows best practices for security, scalability, and maintainability. Regular design reviews, peer feedback, checklist-based verification, and appropriate tools will be employed to confirm that the design is robust and ready for implementation.
-
 
 \subsection{Verification and Validation Plan Verification Plan}
 
-\wss{The verification and validation plan is an artifact that should also be
-verified.  Techniques for this include review and mutation testing.}
+The verification and validation plan itself will also undergo verification to ensure its effectiveness. This will be achieved by:
 
-\wss{The review will include reviews by your classmates}
-
-\wss{Create a checklists?}
+\begin{itemize}
+    \item \textbf{Peer Reviews}: Classmates will review the plan to provide feedback on its clarity, feasibility, and alignment with project requirements.
+    \item \textbf{Mutation Testing}: We will apply mutation testing to validate that the plan can effectively catch errors and discrepancies in project requirements and implementation.
+    \item \textbf{Checklist-Based Verification}: A checklist specific to the verification and validation plan will guide reviewers in assessing all critical aspects of the plan.
+\end{itemize}
 
 \subsection{Implementation Verification Plan}
 
-\wss{You should at least point to the tests listed in this document and the unit
-  testing plan.}
+The implementation verification plan focuses on ensuring the correctness and quality of the implementation phase. The plan includes:
 
-\wss{In this section you would also give any details of any plans for static
-  verification of the implementation.  Potential techniques include code
-  walkthroughs, code inspection, static analyzers, etc.}
-
-\wss{The final class presentation in CAS 741 could be used as a code
-walkthrough.  There is also a possibility of using the final presentation (in
-CAS741) for a partial usability survey.}
+\begin{itemize}
+    \item \textbf{Unit Testing}: Each function and module will undergo unit testing to ensure they meet functional requirements.
+    \item \textbf{Static Code Analysis}: We will use static analysis tools to verify code quality, adherence to coding standards, and security practices.
+    \item \textbf{Code Walkthroughs}: Code walkthroughs will be held in team meetings and during the final presentation, allowing team members to inspect each other’s code for issues in logic, structure, and readability.
+\end{itemize}
 
 \subsection{Automated Testing and Verification Tools}
 
-\wss{What tools are you using for automated testing.  Likely a unit testing
-  framework and maybe a profiling tool, like ValGrind.  Other possible tools
-  include a static analyzer, make, continuous integration tools, test coverage
-  tools, etc.  Explain your plans for summarizing code coverage metrics.
-  Linters are another important class of tools.  For the programming language
-  you select, you should look at the available linters.  There may also be tools
-  that verify that coding standards have been respected, like flake9 for
-  Python.}
+To streamline the verification process, the following automated testing and verification tools will be used:
 
-\wss{If you have already done this in the development plan, you can point to
-that document.}
-
-\wss{The details of this section will likely evolve as you get closer to the
-  implementation.}
+\begin{itemize}
+    \item \textbf{Unit Testing Framework}: A unit testing framework (such as JUnit for Java or Pytest for Python) will be used to automate testing of individual functions and modules.
+    \item \textbf{Static Analysis Tools}: Tools such as SonarQube or Valgrind will be used for static analysis to detect code issues, potential security vulnerabilities, and memory leaks.
+    \item \textbf{Continuous Integration (CI) Tool}: GitHub Actions or Jenkins will be set up for continuous integration to ensure that tests are automatically run on new code submissions.
+    \item \textbf{Code Coverage Tool}: Code coverage tools will track the extent to which the codebase has been tested, ensuring that all critical paths are covered.
+    \item \textbf{Linters}: Linters appropriate to the project’s programming language will enforce coding standards, improving code readability and maintainability.
+\end{itemize}
 
 \subsection{Software Validation Plan}
 
-\wss{If there is any external data that can be used for validation, you should
-  point to it here.  If there are no plans for validation, you should state that
-  here.}
+The software validation plan outlines the strategies for validating that the software meets the intended requirements. This includes:
 
-\wss{You might want to use review sessions with the stakeholder to check that
-the requirements document captures the right requirements.  Maybe task based
-inspection?}
+\begin{itemize}
+    \item \textbf{User Review Sessions}: Review sessions with stakeholders and user representatives will be conducted to validate that the system meets user needs and expectations.
+    \item \textbf{Rev 0 Demonstration}: Shortly after the scheduled Rev 0 demo, we will seek feedback from stakeholders and supervisors, if applicable, to confirm that the design and initial implementation align with project goals.
+    \item \textbf{Usability Testing}: We will plan user testing sessions to ensure the software is intuitive and meets usability expectations.
+\end{itemize}
 
-\wss{For those capstone teams with an external supervisor, the Rev 0 demo should 
-be used as an opportunity to validate the requirements.  You should plan on 
-demonstrating your project to your supervisor shortly after the scheduled Rev 0 demo.  
-The feedback from your supervisor will be very useful for improving your project.}
+The validation process will involve gathering external data, where possible, to test the system’s accuracy and performance under realistic scenarios.
 
-\wss{For teams without an external supervisor, user testing can serve the same purpose 
-as a Rev 0 demo for the supervisor.}
+\section*{Summary}
 
-\wss{This section might reference back to the SRS verification section.}
+This comprehensive plan for verification and validation addresses each phase of the project lifecycle, from requirements to implementation. By following a structured approach with well-defined roles, checklists, and automated tools, we aim to ensure a high level of quality, accuracy, and security in the final product.
 
 \section{System Tests}
 
