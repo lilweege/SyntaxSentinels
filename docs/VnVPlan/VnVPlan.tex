@@ -30,8 +30,8 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+November 1 & 1.0 & Initial documentation\\
+% Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
 
@@ -82,63 +82,105 @@ in.}
 
 \pagenumbering{arabic}
 
-This document ... \wss{provide an introductory blurb and roadmap of the
-  Verification and Validation plan}
+% This document ... \wss{provide an introductory blurb and roadmap of the
+%   Verification and Validation plan}
+This document outlines the strategies and processes used to ensure that the plagiarism detection system  developed by the SyntaxSentinals team meets all functional 
+and non-functional requirements. The primary goal of this plan is to build confidence in the correctness, usability, and performance of the system. It also focuses 
+on identifying and mitigating potential risks, ensuring that the final product aligns with academic and competition standards.
+This document is organized as follows. The general information section provides an overview of the objectives, challenges, and relevant project documents 
+used throughout the V\&V process. The plan section describes the roles and responsibilities of the team members and the tools used for automated testing and verification. 
+The system tests section lists the tests performed for both functional and non-functional requirements, with traceability to the SRS. 
+The unit test description section details the unit testing scope, the modules tested, and the strategies for covering edge cases. Finally, the appendix contains symbolic parameters, 
+survey questions (if applicable), and any other relevant information to support the V\&V process. This plan will evolve as the project progresses, with updates following the completion 
+of the detailed design and implementation phases.
 
 \section{General Information}
 
 \subsection{Summary}
 
-\wss{Say what software is being tested.  Give its name and a brief overview of
-  its general functions.}
+% \wss{Say what software is being tested.  Give its name and a brief overview of
+%   its general functions.}
+  The software being tested is a plagiarism detection system designed to identify similarities in Python code submissions, called SyntaxSentinels. 
+  This system utilizes natural language processing (NLP) techniques to analyze code semantics, preventing common circumvention methods 
+  like adding benign lines or altering variable names. Its core function is to allow users to input code snippets and receive a plagiarism 
+  report containing similarity scores, which, when compared to a threshold, indicate the likelihood of plagiarism. This tool is primarily 
+  intended for use in academic and competitive environments to promote fairness and integrity in code submissions.
 
 \subsection{Objectives}
 
-\wss{State what is intended to be accomplished.  The objective will be around
-  the qualities that are most important for your project.  You might have
-  something like: ``build confidence in the software correctness,''
-  ``demonstrate adequate usability.'' etc.  You won't list all of the qualities,
-  just those that are most important.}
+% \wss{State what is intended to be accomplished.  The objective will be around
+%   the qualities that are most important for your project.  You might have
+%   something like: ``build confidence in the software correctness,''
+%   ``demonstrate adequate usability.'' etc.  You won't list all of the qualities,
+%   just those that are most important.}
+The primary objectives of this V\&V plan are to:
+\begin{itemize}
+  \item Build confidence in the programs correctness by ensuring alignment with the SRS requirements.
+  \item Show that we have met the documented safety and security requirements (SR-SAF1- SR-SAF5) in the Hazard Analysis document.
+  \item Demonstrate adequate usability in the program by conducting functional and non-functional tests mentioned in this document.
+\end{itemize}
 
-\wss{You should also list the objectives that are out of scope.  You don't have 
-the resources to do everything, so what will you be leaving out.  For instance, 
-if you are not going to verify the quality of usability, state this.  It is also 
-worthwhile to justify why the objectives are left out.}
+Out of Scope:
+\begin{itemize}
+  \item Validation of any external libraries will be assumed to be handled by their maintainers.
+\end{itemize}
 
-\wss{The objectives are important because they highlight that you are aware of 
-limitations in your resources for verification and validation.  You can't do everything, 
-so what are you going to prioritize?  As an example, if your system depends on an 
-external library, you can explicitly state that you will assume that external library 
-has already been verified by its implementation team.}
+% \wss{You should also list the objectives that are out of scope.  You don't have 
+% the resources to do everything, so what will you be leaving out.  For instance, 
+% if you are not going to verify the quality of usability, state this.  It is also 
+% worthwhile to justify why the objectives are left out.}
+
+% \wss{The objectives are important because they highlight that you are aware of 
+% limitations in your resources for verification and validation.  You can't do everything, 
+% so what are you going to prioritize?  As an example, if your system depends on an 
+% external library, you can explicitly state that you will assume that external library 
+% has already been verified by its implementation team.}
 
 \subsection{Challenge Level and Extras}
 
-\wss{State the challenge level (advanced, general, basic) for your project.
-Your challenge level should exactly match what is included in your problem
-statement.  This should be the challenge level agreed on between you and the
-course instructor.  You can use a pull request to update your challenge level
-(in TeamComposition.csv or Repos.csv) if your plan changes as a result of the
-VnV planning exercise.}
+% \wss{State the challenge level (advanced, general, basic) for your project.
+% Your challenge level should exactly match what is included in your problem
+% statement.  This should be the challenge level agreed on between you and the
+% course instructor.  You can use a pull request to update your challenge level
+% (in TeamComposition.csv or Repos.csv) if your plan changes as a result of the
+% VnV planning exercise.}
 
-\wss{Summarize the extras (if any) that were tackled by this project.  Extras
-can include usability testing, code walkthroughs, user documentation, formal
-proof, GenderMag personas, Design Thinking, etc.  Extras should have already
-been approved by the course instructor as included in your problem statement.
-You can use a pull request to update your extras (in TeamComposition.csv or
-Repos.csv) if your plan changes as a result of the VnV planning exercise.}
+% \wss{Summarize the extras (if any) that were tackled by this project.  Extras
+% can include usability testing, code walkthroughs, user documentation, formal
+% proof, GenderMag personas, Design Thinking, etc.  Extras should have already
+% been approved by the course instructor as included in your problem statement.
+% You can use a pull request to update your extras (in TeamComposition.csv or
+% Repos.csv) if your plan changes as a result of the VnV planning exercise.}
+
+This project has been classified as having a General difficulty level, as agreed with the course instructor. 
+Planned extras include:
+\begin{itemize}
+  \item A user manual for instructors and administrators.
+  \item Benchmarking of the tool’s effectiveness compared to MOSS.
+\end{itemize}
 
 \subsection{Relevant Documentation}
 
-\wss{Reference relevant documentation.  This will definitely include your SRS
-  and your other project documents (design documents, like MG, MIS, etc).  You
-  can include these even before they are written, since by the time the project
-  is done, they will be written.  You can create BibTeX entries for your
-  documents and within those entries include a hyperlink to the documents.}
+% \wss{Reference relevant documentation.  This will definitely include your SRS
+%   and your other project documents (design documents, like MG, MIS, etc).  You
+%   can include these even before they are written, since by the time the project
+%   is done, they will be written.  You can create BibTeX entries for your
+%   documents and within those entries include a hyperlink to the documents.}
 
-\citet{SRS}
+% \citet{SRS}
 
-\wss{Don't just list the other documents.  You should explain why they are relevant and 
-how they relate to your VnV efforts.}
+% \wss{Don't just list the other documents.  You should explain why they are relevant and 
+% how they relate to your VnV efforts.}
+
+The following documents are critical to the development and V\&V efforts for this project.
+
+\begin{itemize}
+    \item \textbf{Software Requirements Specification (SRS)}: Defines the project’s requirements, guiding both verification and validation. ~\citep{SRS}.
+    \item \textbf{User Guide}: Provides operational instructions, relevant for usability testing. ~\citep{UserGuide}.
+    \item \textbf{Module Guide (MG)}: Outlines the system’s architecture, essential for design verification. ~\citep{MG}.
+    \item \textbf{Module Interface Specification (MIS)}: Details the internal modules and interfaces, critical for unit testing. ~\citep{MIS}.
+    \item \textbf{Hazard Analysis}: Identifies potential risks, guiding validation efforts for safety and security. ~\citep{HazardAnalysis}.
+\end{itemize}
 
 \section{Plan}
 
