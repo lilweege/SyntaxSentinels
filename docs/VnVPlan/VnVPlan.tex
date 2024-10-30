@@ -184,6 +184,8 @@ The SRS (Software Requirements Specification) verification will ensure that all 
 
 \pagebreak
 
+The checklist for SRS review will cover:
+
 \begin{center}
   \begin{longtable}{|p{4cm}|p{11cm}|}
   \hline
@@ -199,9 +201,9 @@ The SRS (Software Requirements Specification) verification will ensure that all 
   \hline
   1.1 Purpose and Scope & Document states the purpose and scope of the project. \\
   \hline
-  1.2 Stakeholders & Key stakeholders (clients, users) are defined. \\
+  1.2 Stakeholders & Key stakeholders (clients, users) are defined and are relevant. \\
   \hline
-  1.3 Functional Requirements & All primary functions (e.g., plagiarism detection, reporting) are covered. \\
+  1.3 Functional Requirements & All primary functions (e.g., plagiarism detection, reporting) are covered and are descriptive. \\
   \hline
   1.4 Non-Functional Requirements & Includes performance, usability, and security requirements. \\
   \hline
@@ -219,7 +221,7 @@ The SRS (Software Requirements Specification) verification will ensure that all 
   \hline
   \textbf{4. Verifiability} & \\
   \hline
-  4.1 Testable Requirements & Each requirement is testable (e.g., accuracy metrics, response times). \\
+  4.1 Testable Requirements & Each requirement is testable and verifiable (e.g., accuracy metrics, response times). \\
   \hline
   4.2 Acceptance Criteria & Clear acceptance criteria for each requirement. \\
   \hline
@@ -266,12 +268,69 @@ The design verification plan aims to ensure that the design accurately implement
 \end{itemize}
 
 The checklist for design review will cover:
-\begin{itemize}
-    \item Modularity and Scalability
-    \item Security of data flows and access control
-    \item Component interfaces
-    \item Error handling and fault tolerance
-\end{itemize}
+\begin{center}
+  \begin{longtable}{|p{4cm}|p{11cm}|}
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endfirsthead
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endhead
+  
+  \textbf{1. Functional Verification} & \\
+  \hline
+  1.1 Requirement Mapping & Each design element corresponds to at least one requirement in the SRS. \\
+  \hline
+  1.2 Functionality Coverage & The design covers all specified functionalities, including error handling and edge cases. \\
+  \hline
+  1.3 Interface Definition & All interfaces between components are clearly defined and consistent with requirements. \\
+  \hline
+  
+  \textbf{2. Structural Verification} & \\
+  \hline
+  2.1 Modular Design & The design is divided into logical, independent modules with well-defined interfaces. \\
+  \hline
+  2.2 Dependency Analysis & Dependencies between components are minimized, and unnecessary couplings are avoided. \\
+  \hline
+  2.3 Hierarchical Structure & The design follows a clear hierarchy, with higher-level components orchestrating lower-level ones. \\
+  \hline
+  
+  \textbf{3. Usability and Accessibility} & \\
+  \hline
+  3.1 User Interface Design & UI elements are consistent, intuitive, and meet accessibility standards (if applicable). \\
+  \hline
+  3.2 Navigation and Flow & User navigation and workflow are logical, efficient, and follow a coherent path. \\
+  \hline
+  3.3 Accessibility Standards & The design adheres to relevant accessibility guidelines, such as WCAG, to ensure usability for all users. \\
+  \hline
+  
+  \textbf{4. Performance and Optimization} & \\
+  \hline
+  4.1 Performance Criteria & The design incorporates mechanisms to meet performance requirements (e.g., response time, resource usage). \\
+  \hline
+  4.2 Scalability & Design supports scalability to handle expected load increases without significant degradation. \\
+  \hline
+  
+  \textbf{5. Security and Privacy} & \\
+  \hline
+  5.1 Data Flow Security & The design ensures secure data handling, storage, and transmission between components. \\
+  \hline
+  5.2 Access Control Mechanisms & Roles and permissions are implemented to restrict unauthorized access to sensitive components. \\
+  \hline
+  5.3 Compliance & Design complies with security and privacy standards as outlined in the SRS. \\
+  \hline
+  
+  \textbf{6. Traceability and Documentation} & \\
+  \hline
+  6.2 Documentation Completeness & Documentation is complete, with descriptions of components, workflows, and data flow. \\
+  \hline
+  6.3 Version Control & Design documentation is version-controlled to track changes and updates. \\
+  \hline
+  
+  \end{longtable}
+  \end{center}
 
 \subsection{Verification and Validation Plan Verification Plan}
 
@@ -283,13 +342,55 @@ The verification and validation plan itself will also undergo verification to en
     \item \textbf{Checklist-Based Verification}: A checklist specific to the verification and validation plan will guide reviewers in assessing all critical aspects of the plan.
 \end{itemize}
 
+\begin{center}
+  \begin{longtable}{|>{\centering\arraybackslash}p{4cm}|p{10cm}|}
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endfirsthead
+  
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endhead
+  
+  1. Verification Plan Completeness & Verify that the Verification and Validation Plan includes all necessary sections, such as objectives, scope, and methodologies. \\
+  \hline
+  2. Clarity of Objectives & Ensure that the objectives of the verification and validation activities are clearly stated and aligned with project goals. \\
+  \hline
+  3. Methodology Definition & Check that each verification method (e.g., reviews, inspections, testing) is well-defined with clear procedures. \\
+  \hline
+  4. Team Roles and Responsibilities & Confirm that each team member's role in the verification and validation activities is documented and clear. \\
+  \hline
+  5. Review and Inspection Procedures & Validate that there are structured procedures for design reviews and inspections, with criteria for passing/failing. \\
+  \hline
+  6. Integration of Automated Tools & Verify that automated tools for testing and validation (e.g., CI/CD, linters, static analyzers) are specified and included in the plan. \\
+  \hline
+  7. Traceability of Requirements & Confirm that the verification and validation activities trace back to specific project requirements to ensure coverage. \\
+  \hline
+  8. Acceptance Criteria & Ensure there are clear acceptance criteria defined for each verification and validation task. \\
+  \hline
+  9. Documentation of Test Cases & Verify that each planned test case has clear documentation, including expected outcomes, inputs, and procedures. \\
+  \hline
+  10. Risk Management in Verification & Confirm that potential risks in the verification and validation process are identified and mitigation strategies are documented. \\
+  \hline
+  11. Feedback Loop & Ensure that there is a mechanism for capturing feedback and iterating on the verification and validation process as needed. \\
+  \hline
+  12. Reporting and Tracking of Issues & Check that there is a process for documenting, tracking, and addressing issues found during verification and validation. \\
+  \hline
+  13. Schedule and Milestones & Verify that there is a realistic schedule and milestones for completing verification and validation activities. \\
+  \hline
+  
+  \end{longtable}
+  \end{center}
+
 \subsection{Implementation Verification Plan}
 
 The implementation verification plan focuses on ensuring the correctness and quality of the implementation phase. The plan includes:
 
 \begin{itemize}
-    \item \textbf{Unit Testing}: Each function and module will undergo unit testing to ensure they meet functional requirements.
-    \item \textbf{Static Code Analysis}: We will use static analysis tools to verify code quality, adherence to coding standards, and security practices.
+    \item \textbf{Unit Testing}: Each function and module will undergo unit testing using the frameworks mentioned in section 3.6 to ensure they meet functional requirements.
+    \item \textbf{Static Code Analysis}: We will use static analysis tools mentioned in section 3.6 to verify code quality, adherence to coding standards, and security practices.
     \item \textbf{Code Walkthroughs}: Code walkthroughs will be held in team meetings and during the final presentation, allowing team members to inspect each other’s code for issues in logic, structure, and readability.
 \end{itemize}
 
@@ -311,7 +412,8 @@ The software validation plan outlines the strategies for validating that the sof
 \begin{itemize}
     \item \textbf{User Review Sessions}: Review sessions with stakeholders and user representatives will be conducted to validate that the system meets user needs and expectations.
     \item \textbf{Rev 0 Demonstration}: Shortly after the scheduled Rev 0 demo, we will seek feedback from stakeholders and supervisors, if applicable, to confirm that the design and initial implementation align with project goals.
-    \item \textbf{Usability Testing}: We will plan user testing sessions to ensure the software is intuitive and meets usability expectations.
+    \item \textbf{End to End Testing}: We will plan E2E sessions to ensure the software works correctly from start to end and meets all functional requirements.
+    \item \textbf{Performance Testing}: Once functional requirements have been implemented, non-functional requirements will be implemented then performance testing will be conducted to validate that the software meets non-functional requirements, such as response times and resource usage.
 \end{itemize}
 
 The validation process will involve gathering external data, where possible, to test the system’s accuracy and performance under realistic scenarios.
