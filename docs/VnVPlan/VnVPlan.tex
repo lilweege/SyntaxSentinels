@@ -548,40 +548,115 @@ format for the tests given below.}
 How will they be done?  In cases like code (or document) walkthroughs, who will
 be involved? Be specific.}
 
-\subsubsection{Area of Testing1}
-		
-\paragraph{Title for Test}
+\subsubsection{Look and Feel Requirements}
+
+\subsubsection{Usability and Humanity Requirements}
+
+\subsubsection{Performance Requirements}
+
+\subsubsection{Operational and Environmental Requirements}
+
+\subsubsection{Maintainability and Support Requirements}
+
+\paragraph{Model release is accompanied by a report of metrics}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+  \item{Maintaince-Test-2}
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
+  NFR: MS-M2
 
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
+  Type: Manual
+
+  Initial State: The model has been trained and is ready for release
+
+  Input: Release the model
+
+  Output: A report is generated with metrics such as accuracy, precision, etc.
+
+  How test will be performed:
+  Release the model and verify that a report is generated with relevant metrics. A verifiable metric is that the report exists.
+  This test will be done manually by the team members of SyntaxSentinels.
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\paragraph{A pathway for users to post or vote for requests/issues}
 
+\begin{enumerate}
+  \item{Maintaince-Test-3}
+
+  NFR: MS-S3
+
+  Type: Manual
+
+  Initial State: The user has a GitHub account and is logged in
+
+  Input: User posts a request or issue
+
+  Output: The request or issue is posted and visible to other users
+
+  How test will be performed:
+  The user will post a request or issue and verify that it is visible to other users. A verifiable metric is that the request or issue is visible to other users.
+  This test will be done manually by the team members of SyntaxSentinels.
+\end{enumerate}
+\subsubsection{Security Requirements}
+
+\paragraph{User can access UI with valid login credentials}
+\begin{enumerate}
+  \item{Security-Test-1\\}
+
+  NFR: SR-A1
+  Type: Dynamic
+            
+  Initial State: The user is not authenticated and does not have a valid auth token.
+            
+  Input/Condition: User enters valid login credentials (username and password).
+            
+  Output/Result: The user is authenticated and gains access to the UI.
+            
+  How test will be performed: 
+  This test will be done via UI automated test suite using Playwright. The test will simulate a user entering valid login 
+  credentials and verify that the user is authenticated and gains access to the UI.
+\end{enumerate}
+\paragraph{User can access API with valid auth token}
+\begin{enumerate}
+  \item{Security-Test-2\\}
+
+  NFR: SR-A1
+
+  Type: Dynamic
+            
+  Initial State: The user is not authenticated and does not have a valid auth token
+            
+  Input: User attempts to access the API with a valid auth token
+            
+  Output: The API allows the user to upload code for comparison
+            
+  How test will be performed: 
+  Pass a valid auth token to the API and verify that the system allows code upload and returns a success response.
+
+  \item{Security-Test-3}
+
+  NFR: SR-A1
+
+  Type: Dynamic
+
+  Initial State: The user is not authenticated and does not have a valid auth token
+
+  Input: User attempts to access the API with an invalid or missing auth token
+
+  Output: The API denies access and returns an unauthorized response
+
+  How test will be performed:
+  Pass an invalid or missing auth token to the API and verify that the system denies access and returns an unauthorized response.
+
+\end{enumerate}
+
+\subsubsection{Cultural Requirements}
+
+\subsubsection{Compliance Requirements}
+
+\subsubsection{Area of Testing2}
 ...
 
 \subsection{Traceability Between Test Cases and Requirements}
