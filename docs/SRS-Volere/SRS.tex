@@ -739,13 +739,10 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \subsection{Speed and Latency Requirements}
 \begin{itemize}
     \item \textbf{PR-SL1}: The system should process the inputs and provide results in under ten minutes 
-    \item \textbf{PR-SL2:}: The system must notify users if processing surpasses ten minutes
+    \item \textbf{PR-SL2}: The system must notify users if processing surpasses ten minutes
 \end{itemize}
 \subsection{Safety-Critical Requirements}
-\begin{itemize}
-    \item \textbf{PR-SC1}: The system must avoid false positives to protect students from wrongful accusations. 
-    \item \textbf{PR-SC2}: A manual override option for professors must exist to prevent automatic accusations solely based on the model.
-\end{itemize}
+There are no safety-critical requirements except for those imposed by our precision and accuracy requirements \hyperlink{subsection.12.3}{PR-PA1 and PR-PA2}.
 \subsection{Precision or Accuracy Requirements}
 \begin{itemize}
     \item \textbf{PR-PA1}: The system should have an accuracy rate of at least 90\% for identifying plagiarized content.
@@ -757,8 +754,7 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \end{itemize}
 \subsection{Capacity Requirements}
 \begin{itemize}
-    \item \textbf{PR-C1}: The system should be able to handle batches of inputs without significant delays.
-    \item \textbf{PR-C2}: The system should be able to handle batches of inputs without the total processing time exceeding 600 seconds.
+    \item \textbf{PR-C1}: The system should be able to handle batches of inputs without the total processing time exceeding 600 seconds.
 \end{itemize}
 \subsection{Scalability or Extensibility Requirements}
 \begin{itemize}
@@ -767,7 +763,7 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \subsection{Longevity Requirements}
 \begin{itemize}
     \item \textbf{PR-L1}: Backwards compatibility must be maintained when new features are introduced
-    \item \textbf{PR-L1}: The system should be designed such that the natural language processing part can be changed in accordance with new research in the field.
+    \item \textbf{PR-L2}: The system should be designed such that the natural language processing part can be changed in accordance with new research in the field.
 \end{itemize}
 
 \section{Operational and Environmental Requirements}
@@ -781,7 +777,7 @@ Because of this, environmental factors are outside of the scope of our project.
 
 \subsection{Requirements for Interfacing with Adjacent Systems}
 \begin{itemize}
-    \item \textbf{OE-IAS1}:The system will provide the option to interface with cloud computing (AWS, Azure) 
+    \item \textbf{OE-IAS1}: The system will provide the option to interface with cloud computing (AWS, Azure) 
     \item \textbf{OE-IAS2}: The system will deploy the frontend and backend code in a free hosting Service
     \item \textbf{OE-IAS3}: The system will use external services for user authentication 
 \end{itemize}
@@ -797,8 +793,8 @@ For the tool to be ready for widespread use, it should meet several productizati
 To release the tool effectively, certain conditions must be met:
 \begin{itemize}
     \item \textbf{OR-R1: Beta testing} with a select group of professors and students to gather feedback on usability, performance, and false positive/negative rates.
-    \item \textbf{OR-R1: Clear versioning} and change logs to track improvements over time, particularly as new programming languages or detection features are added.
-    \item \textbf{OR-R1: Ongoing support}, including the ability to update the plagiarism detector with new models or features as they are developed.
+    \item \textbf{OR-R2: Clear versioning} and change logs to track improvements over time, particularly as new programming languages or detection features are added.
+    \item \textbf{OR-R3: Ongoing support}, including the ability to update the plagiarism detector with new models or features as they are developed.
 \end{itemize}
 
 \section{Maintainability and Support Requirements}
@@ -916,7 +912,7 @@ Since no data is retained, data integrity is not a concern.
 
 \subsection{Audit Requirements}
 \begin{itemize}
-    \item \textbf{SR-AD1: In Transit Encryption}: The system shall log all user interactions and actions (such as authentication events, code uploads, and plagiarism checks) anonymously, without storing user-uploaded code or sensitive data.
+    \item \textbf{SR-AD1: Auditable Logs}: The system shall log all user interactions and actions (such as authentication events, code uploads, and plagiarism checks) anonymously, without storing user-uploaded code or sensitive data.
 
     Justification - While no user data is retained, logging system events and user actions provide a transparent way to track system usage and ensure accountability without violating the zero data retention policy.
 \end{itemize}
