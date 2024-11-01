@@ -554,6 +554,30 @@ be involved? Be specific.}
 
 \subsubsection{Performance Requirements}
 
+\paragraph{Batch processing time is less than 10 minutes}
+
+\begin{enumerate}
+  \item{Capacity-Test-1}
+  
+  NFR: PR-C1
+
+  Type: Dynamic
+
+  Initial State: The system is idle and ready to process a batch of code submissions
+
+  Input:Submit a batch of inputs (code submissions) to the system for processing.
+
+  Output: The system completes processing the batch within 600 seconds (10 minutes).
+
+  How test will be performed:
+
+  \begin{enumerate}
+    \item Submit a batch of code submissions to the system.
+    \item Measure the time taken for the system to process the batch.
+    \item Verify that the processing time is less than 600 seconds.
+  \end{enumerate}
+\end{enumerate}
+
 \subsubsection{Operational and Environmental Requirements}
 
 \subsubsection{Maintainability and Support Requirements}
