@@ -358,21 +358,33 @@ format for the tests given below.}
 How will they be done?  In cases like code (or document) walkthroughs, who will
 be involved? Be specific.}
 
-\subsubsection{Area of Testing1}
-		
-\paragraph{Title for Test}
+\subsubsection{User Interface Requirements}
+These tests are to ensure that the way the front end is designed adheres to the
+defined requirements with respect to layout, typography, component alignment,
+etc. 
+
+\begin{description}
+  \item[Front End Component Review:] We will engage a developer to look through
+  the code and interface and ensure components are implemented as they are
+  defined in the SRS.
+  \item[Accessibility Check:] A developer will review if accessibility tools
+  exist or not within the application. Important tools are screen readers and
+  alt text for images. Furthermore, the developer must check for sufficient
+  colour contrast between components.
+\end{description}
+
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{NFR-UI1}
 
-Type: Functional, Dynamic, Manual, Static etc.
+Type: Manual, Front End Review
 					
-Initial State: 
+Initial State: Application on home page, ready for use
 					
-Input/Condition: 
+Input/Condition: Tester engagement
 					
-Output/Result: 
+Output/Result: List of all identified inconsistencies that are found that do not adhere to SRS defined requirements.
 					
 How test will be performed: 
 					
