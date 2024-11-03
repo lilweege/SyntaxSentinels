@@ -277,24 +277,24 @@ as a Rev 0 demo for the supervisor.}
 \section{System Tests}
 
 Below are tests for functional and non-functional requirements stated in the 
-relevant SRS (link here). 
+relevant SRS  \citep{SRS}. 
 
 \subsection{Tests for Functional Requirements}
 
 Each test section addresses a particular initial condition and input set. 
 Therefore, each test has a particular set of outputs that the system should 
-produce for it. A functional requirement of section X (link here) is only 
-associated with a test if the output set of that test corresponds to the fit 
-criterion of that functional requirement, and the fit criterion should be an 
-observable component of a system state, such as a display of a return item or 
-notification presented. Through this association, every functional requirement 
-is provided a test that is capable of verifying it, thereby ensuring the test 
-areas fully cover the functional requirements.
+produce for it. A functional requirement of section 9 in the SRS \citep{SRS}
+is only associated with a test if the output set of the test corresponds to 
+the fit criterion of that functional requirement, and the fit criterion should 
+be an observable component of a system state, such as a display of a return 
+item or notification presented. Through this association, every functional 
+requirement is provided a test that is capable of verifying it, thereby ensuring 
+the test areas fully cover the functional requirements.
 
 \subsubsection{Test Area 1}
 
 Applies to all FRs involving input of the system necessary for the plagiarism 
-analysis. This currently covers FR-1 (link here).
+analysis. This currently covers FR-1 in subsection 9.1 of the SRS \citep{SRS}.
 
 \paragraph{Input For Analysis Test}
 
@@ -302,22 +302,23 @@ analysis. This currently covers FR-1 (link here).
 
 \item{test-FR1-1\\}
 
-Control: Manual
+Control: Manual.
 					
 Initial State: system is active, spot for giving system code snippet is open
+with zero or more existing snippets currently added.
 					
-Input: code snippet file(s)
+Input: code snippet file(s).
 					
 Output: System signifies input was received and continues activity without 
 error, awaiting further action directives (such as giving more files or 
-initiating analysis)
+initiating analysis).
 
 Test Case Derivation: The system will look to continually receive code 
 snippets from user as part of a necessary step to initiate plagiarism analysis.
 					
 How test will be performed: system will be opened in the appropriate spot for 
 receiving code and receive files in different amounts, one at a time, 
-and will be inspected for failure (types: dynamic, functional)
+and will be inspected for failure in this process (types: dynamic, functional).
 					
 
 \end{enumerate}
@@ -325,7 +326,7 @@ and will be inspected for failure (types: dynamic, functional)
 \subsubsection{Test Area 2}
 
 Applies to all FRs involving immediate output of plagiarism analysis. This 
-currently covers FR-2, FR-4, and FR-5 (link here).
+currently covers FR-2, FR-4, and FR-5 in subsection 9.1 of the SRS \citep{SRS}.
 
 \paragraph{Typical Detection Result Test}
 
@@ -333,13 +334,13 @@ currently covers FR-2, FR-4, and FR-5 (link here).
 
 \item{test-FR2,4,5-1\\}
 
-Control: Manual
+Control: Manual.
 					
 Initial State: system is active, has received 2 or more code snippets, and 
-spot for initiating analysis is open
+spot for initiating analysis is open.
 					
 Input: code snippet files and command to initiate analysis (button, enter, 
-etc.) 
+etc.).
 					
 Output: System presents list of similarity scores for all code snippet pairings along 
 with corresponding threshold scores in a viewable fashion to user and any code snippet
@@ -347,19 +348,19 @@ pairing that has exceeded its threshold has been flagged. System remains active,
 awaiting for action directives on what to do.
 
 Test Case Derivation: The system should possess an algorithm that analyzes code 
-snippets and produce similarity scores and threshold scores in return. These 
+snippets and produces similarity scores and threshold scores in return. These 
 scores should be produced between every pairing of code snippets as the 
 plagiarism is a relative assessment between one code piece and another. The 
 system must able to pass this algorithm received code snippets and use its
 results to flag any pairing that exceeded its threshold before returning from
-its analysis state to the user.
+its analysis state to the user for further interaction.
 
 How test will be performed: system will be opened in spot to initiate analysis 
-with sufficient code snippets already inserted into it, and command for 
-starting analysis to start will be passed from which point errors will be 
-inspected for up until similarity scores and thresholds have been presented in 
-viewable form, from which point code flaggings should also be available to 
-ascertain (type: dynamic, functional).
+with 2 or more code snippets already inserted into it, and command for 
+starting analysis will be passed from which point errors will be inspected for 
+up until similarity scores and thresholds have been presented in viewable form, 
+from which point code flaggings should also be available to ascertain. (type: 
+dynamic, functional).
 					
 
 \end{enumerate}
@@ -367,7 +368,7 @@ ascertain (type: dynamic, functional).
 \subsubsection{Test Area 3}
 
 Applies to all FRs involving guide documentation generation for user. This 
-currently covers FR-3 (link here).
+currently covers FR-3 in subsection 9.1 of the SRS \citep{SRS}.
 
 \paragraph{Guide Documentation Generation Test}
 
@@ -375,29 +376,31 @@ currently covers FR-3 (link here).
 
 \item{test-FR3-1\\}
 
-Control: Manual
+Control: Manual.
 					
 Initial State: System is active and spot for generating guide documentation is 
 open.
 					
-Input: command for documentation presentation (button, enter, etc.)
+Input: command for documentation presentation (button, enter, etc.).
 					
 Output: System presents documentation in viewable form to user and remains 
-active awaiting for further action directives
+active awaiting for further action directives.
 
 Test Case Derivation: system possesses guide documentation which it should be 
-capable of transferring to user to provide guidance on use cases of system
+capable of transferring to user to provide guidance on use cases of system 
+when prompted.
 
 How test will be performed: system will be opened in spot for generating 
-documentation and command for generating documentation will be passed, 
-inspecting for errors or missing documentation (type: dynamic, functional).				
+guide documentation and command for guide generating documentation will be 
+passed, all the while inspecting for errors or missing documentation (type: 
+dynamic, functional).				
 
 \end{enumerate}
 
 \subsubsection{Test Area 4}
 
 Applies to all FRs involving analysis report documentation generation for 
-user. This currently covers FR-6 (link here).
+user. This currently covers FR-6 of subsection 9.1 of the SRS \citep{SRS}.
 
 \paragraph{Report Documentation Generation Test}
 
@@ -405,32 +408,33 @@ user. This currently covers FR-6 (link here).
 
 \item{test-FR6-1\\}
 
-Control: Manual
+Control: Manual.
 					
 Initial State: System is active, most recent plagiarism analysis has been 
 completed since system activation and its results are available, and spot 
 for report generation is open.
 					
-Input: command for report documentation generation (button, enter, etc.)
+Input: command for report documentation generation (button, enter, etc.).
 					
 Output: System provides report documentation in viewable form to user and 
 remains active awaiting for further action directives.
 
 Test Case Derivation: The system should possess the ability to aggregate
 the results of the plagiarism analysis which has most recently occurred 
-and insert them into a template that can summarize all findings to a user.
+and insert them into a template that can summarize all findings to a user,
+which will become the report document given.
 
 How test will be performed: Proceeding a successful analysis run from the system,
 the spot for generating a report will be opened and the command for generating 
-a report will be passed, inspecting for errors or missing documentation (type:
-dynamic, functional)			
+a report will be passed, all the while inspecting for errors or missing 
+documentation (type: dynamic, functional).			
 
 \end{enumerate}
 
 \subsubsection{Test Area 5}
 
 Applies to all FRs involving creating an account within the system. This currently
-covers FR-7 (link here).
+covers FR-7 of subsection 9.1 of the SRS \citep{SRS}.
 
 \paragraph{Account Creation Test}
 
@@ -438,35 +442,35 @@ covers FR-7 (link here).
 
 \item{test-FR7-1\\}
 
-Control: Manual
+Control: Manual.
 					
-Initial State: system is active, and spot for account creation is open
+Initial State: system is active, and spot for account creation is open.
 					
 Input: command for account creation (button, enter, etc.) alongside account 
 user email and password, and the email is not associated with any existing 
-account
+account.
 					
 Output: System notifies user account has been successfully created for 
 logging in with and remains active, awaiting further action directives.
 
-Test Case Derivation: A set of account credentials not yet within the system 
-should be possible to be added to the set of accounts that can be logged in 
-with.
+Test Case Derivation: The system should be able to assess a set of account 
+credentials is not yet within the system and proceed to add this set to the 
+set of accounts that can be logged in with.
 
 How test will be performed: Spot for account creation will be open, email and 
-password not asssociated with account with will be given in appropriate area, 
-and command for account creation will be passed, inspecting for any failure 
-mode within the process (type: dynamic, functional)
+password not asssociated with any existing account will be given in the appropriate 
+area, and command for account creation will be passed, all the while inspecting 
+for any failure mode within the process (type: dynamic, functional).
 
 \item{test-FR7-2\\}
 
 Control: Manual
 					
-Initial State: system is active, and spot for account creation is open
+Initial State: system is active, and spot for account creation is open.
 					
 Input: command for account creation (button, enter, etc.) alongside account 
 user email and password, and the email is associated with an existing 
-account
+account.
 					
 Output: System notifies user account was not possible to create for logging 
 in with and remains active, awaiting further action directives.
@@ -477,9 +481,9 @@ and not truly provided by the system as any set of account credentials are not
 tied to any particular account.
 
 How test will be performed: Spot for account creation will be open, email and 
-password asssociated with existing account with will be given in appropriate 
-area, and command for account creation will be passed,inspecting for any 
-failure mode within the process (type: dynamic, functional)
+password asssociated with an existing account will be given in the appropriate 
+area, and command for account creation will be passed, all the while inspecting 
+for any failure mode within the process (type: dynamic, functional).
 					
 
 \end{enumerate}
@@ -487,7 +491,7 @@ failure mode within the process (type: dynamic, functional)
 \subsubsection{Test Area 6}
 
 Applies to all FRs involving logging into account within the system. This 
-currently covers FR-8 (link here).
+currently covers FR-8 of subsection 9.1 of the SRS \citep{SRS}.
 
 \paragraph{Account Login Test}
 
@@ -495,54 +499,53 @@ currently covers FR-8 (link here).
 
 \item{test-FR8-1\\}
 
-Control: Manual
+Control: Manual.
 					
-Initial State: system is active, and spot for account login is open
+Initial State: system is active, and spot for account login is open.
 					
 Input: command for account login (button, enter, etc.) alongside account 
 user email and password, and the email is associated with an existing 
-account
+account.
 					
 Output: System notifies user account login was successful and and remains 
 active, awaiting further action directives.
 
-Test Case Derivation: A set of pre-existing account credentials should be
-possible to validate within the system to allow login.
+Test Case Derivation: The system should be able to validate a set of 
+pre-existing account credentials to facilitate login.
 
 How test will be performed: Spot for account login will be open, email and 
-password asssociated with existing account with will be given in appropriate 
-area, and command for account login will be passed, inspecting for any 
-failure mode within the process (type: dynamic, functional)
+password asssociated with existing account will be given in the appropriate 
+area, and command for account login will be passed, all the while inspecting 
+for any failure mode within the process (type: dynamic, functional).
 
 \item{test-FR8-2\\}
 
-Control: Manual
+Control: Manual.
 					
-Initial State: system is active, and spot for account login is open
+Initial State: system is active, and spot for account login is open.
 					
 Input: command for account login (button, enter, etc.) alongside account 
 user email and password, and the email is not associated with any existing 
-account
+account.
 					
 Output: System notifies user account login was not successful and remains 
 active, awaiting further action directives.
 
 Test Case Derivation: A set of account credentials not associated an existing 
-account will fail to validate to allow login as there will be no account
-to provide validation. 
+account will fail to allow login as the system should determine there is no 
+account to validate against.
 
 How test will be performed: Spot for account login will be open, email and 
-password not asssociated with existing account with will be given in appropriate 
-area, and command for account login will be passed, inspecting for any 
-failure mode within the process (type: dynamic, functional)
+password not asssociated with existing account with will be given in the appropriate 
+area, and command for account login will be passed, all the while inspecting for 
+any failure mode within the process (type: dynamic, functional).
 					
-
 \end{enumerate}
 
 \subsubsection{Test Area 7}
 
 Applies to all FRs involving emailing results of plagiarism analysis to users. 
-This currently covers FR-9 (link here).
+This currently covers FR-9 of subsection 9.1 of the SRS \citep{SRS}.
 
 \paragraph{Result Email Test}
 
@@ -550,27 +553,28 @@ This currently covers FR-9 (link here).
 
 \item{test-FR9-1\\}
 
-Control: Manual
+Control: Manual.
 					
 Initial State: System is active, most recent plagiarism analysis has been 
 completed since system activation and its results are available, and spot 
-for emailing results is open
+for emailing results is open.
 					
-Input: command for emailing result and email to receive results
+Input: command for emailing result (button, enter, etc.) and email to 
+receive results.
 					
 Output: System notifies email has been sent and remains active, awaiting 
 further action directives. External to system, the specified email shall
 contain a .zip file possessing results of the recent analysis.
 
-Test Case Derivation: The system should possess ability to gather results
-into a .zip file and the command for emailing should invoke this process
-to obtain the .zip file which can then be emailed around.
+Test Case Derivation: The system should possess the ability to condense results
+into a .zip file upon demand, and it should proceed to carry out emailing this 
+file after it creates it.
 
 How test will be performed: Proceeding a successful analysis run from the system,
 the spot for emailing results will be opened and the command for sending email 
-will be passed alongside an email for receiving results, inspecting for errors 
-in the process or missing zip file at specified email (type: dynamic, 
-functional)		
+will be passed alongside an email for receiving results, all the while inspecting 
+for errors in the process. The reception of the .zip file will be assessed at 
+the very end once the system is awaiting action directives (type: dynamic, functional).
 					
 
 \end{enumerate}
@@ -578,7 +582,8 @@ functional)
 \subsubsection{Test Area 8}
 
 Applies to all FRs involving visualizing plagiarism analysis results provided 
-by user in a .zip file. This currently covers FR-10 (link here).
+by user in a .zip file. This currently covers FR-10 of subsection 9.1 of the SRS 
+\citep{SRS}.
 
 \paragraph{Result Visualization Test}
 
@@ -591,19 +596,21 @@ Control: Manual
 Initial State: System is active and spot for inserting .zip file containing
 results to produce visualization is open.
 					
-Input: command for visualization and .zip file containing results
+Input: command for visualization (button, enter, etc.) and .zip file containing 
+results.
 					
 Output: System provides viewable visualization that corresponds to the results
-in the given .zip file
+in the given .zip file.
 
 Test Case Derivation: System should possess ability to parse .zip file for 
 relevant contents and pass it into an internal visualization template that 
-can be filled out with what was found.
+can be filled out with what was found before proceeding to transfer it to
+the user.
 
 How test will be performed: spot for inserting .zip file to produce 
 visualization is open and command for visualization is passed alongside
-a .zip file containing results, inspecting for errors or missing parts 
-of the visualziation in the process.
+a .zip file containing results, all the while inspecting for errors or 
+missing parts of the visualziation in the process.
 \end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
