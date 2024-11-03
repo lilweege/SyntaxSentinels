@@ -625,7 +625,7 @@ be involved? Be specific.}
 
   NFR: PR-RFT1
 
-  Type: Robustness, Manual
+  Type: Robustness, Dynamic
             
   Initial State: System is operational, awaiting user input.
             
@@ -637,7 +637,9 @@ be involved? Be specific.}
   \begin{enumerate}
     \item navigate to the home page
     \item Submit a file that is known to be corrupted or invalid.
-    \item Verify that an error message is displayed to the user and that the system doesn't crash or become unresponsive.
+    \item Verify that an error message is displayed to the user by checking if the function call was made.
+    \item Submit a file that is known to be valid.
+    \item Verify that the system accepts the valid input and processes it correctly.
   \end{enumerate}
 \end{enumerate}
 
@@ -997,9 +999,12 @@ graduate attribute of Lifelong Learning.
   static testing knowledge, specific tool usage, Valgrind etc.  You should look to
   identify at least one item for each team member.
   \begin{itemize}
-    \item \textbf{Dynamic testing knowledge}: 
-    \item \textbf{Static testing knowledge}:
-    \item \textbf{Automated testing tools}: 
+    \item \textbf{Dynamic testing knowledge}
+    \item \textbf{Static testing knowledge}
+    \item \textbf{Automated testing tools}
+    \item \textbf{Security testing knowledge}
+    \item \textbf{Performance testing knowledge}
+    \item \textbf{Test Case Management}
   \end{itemize}
 
   \item For each of the knowledge areas and skills identified in the previous
@@ -1007,10 +1012,62 @@ graduate attribute of Lifelong Learning.
   mastering the skill?  Of the identified approaches, which will each team
   member pursue, and why did they make this choice?
   \begin{itemize}
+    \item \textbf{Dynamic Testing Knowledge}
+    \begin{itemize}
+        \item \textbf{Online Courses and Tutorials}: We can learn dynamic testing techniques through structured courses on platforms like Udemy, Coursera, or LinkedIn Learning, which cover both functional and non-functional testing strategies.
+        \item \textbf{Hands-on Practice with Sample Projects}: Practicing dynamic testing on sample projects or real scenarios allows us to directly apply the techniques, reinforcing our understanding through application.
+    \end{itemize}
+
+    \item \textbf{Static Testing Knowledge}
+    \begin{itemize}
+        \item \textbf{Tool-Specific Documentation and Tutorials}: Reading the documentation and tutorials for static testing tools (e.g. ESLint) helps us understand how to perform effective static code analysis.
+        \item \textbf{Webinars and Workshops}: Many companies offer webinars or workshops on static analysis, often with interactive demos that can help us learn the nuances of static testing.
+    \end{itemize}
+
+    \item \textbf{Automated Testing Tools}
+    \begin{itemize}
+        \item \textbf{Training and Certification Programs}: Courses that cover automation tools (like Pytest) and their integration with CI/CD pipelines provide a solid foundation for us in automated testing.
+        \item \textbf{Building a Project with CI/CD Integration}: By implementing automated testing on a project using CI/CD tools like Jenkins or GitHub Actions, we can apply automation skills in real scenarios, enhancing both our tool knowledge and integration capabilities.
+    \end{itemize}
+
+    \item \textbf{Security Testing Knowledge}
+    \begin{itemize}
+        \item \textbf{Cybersecurity and Penetration Testing Courses}: Taking courses on platforms like Cybrary or Coursera offers insights into security testing practices, covering areas like penetration testing, vulnerability assessment, and secure code practices.
+        \item \textbf{Practice with Security Testing Tools}: We can use tools like OWASP ZAP or Burp Suite for hands-on security testing, which helps us identify vulnerabilities and ensure code security.
+    \end{itemize}
+
+    \item \textbf{Performance Testing Knowledge}
+    \begin{itemize}
+        \item \textbf{Tool-Specific Training (e.g., JMeter, Locust)}: Learning a performance testing tool through its official documentation, tutorials, or community guides helps us understand load testing, scalability testing, and performance profiling.
+        \item \textbf{Performance Testing Workshops or Certifications}: Many organizations provide certifications or workshops focused on performance testing methodologies and tool usage, which provide both theoretical knowledge and practical applications for us.
+    \end{itemize}
+
+    \item \textbf{Test Case Management}
+    \begin{itemize}
+        \item \textbf{Exploring Test Management Tools}: Familiarizing ourselves with tools like TestRail, Zephyr, or Jira for creating, organizing, and tracking test cases helps us manage our testing process efficiently.
+        \item \textbf{Learning Best Practices in Test Documentation}: By reading resources or taking tutorials on effective test case design and management, we can develop a structured, comprehensive approach to test case documentation.
+    \end{itemize}
+
+\end{itemize}
+  \begin{itemize}
     \item \textbf{Lucas Chen:} 
     \item \textbf{Dennis Fong:}
     \item \textbf{Julian Cecchini:} 
     \item \textbf{Mohammad Mohsin Khan:}
+    \item \begin{itemize}
+      \item \textbf{Dynamic Testing Knowledge}  
+      \begin{itemize}
+          \item \textbf{Chosen Approach}: Hands-on practice with sample projects
+          \item \textbf{Reason for Choice}: Practicing dynamic testing directly on projects will allow me to apply testing techniques in real-world scenarios, strengthening my ability to identify issues as they arise. This hands-on approach will provide practical insights that go beyond theoretical learning and help me become proficient in testing under realistic conditions.
+      \end{itemize}
+  
+      \item \textbf{Performance Testing Knowledge}  
+      \begin{itemize}
+          \item \textbf{Chosen Approach}: Tool-specific training
+          \item \textbf{Reason for Choice}: Tool-specific training allows me to gain direct experience with the performance testing tools that I will use in the project. This approach is ideal because it provides both a solid understanding of tool features and the technical skills needed to set up and execute performance tests effectively.
+      \end{itemize}
+  
+  \end{itemize}
     \item \textbf{Luigi Quattrociocchi:}
 \end{itemize}
 \end{enumerate}
