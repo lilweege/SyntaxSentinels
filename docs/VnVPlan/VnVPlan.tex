@@ -277,7 +277,7 @@ as a Rev 0 demo for the supervisor.}
 \section{System Tests}
 
 Below are tests for functional and non-functional requirements stated in the 
-relevant SRS  \citep{SRS}. 
+relevant SRS \citep{SRS}. 
 
 \subsection{Tests for Functional Requirements}
 
@@ -291,12 +291,10 @@ item or notification presented. Through this association, every functional
 requirement is provided a test that is capable of verifying it, thereby ensuring 
 the test areas fully cover the functional requirements.
 
-\subsubsection{Test Area 1}
+\subsubsection{Plagiarism Analysis Input Upload Tests}
 
-Applies to all FRs involving input of the system necessary for the plagiarism 
-analysis. This currently covers FR-1 in subsection 9.1 of the SRS \citep{SRS}.
-
-\paragraph{Input For Analysis Test}
+Applies to all FRs involving uploading code snippets to the system. This currently 
+covers FR-1 in subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
@@ -304,31 +302,29 @@ analysis. This currently covers FR-1 in subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Manual.
 					
-Initial State: system is active, spot for giving system code snippet is open
-with zero or more existing snippets currently added.
+Initial State: system is active, spot for uploading code snippet into
+system is open with zero or more existing snippets currently loaded.
 					
 Input: code snippet file(s).
 					
 Output: System signifies input was received and continues activity without 
-error, awaiting further action directives (such as giving more files or 
+error, awaiting further action directives (such as uploading more files or 
 initiating analysis).
 
 Test Case Derivation: The system will look to continually receive code 
 snippets from user as part of a necessary step to initiate plagiarism analysis.
 					
 How test will be performed: system will be opened in the appropriate spot for 
-receiving code and receive files in different amounts, one at a time, 
-and will be inspected for failure in this process (types: dynamic, functional).
+receiving code and receive files in varying amounts, one batch at a time, all the 
+while being inspected for failure in this process (types: dynamic, functional).
 					
 
 \end{enumerate}
 
-\subsubsection{Test Area 2}
+\subsubsection{Plagiarism Analysis Result Tests}
 
 Applies to all FRs involving immediate output of plagiarism analysis. This 
 currently covers FR-2, FR-4, and FR-5 in subsection 9.1 of the SRS \citep{SRS}.
-
-\paragraph{Typical Detection Result Test}
 
 \begin{enumerate}
 
@@ -336,11 +332,10 @@ currently covers FR-2, FR-4, and FR-5 in subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Manual.
 					
-Initial State: system is active, has received 2 or more code snippets, and 
+Initial State: system is active, 2 or more code snippets have been uploaded, and 
 spot for initiating analysis is open.
 					
-Input: code snippet files and command to initiate analysis (button, enter, 
-etc.).
+Input: command to initiate analysis (button, enter, etc.).
 					
 Output: System presents list of similarity scores for all code snippet pairings along 
 with corresponding threshold scores in a viewable fashion to user and any code snippet
@@ -365,12 +360,10 @@ dynamic, functional).
 
 \end{enumerate}
 
-\subsubsection{Test Area 3}
+\subsubsection{Guide Documentation Generation Tests}
 
 Applies to all FRs involving guide documentation generation for user. This 
 currently covers FR-3 in subsection 9.1 of the SRS \citep{SRS}.
-
-\paragraph{Guide Documentation Generation Test}
 
 \begin{enumerate}
 
@@ -397,12 +390,10 @@ dynamic, functional).
 
 \end{enumerate}
 
-\subsubsection{Test Area 4}
+\subsubsection{Report Documentation Generation Tests}
 
 Applies to all FRs involving analysis report documentation generation for 
 user. This currently covers FR-6 of subsection 9.1 of the SRS \citep{SRS}.
-
-\paragraph{Report Documentation Generation Test}
 
 \begin{enumerate}
 
@@ -431,12 +422,10 @@ documentation (type: dynamic, functional).
 
 \end{enumerate}
 
-\subsubsection{Test Area 5}
+\subsubsection{Account Creation Tests}
 
 Applies to all FRs involving creating an account within the system. This currently
 covers FR-7 of subsection 9.1 of the SRS \citep{SRS}.
-
-\paragraph{Account Creation Test}
 
 \begin{enumerate}
 
@@ -488,12 +477,10 @@ for any failure mode within the process (type: dynamic, functional).
 
 \end{enumerate}
 
-\subsubsection{Test Area 6}
+\subsubsection{Account Login Tests}
 
 Applies to all FRs involving logging into account within the system. This 
 currently covers FR-8 of subsection 9.1 of the SRS \citep{SRS}.
-
-\paragraph{Account Login Test}
 
 \begin{enumerate}
 
@@ -542,12 +529,10 @@ any failure mode within the process (type: dynamic, functional).
 					
 \end{enumerate}
 
-\subsubsection{Test Area 7}
+\subsubsection{Result Email Tests}
 
 Applies to all FRs involving emailing results of plagiarism analysis to users. 
 This currently covers FR-9 of subsection 9.1 of the SRS \citep{SRS}.
-
-\paragraph{Result Email Test}
 
 \begin{enumerate}
 
@@ -579,13 +564,11 @@ the very end once the system is awaiting action directives (type: dynamic, funct
 
 \end{enumerate}
 
-\subsubsection{Test Area 8}
+\subsubsection{Result Visualization Tests}
 
 Applies to all FRs involving visualizing plagiarism analysis results provided 
 by user in a .zip file. This currently covers FR-10 of subsection 9.1 of the SRS 
 \citep{SRS}.
-
-\paragraph{Result Visualization Test}
 
 \begin{enumerate}
 
