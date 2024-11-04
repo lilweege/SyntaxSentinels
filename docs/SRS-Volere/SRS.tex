@@ -51,6 +51,7 @@
 \toprule {\textbf{Date}} & {\textbf{Version}} & {\textbf{Notes}}\\
 \midrule
 October 11th, 2024 & 0.0 & First iteration of complete document\\
+November 4th, 2024 & 0.1 & Second iteraiton of complete document\\
 % Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
@@ -616,8 +617,10 @@ Note: The Model here represents our NLP model, which is the core of our product.
 \section{Functional Requirements}
 \subsection{Functional Requirements}
 \begin{itemize}
-    \item \textbf{FR-1}: The system shall take in code snippets as inputs
-    \item \textbf{FR-2}:The system shall output similarity scores alongside thresholds that indicate whether or not plagiarism is present within the input
+    \item \textbf{FR-1}: The system shall allow code snippets to be
+    uploaded into itself.
+    \item \textbf{FR-2}:The system shall output similarity scores alongside 
+    thresholds that indicate whether or not plagiarism is present within the input
     \item \textbf{FR-3}: The system shall be able to output documentation explaining
     how to interpret any other output (guide document)
     \item \textbf{FR-4}: The system shall allow code snippets to be flagged after similarity
@@ -738,8 +741,10 @@ Due to time constraints, the system will not be fully accessible at launch. But 
 \section{Performance Requirements}
 \subsection{Speed and Latency Requirements}
 \begin{itemize}
-    \item \textbf{PR-SL1}: The system should process the inputs and provide results in under ten minutes 
-    \item \textbf{PR-SL2}: The system must notify users if processing surpasses ten minutes
+    \item \textbf{PR-SL1}: The system should take 4 hours at most to process 
+    and return plagiarism results when given process 500 code snippets of 200 
+    lines or less (expected size of course classroom or code competition).
+    \item \textbf{PR-SL2}: The system must notify users if processing surpasses ten minutes.
 \end{itemize}
 \subsection{Safety-Critical Requirements}
 There are no safety-critical requirements except for those imposed by our 
