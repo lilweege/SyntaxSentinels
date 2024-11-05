@@ -1167,28 +1167,33 @@ This section is to ensure that documentation exists to guide users and help them
 \subsubsection{Performance}
 These testcases ensure that the system is able to handle a certain amount of load, and that it is able to process data in a timely manner.
 
-\paragraph{Batch processing time is less than 10 minutes}
+\paragraph{Batch processing time is less than 4 hours for assumed upper bound of classroom size}
 
 \begin{enumerate}
   \item{test-PR-1}
   
-  NFR: PR-C1
+  NFR: PR-SL1, PR-C1
 
-  Type: Dynamic
+  Type: Performance, Dynamic
 
   Initial State: The system is idle and ready to process a batch of code submissions
 
-  Input:Submit a batch of inputs (code submissions) to the system for processing.
+  Input: 500 code snippets of 200 lines or less 
 
-  Output: The system completes processing the batch within 600 seconds (10 minutes).
+  Output: The system completes processing the batch within 4 hours.
 
-  How test will be performed:
+  How test will be performed: Script will open system's spot for plagiarism analysis 
+  and pass system 500 code snippets of 200 lines or less along command to initiate analysis. 
+  It will use a computer time through a library like pyperf, to time the interval between 
+  analysis start and analysis return and, if it is under 4 hours, the test will return a pass. 
+  Will be integrated into a CI/CD pipeline and be run periodically to affirm system health and 
+  performance over time.
 
-  \begin{enumerate}
-    \item Submit a batch of code submissions to the system.
-    \item Measure the time taken for the system to process the batch.
-    \item Verify that the processing time is less than 600 seconds.
-  \end{enumerate}
+  % \begin{enumerate}
+  %   \item Submit a batch of code submissions to the system.
+  %   \item Measure the time taken for the system to process the batch.
+  %   \item Verify that the processing time is less than 600 seconds.
+  % \end{enumerate}
 \end{enumerate}
 
 \paragraph{Notification is sent when Processing Time Exceeds Ten Minutes}
@@ -1255,6 +1260,51 @@ These testcases ensure that the system is able to handle a certain amount of loa
     \item Submit a file that is known to be valid.
     \item Verify that the system accepts the valid input and processes it correctly.
   \end{enumerate}
+\end{enumerate}
+
+\paragraph{System meets accuracy expectations}
+\begin{enumerate}
+  \item{test-PR-5}
+
+  NFR: PR-PA1/PR-PA2
+
+  Type: Performance, Dynamic
+            
+  Initial State: System is operational, and spot for initiating analysis is open.
+            
+  Input: code snippet test set (on the scale of 500) and command to initiate analysis
+            
+  Output:System presents all appropriate returns with 90\% accuracy and less than 5\%
+  false positives compared against the ground truths when using default threshold
+            
+  How test will be performed: 
+  Script will pass current test set of code snippets, 
+  and give command-line argument to initiate analysis from detector. Upon return 
+  of analysis, will compare results against ground truths of test set using default
+  threshold.If accuracy rate is 90\% and false positives are lower than 5\%, the test
+   will return a pass. Will be integrated into a CI/CD pipeline and be run periodically
+  to affirm system health and performance over time. Also, the test set will potentially
+  change over time to keep any possible bias in check.
+\end{enumerate}
+
+\paragraph{Feature Updates Do Not Degrade Performance}
+\begin{enumerate}
+  \item{test-PR-6}
+
+  NFR: PR-SE1
+
+  Type: Functional, Dynamic, Regression
+            
+  Initial State: N/A
+            
+  Input: code for new feature is added 
+            
+  Output: all base functions still work with new feature code in place
+            
+  How test will be performed: When system is given new a feature (as denoted in a 
+  pull request or otherwise), all system tests for functional requirements
+  are re-applied to ensure no previous functionality has been lost. Can be done 
+  via CI/CD pipeline like Jenkins that possess scripts for all functional requirement tests.
 \end{enumerate}
 
 \subsubsection{Operational and Environmental}
@@ -1370,6 +1420,33 @@ These testcases ensure that the system is maintainable and supportable. This inc
   The user will post a request or issue and verify that it is visible to other users. A verifiable metric is that the request or issue is visible to other users.
   This test will be done manually by the team members of SyntaxSentinels.
 \end{enumerate}
+
+\paragraph{Model Code follows Template }
+
+\begin{enumerate}
+  \item{test-M-3}
+
+  NFR: MS-A2
+
+  Type: Inspection, Static
+
+  Initial State: N/A
+
+  Input: model code is passed to parser
+
+  Output: parser states model components follow template
+
+  How test will be performed:
+  Model Code will be statically checked
+(through a parsing script looking for reserved class words or ordering potentially) 
+to see if model contains components/layers that inherit an interface/class. If all 
+components are found to inherit an interface/class, it is assumed it will be simple 
+to create or exchange components of the model in code to keep it up with research 
+without major overhaul to the model code itself (although there may be significant
+changes to its components). Will be integrated into a CI/CD pipeline and run
+periodically to ensure model code remains in adherence to templates.
+\end{enumerate}
+
 \subsubsection{Security}
 These testcases ensure that the system is secure and that user data is protected.
 
