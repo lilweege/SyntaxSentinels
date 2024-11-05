@@ -494,7 +494,7 @@ Each test includes a title, test ID, control, initial state, input, output, test
 Each test section addresses a particular initial condition and input set. 
 Therefore, each test has a particular set of outputs that the system should 
 produce for it. A functional requirement of section 9 in the SRS \citep{SRS}
-is only associated with a test if the output set of the test corresponds to 
+is only associated with a test if the output set of the test corresponds to
 the fit criterion of that functional requirement, and the fit criterion should 
 be an observable component of a system state, such as a display of a return 
 item or notification presented. Through this association, every functional 
@@ -512,29 +512,24 @@ covers FR-1 in subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: system is active, zero or more existing snippets are currently 
-uploaded, system is setup in spot to receive code snippet uploads.
+Initial State: The system is active, zero or more existing snippets are currently uploaded, and the system is set up to receive code snippet uploads.
 					
-Input: code snippet file(s).
+Input: Code snippet file(s).
 					
-Output: System signifies input was received and continues activity without 
-error, awaiting further action directives (such as uploading more files or 
-initiating analysis).
+Output: The system signifies that the input was received and continues activity without error, awaiting further action directives (such as uploading more files or initiating analysis).
 
-Test Case Derivation: The system will look to continually receive code 
-snippets from user as part of a necessary step to initiate plagiarism analysis.
+Test Case Derivation: The system will continually receive code snippets from the user as part of a necessary step to initiate plagiarism analysis.
 					
-How test will be performed: A script will open the system in the appropriate spot for 
-receiving code and will upload files in varying amounts, one batch at a time, all the 
-while inspecting for failure during the process. Script will be integrated into CI/CD
+How the test will be performed: A script will open the system in the appropriate spot for
+receiving code and will upload files in varying amounts, one batch at a time, while inspecting for failures during the process. The script will be integrated into the CI/CD
 pipeline to ensure continued system functionality (types: dynamic, functional).
-					
+
 
 \end{enumerate}
 
 \subsubsection{Plagiarism Analysis Result Tests}
 
-Applies to all FRs involving immediate output of plagiarism analysis. This 
+This section applies to all FRs involving the immediate output of plagiarism analysis. This
 currently covers FR-2, FR-4, and FR-5 in subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
@@ -543,37 +538,27 @@ currently covers FR-2, FR-4, and FR-5 in subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: system is active, 2 or more code snippets have been uploaded,
-and system is setup in spot for initiating analysis.
+Initial State: The system is active, two or more code snippets have been uploaded, and the system is set up to initiate analysis.
 					
-Input: command to initiate analysis (button, enter, etc.).
+Input: Command to initiate analysis (button, enter, etc.).
 					
-Output: System presents list of similarity scores for all code snippet pairings 
-along  with corresponding threshold scores and any code snippet pairing that 
-has exceeded its threshold has been flagged. System remains active, 
-awaiting for action directives on what to do.
+Output: The system presents a list of similarity scores for all code snippet pairings
+along with corresponding threshold scores. Any code snippet pairing that
+has exceeded its threshold has been flagged. The system remains active,
+awaiting further action directives.
 
-Test Case Derivation: The system should possess an algorithm that analyzes code 
-snippets and produces similarity scores and threshold scores in return. These 
-scores should be produced between every pairing of code snippets as the 
-plagiarism is a relative assessment between one code piece and another. The 
-system must able to pass this algorithm received code snippets and use its
-results to flag any pairing that exceeded its threshold before returning from
+Test Case Derivation: The system should possess an algorithm that analyzes code
+snippets and produces similarity scores and threshold scores in return. These
+scores should be generated for every pairing of code snippets, as plagiarism is a relative assessment between one piece of code and another. The system must be able to pass the received code snippets to this algorithm and use its results to flag any pairing that exceeds its threshold before returning from
 its analysis state to the user for further interaction.
 
-How test will be performed: A script will open the system's spot to initiate analysis 
-with 2 or more code snippets already inserted into the system, and command for 
-starting analysis will be passed from which point errors will be inspected for 
-up until similarity scores and thresholds have been presented. At this point,
-code flaggings should also be available to ascertain. (type: dynamic, functional).
+How the test will be performed: A script will open the system's spot to initiate analysis with two or more code snippets already inserted into the system, and a command to start the analysis will be issued. Errors will be inspected for until similarity scores and thresholds have been presented. At this point, code flaggings should also be available for verification (type: dynamic, functional).
 					
-
 \end{enumerate}
 
 \subsubsection{Guide Documentation Generation Tests}
 
-Applies to all FRs involving guide documentation generation for user. This 
-currently covers FR-3 in subsection 9.1 of the SRS \citep{SRS}.
+This section applies to all FRs involving guide documentation generation for the user. This currently covers FR-3 in subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
@@ -581,30 +566,21 @@ currently covers FR-3 in subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: System is active, system is setup in spot for generating guide 
-documentation.
+Initial State: The system is active, and the system is set up to generate guide documentation.
 					
-Input: command for documentation presentation (button, enter, etc.).
+Input: Command for documentation presentation (button, enter, etc.).
 					
-Output: System generates documentation in a viewable medium, such as text or a 
-pdf file, and remains active awaiting for further action 
-directives.
+Output: The system generates documentation in a viewable medium, such as text or a PDF file, and remains active, awaiting further action directives.
 
-Test Case Derivation: system possesses guide documentation which it should be 
-capable of transferring to user to provide guidance on use cases of system 
-when prompted.
+Test Case Derivation: The system possesses guide documentation that it should be capable of transferring to the user to provide guidance on use cases of the system when prompted.
 
-How test will be performed: A script will open the system's spot for generating 
-guide documentation and command for guide generating documentation will be 
-passed, all the while inspecting for error. It will check for missing 
-documentation at the end. (type: dynamic, functional).				
-
+How the test will be performed: A script will open the system's spot for generating guide documentation, and a command for generating the guide documentation will be issued, all while inspecting for errors. It will check for missing documentation at the end (type: dynamic, functional).
+					
 \end{enumerate}
 
 \subsubsection{Report Documentation Generation Tests}
 
-Applies to all FRs involving analysis report documentation generation for 
-user. This currently covers FR-6 of subsection 9.1 of the SRS \citep{SRS}.
+This section applies to all FRs involving analysis report documentation generation for the user. This currently covers FR-6 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
@@ -612,35 +588,21 @@ user. This currently covers FR-6 of subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: System is active, most recent plagiarism analysis has been 
-completed since system activation and its results are available, and system 
-is setup in spot for report generation.
+Initial State: The system is active, the most recent plagiarism analysis has been completed since system activation, and its results are available. The system is set up for report generation.
 					
-Input: command for report documentation generation (button, enter, etc.).
+Input: Command for report documentation generation (button, enter, etc.).
 					
-Output: System provides report documentation in a viewable medium, such
-as text or a pdf file, and remains active awaiting for further action 
-directives.
+Output: The system provides report documentation in a viewable medium, such as text or a PDF file, and remains active, awaiting further action directives.
 
-Test Case Derivation: The system should possess the ability to aggregate
-the results of the plagiarism analysis which has most recently occurred 
-and insert them into a template that can summarize all findings to a user,
-which will become the report document given.
+Test Case Derivation: The system should possess the ability to aggregate the results of the most recent plagiarism analysis and insert them into a template that can summarize all findings for the user, which will become the report document provided.
 
-How test will be performed: A script will have the system conduct a 
-plagiarism analysis to provide inputs for the report generation as this
-simulates what will have to happen for a user to unlock report generation. 
-If successful, it will proceed to open the spot for generating a report 
-where the command for generating a report will be passed, all the while 
-inspecting for errors during the process. It will check for missing 
-documentation at the end (type: dynamic, functional).			
-
+How the test will be performed: A script will have the system conduct a plagiarism analysis to provide inputs for the report generation, simulating what will have to happen for a user to unlock report generation. If successful, it will proceed to open the spot for generating a report, where the command for generating the report will be issued, all while inspecting for errors during the process. It will check for missing documentation at the end (type: dynamic, functional).
+					
 \end{enumerate}
 
 \subsubsection{Account Creation Tests}
 
-Applies to all FRs involving creating an account within the system. This currently
-covers FR-7 of subsection 9.1 of the SRS \citep{SRS}.
+This section applies to all FRs involving creating an account within the system. This currently covers FR-7 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
@@ -648,58 +610,35 @@ covers FR-7 of subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: system is active, and system is setup in spot for account 
-creation..
+Initial State: The system is active, and the system is set up for account creation.
 					
-Input: command for account creation (button, enter, etc.) alongside account 
-user email and password, and the email is not associated with any existing 
-account.
+Input: Command for account creation (button, enter, etc.), along with account user email and password, ensuring the email is not associated with any existing account.
 					
-Output: System indicates account creation was successfully created for 
-logging in with (evidenced by existence of email within created account list)
-and remains active, awaiting further action directives.
+Output: The system indicates that the account has been successfully created for logging in (evidenced by the existence of the email within the created account list) and remains active, awaiting further action directives.
 
-Test Case Derivation: The system should be able to assess a set of account 
-credentials is not yet within the system and proceed to add this set to the 
-set of accounts that can be logged in with.
+Test Case Derivation: The system should be able to assess that a set of account credentials is not yet within the system and proceed to add this set to the set of accounts that can be logged in with.
 
-How test will be performed: A script will the system's spot for account creation, 
-email and password not asssociated with any existing account will be given in the 
-appropriate area, and command for account creation will be passed, all the while inspecting 
-for any failure mode within the process (type: dynamic, functional). Created account
-will be inspected for at the end.
+How the test will be performed: A script will open the system's spot for account creation, provide an email and password not associated with any existing account in the appropriate area, and issue the command for account creation, all while inspecting for any failure modes during the process (type: dynamic, functional). The created account will be inspected at the end.
 
 \item{test-FR-6\\}
 
-Control: Automatic
+Control: Automatic.
 					
-Initial State: system is active, and system is setup in spot for account creation
+Initial State: The system is active, and the system is set up for account creation.
 					
-Input: command for account creation (button, enter, etc.) alongside account 
-user email and password, and the email is associated with an existing 
-account.
+Input: Command for account creation (button, enter, etc.), along with account user email and password, ensuring the email is associated with an existing account.
 					
-Output: System notifies account was not possible to create for logging 
-in with and remains active, awaiting further action directives.
+Output: The system notifies that account creation was not possible for logging in and remains active, awaiting further action directives.
 
-Test Case Derivation: A set of pre-existing account credentials should not be 
-possible to create an account with. Otherwise, account creation is arbitrary 
-and not truly provided by the system as any set of account credentials are not 
-tied to any particular account.
+Test Case Derivation: A set of pre-existing account credentials should not be possible to use for account creation. Otherwise, account creation is arbitrary and not truly provided by the system, as any set of account credentials would not be tied to any particular account.
 
-How test will be performed: A script will open system's spot for account 
-creation, email and password asssociated with an existing account will be 
-given in the appropriate area, and command for account creation will be 
-passed, all the while inspecting for any failure mode within the process 
-(type: dynamic, functional).
+How the test will be performed: A script will open the system's spot for account creation, provide an email and password associated with an existing account in the appropriate area, and issue the command for account creation, all while inspecting for any failure modes during the process (type: dynamic, functional).
 					
-
 \end{enumerate}
 
 \subsubsection{Account Login Tests}
 
-Applies to all FRs involving logging into account within the system. This 
-currently covers FR-8 of subsection 9.1 of the SRS \citep{SRS}.
+This section applies to all FRs involving logging into an account within the system. This currently covers FR-8 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
@@ -707,53 +646,37 @@ currently covers FR-8 of subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: system is active, and system is setup in spot for account 
-login.
+Initial State: The system is active, and the system is set up for account login.
 					
-Input: command for account login (button, enter, etc.) alongside account 
-user email and password, and the email is associated with an existing 
-account.
+Input: Command for account login (button, enter, etc.), along with account user email and password, ensuring the email is associated with an existing account.
 					
-Output: System notifies account login was successful and and remains 
-active, awaiting further action directives.
+Output: The system notifies that the account login was successful and remains active, awaiting further action directives.
 
-Test Case Derivation: The system should be able to validate a set of 
-pre-existing account credentials to facilitate login.
+Test Case Derivation: The system should be able to validate a set of pre-existing account credentials to facilitate login.
 
-How test will be performed: A script will open system's spot for account 
-login, email and  password asssociated with existing account will be given 
-in the appropriate area, and command for account login will be passed, all 
-the while inspecting for any failure mode within the process (type: dynamic, 
-functional).
+How the test will be performed: A script will open the system's spot for account login, provide the email and password associated with the existing account in the appropriate area, and issue the command for account login, all while inspecting for any failure modes during the process (type: dynamic, functional).
 
 \item{test-FR-8\\}
 
 Control: Automatic.
 					
-Initial State: system is active, and setup in spot for account login.
+Initial State: The system is active and is set up for account login.
 					
-Input: command for account login (button, enter, etc.) alongside account 
-user email and password, and the email is not associated with any existing 
-account.
+Input: Command for account login (button, enter, etc.), along with account user email and password, ensuring the email is not associated with any existing account.
 					
-Output: System notifies account login was not successful and remains 
-active, awaiting further action directives.
+Output: The system notifies that the account login was not successful and remains active, awaiting further action directives.
 
-Test Case Derivation: A set of account credentials not associated an existing 
-account will fail to allow login as the system should determine there is no 
-account to validate against.
+Test Case Derivation: A set of account credentials not associated with an existing account will fail
 
-How test will be performed: A script will open system's spot for account login, 
-email and password not asssociated with existing account with will be given in 
-the appropriate area, and command for account login will be passed, all the 
-while inspecting for any failure mode within the process (type: dynamic, functional).
+ to allow login, as the system should determine there is no account to validate against.
+
+How the test will be performed: A script will open the system's spot for account login, provide an email and password not associated with any existing account in the appropriate area, and issue the command for account login, all while inspecting for any failure modes during the process (type: dynamic, functional).
 					
 \end{enumerate}
 
 \subsubsection{Result Email Tests}
 
-Applies to all FRs involving emailing results of plagiarism analysis to users. 
-This currently covers FR-9 of subsection 9.1 of the SRS \citep{SRS}.
+This section applies to all FRs involving emailing the results of plagiarism analysis to users. This currently covers FR-9 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
@@ -761,64 +684,38 @@ This currently covers FR-9 of subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: System is active, most recent plagiarism analysis has been 
-completed since system activation and its results are available, and system
-is setup in spot for emailing results.
+Initial State: The system is active, the most recent plagiarism analysis has been completed since system activation, its results are available, and the system is set up for emailing results.
 					
-Input: command for emailing result (button, enter, etc.) and email to 
-receive results.
+Input: Command for emailing results (button, enter, etc.) and email to receive results.
 					
-Output: System notifies email has been sent and remains active, awaiting 
-further action directives. External to system, the specified email shall
-contain a .zip file possessing results of the recent analysis.
+Output: The system notifies that the email has been sent and remains active, awaiting further action directives. Externally, the specified email should contain a .zip file with the results of the recent analysis.
 
-Test Case Derivation: The system should possess the ability to condense results
-into a .zip file upon demand, and it should proceed to carry out emailing this 
-file after it creates it.
+Test Case Derivation: The system should possess the ability to condense results into a .zip file upon demand, then proceed to send this file by email.
 
-How test will be performed: A script will have the system conduct a 
-plagiarism analysis to provide inputs for emailing as this
-simulates what will have to happen for a user to be enabled to initiate an email.
-If successful, the script will continue the system's spot for emailing results
-and the command for sending email will be passed alongside an email for receiving 
-results, all the while inspecting for errors in the process. The reception of the 
-.zip file will be assessed at the very end once the system is awaiting action 
-directives (type: dynamic, functional).
+How the test will be performed: A script will have the system conduct a plagiarism analysis to provide inputs for emailing, simulating the steps needed for a user to enable email initiation. If successful, the script will proceed to the system's spot for emailing results, issue the command for sending the email alongside an email address for receiving the results, and inspect for errors during the process. The reception of the .zip file will be assessed at the end when the system is awaiting action directives (type: dynamic, functional).
 					
-
 \end{enumerate}
 
 \subsubsection{Result Visualization Tests}
 
-Applies to all FRs involving visualizing plagiarism analysis results provided 
-by user in a .zip file. This currently covers FR-10 of subsection 9.1 of the SRS 
-\citep{SRS}.
+This section applies to all FRs involving visualizing plagiarism analysis results provided by the user in a .zip file. This currently covers FR-10 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
 \item{test-FR-10\\}
 
-Control: Automatic
+Control: Automatic.
 					
-Initial State: System is active and is setup in the spot for inserting .zip 
-files containing results to produce visualization.
+Initial State: The system is active and is set up for inserting .zip files containing results to produce visualization.
 					
-Input: command for visualization (button, enter, etc.) and .zip file containing 
-results.
+Input: Command for visualization (button, enter, etc.) and .zip file containing results.
 					
-Output: System provides visualization in viewable medium, such as image or file,
-that corresponds to the results in the given .zip file.
+Output: The system provides visualization in a viewable medium, such as an image or file, that corresponds to the results in the given .zip file.
 
-Test Case Derivation: System should possess ability to parse .zip file for 
-relevant contents and pass it into an internal visualization template that 
-can be filled out with what was found before proceeding to transfer it to
-the user.
+Test Case Derivation: The system should possess the ability to parse a .zip file for relevant contents, pass the data into an internal visualization template, and then transfer the generated visualization to the user.
 
-How test will be performed: A script will open the system's spot for 
-inserting .zip file to produce visualization and command for 
-visualization is passed alongside a .zip file containing results, 
-all the while inspecting for errors during the process. At the end, the 
-script will inspect for missing parts of the visualziation.
+How the test will be performed: A script will open the system's spot for inserting a .zip file to produce a visualization, issue the command for visualization alongside the .zip file containing results, and inspect for errors during the process. At the end, the script will check for missing parts of the visualization.
+					
 \end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
