@@ -1282,23 +1282,23 @@ These testcases ensure that the system is able to handle a certain amount of loa
 \begin{enumerate}
   \item{test-PR-5}
 
-  NFR: PR-PA1/PR-PA2
+  NFR: PR-PA1, PR-PA2
 
   Type: Performance, Dynamic
             
-  Initial State: System is operational, and spot for initiating analysis is open.
+  Initial State: System is operational and awaiting user input for code submission
             
-  Input: code snippet test set (on the scale of 500) and command to initiate analysis
+  Input: Code snippet test set (on the scale of 500) and command to initiate analysis
             
-  Output:System presents all appropriate returns with 90\% accuracy and less than 5\%
+  Output: All system analysis results have greater than 90\% accuracy and less than 5\%
   false positives compared against the ground truths when using default threshold
             
   How test will be performed: 
   Script will pass current test set of code snippets, 
   and give command-line argument to initiate analysis from detector. Upon return 
   of analysis, will compare results against ground truths of test set using default
-  threshold.If accuracy rate is 90\% and false positives are lower than 5\%, the test
-   will return a pass. Will be integrated into a CI/CD pipeline and be run periodically
+  threshold. If accuracy rate is 90\% and false positives are lower than 5\%, the test
+   will return a pass. This will be integrated into a CI/CD pipeline and be run periodically
   to affirm system health and performance over time. Also, the test set will potentially
   change over time to keep any possible bias in check.
 \end{enumerate}
@@ -1313,14 +1313,14 @@ These testcases ensure that the system is able to handle a certain amount of loa
             
   Initial State: N/A
             
-  Input: code for new feature is added 
+  Input: Code for new feature is added 
             
-  Output: all base functions still work with new feature code in place
+  Output: All base features still function as expected with new feature code in place
             
-  How test will be performed: When system is given new a feature (as denoted in a 
+  How test will be performed: When a new feature is added to the system (as denoted in a 
   pull request or otherwise), all system tests for functional requirements
-  are re-applied to ensure no previous functionality has been lost. Can be done 
-  via CI/CD pipeline like Jenkins that possess scripts for all functional requirement tests.
+  are re-ran to ensure no previous functionality has been lost. This will be facilitated
+  by a CI/CD pipeline (using GitHub actions) for all functional requirement tests.
 \end{enumerate}
 
 \subsubsection{Operational and Environmental}
@@ -1448,18 +1448,18 @@ These testcases ensure that the system is maintainable and supportable. This inc
 
   Initial State: N/A
 
-  Input: model code is passed to parser
+  Input: Source code pertaining to machine learning model is passed to a parsing script
 
-  Output: parser states model components follow template
+  Output: The output of the parsing script states model components follows the template
 
   How test will be performed:
-  Model Code will be statically checked
+  Source code pertaining to machine learning model will be statically checked
 (through a parsing script looking for reserved class words or ordering potentially) 
 to see if model contains components/layers that inherit an interface/class. If all 
 components are found to inherit an interface/class, it is assumed it will be simple 
 to create or exchange components of the model in code to keep it up with research 
 without major overhaul to the model code itself (although there may be significant
-changes to its components). Will be integrated into a CI/CD pipeline and run
+changes to its components). This will be integrated into a CI/CD pipeline and run
 periodically to ensure model code remains in adherence to templates.
 \end{enumerate}
 
@@ -1476,15 +1476,15 @@ periodically to ensure model code remains in adherence to templates.
   (cannot modify model during activity unless 
   multiple test version is kept)
 
-  Input: None into system directly,training script receives two formats of training sets
+  Input: None into system directly, training script receives two formats of training sets
 
-  Output: training script successfully completes epoch 
+  Output: Training script successfully completes epoch 
 
   How test will be performed:
   Training script for model provided will
 receive two different formats of training set data from a test script, and 
 test script will verify training occurred either through inspecting a generated
-checkpoint file or a return value from the training script. Will be integrated into a CI/CD pipeline 
+checkpoint file or a return value from the training script. This will be integrated into a CI/CD pipeline 
 and run periodically to ensure compatibility for model training remains.
 \end{enumerate}
 
@@ -1492,15 +1492,15 @@ and run periodically to ensure compatibility for model training remains.
 \begin{enumerate}
   \item{test-M-5}
 
-  NFR: MS-A1
+  NFR: MS-A3
 
   Type: Manual, Unit
 
   Initial State: N/A
 
-  Input: not given into system, appropriately dimensioned vector into model component/layer
+  Input: A set of appropriately dimensioned vectors into model component/layer
 
-  Output: expected modification of vector according to component/layer architecture
+  Output: Expected modification of vector according to component/layer architecture
 
   How test will be performed:
   Every unique model layer/component will attempt to be separated from any preceding and proceeding layer/components, and will be
