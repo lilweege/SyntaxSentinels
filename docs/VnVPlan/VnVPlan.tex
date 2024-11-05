@@ -1447,6 +1447,53 @@ changes to its components). Will be integrated into a CI/CD pipeline and run
 periodically to ensure model code remains in adherence to templates.
 \end{enumerate}
 
+\paragraph{Model Code follows Template }
+
+\begin{enumerate}
+  \item{test-M-4}
+
+  NFR: MS-A1
+
+  Type: Dynamic 
+
+  Initial State: System is inactive
+  (cannot modify model during activity unless 
+  multiple test version is kept)
+
+  Input: None into system directly,training script receives two formats of training sets
+
+  Output: training script successfully completes epoch 
+
+  How test will be performed:
+  Training script for model provided will
+receive two different formats of training set data from a test script, and 
+test script will verify training occurred either through inspecting a generated
+checkpoint file or a return value from the training script. Will be integrated into a CI/CD pipeline 
+and run periodically to ensure compatibility for model training remains.
+\end{enumerate}
+
+\paragraph{Model Code follows Template }
+\begin{enumerate}
+  \item{test-M-5}
+
+  NFR: MS-A1
+
+  Type: Manual, Unit
+
+  Initial State: N/A
+
+  Input: not given into system, appropriately dimensioned vector into model component/layer
+
+  Output: expected modification of vector according to component/layer architecture
+
+  How test will be performed:
+  Every unique model layer/component will attempt to be separated from any preceding and proceeding layer/components, and will be
+copied into a test function where it will be given an input vector of appropriate size. The output function should apply transformations strictly associated with that layer and no other, which should be evident through output vector size and
+contents of the vector. Must be manually done as assessing how to separate layers may not be possible to be done in a consistent manner, even if layers/components are ultimately modular. The difference of having embedded layers that aren't modular versus 
+separable layers akin to having z=f(g(x)) versus y=g(x) and z=g(y). Test must only be done every time a new type of model component or 
+layer is added.
+\end{enumerate}
+
 \subsubsection{Security}
 These testcases ensure that the system is secure and that user data is protected.
 
