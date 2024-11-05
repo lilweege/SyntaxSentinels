@@ -37,48 +37,64 @@ November 1 & 1.0 & Initial documentation\\
 \bottomrule
 \end{tabularx}
 
-~\\
-\wss{The intention of the VnV plan is to increase confidence in the software.
-However, this does not mean listing every verification and validation technique
-that has ever been devised.  The VnV plan should also be a \textbf{feasible}
-plan. Execution of the plan should be possible with the time and team available.
-If the full plan cannot be completed during the time available, it can either be
-modified to ``fake it'', or a better solution is to add a section describing
-what work has been completed and what work is still planned for the future.}
+% ~\\
+% \wss{The intention of the VnV plan is to increase confidence in the software.
+% However, this does not mean listing every verification and validation technique
+% that has ever been devised.  The VnV plan should also be a \textbf{feasible}
+% plan. Execution of the plan should be possible with the time and team available.
+% If the full plan cannot be completed during the time available, it can either be
+% modified to ``fake it'', or a better solution is to add a section describing
+% what work has been completed and what work is still planned for the future.}
 
-\wss{The VnV plan is typically started after the requirements stage, but before
-the design stage.  This means that the sections related to unit testing cannot
-initially be completed.  The sections will be filled in after the design stage
-is complete.  the final version of the VnV plan should have all sections filled
-in.}
+% \wss{The VnV plan is typically started after the requirements stage, but before
+% the design stage.  This means that the sections related to unit testing cannot
+% initially be completed.  The sections will be filled in after the design stage
+% is complete.  the final version of the VnV plan should have all sections filled
+% in.}
 
 \newpage
 
 \tableofcontents
 
 \listoftables
-\wss{Remove this section if it isn't needed}
 
-\listoffigures
-\wss{Remove this section if it isn't needed}
 
 \newpage
 
 \section{Symbols, Abbreviations, and Acronyms}
 
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{l l} 
-  \toprule		
-  \textbf{symbol} & \textbf{description}\\
-  \midrule 
-  T & Test\\
-  \bottomrule
-\end{tabular}\\
+\begin{center}
+  \begin{longtable}{| p{0.475\linewidth} | p{0.475\linewidth} |}
+  \hline
+  \textbf{Symbol/Abbreviation/Acronym} & \textbf{Description} \\
+  \hline
+  V\&V & Verification and Validation \\
+  \hline
+  NLP & Natural Language Processing \\
+  \hline
+  AWS & Amazon Web Services \\
+  \hline
+  CI/CD & Continuous Integration/Continuous Deployment \\
+  \hline
+  API & Application Programming Interface \\
+  \hline
+  SRS & Software Requirements Specification \\
+  \hline
+  UI & User Interface \\
+  \hline
+  MG & Module Guide \\
+  \hline
+  MIS & Module Interface Specification \\
+  \hline
+  PIPEDA & Personal Information Protection and Electronic Documents Act \\
+  \hline
+  FIPPA & Freedom of Information and Protection of Privacy Act \\
+  \hline
 
-\wss{symbols, abbreviations, or acronyms --- you can simply reference the SRS
-  \citep{SRS} tables, if appropriate}
-
-\wss{Remove this section if it isn't needed}
+  \caption{Symbols, Abbreviations, and Acronyms}
+  \end{longtable}
+  \end{center}
 
 \newpage
 
@@ -370,7 +386,7 @@ The checklist for design review will cover:
   \hline
   6.3 Version Control & Design documentation is version-controlled to track changes and updates. \\
   \hline
-  
+  \caption{Checklist for Design Verification}
   \end{longtable}
   \end{center}
 
@@ -422,7 +438,7 @@ The verification and validation plan itself will also undergo verification to en
   \hline
   13. Schedule and Milestones & Verify that there is a realistic schedule and milestones for completing verification and validation activities. \\
   \hline
-  
+  \caption{Checklist for V\&V Plan Verification}
   \end{longtable}
   \end{center}
 
@@ -492,7 +508,7 @@ covers FR-1 in subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
-\item{test-FR1-1\\}
+\item{test-FR-1\\}
 
 Control: Automatic.
 					
@@ -523,7 +539,7 @@ currently covers FR-2, FR-4, and FR-5 in subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
-\item{test-FR2,4,5-1\\}
+\item{test-FR-2\\}
 
 Control: Automatic.
 					
@@ -561,7 +577,7 @@ currently covers FR-3 in subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
-\item{test-FR3-1\\}
+\item{test-FR-3\\}
 
 Control: Automatic.
 					
@@ -592,7 +608,7 @@ user. This currently covers FR-6 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
-\item{test-FR6-1\\}
+\item{test-FR-4\\}
 
 Control: Automatic.
 					
@@ -628,7 +644,7 @@ covers FR-7 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
-\item{test-FR7-1\\}
+\item{test-FR-5\\}
 
 Control: Automatic.
 					
@@ -653,7 +669,7 @@ appropriate area, and command for account creation will be passed, all the while
 for any failure mode within the process (type: dynamic, functional). Created account
 will be inspected for at the end.
 
-\item{test-FR7-2\\}
+\item{test-FR-6\\}
 
 Control: Automatic
 					
@@ -687,7 +703,7 @@ currently covers FR-8 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
-\item{test-FR8-1\\}
+\item{test-FR-7\\}
 
 Control: Automatic.
 					
@@ -710,7 +726,7 @@ in the appropriate area, and command for account login will be passed, all
 the while inspecting for any failure mode within the process (type: dynamic, 
 functional).
 
-\item{test-FR8-2\\}
+\item{test-FR-8\\}
 
 Control: Automatic.
 					
@@ -741,7 +757,7 @@ This currently covers FR-9 of subsection 9.1 of the SRS \citep{SRS}.
 
 \begin{enumerate}
 
-\item{test-FR9-1\\}
+\item{test-FR-9\\}
 
 Control: Automatic.
 					
@@ -780,7 +796,7 @@ by user in a .zip file. This currently covers FR-10 of subsection 9.1 of the SRS
 
 \begin{enumerate}
 
-\item{test-FR10-1\\}
+\item{test-FR-10\\}
 
 Control: Automatic
 					
@@ -1047,7 +1063,7 @@ audits to ensure system integrity.
   \end{enumerate}
 
 
-  \item{NFR-PS2}
+  \item{test-PS-2}
   
   NFR: SR-P2 
 
@@ -1502,6 +1518,7 @@ These testcases ensure that the system is secure and that user data is protected
   \item{test-S-1}
 
   NFR: SR-A1
+
   Type: Dynamic
             
   Initial State: The user is not authenticated and does not have a valid auth token.
@@ -1549,6 +1566,91 @@ These testcases ensure that the system is secure and that user data is protected
 \end{enumerate}
 
 \subsection{Traceability Between Test Cases and Requirements}
+
+\begin{center}
+  \begin{longtable}{|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{10cm}|}
+  \hline
+  \textbf{Test ID} & \textbf{Requirements} \\
+  \hline
+  \endfirsthead
+  
+  \hline
+  \textbf{Test ID} & \textbf{Requirements} \\
+  \hline
+  \endhead
+  
+  test-FR-1 & FR-1 \\
+  \hline
+  test-FR-2 & FR-2, FR-4, FR-5 \\
+  \hline
+  test-FR-3 & FR-3 \\
+  \hline
+  test-FR-4 & FR-6 \\
+  \hline
+  test-FR-5 & FR-7 \\
+  \hline
+  test-FR-6 & FR-7 \\
+  \hline
+  test-FR-7 & FR-8 \\
+  \hline
+  test-FR-8 & FR-8 \\
+  \hline
+  test-FR-9 & FR-9 \\
+  \hline
+  test-FR-10 & FR-10 \\
+  \hline
+  test-LF-1 & LF-AR1, LF-AR2, LF-AR3, LF-SR1, LF-SR2, LF-SR3, LF-SR4 \\
+  \hline
+  test-LF-2 & CR-SC3 \\
+  \hline
+  test-UH-1 & UH-E1, UH-E3, UH-L1, UH-UP1, UH-UP2, OE-P1 \\
+  \hline
+  test-UH-2 & UH-E2 \\
+  \hline
+  test-UH-3 & UH-PI2 \\
+  \hline
+  test-V-1 & MS-M1, OR-R2 \\
+  \hline
+  test-PS-1 & SR-P1 \\
+  \hline
+  test-PS-2 & SR-P2 \\
+  \hline
+  test-PS-3 & CR-L1, CR-L2, CR-L3, CR-S2, CR-S5 \\
+  \hline
+  test-DS-1 & MS-M3 \\
+  \hline
+  test-DS-2 & MS-S1, CR-SC1 \\
+  \hline
+  test-D-1 & UH-L2, OE-P2 \\
+  \hline
+  test-PR-1 & PR-C1 \\
+  \hline
+  test-PR-2 & PR-SL2 \\
+  \hline
+  test-PR-3 & PR-SL2 \\
+  \hline
+  test-PR-4 & PR-RFT1 \\
+  \hline
+  test-OE-1 & OE-IAS1 \\
+  \hline
+  test-OE-2 & OE-IAS2 \\
+  \hline
+  test-OE-3 & OE-IAS3 \\
+  \hline
+  test-M-1 & MS-M2 \\
+  \hline
+  test-M-2 & MS-S3 \\
+  \hline
+  test-S-1 & SR-A1 \\
+  \hline
+  test-S-2 & SR-A1 \\
+  \hline
+  test-S-3 & SR-A1 \\
+  \hline
+
+  \caption{Traceability Matrix}
+  \end{longtable}
+  \end{center}
 
 % \wss{Provide a table that shows which test cases are supporting which
 %   requirements.}
@@ -1777,6 +1879,7 @@ graduate attribute of Lifelong Learning.
     \item \textbf{Dennis Fong:} Automated Testing Tools, Security Testing Knowledge
     \item \textbf{Julian Cecchini:} 
     \item \textbf{Mohammad Mohsin Khan:} Dynamic Testing Knowledge, Performance Testing Knowledge
+    \item \textbf{Luigi Quattrociocchi:} Static Testing Knowledge, Test Case Management
   \end{itemize}
 
 
@@ -1827,7 +1930,7 @@ graduate attribute of Lifelong Learning.
     \end{itemize}
     \item \textbf{Julian Cecchini:} 
     \item \textbf{Mohammad Mohsin Khan:}
-    \item \begin{itemize}
+    \begin{itemize}
       \item \textbf{Dynamic Testing Knowledge}  
       \begin{itemize}
           \item \textbf{Chosen Approach}: Hands-on practice with sample projects
@@ -1840,8 +1943,22 @@ graduate attribute of Lifelong Learning.
           \item \textbf{Reason for Choice}: Tool-specific training allows me to gain direct experience with the performance testing tools that I will use in the project. This approach is ideal because it provides both a solid understanding of tool features and the technical skills needed to set up and execute performance tests effectively.
       \end{itemize}
   
-  \end{itemize}
+    \end{itemize}
     \item \textbf{Luigi Quattrociocchi:}
+    \begin{itemize}
+        \item \textbf{Static Testing Knowledge}
+        \begin{itemize}
+            \item \textbf{Chosen Approach}: Tool-Specific Documentation and Tutorials
+            \item \textbf{Reason for Choice}: Reading and following documentation and tutorials specific to static testing tools, such as ESLint, should allow me to gain a more detailed understanding of how these tools work. This approach will also make it easier for me to learn best practices for effective code analysis within the actual tool environment we'll be using.
+        \end{itemize}
+        
+        \item \textbf{Test Case Management}
+        \begin{itemize}
+            \item \textbf{Chosen Approach}: Exploring Test Management Tools
+            \item \textbf{Reason for Choice}: Familiarizing myself with test management tools should provide me with direct experience in organizing, creating, and tracking test cases. This is especially useful for our project because having a structured approach to documentation should streamline collaboration with other team members as we conduct testing.
+        \end{itemize}
+    \end{itemize}
+
 \end{itemize}
 \end{enumerate}
 
