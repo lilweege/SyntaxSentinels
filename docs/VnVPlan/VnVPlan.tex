@@ -1,6 +1,8 @@
 \documentclass[12pt, titlepage]{article}
 
 \usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \hypersetup{
@@ -184,100 +186,292 @@ The following documents are critical to the development and V\&V efforts for thi
 
 \section{Plan}
 
-\wss{Introduce this section.  You can provide a roadmap of the sections to
-  come.}
+This section outlines the structured plan for verification and validation of the project. It defines team roles, describes approaches for verifying different phases of the development process, and specifies tools to be used in ensuring the project meets quality standards. The subsections cover SRS verification, design verification, implementation verification, automated testing tools, and software validation.
 
 \subsection{Verification and Validation Team}
 
-\wss{Your teammates.  Maybe your supervisor.
-  You should do more than list names.  You should say what each person's role is
-  for the project's verification.  A table is a good way to summarize this information.}
+The following table lists team members and their respective roles in the verification and validation process. Each member will be responsible for writing test cases, executing tests, and documenting results for their assigned areas. The team will meet regularly to discuss progress, address issues, and ensure alignment with project goals.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|p{5cm}|p{10cm}|}
+      \hline
+      \textbf{Team Member} & \textbf{Role in Verification and Validation} \\
+      \hline
+      Mohammad Mohsin Khan & Oversees system architecture verification and leads checklist creation. \\
+      \hline
+      Lucas Chen & Security verification, focusing on access control and data flow assessments. \\
+      \hline
+      Dennis Fong & Responsible for interface and compatibility reviews between components. \\
+      \hline
+      Julian Cecchini & Ensuring that individual modules or components integrate smoothly with one another. \\
+      \hline
+      Luigi Quattrociocchi & Tracks checklist items and maintains verification documentation. \\
+      \hline
+  \end{tabular}
+  \caption{Verification and Validation Team Roles}
+  \label{tab:team-roles}
+\end{table}
+
 
 \subsection{SRS Verification Plan}
 
-\wss{List any approaches you intend to use for SRS verification.  This may
-  include ad hoc feedback from reviewers, like your classmates (like your
-  primary reviewer), or you may plan for something more rigorous/systematic.}
+The SRS (Software Requirements Specification) verification will ensure that all functional and non-functional requirements are accurately documented and align with the project goals. The verification plan includes:
 
-\wss{If you have a supervisor for the project, you shouldn't just say they will
-read over the SRS.  You should explain your structured approach to the review.
-Will you have a meeting?  What will you present?  What questions will you ask?
-Will you give them instructions for a task-based inspection?  Will you use your
-issue tracker?}
+\begin{itemize}
+    \item \textbf{Structured Reviews}: Team members will perform a structured review of the SRS document, verifying that all requirements are feasible and testable.
+    \item \textbf{Checklist-Based Verification}: An SRS checklist will be used to ensure all critical elements, such as functional completeness and clarity, are covered.
+    \item \textbf{Reviewer Feedback Sessions}: We will gather feedback from peer reviewers and our project supervisor, meeting to discuss any discrepancies or ambiguous requirements. These meetings will include task-based inspections, where reviewers are asked to analyze requirements based on specific scenarios.
+\end{itemize}
 
-\wss{Maybe create an SRS checklist?}
+\pagebreak
+
+The checklist for SRS review will cover:
+
+\begin{center}
+  \begin{longtable}{|p{4cm}|p{11cm}|}
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endfirsthead
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endhead
+  
+  \textbf{1. Completeness} & \\
+  \hline
+  1.1 Purpose and Scope & Document states the purpose and scope of the project. \\
+  \hline
+  1.2 Stakeholders & Key stakeholders (clients, users) are defined and are relevant. \\
+  \hline
+  1.3 Functional Requirements & All primary functions (e.g., plagiarism detection, reporting) are covered and are descriptive. \\
+  \hline
+  1.4 Non-Functional Requirements & Includes performance, usability, and security requirements. \\
+  \hline
+  \textbf{2. Clarity} & \\
+  \hline
+  2.1 Unambiguous Terminology & Each requirement is clearly stated, terms are defined (e.g., MOSS, NLP). \\
+  \hline
+  2.2 Glossary Completeness & All acronyms and terms are included in the glossary. \\
+  \hline
+  \textbf{3. Consistency} & \\
+  \hline
+  3.1 Consistent Terminology & Terminology and references are consistent throughout. \\
+  \hline
+  3.2 No Conflicting Requirements & No contradictory requirements (e.g., conflicting performance vs. security). \\
+  \hline
+  \textbf{4. Verifiability} & \\
+  \hline
+  4.1 Testable Requirements & Each `requirement' is testable and verifiable (e.g., accuracy metrics, response times). \\
+  \hline
+  4.2 Acceptance Criteria & Clear acceptance criteria for each requirement. \\
+  \hline
+  \textbf{5. Traceability} & \\
+  \hline
+  5.1 Unique Identifiers & Each requirement has a unique identifier. \\
+  \hline
+  5.2 Source of Requirements & Requirements link to stakeholder needs or project goals. \\
+  \hline
+  \textbf{6. Feasibility} & \\
+  \hline
+  6.1 Technical Feasibility & Requirements are achievable within project constraints. \\
+  \hline
+  6.2 Practical Constraints & Constraints such as budget and timeline are realistic. \\
+  \hline
+  \textbf{7. Security and Privacy} & \\
+  \hline
+  7.1 Data Retention Policy & Compliance with data privacy laws (e.g., PIPEDA). \\
+  \hline
+  7.2 Access Control Requirements & Requirements for user authentication and authorization are clear. \\
+  \hline
+  \textbf{8. Modifiability} & \\
+  \hline
+  8.1 Organized Structure & Requirements are logically organized for easy updates. \\
+  \hline
+  8.2 No Redundancies & No duplicate requirements to avoid confusion. \\
+  \hline
+  \textbf{9. Compliance and Ethics} & \\
+  \hline
+  9.1 Legal and Ethical Standards & Legal (e.g., Copyright) and ethical considerations are addressed. \\
+  \hline
+  \caption{Checklist for SRS Verification}
+  \end{longtable}
+  \end{center}
 
 \subsection{Design Verification Plan}
 
-\wss{Plans for design verification}
+The design verification plan aims to ensure that the design accurately implements the requirements and adheres to best practices. This plan includes:
 
-\wss{The review will include reviews by your classmates}
+\begin{itemize}
+    \item \textbf{Checklist-Based Design Review}: A checklist will be used to guide reviews, focusing on key aspects such as modularity, scalability, and security.
+    \item \textbf{Peer Design Reviews}: Peer reviews by classmates and team members will provide feedback on the design, highlighting potential areas of improvement.
+    \item \textbf{Regular Team Reviews}: Scheduled meetings will allow the team to discuss any design modifications, verify alignment with the SRS, and ensure consistency across components.
+\end{itemize}
 
-\wss{Create a checklists?}
+The checklist for design review will cover:
+\begin{center}
+  \begin{longtable}{|p{4cm}|p{11cm}|}
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endfirsthead
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endhead
+  
+  \textbf{1. Functional Verification} & \\
+  \hline
+  1.1 Requirement Mapping & Each design element corresponds to at least one requirement in the SRS. \\
+  \hline
+  1.2 Functionality Coverage & The design covers all specified functionalities, including error handling and edge cases. \\
+  \hline
+  1.3 Interface Definition & All interfaces between components are clearly defined and consistent with requirements. \\
+  \hline
+  
+  \textbf{2. Structural Verification} & \\
+  \hline
+  2.1 Modular Design & The design is divided into logical, independent modules with well-defined interfaces. \\
+  \hline
+  2.2 Dependency Analysis & Dependencies between components are minimized, and unnecessary couplings are avoided. \\
+  \hline
+  2.3 Hierarchical Structure & The design follows a clear hierarchy, with higher-level components orchestrating lower-level ones. \\
+  \hline
+  
+  \textbf{3. Usability and Accessibility} & \\
+  \hline
+  3.1 User Interface Design & UI elements are consistent, intuitive, and meet accessibility standards (if applicable). \\
+  \hline
+  3.2 Navigation and Flow & User navigation and workflow are logical, efficient, and follow a coherent path. \\
+  \hline
+  3.3 Accessibility Standards & The design adheres to relevant accessibility guidelines, such as WCAG, to ensure usability for all users. \\
+  \hline
+  
+  \textbf{4. Performance and Optimization} & \\
+  \hline
+  4.1 Performance Criteria & The design incorporates mechanisms to meet performance requirements (e.g., response time, resource usage). \\
+  \hline
+  4.2 Scalability & Design supports scalability to handle expected load increases without significant degradation. \\
+  \hline
+  
+  \textbf{5. Security and Privacy} & \\
+  \hline
+  5.1 Data Flow Security & The design ensures secure data handling, storage, and transmission between components. \\
+  \hline
+  5.2 Access Control Mechanisms & Roles and permissions are implemented to restrict unauthorized access to sensitive components. \\
+  \hline
+  5.3 Compliance & Design complies with security and privacy standards as outlined in the SRS. \\
+  \hline
+  
+  \textbf{6. Traceability and Documentation} & \\
+  \hline
+  6.2 Documentation Completeness & Documentation is complete, with descriptions of components, workflows, and data flow. \\
+  \hline
+  6.3 Version Control & Design documentation is version-controlled to track changes and updates. \\
+  \hline
+  
+  \end{longtable}
+  \end{center}
 
 \subsection{Verification and Validation Plan Verification Plan}
 
-\wss{The verification and validation plan is an artifact that should also be
-verified.  Techniques for this include review and mutation testing.}
+The verification and validation plan itself will also undergo verification to ensure its effectiveness. This will be achieved by:
 
-\wss{The review will include reviews by your classmates}
+\begin{itemize}
+    \item \textbf{Peer Reviews}: Classmates will review the plan to provide feedback on its clarity, feasibility, and alignment with project requirements.
+    \item \textbf{Mutation Testing}: We will apply mutation testing to validate that the plan can effectively catch errors and discrepancies in project requirements and implementation.
+    \item \textbf{Checklist-Based Verification}: A checklist specific to the verification and validation plan will guide reviewers in assessing all critical aspects of the plan.
+\end{itemize}
 
-\wss{Create a checklists?}
+\begin{center}
+  \begin{longtable}{|>{\centering\arraybackslash}p{4cm}|p{10cm}|}
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endfirsthead
+  
+  \hline
+  \textbf{Item} & \textbf{Description} \\
+  \hline
+  \endhead
+  
+  1. Verification Plan Completeness & Verify that the Verification and Validation Plan includes all necessary sections, such as objectives, scope, and methodologies. \\
+  \hline
+  2. Clarity of Objectives & Ensure that the objectives of the verification and validation activities are clearly stated and aligned with project goals. \\
+  \hline
+  3. Methodology Definition & Check that each verification method (e.g., reviews, inspections, testing) is well-defined with clear procedures. \\
+  \hline
+  4. Team Roles and Responsibilities & Confirm that each team member's role in the verification and validation activities is documented and clear. \\
+  \hline
+  5. Review and Inspection Procedures & Validate that there are structured procedures for design reviews and inspections, with criteria for passing/failing. \\
+  \hline
+  6. Integration of Automated Tools & Verify that automated tools for testing and validation (e.g., CI/CD, linters, static analyzers) are specified and included in the plan. \\
+  \hline
+  7. Traceability of Requirements & Confirm that the verification and validation activities trace back to specific project requirements to ensure coverage. \\
+  \hline
+  8. Acceptance Criteria & Ensure there are clear acceptance criteria defined for each verification and validation task. \\
+  \hline
+  9. Documentation of Test Cases & Verify that each planned test case has clear documentation, including expected outcomes, inputs, and procedures. \\
+  \hline
+  10. Risk Management in Verification & Confirm that potential risks in the verification and validation process are identified and mitigation strategies are documented. \\
+  \hline
+  11. Feedback Loop & Ensure that there is a mechanism for capturing feedback and iterating on the verification and validation process as needed. \\
+  \hline
+  12. Reporting and Tracking of Issues & Check that there is a process for documenting, tracking, and addressing issues found during verification and validation. \\
+  \hline
+  13. Schedule and Milestones & Verify that there is a realistic schedule and milestones for completing verification and validation activities. \\
+  \hline
+  
+  \end{longtable}
+  \end{center}
 
 \subsection{Implementation Verification Plan}
 
-\wss{You should at least point to the tests listed in this document and the unit
-  testing plan.}
+The implementation verification plan focuses on ensuring the correctness and quality of the implementation phase. The plan includes:
 
-\wss{In this section you would also give any details of any plans for static
-  verification of the implementation.  Potential techniques include code
-  walkthroughs, code inspection, static analyzers, etc.}
-
-\wss{The final class presentation in CAS 741 could be used as a code
-walkthrough.  There is also a possibility of using the final presentation (in
-CAS741) for a partial usability survey.}
+\begin{itemize}
+    \item \textbf{Unit Testing}: Each function and module will undergo unit testing using the frameworks mentioned in section 3.6 to ensure they meet functional requirements.
+    \item \textbf{Static Code Analysis}: We will use static analysis tools mentioned in section 3.6 to verify code quality, adherence to coding standards, and security practices.
+    \item \textbf{Code Walkthroughs}: Code walkthroughs will be held in team meetings and during the final presentation, allowing team members to inspect each other’s code for issues in logic, structure, and readability.
+\end{itemize}
 
 \subsection{Automated Testing and Verification Tools}
 
-\wss{What tools are you using for automated testing.  Likely a unit testing
-  framework and maybe a profiling tool, like ValGrind.  Other possible tools
-  include a static analyzer, make, continuous integration tools, test coverage
-  tools, etc.  Explain your plans for summarizing code coverage metrics.
-  Linters are another important class of tools.  For the programming language
-  you select, you should look at the available linters.  There may also be tools
-  that verify that coding standards have been respected, like flake9 for
-  Python.}
+To streamline the verification process, the following automated testing and verification tools will be used:
 
-\wss{If you have already done this in the development plan, you can point to
-that document.}
-
-\wss{The details of this section will likely evolve as you get closer to the
-  implementation.}
+\begin{itemize}
+  \item \textbf{Testing Framework}: A testing framework (Pytest for Python) and (Playwright for ReactJs) will be used to automate testing of individual functions, modules, and E2E.
+  \item \textbf{Continuous Integration (CI) Tool}: GitHub Actions will be set up for continuous integration to ensure that tests are automatically run on new code submissions.
+  \item \textbf{Code Coverage Tool}: Code coverage tools (e.g Pytest with Coverage.py) will track the extent to which the codebase has been tested, ensuring that all critical paths are covered.
+  \item \textbf{Linters/Static Analysis Tools}: Linters appropriate to the project’s programming language will enforce coding standards, improving code readability and maintainability.
+\end{itemize}
 
 \subsection{Software Validation Plan}
 
-\wss{If there is any external data that can be used for validation, you should
-  point to it here.  If there are no plans for validation, you should state that
-  here.}
+The software validation plan outlines the strategies for validating that the software meets the intended requirements. This includes:
 
-\wss{You might want to use review sessions with the stakeholder to check that
-the requirements document captures the right requirements.  Maybe task based
-inspection?}
+\begin{itemize}
+    \item \textbf{User Review Sessions}: Review sessions with stakeholders and user representatives will be conducted to validate that the system meets user needs and expectations.
+    \item \textbf{Rev 0 Demonstration}: Shortly after the scheduled Rev 0 demo, we will seek feedback from stakeholders and supervisors, if applicable, to confirm that the design and initial implementation align with project goals.
+    \item \textbf{End to End Testing}: We will plan E2E sessions to ensure the software works correctly from start to end and meets all functional requirements.
+    \item \textbf{Performance Testing}: Once functional requirements have been implemented, non-functional requirements will be implemented then performance testing will be conducted to validate that the software meets non-functional requirements, such as response times and resource usage.
+\end{itemize}
 
-\wss{For those capstone teams with an external supervisor, the Rev 0 demo should 
-be used as an opportunity to validate the requirements.  You should plan on 
-demonstrating your project to your supervisor shortly after the scheduled Rev 0 demo.  
-The feedback from your supervisor will be very useful for improving your project.}
+The validation process will involve gathering external data, where possible, to test the system’s accuracy and performance under realistic scenarios.
 
-\wss{For teams without an external supervisor, user testing can serve the same purpose 
-as a Rev 0 demo for the supervisor.}
+\section*{Summary}
 
-\wss{This section might reference back to the SRS verification section.}
+This comprehensive plan for verification and validation addresses each phase of the project lifecycle, from requirements to implementation. By following a structured approach with well-defined roles, checklists, and automated tools, we aim to ensure a high level of quality, accuracy, and security in the final product.
 
 \section{System Tests}
 
-Below are tests for functional and non-functional requirements stated in the 
-relevant SRS \citep{SRS}. 
+% \wss{There should be text between all headings, even if it is just a roadmap of
+% the contents of the subsections.}
+
+This section outlines the system tests to be performed for both functional and non-functional requirements. 
+The tests are categorized based on the area of testing, such as look and feel requirements, usability, and versioning. 
+Each test includes a title, test ID, control, initial state, input, output, test case derivation, and how the test will be performed.
 
 \subsection{Tests for Functional Requirements}
 
@@ -613,67 +807,627 @@ script will inspect for missing parts of the visualziation.
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\wss{The nonfunctional requirements for accuracy will likely just reference the
-  appropriate functional tests from above.  The test cases should mention
-  reporting the relative error for these tests.  Not all projects will
-  necessarily have nonfunctional requirements related to accuracy.}
+% \wss{The nonfunctional requirements for accuracy will likely just reference the
+%   appropriate functional tests from above.  The test cases should mention
+%   reporting the relative error for these tests.  Not all projects will
+%   necessarily have nonfunctional requirements related to accuracy.}
 
-\wss{For some nonfunctional tests, you won't be setting a target threshold for
-passing the test, but rather describing the experiment you will do to measure
-the quality for different inputs.  For instance, you could measure speed versus
-the problem size.  The output of the test isn't pass/fail, but rather a summary
-table or graph.}
+% \wss{For some nonfunctional tests, you won't be setting a target threshold for
+% passing the test, but rather describing the experiment you will do to measure
+% the quality for different inputs.  For instance, you could measure speed versus
+% the problem size.  The output of the test isn't pass/fail, but rather a summary
+% table or graph.}
 
-\wss{Tests related to usability could include conducting a usability test and
-  survey.  The survey will be in the Appendix.}
+% \wss{Tests related to usability could include conducting a usability test and
+%   survey.  The survey will be in the Appendix.}
 
-\wss{Static tests, review, inspections, and walkthroughs, will not follow the
-format for the tests given below.}
+% \wss{Static tests, review, inspections, and walkthroughs, will not follow the
+% format for the tests given below.}
 
-\wss{If you introduce static tests in your plan, you need to provide details.
-How will they be done?  In cases like code (or document) walkthroughs, who will
-be involved? Be specific.}
+% \wss{If you introduce static tests in your plan, you need to provide details.
+% How will they be done?  In cases like code (or document) walkthroughs, who will
+% be involved? Be specific.}
 
-\subsubsection{Area of Testing1}
-		
-\paragraph{Title for Test}
+This section outlines the system tests to be performed for non-functional requirements, including accuracy, performance, and usability.
 
+\subsubsection{Look and Feel}
+These tests are to ensure that the way the front end is designed adheres to the
+defined requirements with respect to layout, typography, component alignment,
+etc. 
+
+\begin{description}
+  \item[Front End Component Review:] We will engage a developer to look through
+  the code and interface and ensure components are implemented as they are
+  defined in the SRS.
+  \item[Accessibility Check:] A developer will review if accessibility tools
+  exist or not within the application. Important tools are screen readers and
+  alt text for images. Furthermore, the developer must check for sufficient
+  colour contrast between components.
+\end{description}
+
+\paragraph{Validate Look and Feel User Interface Tests}
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{test-LF-1}
 
-Type: Functional, Dynamic, Manual, Static etc.
+NFR: LF-AR1, LF-AR2, LF-AR3, LF-SR1, LF-SR2, LF-SR3, LF-SR4
+
+Type: Manual, Front End Review
 					
-Initial State: 
+Initial State: Application on home page, ready for use
 					
-Input/Condition: 
+Input/Condition: Tester engagement
 					
-Output/Result: 
+Output/Result: List of all identified inconsistencies that are found that do not adhere to SRS defined requirements.
 					
 How test will be performed: 
-					
-\item{test-id2\\}
+\begin{enumerate}
+  \item A developer will review the code to make sure the look and feels requirements were implemented
+  \begin{enumerate}
+    \item They will check that the application has a a uniform colour palette
+    \item They will check that the application has tooltips on buttons with informative text
+    \item They will check that the application is responsive and scales well for different screen sizes and resolutions
+    \item They will check that the application uses the Roboto font family
+    \item They will check that the application has uniform spacing between elements
+    \item They will check that the application has buttons with rounded corners and change colour upon hover
+  \end{enumerate}
+  \item They will then check that the application to ensure that it adheres to all look and feel requirements
+\end{enumerate}
 
-Type: Functional, Dynamic, Manual, Static etc.
+\item{test-LF-2}
+
+NFR: CR-SC3
+
+Type: Manual, Accessibility Check
 					
-Initial State: 
+Initial State: Application on home page, ready for use
 					
-Input: 
+Input: Tester engagement
 					
-Output: 
+Output: List of missing accessibility considerations that have been overlooked
 					
 How test will be performed: 
+\begin{enumerate}
+  \item The developer will review the code and application to ensure that accessibility considerations have been implemented
+  \item They will verify that all images have alt text
+  \item They will verify that all text has sufficient contrast and sizing using Google Chrome devtools
+  \item The developer will note down any missing implementations of accessibility requirements
+\end{enumerate}
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsubsection{Usability and Humanity}
+These test cases are intended to build a foundation for the user's experience
+on the application. Thus, the only real way to get feedback the user experience
+is to have someone use the application and provide feedback.
 
-...
+\begin{description}
+  \item[User Test Demo:] We will engage a user to test the application, bringing
+  them through a new user process, and ask for feedback on specific areas
+  relevant to the requirements that were set. The feedback will be a result of a
+  survey, with questions structured as "On a scale of 1 to 10, how would you
+  rate X?" with X being some aspect of usability. 
+  
+\end{description}
+
+\paragraph{Validate Usability and Humanity tests}
+\begin{enumerate}
+
+  \item{test-UH-1}
+  
+  NFR: UH-E1, UH-E3, UH-L1, UH-UP1, UH-UP2, OE-P1
+  
+  Type: Manual, User Test Demo
+            
+  Initial State: Application on home page, ready for use
+            
+  Input/Condition: User engagement
+            
+  Output/Result: Subjective feedback for how well application scores on different requirements relating to user experience
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item A user will use the application, going through the onboarding process
+    and doing a demo of the application
+    \item After a full demo, the user will be asked to provide feedback on
+    different aspects of usability, such as ease of use, app clarity, and prompt
+    politeness.
+  \end{enumerate}
+            
+  \item{test-UH-2}
+  
+  NFR: UH-E2
+  
+  Type: Manual
+            
+  Initial State: Application on home page, ready for use
+            
+  Input: Tester engagement
+            
+  Output: A count for the number of clicks required to navigate to different functionality
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item The user will navigate to each of the following functions in the user interface from the home page:
+    \begin{enumerate}
+      \item The user will make a code submission to be analyzed
+      \item The user will upload a generated report file to be viewed
+    \end{enumerate}
+    \item The user will note how many clicks were required to accomplish each function
+  \end{enumerate}
+
+  \item{test-UH-3}
+  
+  NFR: UH-PI2
+
+  Type: Manual
+            
+  Initial State: Application on home page, ready for use
+            
+  Input: Tester engagement
+            
+  Output: All identified instances of foreign languages used
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item The tester will navigate to each page and submenu in the application
+    \item They will verify that all pages and prompts are in the correct language (English (US))
+  \end{enumerate}
+  
+  \end{enumerate}
+
+\subsubsection{Versioning}
+These testcases are for versioning, in order to roll back to old iterations
+of the code, or old iterations of the model. if needed. These will mainly be
+tested by checking if old versions are saved. Note that this check will be done
+after each iteration of the model
+
+\paragraph{Validate old versions of project}
+\begin{enumerate}
+  \item{test-V-1}
+
+  NFR: MS-M1, OR-R2
+  
+  Type: Document Review
+            
+  Initial State: N/A
+            
+  Input/Condition: Tester engagement
+            
+  Output/Result: Historical versions of machine learning models with a changelog should be stored and accessible on GitHub
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item A developer will navigate to the project GitHub repository and find the folder containing all past and current versions of models, each with an associated performance report, as well as a changelog including dates of revisions
+    \item This will be done with each iteration
+    politeness.
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Privacy/Security}
+These testcases ensure that the system is secure, and does not violate any
+privacy rights. The tests for these requirements will revolve around doing
+audits to ensure system integrity.
+
+\begin{description}
+  \item[Data Retention Audit:] We will manually check the file system and any
+  logs to look for any user-generated data, or personally identifiable data.
+  This audit may also be done in a test environment to check live logs of the
+  system.
+  \item[Endpoint Security Check:] A tester will invoke backend endpoints and
+  ensure that they are secure. They must also check that the website uses https
+  encryption (padlock symbol in address bar)
+  \item[Legal Audit:] We will manually check the system to ensure that it
+  adheres to legal policies defined in the SRS, such as PIPEDA and FIPPA. This
+  audit will be done regularly, and with each new version release, to the best
+  of our abilities.
+\end{description}
+
+
+\paragraph{Validate Zero Data Retention and data encryption}
+\begin{enumerate}
+  \item{test-PS-1}
+  
+  NFR: SR-P1
+
+  Type: Manual, Data Retention Audit
+
+  Initial State: Application ready for use
+
+  Input/Condition: Tester engagement
+
+  Output/Result: A list of all identified user-generated or personally identifiable data
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A tester will enable logging in the components of the application
+    \item They will do a run through of the different functionalities, including making a submission and analyzing a generated report file
+    \item With each function, the tester will check logs and filesystem, and then
+    search for any user-generated or personally identifiable data
+  \end{enumerate}
+
+
+  \item{NFR-PS2}
+  
+  NFR: SR-P2 
+
+  Type: Dynamic
+
+  Initial State: Application ready for use
+
+  Input/Condition: Backend endpoint invocation
+
+  Output/Result: A list of exposed endpoints that do not support in-transit encryption
+
+  How test will be performed:
+  \begin{enumerate}
+    \item Script will invoke backend end points using HTTPS protocol
+    \item They will ensure that the response provides relevant security headers
+  \end{enumerate}
+
+
+  \item{test-PS-3}
+  
+  NFR: CR-L1, CR-L2, CR-L3, CR-S2, CR-S5
+
+  Type: Manual, Legal Audit
+
+  Initial State: Application ready for use
+
+  Input/Condition: Tester engagement
+  
+  Output/Result: List of components of the system that breach any regulations, with an accompanying explanation of the how the breach could manifest itself
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A third party tester will inspect the code repository and system application against laws and regulations, noting any component of the system that may potentially infringe upon any data or privacy laws, intellectual property, or academic integrity
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Development Standards}
+These requirements ensure that the system is built in a way that adheres to
+standard software development principles. This ensures that the code is
+maintainble, scalable, and reliable.
+
+\begin{description}
+  \item[Code Inspection:] The code will be inspected to make sure the system is
+  built adhering to software development standards.
+  \item[Respository Inspection:] The Github repository for this project will be
+  checked to make sure bugs are listed as issues to keep track of what needs to
+  be done in the system 
+\end{description}
+
+\paragraph{Validate Development Standards}
+\begin{enumerate}
+  \item{test-DS-1}
+  
+  NFR: MS-M3
+
+  Type: Manual, Repository Inspection
+
+  Initial State: Development temporarily paused
+
+  Output/Result: Indication of bugs being tracked on Github
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A tester will look at the 'issues' section of the github repository 
+    \item They will check that there are bugs that exist as issues
+    \item If there aren't, they will consult the team and ask if developers are
+    issuing bugs or if there are simply no bugs
+  \end{enumerate}
+
+
+  \item{test-DS-2}
+  
+  NFR: MS-S1, CR-SC1
+
+  Type: Manual, Code Inspection
+
+  Initial State: Development temporarily paused
+
+  Output/Result: Indication of components not adhering to software development standards
+
+  How test will be performed:
+  \begin{enumerate}
+    \item Team members will regularly inspect the code and ensure all components follow software development standards, including SOLID principles and the existence of documentation and tests
+    \item If there are components that don't they will consult the other team members to discuss issues with that component.
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Documentation}
+This section is to ensure that documentation exists to guide users and help them troubleshoot issues they are having.
+
+\begin{description}
+  \item[Documentation Review:] A tester will look through the webpage, and
+  ensure that documentation exists. Then, they must check to make sure the
+  documentation is accurate, and not misleading. 
+\end{description}
+
+\paragraph{Validate Program, help, and training documentation exists and is accurate}
+\begin{enumerate}
+  \item{test-D-1}
+  
+  NFR: UH-L2, OE-P2
+
+  Type: Manual, Documentation Review
+
+  Initial State: Application ready for use
+
+  Output/Result: Certification that documentation is valid
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A developer will navigate to the user documentation and help pages within the application. They must first ensure that documentation exists, and is easy to find
+    \item They must then verify that the documentation is correct, complete, uses clear non-technical language, and is helpful for users
+  \end{enumerate}
+\end{enumerate}
+
+
+\subsubsection{Performance}
+These testcases ensure that the system is able to handle a certain amount of load, and that it is able to process data in a timely manner.
+
+\paragraph{Batch processing time is less than 10 minutes}
+
+\begin{enumerate}
+  \item{test-PR-1}
+  
+  NFR: PR-C1
+
+  Type: Dynamic
+
+  Initial State: The system is idle and ready to process a batch of code submissions
+
+  Input:Submit a batch of inputs (code submissions) to the system for processing.
+
+  Output: The system completes processing the batch within 600 seconds (10 minutes).
+
+  How test will be performed:
+
+  \begin{enumerate}
+    \item Submit a batch of code submissions to the system.
+    \item Measure the time taken for the system to process the batch.
+    \item Verify that the processing time is less than 600 seconds.
+  \end{enumerate}
+\end{enumerate}
+
+\paragraph{Notification is sent when Processing Time Exceeds Ten Minutes}
+\begin{enumerate}
+  \item{test-PR-2}
+
+  NFR: PR-SL2
+
+  Type: Performance, Manual
+            
+  Initial State: System is idle; no processes are currently running.
+            
+  Input/Condition: Start a task that is expected to run for more than ten minutes.
+            
+  Output/Result: An email is sent to the user once processing exceeds ten minutes.
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item Start a process that is known to take more than ten minutes to complete. For example, a large number of files.
+    \item Wait for 10 minutes while the process is running.
+    \item Check the user's email inbox for the notification and verify it was received exactly 10 minutes after the process started.
+    \item Check that the notification for correctness and that it is clear and understandable for the user.
+  \end{enumerate}
+
+  \item{test-PR-3}
+
+  NFR: PR-SL2
+
+  Type: Performance, Dynamic
+            
+  Initial State: System is idle; no processes are currently running.
+            
+  Input: Initiate a new task that is simulated to take over ten minutes.
+            
+  Output: Automated system log entry indicating that a user notification was triggered after ten minutes.
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item {Setup a mock process to run for over 10 minutes.}
+    \item {Verify after 10 minutes were up wether a function call was made to send the notification.}
+    \item {Automatically check system logs or notifications queue to verify a notification was generated after ten minutes.}
+  \end{enumerate}
+\end{enumerate}
+
+\paragraph{System remains operational after malformed input}
+\begin{enumerate}
+  \item{test-PR-4}
+
+  NFR: PR-RFT1
+
+  Type: Robustness, Dynamic
+            
+  Initial State: System is operational, awaiting user input.
+            
+  Input:  Malformed input (e.g., corrupted file) is submitted to the system.
+            
+  Output: System displays an error message to the user indicating invalid input, without crashing or becoming unresponsive.
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item navigate to the home page
+    \item Submit a file that is known to be corrupted or invalid.
+    \item Verify that an error message is displayed to the user by checking if the function call was made.
+    \item Submit a file that is known to be valid.
+    \item Verify that the system accepts the valid input and processes it correctly.
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Operational and Environmental}
+These testcases ensure that the system is able to operate in different environments and under different conditions.
+
+\paragraph{System is able to interface with cloud computing services}
+\begin{enumerate}
+  \item{test-OE-1}
+
+  NFR: OE-IAS1
+
+  Type: Manual
+            
+  Initial State: System setup with no cloud service connected.
+            
+  Input:  User attempts to configure and connect the system to a cloud service (e.g. AWS or Azure).
+            
+  Output: System successfully connects to the selected cloud service and displays a confirmation message.
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item navigate to the cloud configuration settings.
+    \item Select a cloud provider (AWS or Azure) and enter necessary credentials.
+    \item Verify that the system displays a confirmation message upon successful connection.
+  \end{enumerate}
+\end{enumerate}
+
+\paragraph{System is deployable on Free Hosting Service}
+\begin{enumerate}
+  \item{test-OE-2}
+
+  NFR: OE-IAS2
+
+  Type: Manual
+            
+  Initial State: User clones the system repository from GitHub.
+            
+  Input:  Deploy the system on a free hosting service (e.g. Heroku, Netlify).
+            
+  Output: System is accessible via a public URL and functions as expected.
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item Clone the system repository from GitHub.
+    \item Deploy the system on a free hosting service.
+    \item Verify that the system is accessible via a public URL and functions as expected without any issues.
+  \end{enumerate}
+\end{enumerate}
+
+\paragraph{System is able to authenticate the user via external services}
+\begin{enumerate}
+  \item{test-OE-3}
+
+  NFR: OE-IAS3
+
+  Type: Manual
+            
+  Initial State: User is not authenticated and does not have a valid auth token.
+            
+  Input: User attempts to log in using an external service (e.g. Google, GitHub).
+            
+  Output: System authenticates the user and grants access to the UI.
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item Navigate to the login page.
+    \item Select an external service (e.g. Google, GitHub) to log in with.
+    \item Verify that the system authenticates the user and is redirected to the home page.
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Maintainability and Support}
+These testcases ensure that the system is maintainable and supportable. This includes ensuring that the system is easy to maintain and that support is available to users.
+
+\paragraph{Model release is accompanied by a report of metrics}
+
+\begin{enumerate}
+
+  \item{test-M-1}
+
+  NFR: MS-M2
+
+  Type: Inspection
+
+  Initial State: The model has been trained and is ready for release
+
+  Input: Release the model
+
+  Output: A report is generated with metrics such as accuracy, precision, etc.
+
+  How test will be performed:
+  Release the model and verify that a report is generated with relevant metrics. A verifiable metric is that the report exists.
+  This test will be done manually by the team members of SyntaxSentinels.
+
+\end{enumerate}
+
+\paragraph{A pathway for users to post or vote for requests/issues}
+
+\begin{enumerate}
+  \item{test-M-2}
+
+  NFR: MS-S3
+
+  Type: Inspection
+
+  Initial State: The user has a GitHub account and is logged in
+
+  Input: User posts a request or issue
+
+  Output: The request or issue is posted and visible to other users
+
+  How test will be performed:
+  The user will post a request or issue and verify that it is visible to other users. A verifiable metric is that the request or issue is visible to other users.
+  This test will be done manually by the team members of SyntaxSentinels.
+\end{enumerate}
+\subsubsection{Security}
+These testcases ensure that the system is secure and that user data is protected.
+
+\paragraph{User can access UI with valid login credentials}
+\begin{enumerate}
+  \item{test-S-1}
+
+  NFR: SR-A1
+  Type: Dynamic
+            
+  Initial State: The user is not authenticated and does not have a valid auth token.
+            
+  Input/Condition: User enters valid login credentials (username and password).
+            
+  Output/Result: The user is authenticated and gains access to the UI.
+            
+  How test will be performed: 
+  This test will be done via UI automated test suite using Playwright. The test will simulate a user entering valid login 
+  credentials and verify that the user is authenticated and gains access to the UI.
+\end{enumerate}
+\paragraph{User can access API with valid auth token}
+\begin{enumerate}
+  \item{test-S-2}
+
+  NFR: SR-A1
+
+  Type: Dynamic
+            
+  Initial State: The user is not authenticated and does not have a valid auth token
+            
+  Input: User attempts to access the API with a valid auth token
+            
+  Output: The API allows the user to upload code for comparison
+            
+  How test will be performed: 
+  Pass a valid auth token to the API and verify that the system allows code upload and returns a success response.
+
+  \item{test-S-3}
+
+  NFR: SR-A1
+
+  Type: Dynamic
+
+  Initial State: The user is not authenticated and does not have a valid auth token
+
+  Input: User attempts to access the API with an invalid or missing auth token
+
+  Output: The API denies access and returns an unauthorized response
+
+  How test will be performed:
+  Pass an invalid or missing auth token to the API and verify that the system denies access and returns an unauthorized response.
+
+\end{enumerate}
 
 \subsection{Traceability Between Test Cases and Requirements}
 
-\wss{Provide a table that shows which test cases are supporting which
-  requirements.}
+% \wss{Provide a table that shows which test cases are supporting which
+%   requirements.}
 
 \section{Unit Test Description}
 This section will not be filled in until after the MIS document has been completed.
@@ -812,12 +1566,13 @@ This section will not be filled in until after the MIS document has been complet
 
 \subsection{Symbolic Parameters}
 
-The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
+Currently, there are no symbolic parameters in the document. It is possible that some will be added in the future, however, 
+at this point in time, it is too early to determine what they will be.
 
 \subsection{Usability Survey Questions?}
 
-\wss{This is a section that would be appropriate for some projects.}
+Currently, there are no usability survey questions in the document. It is possible that some will be added in the future, however,
+at this point in time, it is too early to determine what they will be.
 
 \newpage{}
 \section*{Appendix --- Reflection}
@@ -855,20 +1610,113 @@ graduate attribute of Lifelong Learning.
   static testing knowledge, specific tool usage, Valgrind etc.  You should look to
   identify at least one item for each team member.
   \begin{itemize}
-    \item \textbf{Dynamic testing knowledge}: 
-    \item \textbf{Static testing knowledge}:
-    \item \textbf{Automated testing tools}: 
+    \item \textbf{Dynamic Testing Knowledge}
+    \begin{itemize}
+        \item \textbf{Online Courses and Tutorials}: We can learn dynamic testing techniques through structured courses on platforms like Udemy, Coursera, or LinkedIn Learning, which cover both functional and non-functional testing strategies.
+        \item \textbf{Hands-on Practice with Sample Projects}: Practicing dynamic testing on sample projects or real scenarios allows us to directly apply the techniques, reinforcing our understanding through application.
+    \end{itemize}
+
+    \item \textbf{Static Testing Knowledge}
+    \begin{itemize}
+        \item \textbf{Tool-Specific Documentation and Tutorials}: Reading the documentation and tutorials for static testing tools (e.g. ESLint) helps us understand how to perform effective static code analysis.
+        \item \textbf{Webinars and Workshops}: Many companies offer webinars or workshops on static analysis, often with interactive demos that can help us learn the nuances of static testing.
+    \end{itemize}
+
+    \item \textbf{Automated Testing Tools}
+    \begin{itemize}
+        \item \textbf{Training and Certification Programs}: Courses that cover automation tools (like Pytest) and their integration with CI/CD pipelines provide a solid foundation for us in automated testing.
+        \item \textbf{Building a Project with CI/CD Integration}: By implementing automated testing on a project using CI/CD tools like Jenkins or GitHub Actions, we can apply automation skills in real scenarios, enhancing both our tool knowledge and integration capabilities.
+    \end{itemize}
+
+    \item \textbf{Security Testing Knowledge}
+    \begin{itemize}
+        \item \textbf{Cybersecurity and Penetration Testing Courses}: Taking courses on platforms like Cybrary or Coursera offers insights into security testing practices, covering areas like penetration testing, vulnerability assessment, and secure code practices.
+        \item \textbf{Practice with Security Testing Tools}: We can use tools like OWASP ZAP or Burp Suite for hands-on security testing, which helps us identify vulnerabilities and ensure code security.
+    \end{itemize}
+
+    \item \textbf{Performance Testing Knowledge}
+    \begin{itemize}
+        \item \textbf{Tool-Specific Training (e.g., JMeter, Locust)}: Learning a performance testing tool through its official documentation, tutorials, or community guides helps us understand load testing, scalability testing, and performance profiling.
+        \item \textbf{Performance Testing Workshops or Certifications}: Many organizations provide certifications or workshops focused on performance testing methodologies and tool usage, which provide both theoretical knowledge and practical applications for us.
+    \end{itemize}
+
+    \item \textbf{Test Case Management}
+    \begin{itemize}
+        \item \textbf{Exploring Test Management Tools}: Familiarizing ourselves with tools like TestRail, Zephyr, or Jira for creating, organizing, and tracking test cases helps us manage our testing process efficiently.
+        \item \textbf{Learning Best Practices in Test Documentation}: By reading resources or taking tutorials on effective test case design and management, we can develop a structured, comprehensive approach to test case documentation.
+    \end{itemize}
+
   \end{itemize}
+
+  \begin{itemize}
+    \item \textbf{Lucas Chen:} Security Testing Knowledge, Performance Testing Knowledge
+    \item \textbf{Dennis Fong:} Automated Testing Tools, Security Testing Knowledge
+    \item \textbf{Julian Cecchini:} 
+    \item \textbf{Mohammad Mohsin Khan:} Dynamic Testing Knowledge, Performance Testing Knowledge
+  \end{itemize}
+
 
   \item For each of the knowledge areas and skills identified in the previous
   question, what are at least two approaches to acquiring the knowledge or
   mastering the skill?  Of the identified approaches, which will each team
   member pursue, and why did they make this choice?
+  
   \begin{itemize}
     \item \textbf{Lucas Chen:} 
+    \begin{itemize}
+        \item \textbf{Security Testing Knowledge}  
+        \begin{itemize}
+            \item \textbf{Chosen Approach}: YouTube Tutorials and online courses
+            \item \textbf{Reason for Choice}: YouTube tutorials and online courses provide a flexible and 
+            accessible way to learn security testing concepts and tools. By watching tutorials and taking courses, 
+            I can gain a solid understanding of security testing practices and apply them effectively in our project.
+        \end{itemize}
+    
+        \item \textbf{Performance Testing Knowledge}  
+        \begin{itemize}
+            \item \textbf{Chosen Approach}: Tool-Specific Training (e.g., JMeter, PostMan)
+            \item \textbf{Reason for Choice}: Tool-specific training allows me to focus on the performance testing 
+            tools that are most relevant to our project. By learning tools like JMeter or PostMan, I can gain practical 
+            skills that directly apply to our performance testing requirements.
+        \end{itemize}
+    \end{itemize}
     \item \textbf{Dennis Fong:}
+    \begin{itemize}
+      \item \textbf{Automated Testing Tools}
+      \begin{itemize}
+        \item \textbf{Chosen Approach}: Online courses and textbooks
+        \item \textbf{Reason for Choice}: This approach was chosen because of
+        the flexibility and convenience where I can learn at my own pace.
+        Furthermore, online resources are usually more up to date than textbooks
+        that may be old
+      \end{itemize}
+
+      \item \textbf{Security Testing Knowledge}  
+        \begin{itemize}
+            \item \textbf{Chosen Approach}: Youtube videos (theory) and online
+            courses
+            \item \textbf{Reason for Choice}: For security testing, the theory
+            behind the foundations of security are very important. Furthermore,
+            online courses also provide the knowledge, and application of these
+            concepts to learn more about security testing
+        \end{itemize}
+    \end{itemize}
     \item \textbf{Julian Cecchini:} 
     \item \textbf{Mohammad Mohsin Khan:}
+    \item \begin{itemize}
+      \item \textbf{Dynamic Testing Knowledge}  
+      \begin{itemize}
+          \item \textbf{Chosen Approach}: Hands-on practice with sample projects
+          \item \textbf{Reason for Choice}: Practicing dynamic testing directly on projects will allow me to apply testing techniques in real-world scenarios, strengthening my ability to identify issues as they arise. This hands-on approach will provide practical insights that go beyond theoretical learning and help me become proficient in testing under realistic conditions.
+      \end{itemize}
+  
+      \item \textbf{Performance Testing Knowledge}  
+      \begin{itemize}
+          \item \textbf{Chosen Approach}: Tool-specific training
+          \item \textbf{Reason for Choice}: Tool-specific training allows me to gain direct experience with the performance testing tools that I will use in the project. This approach is ideal because it provides both a solid understanding of tool features and the technical skills needed to set up and execute performance tests effectively.
+      \end{itemize}
+  
+  \end{itemize}
     \item \textbf{Luigi Quattrociocchi:}
 \end{itemize}
 \end{enumerate}
