@@ -608,6 +608,7 @@ How test will be performed:
 \begin{enumerate}
   \item The developer will review the code and application to ensure that accessibility considerations have been implemented
   \item They will verify that all images have alt text
+  \item They will verify that all text has sufficient contrast and sizing using Google Chrome devtools
   \item The developer will note down any missing implementations of accessibility requirements
 \end{enumerate}
 
@@ -745,14 +746,14 @@ audits to ensure system integrity.
 
   Input/Condition: Tester engagement
 
-  Output/Result: List of all identified components that have data stored 
+  Output/Result: A list of all identified user-generated or personally identifiable data
 
   How test will be performed:
   \begin{enumerate}
     \item A tester will enable logging in the components of the application
-    \item They will do a run through of the different functionalities
-    \item With each function, the tester will check logs and file systems and
-    search for any type of data being stored
+    \item They will do a run through of the different functionalities, including making a submission and analyzing a generated report file
+    \item With each function, the tester will check logs and filesystem, and then
+    search for any user-generated or personally identifiable data
   \end{enumerate}
 
 
@@ -766,7 +767,7 @@ audits to ensure system integrity.
 
   Input/Condition: Backend endpoint invocation
 
-  Output/Result: Identified components that do not adhere to security requirements
+  Output/Result: A list of exposed endpoints that do not support in-transit encryption
 
   How test will be performed:
   \begin{enumerate}
@@ -785,12 +786,11 @@ audits to ensure system integrity.
 
   Input/Condition: Tester engagement
   
-  Output/Result: List of vulnerabilites and breach of regulations
+  Output/Result: List of components of the system that breach any regulations, with an accompanying explanation of the how the breach could manifest itself
 
   How test will be performed:
   \begin{enumerate}
-    \item A tester will inspect the code repository and system application against laws and regulations
-    \item All discrepancies between the law and the system will be identified, and updated promptly.
+    \item A third party tester will inspect the code repository and system application against laws and regulations, noting any component of the system that may potentially infringe upon any data or privacy laws, intellectual property, or academic integrity
   \end{enumerate}
 \end{enumerate}
 
@@ -830,7 +830,7 @@ maintainble, scalable, and reliable.
 
   \item{test-DS-2}
   
-  NFR: CR-SC1
+  NFR: MS-S1, CR-SC1
 
   Type: Manual, Code Inspection
 
@@ -840,7 +840,7 @@ maintainble, scalable, and reliable.
 
   How test will be performed:
   \begin{enumerate}
-    \item Team members will regularly inspect the code and ensure all components follow software development standards
+    \item Team members will regularly inspect the code and ensure all components follow software development standards, including SOLID principles and the existence of documentation and tests
     \item If there are components that don't they will consult the other team members to discuss issues with that component.
   \end{enumerate}
 \end{enumerate}
@@ -858,7 +858,7 @@ This section is to ensure that documentation exists to guide users and help them
 \begin{enumerate}
   \item{test-D-1}
   
-  NFR: MS-S1, UH-L2, OE-P2
+  NFR: UH-L2, OE-P2
 
   Type: Manual, Documentation Review
 
@@ -868,9 +868,8 @@ This section is to ensure that documentation exists to guide users and help them
 
   How test will be performed:
   \begin{enumerate}
-    \item A developer will review the documentation on the application. They must first ensure that documentation exists, and is easy to find
-    \item They must then verify that the documentation is correct, and complete
-    \item Anything missing or incorrect about the documentation will be brought up to the team immediately.
+    \item A developer will navigate to the user documentation and help pages within the application. They must first ensure that documentation exists, and is easy to find
+    \item They must then verify that the documentation is correct, complete, uses clear non-technical language, and is helpful for users
   \end{enumerate}
 \end{enumerate}
 
