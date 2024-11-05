@@ -40,11 +40,11 @@ number of team meetings held by the team.}
 \textbf{Student} & \textbf{Meetings}\\
 \midrule
 Total & Num\\
-Name 1 & Num\\
-Name 2 & Num\\
-Name 3 & Num\\
-Name 4 & Num\\
-Name 5 & Num\\
+Mohammad Mohsin Khan & Num\\
+Lucas Chen & Num\\
+Dennis Fong & Num\\
+Julian Cecchini & Num\\
+Luigi Quattrociocchi & Num\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -67,11 +67,11 @@ stakeholders (potential users) that can serve a similar purpose.}
 \textbf{Student} & \textbf{Meetings}\\
 \midrule
 Total & Num\\
-Name 1 & Num\\
-Name 2 & Num\\
-Name 3 & Num\\
-Name 4 & Num\\
-Name 5 & Num\\
+Mohammad Mohsin Khan & Num\\
+Lucas Chen & Num\\
+Dennis Fong & Num\\
+Julian Cecchini & Num\\
+Luigi Quattrociocchi & Num\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -92,11 +92,11 @@ lectures since the beginning of the term.}
 \textbf{Student} & \textbf{Lectures}\\
 \midrule
 Total & Num\\
-Name 1 & Num\\
-Name 2 & Num\\
-Name 3 & Num\\
-Name 4 & Num\\
-Name 5 & Num\\
+Mohammad Mohsin Khan & Num\\
+Lucas Chen & Num\\
+Dennis Fong & Num\\
+Julian Cecchini & Num\\
+Luigi Quattrociocchi & Num\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -115,11 +115,11 @@ with the TA were attended over the time period of interest.}
 \textbf{Student} & \textbf{Lectures}\\
 \midrule
 Total & Num\\
-Name 1 & Num\\
-Name 2 & Num\\
-Name 3 & Num\\
-Name 4 & Num\\
-Name 5 & Num\\
+Mohammad Mohsin Khan & Num\\
+Lucas Chen & Num\\
+Dennis Fong & Num\\
+Julian Cecchini & Num\\
+Luigi Quattrociocchi & Num\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -140,11 +140,11 @@ percentage of the total commits made by each team member.}
 \textbf{Student} & \textbf{Commits} & \textbf{Percent}\\
 \midrule
 Total & Num & 100\% \\
-Name 1 & Num & \% \\
-Name 2 & Num & \% \\
-Name 3 & Num & \% \\
-Name 4 & Num & \% \\
-Name 5 & Num & \% \\
+Mohammad Mohsin Khan & Num & \% \\
+Lucas Chen & Num & \% \\
+Dennis Fong & Num & \% \\
+Julian Cecchini & Num & \% \\
+Luigi Quattrociocchi & Num & \% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -166,11 +166,11 @@ issues (C only)) over the time period of interest.}
 \toprule
 \textbf{Student} & \textbf{Authored (O+C)} & \textbf{Assigned (C only)}\\
 \midrule
-Name 1 & Num & Num \\
-Name 2 & Num & Num \\
-Name 3 & Num & Num \\
-Name 4 & Num & Num \\
-Name 5 & Num & Num \\
+Mohammad Mohsin Khan & Num & Num\\
+Lucas Chen & Num & Num\\
+Dennis Fong & Num & Num\\
+Julian Cecchini & Num & Num\\
+Luigi Quattrociocchi & Num & Num\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -179,9 +179,22 @@ Name 5 & Num & Num \\
 
 \section{CICD}
 
-\wss{Say how CICD will be used in your project}
+The project will use continuous integration and continuous deployment (CICD) to run tests and deploy the software.
+The steps in the CICD pipeline are as follows:
+\begin{enumerate}
+  \item Developer creates PR and CICD pipeline will trigger phase 0.
+  \item Phase 0 will run build and check if the build is successful.
+  \item If the build is successful, reviewer will review the PR.
+  \item If the reviewer approves the PR, the CICD pipeline will trigger phase 1.
+  \item Phase 1 will run tests and check if the tests are successful.
+  \item If the tests are successful, the CICD pipeline will trigger phase 2.
+  \item Phase 2 will merge and deploy the software.
+\end{enumerate}
 
-\wss{If your team has additional metrics of productivity, please feel free to
-add them to this report.}
+
+% \wss{Say how CICD will be used in your project}
+
+% \wss{If your team has additional metrics of productivity, please feel free to
+% add them to this report.}
 
 \end{document}
