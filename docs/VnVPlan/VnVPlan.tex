@@ -549,15 +549,345 @@ How will they be done?  In cases like code (or document) walkthroughs, who will
 be involved? Be specific.}
 
 \subsubsection{Look and Feel Requirements}
+These tests are to ensure that the way the front end is designed adheres to the
+defined requirements with respect to layout, typography, component alignment,
+etc. 
+
+\begin{description}
+  \item[Front End Component Review:] We will engage a developer to look through
+  the code and interface and ensure components are implemented as they are
+  defined in the SRS.
+  \item[Accessibility Check:] A developer will review if accessibility tools
+  exist or not within the application. Important tools are screen readers and
+  alt text for images. Furthermore, the developer must check for sufficient
+  colour contrast between components.
+\end{description}
+
+\paragraph{Validate Look and Feel User Interface Tests}
+\begin{enumerate}
+
+\item{test-LF-1}
+
+NFR: LF-AR1, LF-AR2, LF-AR3, LF-SR1, LF-SR2, LF-SR3, LF-SR4
+
+Type: Manual, Front End Review
+					
+Initial State: Application on home page, ready for use
+					
+Input/Condition: Tester engagement
+					
+Output/Result: List of all identified inconsistencies that are found that do not adhere to SRS defined requirements.
+					
+How test will be performed: 
+\begin{enumerate}
+  \item A developer will review the code to make sure the look and feels requirements were implemented
+  \begin{enumerate}
+    \item They will check that the application has a a uniform colour palette
+    \item They will check that the application has tooltips on buttons with informative text
+    \item They will check that the application is responsive and scales well for different screen sizes and resolutions
+    \item They will check that the application uses the Roboto font family
+    \item They will check that the application has uniform spacing between elements
+    \item They will check that the application has buttons with rounded corners and change colour upon hover
+  \end{enumerate}
+  \item They will then check that the application to ensure that it adheres to all look and feel requirements
+\end{enumerate}
+
+\item{test-LF-2}
+
+NFR: CR-SC3
+
+Type: Manual, Accessibility Check
+					
+Initial State: Application on home page, ready for use
+					
+Input: Tester engagement
+					
+Output: List of missing accessibility considerations that have been overlooked
+					
+How test will be performed: 
+\begin{enumerate}
+  \item The developer will review the code and application to ensure that accessibility considerations have been implemented
+  \item They will verify that all images have alt text
+  \item They will verify that all text has sufficient contrast and sizing using Google Chrome devtools
+  \item The developer will note down any missing implementations of accessibility requirements
+\end{enumerate}
+
+\end{enumerate}
 
 \subsubsection{Usability and Humanity Requirements}
+These requirements are intended to build a foundation for the user's experience
+on the application. Thus, the only real way to get feedback the user experience
+is to have someone use the application and provide feedback.
+
+\begin{description}
+  \item[User Test Demo:] We will engage a user to test the application, bringing
+  them through a new user process, and ask for feedback on specific areas
+  relevant to the requirements that were set. The feedback will be a result of a
+  survey, with questions structured as "On a scale of 1 to 10, how would you
+  rate X?" with X being some aspect of usability. 
+  
+\end{description}
+
+\paragraph{Validate Usability and Humanity tests}
+\begin{enumerate}
+
+  \item{test-UH-1}
+  
+  NFR: UH-E1, UH-E3, UH-L1, UH-UP1, UH-UP2, OE-P1
+  
+  Type: Manual, User Test Demo
+            
+  Initial State: Application on home page, ready for use
+            
+  Input/Condition: User engagement
+            
+  Output/Result: Subjective feedback for how well application scores on different requirements relating to user experience
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item A user will use the application, going through the onboarding process
+    and doing a demo of the application
+    \item After a full demo, the user will be asked to provide feedback on
+    different aspects of usability, such as ease of use, app clarity, and prompt
+    politeness.
+  \end{enumerate}
+            
+  \item{test-UH-2}
+  
+  NFR: UH-E2
+  
+  Type: Manual
+            
+  Initial State: Application on home page, ready for use
+            
+  Input: Tester engagement
+            
+  Output: A count for the number of clicks required to navigate to different functionality
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item The user will navigate to each of the following functions in the user interface from the home page:
+    \begin{enumerate}
+      \item The user will make a code submission to be analyzed
+      \item The user will upload a generated report file to be viewed
+    \end{enumerate}
+    \item The user will note how many clicks were required to accomplish each function
+  \end{enumerate}
+
+  \item{test-UH-3}
+  
+  NFR: UH-PI2
+
+  Type: Manual
+            
+  Initial State: Application on home page, ready for use
+            
+  Input: Tester engagement
+            
+  Output: All identified instances of foreign languages used
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item The tester will navigate to each page and submenu in the application
+    \item They will verify that all pages and prompts are in the correct language (English (US))
+  \end{enumerate}
+  
+  \end{enumerate}
+
+\subsubsection{Versioning}
+These requirements are for versioning, in order to roll back to old iterations
+of the code, or old iterations of the model. if needed. These will mainly be
+tested by checking if old versions are saved. Note that this check will be done
+after each iteration of the model
+
+\paragraph{Validate old versions of project}
+\begin{enumerate}
+  \item{test-V-1}
+
+  NFR: MS-M1, OR-R2
+  
+  Type: Manual
+            
+  Initial State: N/A
+            
+  Input/Condition: Tester engagement
+            
+  Output/Result: Historical versions of machine learning models with a changelog should be stored and accessible on GitHub
+            
+  How test will be performed: 
+  \begin{enumerate}
+    \item A developer will navigate to the project GitHub repository and find the folder containing all past and current versions of models, each with an associated performance report, as well as a changelog including dates of revisions
+    \item This will be done with each iteration
+    politeness.
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Privacy/Security}
+These requirements ensure that the system is secure, and does not violate any
+privacy rights. The tests for these requirements will revolve around doing
+audits to ensure system integrity.
+
+\begin{description}
+  \item[Data Retention Audit:] We will manually check the file system and any
+  logs to look for any user-generated data, or personally identifiable data.
+  This audit may also be done in a test environment to check live logs of the
+  system.
+  \item[Endpoint Security Check:] A tester will invoke backend endpoints and
+  ensure that they are secure. They must also check that the website uses https
+  encryption (padlock symbol in address bar)
+  \item[Legal Audit:] We will manually check the system to ensure that it
+  adheres to legal policies defined in the SRS, such as PIPEDA and FIPPA. This
+  audit will be done regularly, and with each new version release, to the best
+  of our abilities.
+\end{description}
+
+
+\paragraph{Validate Zero Data Retention and data encryption}
+\begin{enumerate}
+  \item{test-PS-1}
+  
+  NFR: SR-P1
+
+  Type: Manual, Data Retention Audit
+
+  Initial State: Application ready for use
+
+  Input/Condition: Tester engagement
+
+  Output/Result: A list of all identified user-generated or personally identifiable data
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A tester will enable logging in the components of the application
+    \item They will do a run through of the different functionalities, including making a submission and analyzing a generated report file
+    \item With each function, the tester will check logs and filesystem, and then
+    search for any user-generated or personally identifiable data
+  \end{enumerate}
+
+
+  \item{NFR-PS2}
+  
+  NFR: SR-P2 
+
+  Type: Manual 
+
+  Initial State: Application ready for use
+
+  Input/Condition: Backend endpoint invocation
+
+  Output/Result: A list of exposed endpoints that do not support in-transit encryption
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A tester will invoke backend end points using HTTPS protocol
+    \item They will ensure that the response provides relevant security headers
+  \end{enumerate}
+
+
+  \item{test-PS-3}
+  
+  NFR: CR-L1, CR-L2, CR-L3, CR-S2, CR-S5
+
+  Type: Manual, Legal Audit
+
+  Initial State: Application ready for use
+
+  Input/Condition: Tester engagement
+  
+  Output/Result: List of components of the system that breach any regulations, with an accompanying explanation of the how the breach could manifest itself
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A third party tester will inspect the code repository and system application against laws and regulations, noting any component of the system that may potentially infringe upon any data or privacy laws, intellectual property, or academic integrity
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Development Standards}
+These requirements ensure that the system is built in a way that adheres to
+standard software development principles. This ensures that the code is
+maintainble, scalable, and reliable.
+
+\begin{description}
+  \item[Code Inspection:] The code will be inspected to make sure the system is
+  built adhering to software development standards.
+  \item[Respository Inspection:] The Github repository for this project will be
+  checked to make sure bugs are listed as issues to keep track of what needs to
+  be done in the system 
+\end{description}
+
+\paragraph{Validate Development Standards}
+\begin{enumerate}
+  \item{test-DS-1}
+  
+  NFR: MS-M3
+
+  Type: Manual, Repository Inspection
+
+  Initial State: Development temporarily paused
+
+  Output/Result: Indication of bugs being tracked on Github
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A tester will look at the 'issues' section of the github repository 
+    \item They will check that there are bugs that exist as issues
+    \item If there aren't, they will consult the team and ask if developers are
+    issuing bugs or if there are simply no bugs
+  \end{enumerate}
+
+
+  \item{test-DS-2}
+  
+  NFR: MS-S1, CR-SC1
+
+  Type: Manual, Code Inspection
+
+  Initial State: Development temporarily paused
+
+  Output/Result: Indication of components not adhering to software development standards
+
+  How test will be performed:
+  \begin{enumerate}
+    \item Team members will regularly inspect the code and ensure all components follow software development standards, including SOLID principles and the existence of documentation and tests
+    \item If there are components that don't they will consult the other team members to discuss issues with that component.
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Documentation}
+This section is to ensure that documentation exists to guide users and help them troubleshoot issues they are having.
+
+\begin{description}
+  \item[Documentation Review:] A tester will look through the webpage, and
+  ensure that documentation exists. Then, they must check to make sure the
+  documentation is accurate, and not misleading. 
+\end{description}
+
+\paragraph{Validate Program, help, and training documentation exists and is accurate}
+\begin{enumerate}
+  \item{test-D-1}
+  
+  NFR: UH-L2, OE-P2
+
+  Type: Manual, Documentation Review
+
+  Initial State: Application ready for use
+
+  Output/Result: Certification that documentation is valid
+
+  How test will be performed:
+  \begin{enumerate}
+    \item A developer will navigate to the user documentation and help pages within the application. They must first ensure that documentation exists, and is easy to find
+    \item They must then verify that the documentation is correct, complete, uses clear non-technical language, and is helpful for users
+  \end{enumerate}
+\end{enumerate}
+
 
 \subsubsection{Performance Requirements}
 
 \paragraph{Batch processing time is less than 10 minutes}
 
 \begin{enumerate}
-  \item{Capacity-Test-1}
+  \item{test-PR-1}
   
   NFR: PR-C1
 
@@ -580,7 +910,7 @@ be involved? Be specific.}
 
 \paragraph{Notification is sent when Processing Time Exceeds Ten Minutes}
 \begin{enumerate}
-  \item{Speed-Latency-Test-1}
+  \item{test-PR-2}
 
   NFR: PR-SL2
 
@@ -600,7 +930,8 @@ be involved? Be specific.}
     \item Check that the notification for correctness and that it is clear and understandable for the user.
   \end{enumerate}
 
-  \item{Speed-Latency-Test-2}
+  \item{test-PR-3}
+
   NFR: PR-SL2
 
   Type: Performance, Automated
@@ -621,7 +952,7 @@ be involved? Be specific.}
 
 \paragraph{System remains operational after malformed input}
 \begin{enumerate}
-  \item{Robustness-Test-1}
+  \item{test-PR-4}
 
   NFR: PR-RFT1
 
@@ -645,7 +976,7 @@ be involved? Be specific.}
 
 \paragraph{System is able to interface with cloud computing services}
 \begin{enumerate}
-  \item{Adjacent-Systems-Test-1}
+  \item{test-PR-5}
 
   NFR: OE-IAS1
 
@@ -667,7 +998,7 @@ be involved? Be specific.}
 
 \paragraph{System is deployable on Free Hosting Service}
 \begin{enumerate}
-  \item{Adjacent-Systems-Test-2}
+  \item{test-PR-6}
 
   NFR: OE-IAS2
 
@@ -689,7 +1020,7 @@ be involved? Be specific.}
 
 \paragraph{System is able to authenticate the user via external services}
 \begin{enumerate}
-  \item{Adjacent-Systems-Test-3}
+  \item{test-PR-7}
 
   NFR: OE-IAS3
 
@@ -717,7 +1048,7 @@ be involved? Be specific.}
 
 \begin{enumerate}
 
-  \item{Maintaince-Test-2}
+  \item{test-M-1}
 
   NFR: MS-M2
 
@@ -738,7 +1069,7 @@ be involved? Be specific.}
 \paragraph{A pathway for users to post or vote for requests/issues}
 
 \begin{enumerate}
-  \item{Maintaince-Test-3}
+  \item{test-M-2}
 
   NFR: MS-S3
 
@@ -758,7 +1089,7 @@ be involved? Be specific.}
 
 \paragraph{User can access UI with valid login credentials}
 \begin{enumerate}
-  \item{Security-Test-1\\}
+  \item{test-S-1}
 
   NFR: SR-A1
   Type: Dynamic
@@ -775,7 +1106,7 @@ be involved? Be specific.}
 \end{enumerate}
 \paragraph{User can access API with valid auth token}
 \begin{enumerate}
-  \item{Security-Test-2\\}
+  \item{test-S-2}
 
   NFR: SR-A1
 
@@ -790,7 +1121,7 @@ be involved? Be specific.}
   How test will be performed: 
   Pass a valid auth token to the API and verify that the system allows code upload and returns a success response.
 
-  \item{Security-Test-3}
+  \item{test-S-3}
 
   NFR: SR-A1
 
