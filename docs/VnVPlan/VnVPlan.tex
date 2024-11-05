@@ -1183,28 +1183,33 @@ This section is to ensure that documentation exists to guide users and help them
 \subsubsection{Performance}
 These testcases ensure that the system is able to handle a certain amount of load, and that it is able to process data in a timely manner.
 
-\paragraph{Batch processing time is less than 10 minutes}
+\paragraph{Batch processing time is less than 4 hours for assumed upper bound of classroom size}
 
 \begin{enumerate}
   \item{test-PR-1}
   
-  NFR: PR-C1
+  NFR: PR-SL1, PR-C1
 
-  Type: Dynamic
+  Type: Performance, Dynamic
 
   Initial State: The system is idle and ready to process a batch of code submissions
 
-  Input:Submit a batch of inputs (code submissions) to the system for processing.
+  Input: 500 code snippets of 200 lines or less 
 
-  Output: The system completes processing the batch within 600 seconds (10 minutes).
+  Output: The system completes processing the batch within 4 hours.
 
-  How test will be performed:
+  How test will be performed: Script will open system's spot for plagiarism analysis 
+  and pass system 500 code snippets of 200 lines or less along command to initiate analysis. 
+  It will use a computer time through a library like pyperf, to time the interval between 
+  analysis start and analysis return and, if it is under 4 hours, the test will return a pass. 
+  Will be integrated into a CI/CD pipeline and be run periodically to affirm system health and 
+  performance over time.
 
-  \begin{enumerate}
-    \item Submit a batch of code submissions to the system.
-    \item Measure the time taken for the system to process the batch.
-    \item Verify that the processing time is less than 600 seconds.
-  \end{enumerate}
+  % \begin{enumerate}
+  %   \item Submit a batch of code submissions to the system.
+  %   \item Measure the time taken for the system to process the batch.
+  %   \item Verify that the processing time is less than 600 seconds.
+  % \end{enumerate}
 \end{enumerate}
 
 \paragraph{Notification is sent when Processing Time Exceeds Ten Minutes}
@@ -1271,6 +1276,51 @@ These testcases ensure that the system is able to handle a certain amount of loa
     \item Submit a file that is known to be valid.
     \item Verify that the system accepts the valid input and processes it correctly.
   \end{enumerate}
+\end{enumerate}
+
+\paragraph{System meets accuracy expectations}
+\begin{enumerate}
+  \item{test-PR-5}
+
+  NFR: PR-PA1, PR-PA2
+
+  Type: Performance, Dynamic
+            
+  Initial State: System is operational and awaiting user input for code submission
+            
+  Input: Code snippet test set (on the scale of 500) and command to initiate analysis
+            
+  Output: All system analysis results have greater than 90\% accuracy and less than 5\%
+  false positives compared against the ground truths when using default threshold
+            
+  How test will be performed: 
+  Script will pass current test set of code snippets, 
+  and give command-line argument to initiate analysis from detector. Upon return 
+  of analysis, will compare results against ground truths of test set using default
+  threshold. If accuracy rate is 90\% and false positives are lower than 5\%, the test
+   will return a pass. This will be integrated into a CI/CD pipeline and be run periodically
+  to affirm system health and performance over time. Also, the test set will potentially
+  change over time to keep any possible bias in check.
+\end{enumerate}
+
+\paragraph{Feature Updates Do Not Degrade Performance}
+\begin{enumerate}
+  \item{test-PR-6}
+
+  NFR: PR-SE1
+
+  Type: Functional, Dynamic, Regression
+            
+  Initial State: N/A
+            
+  Input: Code for new feature is added 
+            
+  Output: All base features still function as expected with new feature code in place
+            
+  How test will be performed: When a new feature is added to the system (as denoted in a 
+  pull request or otherwise), all system tests for functional requirements
+  are re-ran to ensure no previous functionality has been lost. This will be facilitated
+  by a CI/CD pipeline (using GitHub actions) for all functional requirement tests.
 \end{enumerate}
 
 \subsubsection{Operational and Environmental}
@@ -1386,6 +1436,80 @@ These testcases ensure that the system is maintainable and supportable. This inc
   The user will post a request or issue and verify that it is visible to other users. A verifiable metric is that the request or issue is visible to other users.
   This test will be done manually by the team members of SyntaxSentinels.
 \end{enumerate}
+
+\paragraph{Model Code follows Template }
+
+\begin{enumerate}
+  \item{test-M-3}
+
+  NFR: MS-A2
+
+  Type: Inspection, Static
+
+  Initial State: N/A
+
+  Input: Source code pertaining to machine learning model is passed to a parsing script
+
+  Output: The output of the parsing script states model components follows the template
+
+  How test will be performed:
+  Source code pertaining to machine learning model will be statically checked
+(through a parsing script looking for reserved class words or ordering potentially) 
+to see if model contains components/layers that inherit an interface/class. If all 
+components are found to inherit an interface/class, it is assumed it will be simple 
+to create or exchange components of the model in code to keep it up with research 
+without major overhaul to the model code itself (although there may be significant
+changes to its components). This will be integrated into a CI/CD pipeline and run
+periodically to ensure model code remains in adherence to templates.
+\end{enumerate}
+
+\paragraph{Model Code follows Template }
+
+\begin{enumerate}
+  \item{test-M-4}
+
+  NFR: MS-A1
+
+  Type: Dynamic 
+
+  Initial State: System is inactive
+  (cannot modify model during activity unless 
+  multiple test version is kept)
+
+  Input: None into system directly, training script receives two formats of training sets
+
+  Output: Training script successfully completes epoch 
+
+  How test will be performed:
+  Training script for model provided will
+receive two different formats of training set data from a test script, and 
+test script will verify training occurred either through inspecting a generated
+checkpoint file or a return value from the training script. This will be integrated into a CI/CD pipeline 
+and run periodically to ensure compatibility for model training remains.
+\end{enumerate}
+
+\paragraph{Model Code follows Template }
+\begin{enumerate}
+  \item{test-M-5}
+
+  NFR: MS-A3
+
+  Type: Manual, Unit
+
+  Initial State: N/A
+
+  Input: A set of appropriately dimensioned vectors into model component/layer
+
+  Output: Expected modification of vector according to component/layer architecture
+
+  How test will be performed:
+  Every unique model layer/component will attempt to be separated from any preceding and proceeding layer/components, and will be
+copied into a test function where it will be given an input vector of appropriate size. The output function should apply transformations strictly associated with that layer and no other, which should be evident through output vector size and
+contents of the vector. Must be manually done as assessing how to separate layers may not be possible to be done in a consistent manner, even if layers/components are ultimately modular. The difference of having embedded layers that aren't modular versus 
+separable layers akin to having z=f(g(x)) versus y=g(x) and z=g(y). Test must only be done every time a new type of model component or 
+layer is added.
+\end{enumerate}
+
 \subsubsection{Security}
 These testcases ensure that the system is secure and that user data is protected.
 
@@ -1499,13 +1623,17 @@ These testcases ensure that the system is secure and that user data is protected
   \hline
   test-D-1 & UH-L2, OE-P2 \\
   \hline
-  test-PR-1 & PR-C1 \\
+  test-PR-1 & PR-SL1, PR-C1 \\
   \hline
   test-PR-2 & PR-SL2 \\
   \hline
   test-PR-3 & PR-SL2 \\
   \hline
   test-PR-4 & PR-RFT1 \\
+  \hline
+  test-PR-5 & PR-PA1, PR-PA2 \\
+  \hline
+  test-PR-6 & PR-SE1 \\
   \hline
   test-OE-1 & OE-IAS1 \\
   \hline
@@ -1516,6 +1644,12 @@ These testcases ensure that the system is secure and that user data is protected
   test-M-1 & MS-M2 \\
   \hline
   test-M-2 & MS-S3 \\
+  \hline
+  test-M-3 & MS-A2 \\
+  \hline
+  test-M-4 & MS-A1 \\
+  \hline
+  test-M-5 & MS-A3 \\
   \hline
   test-S-1 & SR-A1 \\
   \hline
