@@ -263,7 +263,7 @@ The checklist for SRS review will cover:
   \hline
   \textbf{4. Verifiability} & \\
   \hline
-  4.1 Testable Requirements & Each requirement is testable and verifiable (e.g., accuracy metrics, response times). \\
+  4.1 Testable Requirements & Each `requirement' is testable and verifiable (e.g., accuracy metrics, response times). \\
   \hline
   4.2 Acceptance Criteria & Clear acceptance criteria for each requirement. \\
   \hline
@@ -466,8 +466,12 @@ This comprehensive plan for verification and validation addresses each phase of 
 
 \section{System Tests}
 
-\wss{There should be text between all headings, even if it is just a roadmap of
-the contents of the subsections.}
+% \wss{There should be text between all headings, even if it is just a roadmap of
+% the contents of the subsections.}
+
+This section outlines the system tests to be performed for both functional and non-functional requirements. 
+The tests are categorized based on the area of testing, such as look and feel requirements, usability, and versioning. 
+Each test includes a title, test ID, control, initial state, input, output, test case derivation, and how the test will be performed.
 
 \subsection{Tests for Functional Requirements}
 
@@ -527,28 +531,30 @@ How test will be performed:
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\wss{The nonfunctional requirements for accuracy will likely just reference the
-  appropriate functional tests from above.  The test cases should mention
-  reporting the relative error for these tests.  Not all projects will
-  necessarily have nonfunctional requirements related to accuracy.}
+% \wss{The nonfunctional requirements for accuracy will likely just reference the
+%   appropriate functional tests from above.  The test cases should mention
+%   reporting the relative error for these tests.  Not all projects will
+%   necessarily have nonfunctional requirements related to accuracy.}
 
-\wss{For some nonfunctional tests, you won't be setting a target threshold for
-passing the test, but rather describing the experiment you will do to measure
-the quality for different inputs.  For instance, you could measure speed versus
-the problem size.  The output of the test isn't pass/fail, but rather a summary
-table or graph.}
+% \wss{For some nonfunctional tests, you won't be setting a target threshold for
+% passing the test, but rather describing the experiment you will do to measure
+% the quality for different inputs.  For instance, you could measure speed versus
+% the problem size.  The output of the test isn't pass/fail, but rather a summary
+% table or graph.}
 
-\wss{Tests related to usability could include conducting a usability test and
-  survey.  The survey will be in the Appendix.}
+% \wss{Tests related to usability could include conducting a usability test and
+%   survey.  The survey will be in the Appendix.}
 
-\wss{Static tests, review, inspections, and walkthroughs, will not follow the
-format for the tests given below.}
+% \wss{Static tests, review, inspections, and walkthroughs, will not follow the
+% format for the tests given below.}
 
-\wss{If you introduce static tests in your plan, you need to provide details.
-How will they be done?  In cases like code (or document) walkthroughs, who will
-be involved? Be specific.}
+% \wss{If you introduce static tests in your plan, you need to provide details.
+% How will they be done?  In cases like code (or document) walkthroughs, who will
+% be involved? Be specific.}
 
-\subsubsection{Look and Feel Requirements}
+This section outlines the system tests to be performed for non-functional requirements, including accuracy, performance, and usability.
+
+\subsubsection{Look and Feel}
 These tests are to ensure that the way the front end is designed adheres to the
 defined requirements with respect to layout, typography, component alignment,
 etc. 
@@ -614,8 +620,8 @@ How test will be performed:
 
 \end{enumerate}
 
-\subsubsection{Usability and Humanity Requirements}
-These requirements are intended to build a foundation for the user's experience
+\subsubsection{Usability and Humanity}
+These test cases are intended to build a foundation for the user's experience
 on the application. Thus, the only real way to get feedback the user experience
 is to have someone use the application and provide feedback.
 
@@ -695,7 +701,7 @@ is to have someone use the application and provide feedback.
   \end{enumerate}
 
 \subsubsection{Versioning}
-These requirements are for versioning, in order to roll back to old iterations
+These testcases are for versioning, in order to roll back to old iterations
 of the code, or old iterations of the model. if needed. These will mainly be
 tested by checking if old versions are saved. Note that this check will be done
 after each iteration of the model
@@ -706,7 +712,7 @@ after each iteration of the model
 
   NFR: MS-M1, OR-R2
   
-  Type: Manual
+  Type: Document Review
             
   Initial State: N/A
             
@@ -723,7 +729,7 @@ after each iteration of the model
 \end{enumerate}
 
 \subsubsection{Privacy/Security}
-These requirements ensure that the system is secure, and does not violate any
+These testcases ensure that the system is secure, and does not violate any
 privacy rights. The tests for these requirements will revolve around doing
 audits to ensure system integrity.
 
@@ -769,7 +775,7 @@ audits to ensure system integrity.
   
   NFR: SR-P2 
 
-  Type: Manual 
+  Type: Dynamic
 
   Initial State: Application ready for use
 
@@ -779,7 +785,7 @@ audits to ensure system integrity.
 
   How test will be performed:
   \begin{enumerate}
-    \item A tester will invoke backend end points using HTTPS protocol
+    \item Script will invoke backend end points using HTTPS protocol
     \item They will ensure that the response provides relevant security headers
   \end{enumerate}
 
@@ -882,7 +888,8 @@ This section is to ensure that documentation exists to guide users and help them
 \end{enumerate}
 
 
-\subsubsection{Performance Requirements}
+\subsubsection{Performance}
+These testcases ensure that the system is able to handle a certain amount of load, and that it is able to process data in a timely manner.
 
 \paragraph{Batch processing time is less than 10 minutes}
 
@@ -934,7 +941,7 @@ This section is to ensure that documentation exists to guide users and help them
 
   NFR: PR-SL2
 
-  Type: Performance, Automated
+  Type: Performance, Dynamic
             
   Initial State: System is idle; no processes are currently running.
             
@@ -974,9 +981,12 @@ This section is to ensure that documentation exists to guide users and help them
   \end{enumerate}
 \end{enumerate}
 
+\subsubsection{Operational and Environmental}
+These testcases ensure that the system is able to operate in different environments and under different conditions.
+
 \paragraph{System is able to interface with cloud computing services}
 \begin{enumerate}
-  \item{test-PR-5}
+  \item{test-OE-1}
 
   NFR: OE-IAS1
 
@@ -998,7 +1008,7 @@ This section is to ensure that documentation exists to guide users and help them
 
 \paragraph{System is deployable on Free Hosting Service}
 \begin{enumerate}
-  \item{test-PR-6}
+  \item{test-OE-2}
 
   NFR: OE-IAS2
 
@@ -1020,7 +1030,7 @@ This section is to ensure that documentation exists to guide users and help them
 
 \paragraph{System is able to authenticate the user via external services}
 \begin{enumerate}
-  \item{test-PR-7}
+  \item{test-OE-3}
 
   NFR: OE-IAS3
 
@@ -1040,9 +1050,8 @@ This section is to ensure that documentation exists to guide users and help them
   \end{enumerate}
 \end{enumerate}
 
-\subsubsection{Operational and Environmental Requirements}
-
-\subsubsection{Maintainability and Support Requirements}
+\subsubsection{Maintainability and Support}
+These testcases ensure that the system is maintainable and supportable. This includes ensuring that the system is easy to maintain and that support is available to users.
 
 \paragraph{Model release is accompanied by a report of metrics}
 
@@ -1052,7 +1061,7 @@ This section is to ensure that documentation exists to guide users and help them
 
   NFR: MS-M2
 
-  Type: Manual
+  Type: Inspection
 
   Initial State: The model has been trained and is ready for release
 
@@ -1073,7 +1082,7 @@ This section is to ensure that documentation exists to guide users and help them
 
   NFR: MS-S3
 
-  Type: Manual
+  Type: Inspection
 
   Initial State: The user has a GitHub account and is logged in
 
@@ -1085,7 +1094,8 @@ This section is to ensure that documentation exists to guide users and help them
   The user will post a request or issue and verify that it is visible to other users. A verifiable metric is that the request or issue is visible to other users.
   This test will be done manually by the team members of SyntaxSentinels.
 \end{enumerate}
-\subsubsection{Security Requirements}
+\subsubsection{Security}
+These testcases ensure that the system is secure and that user data is protected.
 
 \paragraph{User can access UI with valid login credentials}
 \begin{enumerate}
@@ -1138,14 +1148,10 @@ This section is to ensure that documentation exists to guide users and help them
 
 \end{enumerate}
 
-\subsubsection{Cultural Requirements}
-
-\subsubsection{Compliance Requirements}
-
 \subsection{Traceability Between Test Cases and Requirements}
 
-\wss{Provide a table that shows which test cases are supporting which
-  requirements.}
+% \wss{Provide a table that shows which test cases are supporting which
+%   requirements.}
 
 \section{Unit Test Description}
 This section will not be filled in until after the MIS document has been completed.
