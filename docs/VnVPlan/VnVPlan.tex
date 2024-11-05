@@ -263,7 +263,7 @@ The checklist for SRS review will cover:
   \hline
   \textbf{4. Verifiability} & \\
   \hline
-  4.1 Testable Requirements & Each requirement is testable and verifiable (e.g., accuracy metrics, response times). \\
+  4.1 Testable Requirements & Each `requirement' is testable and verifiable (e.g., accuracy metrics, response times). \\
   \hline
   4.2 Acceptance Criteria & Clear acceptance criteria for each requirement. \\
   \hline
@@ -554,7 +554,7 @@ How test will be performed:
 
 This section outlines the system tests to be performed for non-functional requirements, including accuracy, performance, and usability.
 
-\subsubsection{Look and Feel Requirements}
+\subsubsection{Look and Feel}
 These tests are to ensure that the way the front end is designed adheres to the
 defined requirements with respect to layout, typography, component alignment,
 etc. 
@@ -620,8 +620,8 @@ How test will be performed:
 
 \end{enumerate}
 
-\subsubsection{Usability and Humanity Requirements}
-These requirements are intended to build a foundation for the user's experience
+\subsubsection{Usability and Humanity}
+These test cases are intended to build a foundation for the user's experience
 on the application. Thus, the only real way to get feedback the user experience
 is to have someone use the application and provide feedback.
 
@@ -701,7 +701,7 @@ is to have someone use the application and provide feedback.
   \end{enumerate}
 
 \subsubsection{Versioning}
-These requirements are for versioning, in order to roll back to old iterations
+These testcases are for versioning, in order to roll back to old iterations
 of the code, or old iterations of the model. if needed. These will mainly be
 tested by checking if old versions are saved. Note that this check will be done
 after each iteration of the model
@@ -729,7 +729,7 @@ after each iteration of the model
 \end{enumerate}
 
 \subsubsection{Privacy/Security}
-These requirements ensure that the system is secure, and does not violate any
+These testcases ensure that the system is secure, and does not violate any
 privacy rights. The tests for these requirements will revolve around doing
 audits to ensure system integrity.
 
@@ -888,8 +888,8 @@ This section is to ensure that documentation exists to guide users and help them
 \end{enumerate}
 
 
-\subsubsection{Performance Requirements}
-These requirements ensure that the system is able to handle a certain amount of load, and that it is able to process data in a timely manner.
+\subsubsection{Performance}
+These testcases ensure that the system is able to handle a certain amount of load, and that it is able to process data in a timely manner.
 
 \paragraph{Batch processing time is less than 10 minutes}
 
@@ -981,8 +981,8 @@ These requirements ensure that the system is able to handle a certain amount of 
   \end{enumerate}
 \end{enumerate}
 
-\subsubsection{Operational and Environmental Requirements}
-These requirements ensure that the system is able to operate in different environments and under different conditions.
+\subsubsection{Operational and Environmental}
+These testcases ensure that the system is able to operate in different environments and under different conditions.
 
 \paragraph{System is able to interface with cloud computing services}
 \begin{enumerate}
@@ -1050,8 +1050,8 @@ These requirements ensure that the system is able to operate in different enviro
   \end{enumerate}
 \end{enumerate}
 
-\subsubsection{Maintainability and Support Requirements}
-These requirements ensure that the system is maintainable and supportable. This includes ensuring that the system is easy to maintain and that support is available to users.
+\subsubsection{Maintainability and Support}
+These testcases ensure that the system is maintainable and supportable. This includes ensuring that the system is easy to maintain and that support is available to users.
 
 \paragraph{Model release is accompanied by a report of metrics}
 
@@ -1094,8 +1094,8 @@ These requirements ensure that the system is maintainable and supportable. This 
   The user will post a request or issue and verify that it is visible to other users. A verifiable metric is that the request or issue is visible to other users.
   This test will be done manually by the team members of SyntaxSentinels.
 \end{enumerate}
-\subsubsection{Security Requirements}
-These requirements ensure that the system is secure and that user data is protected.
+\subsubsection{Security}
+These testcases ensure that the system is secure and that user data is protected.
 
 \paragraph{User can access UI with valid login credentials}
 \begin{enumerate}
@@ -1147,10 +1147,6 @@ These requirements ensure that the system is secure and that user data is protec
   Pass an invalid or missing auth token to the API and verify that the system denies access and returns an unauthorized response.
 
 \end{enumerate}
-
-\subsubsection{Cultural Requirements}
-
-\subsubsection{Compliance Requirements}
 
 \subsection{Traceability Between Test Cases and Requirements}
 
