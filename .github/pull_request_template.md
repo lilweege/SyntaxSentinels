@@ -1,6 +1,6 @@
 # GitHub Ticket / Description
 
-[SS-XXXX](https://github.com/SyntaxSentinels/SyntaxSentinels/issues/XXXX)
+Resolves [SS-XXXX](https://github.com/SyntaxSentinels/SyntaxSentinels/issues/XXXX)
 
 ## Type && Checklist
 
