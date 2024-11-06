@@ -24,7 +24,22 @@ and the POC demo.
 
 \section{Demo Plans}
 
-\wss{What will you be demonstrating}
+% \wss{What will you be demonstrating}
+In our proof of concept demonstration, our team will showcase our approach
+to code plagiarism detection using NLP by comparing two code samples and generating a similarity score.
+
+In our demonstration, we will invoke a command line application. The application will take
+in two source code files in either Python or Java as input and will return a similarity score
+as a number from 0.0 to 1.0. A score of 0.0 indicates that the source files have no semantic similarity,
+and a score of 1.0 means that the two source files are entirely semantically similar.
+We will invoke this application twice, first with two source files that do obviously different things.
+These files will have a low similarity score, close to 0.0. The second invocation will be with two
+source files that do the same thing but differ syntactically. These files will have a high similarity score,
+close to 1.0. The produced similarity scores should make sense when validated by us as human reviewers.
+
+This demonstration aims to prove that the similarity score produced by our NLP model is a good metric
+for determining if two pieces of code are plagiarised or not.
+
 
 \section{Team Meeting Attendance}
 
