@@ -512,7 +512,7 @@ covers FR-1 in subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: system is active and is setup in spot to receive code snippet 
+Initial State: system is active and set up in spot to receive code snippet 
 uploads, zero or more existing snippets are currently uploaded.
 					
 Input: code snippet file(s).
@@ -543,13 +543,13 @@ currently covers FR-2, FR-4, and FR-5 in subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: system is active and is setup in spot for initiating analysis, 
+Initial State: system is active and set up in spot for initiating analysis, 
 2 or more code snippets have been uploaded.
 					
 Input: command to initiate analysis (button, enter, etc.).
 					
 Output: System presents list of similarity scores for all code snippet pairings 
-along  with corresponding threshold scores and any code snippet pairing that 
+along with corresponding threshold scores and any code snippet pairing that 
 has exceeded its threshold has been flagged. System remains active, 
 awaiting for action directives on what to do.
 
@@ -563,7 +563,7 @@ its analysis state to the user for further interaction.
 
 How test will be performed: A script will open the system's spot to initiate analysis 
 with 2 or more code snippets already inserted into the system, and command for 
-starting analysis will be entered. fErrors will be inspected for 
+starting analysis will be entered. Errors will be inspected for 
 up until similarity scores and thresholds have been presented. By this point,
 code flaggings should also be available to ascertain. (type: dynamic, functional).
 					
@@ -581,13 +581,13 @@ currently covers FR-3 in subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: System is active and is setup in spot for generating guide 
+Initial State: System is active and set up in spot for generating guide 
 documentation.
 					
 Input: command for documentation presentation (button, enter, etc.).
 					
 Output: System generates documentation in a viewable medium, such as text or a 
-pdf file, and remains active while awaiting for further action directives.
+PDF file, and remains active while awaiting for further action directives.
 
 Test Case Derivation: system possesses guide documentation which it should be 
 capable of transferring to user to provide guidance on use cases of system 
@@ -611,14 +611,14 @@ user. This currently covers FR-6 of subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: System is active and is setup in spot for report generation, 
-most recent plagiarism analysis has been completed since system activation 
+Initial State: System is active and set up in spot for report generation, 
+most recent plagiarism analysis has been completed since after system activation 
 and its results are available.
 					
 Input: command for report documentation generation (button, enter, etc.).
 					
 Output: System provides report documentation in a viewable medium, such
-as text or a pdf file, and remains active awaiting for further action 
+as text or a PDF file, and remains active awaiting for further action 
 directives.
 
 Test Case Derivation: The system should possess the ability to aggregate
@@ -647,7 +647,7 @@ covers FR-7 of subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: system is active and is setup in spot for account creation.
+Initial State: system is active and set up in spot for account creation.
 					
 Input: command for account creation (button, enter, etc.) alongside account 
 user email and password, and the email is not associated with any existing 
@@ -669,9 +669,9 @@ for any failure mode within the process. Created account will be inspected for a
 
 \item{test-FR-6\\}
 
-Control: Automatic
+Control: Automatic.
 					
-Initial State: system is active and is setup in spot for account creation
+Initial State: system is active and set up in spot for account creation.
 					
 Input: command for account creation (button, enter, etc.) alongside account 
 user email and password, and the email is associated with an existing 
@@ -705,7 +705,7 @@ currently covers FR-8 of subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: system is active is setup in spot for account 
+Initial State: system is active and set up in spot for account 
 login.
 					
 Input: command for account login (button, enter, etc.) alongside account 
@@ -720,7 +720,7 @@ pre-existing account credentials to facilitate login.
 
 How test will be performed: A script will open the system's spot for account 
 login, email and  password asssociated with existing account will be given 
-in the appropriate area, and command for account login will be passed, all 
+in the appropriate area, and command for account login will be passed; all 
 the while inspecting for any failure mode within the process (type: dynamic, 
 functional).
 
@@ -728,7 +728,7 @@ functional).
 
 Control: Automatic.
 					
-Initial State: system is active and setup in spot for account login.
+Initial State: system is active and set up in spot for account login.
 					
 Input: command for account login (button, enter, etc.) alongside account 
 user email and password, and the email is not associated with any existing 
@@ -759,9 +759,9 @@ This currently covers FR-9 of subsection 9.1 of the SRS \citep{SRS}.
 
 Control: Automatic.
 					
-Initial State: System is active and system is setup in spot for emailing results,
-most recent plagiarism analysis has been completed since system activation and 
-its results are available.
+Initial State: System is active and set up in spot for emailing results,
+most recent plagiarism analysis has been completed since after system activation 
+and its results are available.
 					
 Input: command for emailing result (button, enter, etc.) and email to 
 receive results.
@@ -772,15 +772,15 @@ contain a .zip file possessing results of the recent analysis.
 
 Test Case Derivation: The system should possess the ability to condense results
 into a .zip file upon demand, and it should proceed to carry out emailing this 
-file after it creates it.
+file after creating it.
 
 How test will be performed: A script will have the system conduct a 
 plagiarism analysis to provide inputs for emailing as this
-simulates what must happen for a user before they are able to initiate an
+simulates what must happen for a user before they are able to initiate
 the email function. If successful, the script will continue to the system's spot 
 for emailing results and the command for sending email will be entered alongside 
 an email for receiving the results; all the while inspecting for errors in the 
-process. The reception of the .zip file will be assessed at the very end once 
+process. The reception of the .zip file will be assessed at the end once 
 the system is awaiting action directives (type: dynamic, functional).
 					
 
@@ -798,7 +798,7 @@ by user in a .zip file. This currently covers FR-10 of subsection 9.1 of the SRS
 
 Control: Automatic
 					
-Initial State: System is active and is setup in the spot for inserting .zip 
+Initial State: System is active and set up in the spot for inserting .zip 
 files containing results to produce visualization.
 					
 Input: command for visualization (button, enter, etc.) and .zip file containing 
@@ -876,16 +876,16 @@ Output/Result: List of all identified inconsistencies that are found that do not
 					
 How test will be performed: 
 \begin{enumerate}
-  \item A developer will review the code to make sure the look and feels requirements were implemented
+  \item A developer will review the code to make sure the look and feels requirements were implemented:
   \begin{enumerate}
-    \item They will check that the application has a a uniform colour palette
-    \item They will check that the application has tooltips on buttons with informative text
-    \item They will check that the application is responsive and scales well for different screen sizes and resolutions
-    \item They will check that the application uses the Roboto font family
-    \item They will check that the application has uniform spacing between elements
-    \item They will check that the application has buttons with rounded corners and change colour upon hover
+    \item They will check that the application has a a uniform colour palette.
+    \item They will check that the application has tooltips on buttons with informative text.
+    \item They will check that the application is responsive and scales well for different screen sizes and resolutions.
+    \item They will check that the application uses the Roboto font family.
+    \item They will check that the application has uniform spacing between elements.
+    \item They will check that the application has buttons with rounded corners and change colour upon hover.
   \end{enumerate}
-  \item They will then check that the application to ensure that it adheres to all look and feel requirements
+  \item They will then check that the application to ensure that it adheres to all look and feel requirements.
 \end{enumerate}
 
 \item{test-LF-2}
@@ -902,10 +902,10 @@ Output: List of missing accessibility considerations that have been overlooked
 					
 How test will be performed: 
 \begin{enumerate}
-  \item The developer will review the code and application to ensure that accessibility considerations have been implemented
-  \item They will verify that all images have alt text
-  \item They will verify that all text has sufficient contrast and sizing using Google Chrome devtools
-  \item The developer will note down any missing implementations of accessibility requirements
+  \item The developer will review the code and application to ensure that accessibility considerations have been implemented.
+  \item They will verify that all images have alt text.
+  \item They will verify that all text has sufficient contrast and sizing using Google Chrome devtools.
+  \item The developer will note down any missing implementations of accessibility requirements.
 \end{enumerate}
 
 \end{enumerate}
@@ -942,7 +942,7 @@ is to have someone use the application and provide feedback.
   How test will be performed: 
   \begin{enumerate}
     \item A user will use the application, going through the onboarding process
-    and doing a demo of the application
+    and doing a demo of the application.
     \item After a full demo, the user will be asked to provide feedback on
     different aspects of usability, such as ease of use, app clarity, and prompt
     politeness.
@@ -964,10 +964,10 @@ is to have someone use the application and provide feedback.
   \begin{enumerate}
     \item The user will navigate to each of the following functions in the user interface from the home page:
     \begin{enumerate}
-      \item The user will make a code submission to be analyzed
-      \item The user will upload a generated report file to be viewed
+      \item The user will make a code submission to be analyzed.
+      \item The user will upload a generated report file to be viewed.
     \end{enumerate}
-    \item The user will note how many clicks were required to accomplish each function
+    \item The user will note how many clicks were required to accomplish each function.
   \end{enumerate}
 
   \item{test-UH-3}
@@ -984,17 +984,17 @@ is to have someone use the application and provide feedback.
             
   How test will be performed: 
   \begin{enumerate}
-    \item The tester will navigate to each page and submenu in the application
-    \item They will verify that all pages and prompts are in the correct language (English (US))
+    \item The tester will navigate to each page and submenu in the application.
+    \item They will verify that all pages and prompts are in the correct language (English (US)).
   \end{enumerate}
   
   \end{enumerate}
 
 \subsubsection{Versioning}
-These testcases are for versioning, in order to roll back to old iterations
-of the code, or old iterations of the model. if needed. These will mainly be
-tested by checking if old versions are saved. Note that this check will be done
-after each iteration of the model
+These testcases are for versioning requirements that are key in order 
+to roll back to old iterations of the code or old iterations of the model 
+when needed. These will mainly be tested by checking if old versions are saved. 
+Note that this check will be done after each iteration of the model.
 
 \paragraph{Validate old versions of project}
 \begin{enumerate}
@@ -1008,13 +1008,15 @@ after each iteration of the model
             
   Input/Condition: Tester engagement
             
-  Output/Result: Historical versions of machine learning models with a changelog should be stored and accessible on GitHub
+  Output/Result: Historical versions of machine learning models with a changelog 
+  should be stored and accessible on GitHub
             
   How test will be performed: 
   \begin{enumerate}
-    \item A developer will navigate to the project GitHub repository and find the folder containing all past and current versions of models, each with an associated performance report, as well as a changelog including dates of revisions
-    \item This will be done with each iteration
-    politeness.
+    \item A developer will navigate to the project GitHub repository and find the 
+    folder containing all past and current versions of models, each with an 
+    associated performance report, as well as a changelog including dates of revisions
+    \item This will be done with each iteration of the model code.
   \end{enumerate}
 \end{enumerate}
 
@@ -1054,10 +1056,11 @@ audits to ensure system integrity.
 
   How test will be performed:
   \begin{enumerate}
-    \item A tester will enable logging in the components of the application
-    \item They will do a run through of the different functionalities, including making a submission and analyzing a generated report file
+    \item A tester will enable logging in the components of the application.
+    \item They will do a run through of the different functionalities, including 
+    making a submission and analyzing a generated report file.
     \item With each function, the tester will check logs and filesystem, and then
-    search for any user-generated or personally identifiable data
+    search for any user-generated or personally identifiable data.
   \end{enumerate}
 
 
@@ -1075,8 +1078,8 @@ audits to ensure system integrity.
 
   How test will be performed:
   \begin{enumerate}
-    \item Script will invoke backend end points using HTTPS protocol
-    \item They will ensure that the response provides relevant security headers
+    \item Script will invoke backend end points using HTTPS protocol.
+    \item They will ensure that the response provides relevant security headers.
   \end{enumerate}
 
 
@@ -1090,11 +1093,15 @@ audits to ensure system integrity.
 
   Input/Condition: Tester engagement
   
-  Output/Result: List of components of the system that breach any regulations, with an accompanying explanation of the how the breach could manifest itself
+  Output/Result: List of components of the system that breach any regulations, 
+  with an accompanying explanation of the how the breach could manifest itself
 
   How test will be performed:
   \begin{enumerate}
-    \item A third party tester will inspect the code repository and system application against laws and regulations, noting any component of the system that may potentially infringe upon any data or privacy laws, intellectual property, or academic integrity
+    \item A third party tester will inspect the code repository and system 
+    application against laws and regulations, noting any component of the system 
+    that may potentially infringe upon any data or privacy laws, intellectual 
+    property, or academic integrity.
   \end{enumerate}
 \end{enumerate}
 
@@ -1108,7 +1115,7 @@ maintainble, scalable, and reliable.
   built adhering to software development standards.
   \item[Respository Inspection:] The Github repository for this project will be
   checked to make sure bugs are listed as issues to keep track of what needs to
-  be done in the system 
+  be done in the system.
 \end{description}
 
 \paragraph{Validate Development Standards}
@@ -1125,10 +1132,10 @@ maintainble, scalable, and reliable.
 
   How test will be performed:
   \begin{enumerate}
-    \item A tester will look at the 'issues' section of the github repository 
-    \item They will check that there are bugs that exist as issues
+    \item A tester will look at the 'issues' section of the github repository.
+    \item They will check that there are bugs that exist as issues.
     \item If there aren't, they will consult the team and ask if developers are
-    issuing bugs or if there are simply no bugs
+    issuing bugs or if there are simply no bugs.
   \end{enumerate}
 
 
@@ -1144,13 +1151,17 @@ maintainble, scalable, and reliable.
 
   How test will be performed:
   \begin{enumerate}
-    \item Team members will regularly inspect the code and ensure all components follow software development standards, including SOLID principles and the existence of documentation and tests
-    \item If there are components that don't they will consult the other team members to discuss issues with that component.
+    \item Team members will regularly inspect the code and ensure all components 
+    follow software development standards, including SOLID principles and the 
+    existence of documentation and tests.
+    \item If there are components that don't they will consult the other team 
+    members to discuss issues with that component.
   \end{enumerate}
 \end{enumerate}
 
 \subsubsection{Documentation}
-This section is to ensure that documentation exists to guide users and help them troubleshoot issues they are having.
+This section is to ensure that documentation exists to guide users and help them 
+troubleshoot issues they are having.
 
 \begin{description}
   \item[Documentation Review:] A tester will look through the webpage, and
@@ -1172,8 +1183,10 @@ This section is to ensure that documentation exists to guide users and help them
 
   How test will be performed:
   \begin{enumerate}
-    \item A developer will navigate to the user documentation and help pages within the application. They must first ensure that documentation exists, and is easy to find
-    \item They must then verify that the documentation is correct, complete, uses clear non-technical language, and is helpful for users
+    \item A developer will navigate to the user documentation and help pages within the 
+    application. They must first ensure that documentation exists, and is easy to find.
+    \item They must then verify that the documentation is correct, complete, uses clear
+     non-technical language, and is helpful for users.
   \end{enumerate}
 \end{enumerate}
 
@@ -1197,11 +1210,11 @@ These testcases ensure that the system is able to handle a certain amount of loa
   Output: The system completes processing the batch within 4 hours.
 
   How test will be performed: Script will open system's spot for plagiarism analysis 
-  and pass system 500 code snippets of 200 lines or less along command to initiate analysis. 
-  It will use a computer time through a library like pyperf, to time the interval between 
-  analysis start and analysis return and, if it is under 4 hours, the test will return a pass. 
-  Will be integrated into a CI/CD pipeline and be run periodically to affirm system health and 
-  performance over time.
+  and pass system 500 code snippets of 200 lines or less alongside command to initiate analysis. 
+  It will use a computer timer through a library, such as pyperf, to time the interval between 
+  the analysis start and the analysis return. If the interval is under 4 hours, the test will 
+  return a pass. Will be integrated into a CI/CD pipeline and be run periodically to affirm 
+  system health and performance over time.
 
   % \begin{enumerate}
   %   \item Submit a batch of code submissions to the system.
@@ -1268,7 +1281,7 @@ These testcases ensure that the system is able to handle a certain amount of loa
             
   How test will be performed: 
   \begin{enumerate}
-    \item navigate to the home page
+    \item navigate to the home page.
     \item Submit a file that is known to be corrupted or invalid.
     \item Verify that an error message is displayed to the user by checking if the function call was made.
     \item Submit a file that is known to be valid.
@@ -1286,18 +1299,17 @@ These testcases ensure that the system is able to handle a certain amount of loa
             
   Initial State: System is operational and awaiting user input for code submission
             
-  Input: Code snippet test set (on the scale of 500) and command to initiate analysis
+  Input: Code snippet test set (on the scale of 500 snippets) and command to initiate analysis
             
   Output: All system analysis results have greater than 90\% accuracy and less than 5\%
   false positives compared against the ground truths when using default threshold
             
   How test will be performed: 
-  Script will pass current test set of code snippets, 
-  and give command-line argument to initiate analysis from detector. Upon return 
-  of analysis, will compare results against ground truths of test set using default
-  threshold. If accuracy rate is 90\% and false positives are lower than 5\%, the test
-   will return a pass. This will be integrated into a CI/CD pipeline and be run periodically
-  to affirm system health and performance over time. Also, the test set will potentially
+  Script will pass current test set of code snippets and give command-line argument to 
+  initiate analysis from detector. Upon return of analysis, it will compare results against 
+  ground truths of test set using default threshold. If accuracy rate is 90\% and false positives 
+  are lower than 5\%, the test will return a pass. This will be integrated into a CI/CD pipeline and 
+  be run periodically to affirm system health and performance over time. Also, the test set will potentially
   change over time to keep any possible bias in check.
 \end{enumerate}
 
@@ -1322,7 +1334,8 @@ These testcases ensure that the system is able to handle a certain amount of loa
 \end{enumerate}
 
 \subsubsection{Operational and Environmental}
-These testcases ensure that the system is able to operate in different environments and under different conditions.
+These testcases ensure that the system is able to operate in different environments and 
+under different conditions.
 
 \paragraph{System is able to interface with cloud computing services}
 \begin{enumerate}
@@ -1410,8 +1423,9 @@ These testcases ensure that the system is maintainable and supportable. This inc
   Output: A report is generated with metrics such as accuracy, precision, etc.
 
   How test will be performed:
-  Release the model and verify that a report is generated with relevant metrics. A verifiable metric is that the report exists.
-  This test will be done manually by the team members of SyntaxSentinels.
+  Release the model and verify that a report is generated with relevant metrics. 
+  A verifiable metric is that the report exists.This test will be done manually 
+  by the team members of SyntaxSentinels.
 
 \end{enumerate}
 
@@ -1431,7 +1445,8 @@ These testcases ensure that the system is maintainable and supportable. This inc
   Output: The request or issue is posted and visible to other users
 
   How test will be performed:
-  The user will post a request or issue and verify that it is visible to other users. A verifiable metric is that the request or issue is visible to other users.
+  The user will post a request or issue and verify that it is visible to other users. 
+  A verifiable metric is that the request or issue is visible to other users.
   This test will be done manually by the team members of SyntaxSentinels.
 \end{enumerate}
 
@@ -1448,16 +1463,16 @@ These testcases ensure that the system is maintainable and supportable. This inc
 
   Input: Source code pertaining to machine learning model is passed to a parsing script
 
-  Output: The output of the parsing script states model components follows the template
+  Output: The output of the parsing script states model components all follow templates
 
   How test will be performed:
   Source code pertaining to machine learning model will be statically checked
 (through a parsing script looking for reserved class words or ordering potentially) 
 to see if model contains components/layers that inherit an interface/class. If all 
-components are found to inherit an interface/class, it is assumed it will be simple 
-to create or exchange components of the model in code to keep it up with research 
-without major overhaul to the model code itself (although there may be significant
-changes to its components). This will be integrated into a CI/CD pipeline and run
+components/layers are found to inherit an interface/class, it is assumed it will be simple 
+to create or exchange components/layers of the model in code to keep it up with research 
+without major overhaul to the model code in its entirety (although there may be significant
+changes within individual components/layers). This will be integrated into a CI/CD pipeline and run
 periodically to ensure model code remains in adherence to templates.
 \end{enumerate}
 
@@ -1471,19 +1486,18 @@ periodically to ensure model code remains in adherence to templates.
   Type: Dynamic 
 
   Initial State: System is inactive
-  (cannot modify model during activity unless 
-  multiple test version is kept)
+  (cannot modify model during activity)
 
   Input: None into system directly, training script receives two formats of training sets
 
   Output: Training script successfully completes epoch 
 
   How test will be performed:
-  Training script for model provided will
-receive two different formats of training set data from a test script, and 
-test script will verify training occurred either through inspecting a generated
-checkpoint file or a return value from the training script. This will be integrated into a CI/CD pipeline 
-and run periodically to ensure compatibility for model training remains.
+  Training script for model provided will receive two different formats of 
+  training set data from a test script, and test script will verify training 
+  occurred either through inspecting a generated checkpoint file or a return 
+  value from the training script. This will be integrated into a CI/CD pipeline 
+  and run periodically to ensure compatibility for model training remains.
 \end{enumerate}
 
 \paragraph{Model Code follows Template }
@@ -1501,11 +1515,16 @@ and run periodically to ensure compatibility for model training remains.
   Output: Expected modification of vector according to component/layer architecture
 
   How test will be performed:
-  Every unique model layer/component will attempt to be separated from any preceding and proceeding layer/components, and will be
-copied into a test function where it will be given an input vector of appropriate size. The output function should apply transformations strictly associated with that layer and no other, which should be evident through output vector size and
-contents of the vector. Must be manually done as assessing how to separate layers may not be possible to be done in a consistent manner, even if layers/components are ultimately modular. The difference of having embedded layers that aren't modular versus 
-separable layers akin to having z=f(g(x)) versus y=g(x) and z=g(y). Test must only be done every time a new type of model component or 
-layer is added.
+  Every unique model layer/component will attempt to be separated from any preceding and 
+  proceeding layer/components, and will be copied into a test function where it 
+  will be given an input vector of appropriate size. The output function should 
+  apply transformations strictly associated with that layer and no other, which 
+  should be evident through output vector size and contents of the vector. Must 
+  be manually done as assessing how to separate layers may not be possible to be 
+  done in a consistent manner, even if layers/components are ultimately modular. 
+  The difference of having embedded layers that are not modular versus separable 
+  layers is akin to having z=f(g(x)) versus y=g(x) and z=g(y). Test must only be done 
+  every time a new type of model component or layer is added.
 \end{enumerate}
 
 \subsubsection{Security}
@@ -1526,8 +1545,9 @@ These testcases ensure that the system is secure and that user data is protected
   Output/Result: The user is authenticated and gains access to the UI.
             
   How test will be performed: 
-  This test will be done via UI automated test suite using Playwright. The test will simulate a user entering valid login 
-  credentials and verify that the user is authenticated and gains access to the UI.
+  This test will be done via UI automated test suite using Playwright. The test 
+  will simulate a user entering valid login credentials and verify that the user 
+  is authenticated and gains access to the UI.
 \end{enumerate}
 \paragraph{User can access API with valid auth token}
 \begin{enumerate}
@@ -1544,7 +1564,8 @@ These testcases ensure that the system is secure and that user data is protected
   Output: The API allows the user to upload code for comparison
             
   How test will be performed: 
-  Pass a valid auth token to the API and verify that the system allows code upload and returns a success response.
+  Pass a valid auth token to the API and verify that the system allows code upload 
+  and returns a success response.
 
   \item{test-S-3}
 
@@ -1559,7 +1580,8 @@ These testcases ensure that the system is secure and that user data is protected
   Output: The API denies access and returns an unauthorized response
 
   How test will be performed:
-  Pass an invalid or missing auth token to the API and verify that the system denies access and returns an unauthorized response.
+  Pass an invalid or missing auth token to the API and verify that the system denies 
+  access and returns an unauthorized response.
 
 \end{enumerate}
 
