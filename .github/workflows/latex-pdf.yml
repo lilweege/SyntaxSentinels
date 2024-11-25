@@ -3,39 +3,46 @@ name: Build LaTeX document on PR changes
 on:
   pull_request:
     paths:
-      - '**/*.tex' # Trigger only when .tex files are modified
+      - "**/*.tex" # Trigger only when .tex files are modified
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Set up Git repository
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      # Step 1: Set up Git repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    # Step 2: Identify Modified LaTeX Files
-    - name: Find Modified LaTeX Files
-      id: find_files
-      run: |
-        echo "Searching for modified .tex files..."
-        MODIFIED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.tex$' || echo "")
-        echo "Modified files: $MODIFIED_FILES"
-        echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
+      # Step 2: Identify Modified LaTeX Files
+      - name: Find Modified LaTeX Files
+        id: find_files
+        run: |
+          # Get the list of modified .tex files
+          MODIFIED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.tex$' || echo "")
 
-    # Step 3: Compile LaTeX Files
-    - name: Compile LaTeX documents
-      run: |
-        for file in $MODIFIED_FILES; do
-          echo "Compiling $file..."
-          uses: xu-cheng/latex-action@v3
-          with:
-            root_file: $file
+          # Check if any .tex files are modified
+          if [ -n "$MODIFIED_FILES" ]; then
+            echo "Modified .tex files: $MODIFIED_FILES"
+            echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
+          else
+            echo "No .tex files modified."
+          fi
 
-    # Step 4: Upload the Compiled PDFs
-    - name: Upload PDFs
-      if: ${{ env.MODIFIED_FILES != '' }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: PDFs
-        path: '**/*.pdf'
+      # Step 3: Compile LaTeX Files if Any Are Modified
+      - name: Compile LaTeX documents
+        if: ${{ env.MODIFIED_FILES != '' }}
+        run: |
+          for file in $MODIFIED_FILES; do
+            echo "Compiling $file..."
+            uses: xu-cheng/latex-action@v3
+            with:
+              root_file: $file
+
+      # Step 4: Upload the Compiled PDFs
+      - name: Upload PDFs
+        if: ${{ env.MODIFIED_FILES != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDFs
+          path: "**/*.pdf"
