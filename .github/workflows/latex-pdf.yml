@@ -47,8 +47,8 @@ jobs:
             cd - 
           done
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.1.4
         with:
           add: --force docs/**/*.pdf
           message: Compiled Latex PDF
@@ -58,4 +58,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          branch: ${{ github.head_ref }}
