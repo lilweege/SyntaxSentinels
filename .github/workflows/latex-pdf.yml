@@ -1,0 +1,61 @@
+name: Compile LaTeX Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**/*.tex"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  compile-documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up LaTeX environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+
+      - name: Find modified .tex files
+        id: find_tex_files
+        uses: tj-actions/changed-files@v45
+        with:
+          files: |
+            **/*.tex
+          diff_relative: true
+          files_ignore: |
+            docs/Comments.tex
+            docs/Common.tex
+            docs/Reflection.tex
+
+      - name: Compile LaTeX files
+        if: steps.find_tex_files.outputs.any_changed == 'true'
+        run: |
+          for tex_file in ${{ steps.find_tex_files.outputs.all_changed_files }}; do
+            file=$(basename -- "$tex_file")
+            dir=$(dirname "$tex_file")
+            cd "$dir"
+            pdflatex $file
+            cd - 
+          done
+
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.1.4
+        with:
+          add: --force docs/**/*.pdf
+          message: Compiled Latex PDF
+          push: false
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.head_ref }}
