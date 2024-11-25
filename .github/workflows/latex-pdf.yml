@@ -1,22 +1,43 @@
-name: Build
+name: Build LaTeX document on PR changes
+
 on:
-  push:
-    branches: ["main"]
   pull_request:
-    branches: ["main"]
+    paths:
+      - "**/*.tex" # Trigger only when .tex files are modified
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v4.2.2
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@3.2.0
+      # Step 1: Set up the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Identify Modified LaTeX Files
+      - name: Find Modified LaTeX Files
+        id: find_files
+        run: |
+          echo "Searching for modified .tex files..."
+          MODIFIED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.tex$' || echo "")
+          echo "Modified files: $MODIFIED_FILES"
+          echo "::set-output name=files::$(echo $MODIFIED_FILES | jq -R -s -c 'split("\n") | map(select(length > 0))')"
+
+      # Step 3: Compile Each Modified File
+      - name: Compile LaTeX documents
+        if: steps.find_files.outputs.files != '[]'
+        uses: xu-cheng/latex-action@v3
         with:
-          root_file: latex_example.tex
-          working_directory: latex-example
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v4.4.3
+          root_file: ${{ matrix.file }}
+        strategy:
+          matrix:
+            file: ${{ fromJson(steps.find_files.outputs.files) }}
+
+      # Step 4: Upload the Compiled PDFs
+      - name: Upload PDFs
+        if: steps.find_files.outputs.files != '[]'
+        uses: actions/upload-artifact@v4
         with:
-          name: PDF
-          path: latex-example/latex_example.pdf
+          name: PDFs
+          path: |
+            **/*.pdf
