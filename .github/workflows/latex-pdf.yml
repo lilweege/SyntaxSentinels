@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Set up the repository
+      # Step 1: Set up Git repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -23,15 +23,16 @@ jobs:
           echo "Modified files: $MODIFIED_FILES"
           echo "::set-output name=files::$(echo $MODIFIED_FILES | jq -R -s -c 'split("\n") | map(select(length > 0))')"
 
-      # Step 3: Compile Each Modified File
+      # Step 3: Compile LaTeX Files
       - name: Compile LaTeX documents
-        if: steps.find_files.outputs.files != '[]'
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: ${{ matrix.file }}
-        strategy:
-          matrix:
-            file: ${{ fromJson(steps.find_files.outputs.files) }}
+        run: |
+          MODIFIED_FILES="${{ steps.find_files.outputs.files }}"
+          for file in $(echo $MODIFIED_FILES | jq -r '.[]'); do
+            echo "Compiling $file..."
+            uses: xu-cheng/latex-action@v3
+            with:
+              root_file: $file
+          done
 
       # Step 4: Upload the Compiled PDFs
       - name: Upload PDFs
@@ -39,5 +40,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PDFs
-          path: |
-            **/*.pdf
+          path: "**/*.pdf"
