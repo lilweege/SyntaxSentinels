@@ -1,10 +1,12 @@
 name: Compile LaTeX Documentation
-
 on:
   push:
     branches: [main]
     paths:
       - "docs/**/*.tex"
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
