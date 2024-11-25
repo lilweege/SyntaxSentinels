@@ -19,29 +19,14 @@ jobs:
       - name: Set up LaTeX and compile DevelopmentPlan
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: "DevelopmentPlan/DevelopmentPlan.tex" # Adjust to your root .tex file
-
-      - name: Move PDFs for DevelopmentPlan
-        run: |
-          mkdir -p DevelopmentPlan/pdf
-          mv DevelopmentPlan/*.pdf DevelopmentPlan/pdf/
+          root_file: "docs/DevelopmentPlan/DevelopmentPlan.tex" # Adjust to your root .tex file
 
       - name: Set up LaTeX and compile HazardAnalysis
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: "HazardAnalysis/HazardAnalysis.tex" # Adjust to your root .tex file
-
-      - name: Move PDFs for HazardAnalysis
-        run: |
-          mkdir -p HazardAnalysis/pdf
-          mv HazardAnalysis/*.pdf HazardAnalysis/pdf/
+          root_file: "docs/HazardAnalysis/HazardAnalysis.tex" # Adjust to your root .tex file
 
       - name: Set up LaTeX and compile ProblemStatementAndGoals
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: "ProblemStatementAndGoals/ProblemStatement.tex" # Adjust to your root .tex file
-
-      - name: Move PDFs for ProblemStatementAndGoals
-        run: |
-          mkdir -p ProblemStatementAndGoals/pdf
-          mv ProblemStatementAndGoals/*.pdf ProblemStatementAndGoals/pdf/
+          root_file: "docs/ProblemStatementAndGoals/ProblemStatement.tex" # Adjust to your root .tex file
