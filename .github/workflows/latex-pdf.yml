@@ -3,41 +3,39 @@ name: Build LaTeX document on PR changes
 on:
   pull_request:
     paths:
-      - "**/*.tex" # Trigger only when .tex files are modified
+      - '**/*.tex' # Trigger only when .tex files are modified
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Set up Git repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    # Step 1: Set up Git repository
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      # Step 2: Identify Modified LaTeX Files
-      - name: Find Modified LaTeX Files
-        id: find_files
-        run: |
-          echo "Searching for modified .tex files..."
-          MODIFIED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.tex$' || echo "")
-          echo "Modified files: $MODIFIED_FILES"
-          echo "::set-output name=files::$(echo $MODIFIED_FILES | jq -R -s -c 'split("\n") | map(select(length > 0))')"
+    # Step 2: Identify Modified LaTeX Files
+    - name: Find Modified LaTeX Files
+      id: find_files
+      run: |
+        echo "Searching for modified .tex files..."
+        MODIFIED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.tex$' || echo "")
+        echo "Modified files: $MODIFIED_FILES"
+        echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
 
-      # Step 3: Compile LaTeX Files
-      - name: Compile LaTeX documents
-        run: |
-          MODIFIED_FILES="${{ steps.find_files.outputs.files }}"
-          for file in $(echo $MODIFIED_FILES | jq -r '.[]'); do
-            echo "Compiling $file..."
-            uses: xu-cheng/latex-action@v3
-            with:
-              root_file: $file
-          done
+    # Step 3: Compile LaTeX Files
+    - name: Compile LaTeX documents
+      run: |
+        for file in $MODIFIED_FILES; do
+          echo "Compiling $file..."
+          uses: xu-cheng/latex-action@v3
+          with:
+            root_file: $file
 
-      # Step 4: Upload the Compiled PDFs
-      - name: Upload PDFs
-        if: steps.find_files.outputs.files != '[]'
-        uses: actions/upload-artifact@v4
-        with:
-          name: PDFs
-          path: "**/*.pdf"
+    # Step 4: Upload the Compiled PDFs
+    - name: Upload PDFs
+      if: ${{ env.MODIFIED_FILES != '' }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: PDFs
+        path: '**/*.pdf'
