@@ -13,11 +13,15 @@ on:
 jobs:
   compile-documentation:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }} # The GITHUB_TOKEN with specified permissions
 
       - name: Set up LaTeX environment
         run: |
@@ -57,5 +61,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Use the GITHUB_TOKEN with write permissions
           branch: ${{ github.ref }}
