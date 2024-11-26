@@ -1,31 +1,32 @@
 from transformers import AutoTokenizer, AutoModel
+from transformers import RobertaTokenizer, RobertaModel
 import torch
 import os
 import ast
 import torch
-import difflib
 from collections import Counter
 from sklearn.feature_extraction.text import CountVectorizer
 from tqdm import tqdm  # Import tqdm for progress bar
 import json
+import math
+import ast
+import os
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 # Check if GPU is available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 # Load CodeBERT tokenizer and model for embeddings
-tokenizer = AutoTokenizer.from_pretrained("microsoft/codebert-base")
-model = AutoModel.from_pretrained("microsoft/codebert-base").to(device)
+# huggingface_model_name = "microsoft/codebert-base"
+# tokenizer = AutoTokenizer.from_pretrained(huggingface_model_name)
+# model = AutoModel.from_pretrained(huggingface_model_name).to(device)
 
-def is_python3_file(file_path):
-    """Check if a file is Python 3 compatible by attempting to parse it."""
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            code = file.read()
-        ast.parse(code)  # Will raise an error if not valid Python 3 code
-        return True
-    except SyntaxError:
-        return False
+huggingface_model_name = "FacebookAI/roberta-base"
+tokenizer = RobertaTokenizer.from_pretrained(huggingface_model_name)
+model = RobertaModel.from_pretrained(huggingface_model_name)
 
 
 def token_similarity(code1, code2):
@@ -44,87 +45,65 @@ def token_similarity(code1, code2):
 
 
 def ast_similarity(code1, code2):
-    """Calculate AST-based similarity between two code snippets."""
-    try:
-        tree1 = ast.dump(ast.parse(code1))
-        tree2 = ast.dump(ast.parse(code2))
-    except SyntaxError:
-        return 0.0  # Return 0 if there's a syntax error (invalid code)
+    # Dictionary for Python AST node types (example; can be extended as needed)
+    nodetypedict = {node: i for i, node in enumerate(ast.__dict__.keys())}
 
-    # Tokenizing the AST output
-    return token_similarity(tree1, tree2)
-
-
-def hybrid_similarity(code1, code2, thresholds):
-    """Hybrid similarity: combines token and AST-based similarity."""
-    token_thresh, ast_thresh = thresholds
-
-    # Calculate token and AST similarity
-    token_sim = token_similarity(code1, code2)
-    ast_sim = ast_similarity(code1, code2)
-
-    # Weigh the similarities based on the thresholds
-    hybrid_score = (token_sim * token_thresh) + (ast_sim * ast_thresh)
-    return hybrid_score
-
-
-def process_code_pairs(file_pairs, thresholds):
-    """Process file pairs and calculate hybrid similarity scores."""
-    labeled_data = []
-    for (file1, code1), (file2, code2) in tqdm(file_pairs, desc="Processing code pairs", unit="pair"):
-        if not is_python3_file(file1) or not is_python3_file(file2):
-            continue  # Skip non-Python3 files
+    def create_adjacency_matrix(ast_tree):
+        """Generate an adjacency matrix from an AST tree."""
+        matrix_size = len(nodetypedict)
+        matrix = np.zeros((matrix_size, matrix_size))
         
-        similarity_score = hybrid_similarity(code1, code2, thresholds)
-        labeled_data.append({
-            "file1": file1,
-            "file2": file2,
-            "similarity_score": similarity_score
-        })
-    
-    return labeled_data
+        def traverse(node, parent=None):
+            """Recursive traversal of the AST tree."""
+            if not isinstance(node, ast.AST):
+                return
+            
+            current_type = nodetypedict.get(type(node).__name__, -1)
+            parent_type = nodetypedict.get(type(parent).__name__, -1) if parent else -1
 
-def process_code_pairs_with_progress(file_pairs, thresholds):
+            if parent is not None and current_type >= 0 and parent_type >= 0:
+                matrix[parent_type][current_type] += 1
+
+            for child in ast.iter_child_nodes(node):
+                traverse(child, parent=node)
+
+        traverse(ast_tree)
+        # Normalize the matrix
+        for row in range(matrix.shape[0]):
+            total = matrix[row].sum()
+            if total > 0:
+                matrix[row] /= total
+        return matrix
+
+    def compute_similarity(matrix1, matrix2):
+        """Compute similarity between two matrices using cosine similarity."""
+        vec1 = matrix1.flatten().reshape(1, -1)
+        vec2 = matrix2.flatten().reshape(1, -1)
+        similarity = cosine_similarity(vec1, vec2)[0][0]
+        return similarity
+
+    tree1 = ast.parse(code1)
+    tree2 = ast.parse(code2)
+    matrix1 = create_adjacency_matrix(tree1)
+    matrix2 = create_adjacency_matrix(tree2)
+    return compute_similarity(matrix1, matrix2)
+
+
+def process_code_pairs_with_progress(file_pairs):
     """Process file pairs and calculate combined similarity scores with progress bar."""
     results = []
     for (file1, code1), (file2, code2) in tqdm(file_pairs, desc="Processing code pairs", unit="pair"):
-        score = combined_similarity(code1, code2, thresholds)
+        token_sim, ast_sim, embed_sim = all_similarity(code1, code2)
+
         results.append({
             "file1": file1,
             "file2": file2,
-            "similarity_score": score
+            "embed_sim": embed_sim,
+            "token_sim": token_sim,
+            "ast_sim": ast_sim,
         })
     return results
 
-
-def read_code_files_for_question(directory, question_folder):
-    """Read Python files from a specific question folder."""
-    file_pairs = []
-    question_path = os.path.join(directory, question_folder)
-    if os.path.isdir(question_path):
-        python_files = [f for f in os.listdir(question_path) if f.endswith('.py') and is_python3_file(os.path.join(question_path, f))]
-        for i, file1 in enumerate(python_files):
-            for file2 in python_files[i + 1:]:
-                file1_path = os.path.join(question_path, file1)
-                file2_path = os.path.join(question_path, file2)
-                
-                # Read the code from both files
-                with open(file1_path, 'r', encoding='utf-8') as f1, open(file2_path, 'r', encoding='utf-8') as f2:
-                    code1 = f1.read()
-                    code2 = f2.read()
-                
-                file_pairs.append(((file1_path, code1), (file2_path, code2)))
-    
-    return file_pairs
-
-
-def save_similarity_scores(labeled_data, question_name, output_path):
-    """Save similarity scores to a text file."""
-    output_file = os.path.join(output_path, f"{question_name}_similarity_scores.txt")
-    with open(output_file, 'w', encoding='utf-8') as file:
-        for data in labeled_data:
-            file.write(f"{data['file1']} | {data['file2']} | Similarity: {data['similarity_score']:.4f}\n")
-    print(f"Similarity scores saved to: {output_file}")
 
 def get_code_embedding(code_snippet):
     """Generate an embedding for a code snippet using CodeBERT."""
@@ -144,33 +123,34 @@ def embedding_similarity(code1, code2):
     return cosine_sim.item()
 
 # Example of integrating embedding similarity with existing functions
-def combined_similarity(code1, code2, thresholds):
-    """Combine token, AST, and embedding similarity."""
-    token_thresh, ast_thresh, embed_thresh = thresholds
-
+def all_similarity(code1, code2):
     # Calculate existing similarities
     token_sim = token_similarity(code1, code2)
     ast_sim = ast_similarity(code1, code2)
 
     # Calculate embedding-based similarity
     embed_sim = embedding_similarity(code1, code2)
+    # Affine
+    normalized_embed_sim = max(0.0, min(1.0, (embed_sim - 0.99) * 100))
+    # Sigmoid
+    normalized_embed_sim = 1 / (1 + math.exp(-9*(normalized_embed_sim-0.5)))
 
-    # Weighted combination of all similarities
-    combined_score = (token_sim * token_thresh) + (ast_sim * ast_thresh) + (embed_sim * embed_thresh)
-    return combined_score
+    return token_sim, ast_sim, normalized_embed_sim
 
-# Adjust thresholds to include embedding similarity
-thresholds = (0.3, 0.3, 0.4)  # Adjust weights as needed
-extraction_path = "Project_CodeNet_Python800"  # Path to extracted dataset
 
-# Testing with a small batch of files from the dataset
-# question_path = os.path.join(directory, question_folder)
-sample_files = os.listdir(os.path.join(extraction_path, 'p00000'))  # Adjust the range for more files
+extraction_path = "Project_CodeNet_Python800"
+sample_path = "p02618_3_small"
+
+# sample_files = os.listdir(os.path.join(extraction_path, sample_path))
+cluster1 = ["cluster1_A.py", "cluster1_B.py"]
+cluster2 = ["cluster2_A.py", "cluster2_B.py", "cluster2_C.py"]
+sample_files = [*cluster1, *cluster2]
+
 file_pairs = []
 for i in range(len(sample_files)):
     for j in range(i + 1, len(sample_files)):
-        file1_path = os.path.join(extraction_path, 'p00000', sample_files[i])
-        file2_path = os.path.join(extraction_path, 'p00000', sample_files[j])
+        file1_path = os.path.join(extraction_path, sample_path, sample_files[i])
+        file2_path = os.path.join(extraction_path, sample_path, sample_files[j])
 
         with open(file1_path, 'r', encoding='utf-8') as f1, open(file2_path, 'r', encoding='utf-8') as f2:
             code1 = f1.read()
@@ -179,10 +159,10 @@ for i in range(len(sample_files)):
         file_pairs.append(((sample_files[i], code1), (sample_files[j], code2)))
 
 # Process file pairs and calculate similarities
-labeled_data_with_progress = process_code_pairs_with_progress(file_pairs, thresholds)
+labeled_data_with_progress = process_code_pairs_with_progress(file_pairs)
 
 # Sort and display top results
-labeled_data_with_progress.sort(key=lambda x: x["similarity_score"], reverse=True)
+labeled_data_with_progress.sort(key=lambda x: x["embed_sim"], reverse=True)
 
 # Save the results to a file
 with open("similarity_results.json", "w") as f:
