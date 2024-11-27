@@ -13,6 +13,7 @@ import ast
 import os
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from functools import cache
 
 
 # Check if GPU is available
@@ -105,6 +106,7 @@ def process_code_pairs_with_progress(file_pairs):
     return results
 
 
+@cache
 def get_code_embedding(code_snippet):
     """Generate an embedding for a code snippet using CodeBERT."""
     inputs = tokenizer(code_snippet, return_tensors="pt", max_length=512, truncation=True, padding="max_length")
